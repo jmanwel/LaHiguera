@@ -1,0 +1,14 @@
+C:\Data\Voluntariado\LaHiguera\Entidades\bin\Debug\net8.0\Entidades.deps.json
+C:\Data\Voluntariado\LaHiguera\Entidades\bin\Debug\net8.0\Entidades.runtimeconfig.json
+C:\Data\Voluntariado\LaHiguera\Entidades\bin\Debug\net8.0\Entidades.dll
+C:\Data\Voluntariado\LaHiguera\Entidades\bin\Debug\net8.0\Entidades.pdb
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.csproj.AssemblyReference.cache
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.AssemblyInfoInputs.cache
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.AssemblyInfo.cs
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.csproj.CoreCompileInputs.cache
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.dll
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\refint\Entidades.dll
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.pdb
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.genruntimeconfig.cache
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\ref\Entidades.dll
