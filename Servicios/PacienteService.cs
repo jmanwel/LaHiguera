@@ -14,5 +14,11 @@ namespace Servicios
             return _ctxt.Pacientes.ToList();
         }
 
+        public void create(Paciente paciente)
+        {
+            _ctxt.Pacientes.Add(paciente);
+            _ctxt.SaveChanges();
+        }
+
     }
 }

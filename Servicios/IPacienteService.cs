@@ -10,6 +10,7 @@ namespace Servicios
     public interface IPacienteService
     {
         List<Paciente> getAllPatients();
+        void create(Paciente paciente);
 
     }
 }
