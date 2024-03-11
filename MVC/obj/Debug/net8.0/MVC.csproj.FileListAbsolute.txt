@@ -64,3 +64,4 @@ C:\Data\Voluntariado\LaHiguera\MVC\obj\Debug\net8.0\refint\MVC.dll
 C:\Data\Voluntariado\LaHiguera\MVC\obj\Debug\net8.0\MVC.pdb
 C:\Data\Voluntariado\LaHiguera\MVC\obj\Debug\net8.0\MVC.genruntimeconfig.cache
 C:\Data\Voluntariado\LaHiguera\MVC\obj\Debug\net8.0\ref\MVC.dll
+C:\Data\Voluntariado\LaHiguera\MVC\bin\Debug\net8.0\BootstrapIcons.AspNetCore.dll

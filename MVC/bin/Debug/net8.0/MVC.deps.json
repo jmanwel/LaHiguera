@@ -8,11 +8,20 @@
     ".NETCoreApp,Version=v8.0": {
       "MVC/1.0.0": {
         "dependencies": {
+          "BootstrapIcons.AspNetCore": "1.11.0",
           "Entidades": "1.0.0",
           "Servicios": "1.0.0"
         },
         "runtime": {
           "MVC.dll": {}
+        }
+      },
+      "BootstrapIcons.AspNetCore/1.11.0": {
+        "runtime": {
+          "lib/net5.0/BootstrapIcons.AspNetCore.dll": {
+            "assemblyVersion": "1.11.0.0",
+            "fileVersion": "1.11.0.0"
+          }
         }
       },
       "Microsoft.Data.Sqlite.Core/8.0.2": {
@@ -305,6 +314,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BootstrapIcons.AspNetCore/1.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KqU5oEyI+aehqTToBI7HnXtKuj27Kg+vJItkmunLZnf4ioy0BCjSW4CiKS0md92u+I5VJ+kAHxOnORp/4fx3sQ==",
+      "path": "bootstrapicons.aspnetcore/1.11.0",
+      "hashPath": "bootstrapicons.aspnetcore.1.11.0.nupkg.sha512"
     },
     "Microsoft.Data.Sqlite.Core/8.0.2": {
       "type": "package",

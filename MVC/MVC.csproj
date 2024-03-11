@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Servicios\Servicios.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="BootstrapIcons.AspNetCore" Version="1.11.0" />
+  </ItemGroup>
+
 </Project>

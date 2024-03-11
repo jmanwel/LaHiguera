@@ -24,13 +24,18 @@ namespace MVC.Controllers
             try
             {
                 _pacienteService.create(paciente);
-                //return RedirectToAction(nameof(Index));
                 return View();
             }
             catch (Exception e)
             {
                 return View();
             }
+        }
+
+        public ActionResult ListPatient()
+        {
+            ViewBag.Pacientes = _pacienteService.getAllPatients();
+            return View();
         }
 
         //public ActionResult Edit(int id)

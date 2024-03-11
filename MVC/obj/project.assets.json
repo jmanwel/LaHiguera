@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "BootstrapIcons.AspNetCore/1.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/BootstrapIcons.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/BootstrapIcons.AspNetCore.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.Data.Sqlite.Core/8.0.2": {
         "type": "package",
         "dependencies": {
@@ -513,6 +525,19 @@
     }
   },
   "libraries": {
+    "BootstrapIcons.AspNetCore/1.11.0": {
+      "sha512": "KqU5oEyI+aehqTToBI7HnXtKuj27Kg+vJItkmunLZnf4ioy0BCjSW4CiKS0md92u+I5VJ+kAHxOnORp/4fx3sQ==",
+      "type": "package",
+      "path": "bootstrapicons.aspnetcore/1.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "bootstrapicons.aspnetcore.1.11.0.nupkg.sha512",
+        "bootstrapicons.aspnetcore.nuspec",
+        "lib/net5.0/BootstrapIcons.AspNetCore.dll"
+      ]
+    },
     "Microsoft.Data.Sqlite.Core/8.0.2": {
       "sha512": "C7VelOBNUrVlatmOoJ9P+vc/gegduv7d2uB5oy7bFxfgZBfaGr+eREW+QuppXwi3MHp0WBxxWjqkK5gD7ymDQA==",
       "type": "package",
@@ -1212,6 +1237,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "BootstrapIcons.AspNetCore >= 1.11.0",
       "Entidades >= 1.0.0",
       "Servicios >= 1.0.0"
     ]
@@ -1266,6 +1292,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "BootstrapIcons.AspNetCore": {
+            "target": "Package",
+            "version": "[1.11.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

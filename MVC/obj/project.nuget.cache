@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "k5qGzpo0qXPOlg4p+sPhtS2rYjK+3eqhWr8NQbDgY9/TfLEfP6yUaJVQhUS/3edmAbSfooNYTKrTsEc0Cfemjw==",
+  "dgSpecHash": "kidu7RM9DC39nZDLgjCFOWQfLUG0YYK6kqSx/j7Xx61X0EBaoTUzUr4DHdHbQt7P3q40dOBSWNDHVLJMA79KrQ==",
   "success": true,
   "projectFilePath": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\MVC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\garjuanm\\.nuget\\packages\\bootstrapicons.aspnetcore\\1.11.0\\bootstrapicons.aspnetcore.1.11.0.nupkg.sha512",
     "C:\\Users\\garjuanm\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",
     "C:\\Users\\garjuanm\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.2\\microsoft.entityframeworkcore.8.0.2.nupkg.sha512",
     "C:\\Users\\garjuanm\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.2\\microsoft.entityframeworkcore.abstractions.8.0.2.nupkg.sha512",
