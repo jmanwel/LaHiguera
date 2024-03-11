@@ -18,15 +18,16 @@ namespace MVC.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult CreatePatient(Paciente paciente)
         {
             try
             {
                 _pacienteService.create(paciente);
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return View();
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }

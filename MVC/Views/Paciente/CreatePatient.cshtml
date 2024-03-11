@@ -5,33 +5,45 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Crear paciente</h1>
+    <h1 class="display-4">Alta de Paciente</h1>
+    <br />
     <form action="/Paciente/CreatePatient" method="post">
-        <div>
-            Nombre: <input type="text" name="nombre" value="" />
+        <div class="row">
+            <div>
+                Nombre: <input type="text" name="nombre" value="" />
+            </div>
+            <div>
+                Apellido: <input type="text" name="apellido" value="" />
+            </div>
         </div>
+        
         <div>
-            Apellido: <input type="text" name="apellido" value="" />
-        </div>
-        <div>
-            DNI: <input type="number" name="Dni" value="" />
+            Dni: <input type="number" name="Dni" value="" />
         </div>
         <div>
             Fecha de Naciemiento: <input type="date" name="FechaNac" value="" />
         </div>
         <div>
-            Sexo: <input type="text" name="Sexo" value="" />
+            Sexo: 
+                <select name="Sexo">
+                    <option value="femenino">Femenino</option>
+                    <option value="masculino">Masculino</option>
+                </select>
         </div>
         <div>
             Paraje de atención: <input type="text" name="ParajeAtencion" value="" />
         </div>
         <div>
-            Activo: <input type="text" name="FlgActivo" value="" />
+            Activo: 
+                <select name="FlgActivo">
+                    <option value=1>Activo</option>
+                    <option value=0>No activo</option>
+                </select>
         </div>
         <div>
             Fecha de Alta: <input type="date" name="FechaAlta" value="" />
         </div>
-
-        <input type="submit" name="agregar" value="agregar" />
+        <br />
+        <input class="btn btn-primary" type="submit" name="agregar" value="agregar" />
     </form>
 </div>
