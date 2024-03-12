@@ -12,3 +12,4 @@ C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\refint\Entidades.dll
 C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.pdb
 C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.genruntimeconfig.cache
 C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\ref\Entidades.dll
+C:\Data\Voluntariado\LaHiguera\Entidades\obj\Debug\net8.0\Entidades.sourcelink.json

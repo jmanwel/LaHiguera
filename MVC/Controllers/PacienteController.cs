@@ -44,8 +44,7 @@ namespace MVC.Controllers
         //}
 
         //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
+        //public ActionResult setToInactive(int id, Paciente paciente)
         //{
         //    try
         //    {

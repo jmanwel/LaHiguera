@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\MVC.bundle.scp.css"
     },
     {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\bag-plus.svg",
+      "PackagePath": "staticwebassets\\bag-plus.svg"
+    },
+    {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

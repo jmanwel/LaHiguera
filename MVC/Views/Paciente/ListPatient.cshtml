@@ -5,6 +5,8 @@
 }
 
 <div class="container text-center">
+    @if (Enumerable.Count(ViewBag.Pacientes) > 0)
+    {
     <h1>Lista de Pacientes activos</h1>
     <br/>
     <table class="table table-hover">
@@ -30,10 +32,15 @@
                     <td>@paciente.Sexo</td>
                     <td>@paciente.ParajeAtencion</td>
                     <td>@paciente.FechaAlta</td>
-                    <td><a href="#"><img src="~/pencil.svg" alt="pencil" /></a></td>
-                    <td><a href="#"><img src="~/trash.svg" alt="trash" /></a></td>
+                    <td><a href="#"><img src="~/bag-plus.svg" alt="crear una consulta" /></a></td>
+                    <td><a href="#"><img src="~/pencil.svg" alt="editar datos del paciente" /></a></td>
+                    <td><a href="#"><img src="~/trash.svg" alt="borrar paciente" /></a></td>
                 </tr>
         }
         </tbody>
-    </table>
+        </table>
+    } else
+    {
+        <h4>No se registran pacientes activos en la base de datos</h4>
+    }
 </div>
