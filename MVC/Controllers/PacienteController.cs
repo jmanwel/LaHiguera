@@ -18,7 +18,6 @@ namespace MVC.Controllers
 
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public ActionResult CreatePatient(Paciente paciente)
         {
             try
@@ -38,41 +37,30 @@ namespace MVC.Controllers
             return View();
         }
 
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public void setDeactivate(int id)
+        {
+            Console.WriteLine(id);
+            _pacienteService.setDeactivate(id);
+        }
 
-        //[HttpPost]
-        //public ActionResult setToInactive(int id, Paciente paciente)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+            //public ActionResult Delete(int id)
+            //{
+            //    return View();
+            //}
 
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-    }
+            //[HttpPost]
+            //[ValidateAntiForgeryToken]
+            //public ActionResult Delete(int id, IFormCollection collection)
+            //{
+            //    try
+            //    {
+            //        return RedirectToAction(nameof(Index));
+            //    }
+            //    catch
+            //    {
+            //        return View();
+            //    }
+            //}
+        }
 }

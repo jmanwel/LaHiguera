@@ -9,7 +9,7 @@
     {
     <h1>Lista de Pacientes activos</h1>
     <br/>
-    <table class="table table-hover">
+    <table class="table table-hover" id="active_patients">
         <thead>
             <tr>
                 <th scope="col">Nombre</th>
@@ -24,7 +24,8 @@
         <tbody>
         @foreach (Entidades.Models.Paciente paciente in ViewBag.Pacientes)
         {
-                <tr>
+                    @* var id = @paciente.Id.ToString(); *@
+                    <tr>
                     <td>@paciente.Nombre</td>
                     <td>@paciente.Apellido</td>
                     <td>@paciente.Dni</td>
@@ -32,9 +33,10 @@
                     <td>@paciente.Sexo</td>
                     <td>@paciente.ParajeAtencion</td>
                     <td>@paciente.FechaAlta</td>
+                    <td></td>
                     <td><a href="#"><img src="~/bag-plus.svg" alt="crear una consulta" /></a></td>
                     <td><a href="#"><img src="~/pencil.svg" alt="editar datos del paciente" /></a></td>
-                    <td><a href="#"><img src="~/trash.svg" alt="borrar paciente" /></a></td>
+                        <td><a onClick=setDeactivate(@paciente.Id) href ="#"><img src="~/trash.svg" alt="borrar paciente" /></a></td>
                 </tr>
         }
         </tbody>

@@ -22,5 +22,23 @@ namespace Servicios
             _ctxt.SaveChanges();
         }
 
+        public void setDeactivate(int id_patient)
+        {
+            Console.WriteLine("-----------------");
+            Console.WriteLine(id_patient);
+            //This method set the field FlgActivo to 0
+            var deactivate_patient = _ctxt.Pacientes.Find(id_patient);
+            if (deactivate_patient is null)
+            {
+                Console.WriteLine("Patient not found");
+            }
+            else
+            {
+                deactivate_patient.FlgActivo = 0;
+                _ctxt.SaveChanges();
+            }
+            
+        }
+
     }
 }
