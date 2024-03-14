@@ -37,30 +37,39 @@ namespace MVC.Controllers
             return View();
         }
 
-        [HttpPost]
-        public void setDeactivate(int id)
+        public ActionResult setDeactivate(int id)
         {
-            Console.WriteLine(id);
             _pacienteService.setDeactivate(id);
+            return Redirect("/Paciente/ListPatient");
         }
 
-            //public ActionResult Delete(int id)
-            //{
-            //    return View();
-            //}
-
-            //[HttpPost]
-            //[ValidateAntiForgeryToken]
-            //public ActionResult Delete(int id, IFormCollection collection)
-            //{
-            //    try
-            //    {
-            //        return RedirectToAction(nameof(Index));
-            //    }
-            //    catch
-            //    {
-            //        return View();
-            //    }
-            //}
+        public ActionResult createConsultation(Paciente paciente)
+        {
+            return View();
         }
+
+        public ActionResult editPatient(Paciente paciente)
+        {
+            return View();
+        }
+
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(int id, IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+    }
 }
