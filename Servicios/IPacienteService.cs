@@ -12,6 +12,7 @@ namespace Servicios
         List<Paciente> getAllPatients();
         void create(Paciente paciente);
         void setDeactivate(int id_patient);
-
+        Paciente getPatient(int id_patient);
+        void editPatient(Paciente paciente);
     }
 }

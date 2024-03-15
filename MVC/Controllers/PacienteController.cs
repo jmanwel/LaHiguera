@@ -48,15 +48,23 @@ namespace MVC.Controllers
             return View();
         }
 
-        public ActionResult editPatient(Paciente paciente)
+        public ActionResult editPatient(int id)
         {
+            ViewBag.Paciente = _pacienteService.getPatient(id);
             return View();
         }
 
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult editPatient(Paciente paciente)
+        {
+            _pacienteService.editPatient(paciente);
+            return Redirect("/Paciente/ListPatient");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]

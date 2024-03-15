@@ -24,7 +24,6 @@
         <tbody>
         @foreach (Entidades.Models.Paciente paciente in ViewBag.Pacientes)
         {
-                    @* var id = @paciente.Id.ToString(); *@
                     <tr>
                     <td>@paciente.Nombre</td>
                     <td>@paciente.Apellido</td>
@@ -34,8 +33,8 @@
                     <td>@paciente.ParajeAtencion</td>
                     <td>@paciente.FechaAlta</td>
                     <td><a asp-action="createConsultation" asp-route-id="@paciente"><img src="~/bag-plus.svg" alt="crear una consulta" /></a></td>
-                    <td><a asp-action="editPatient" asp-route-id="@paciente"><img src="~/pencil.svg" alt="editar datos del paciente" /></a></td>
-                    <td><a asp-action="setDeactivate" asp-route-id="@paciente.Id"><img src="~/trash.svg" alt="borrar paciente" /></a></td>
+                    <td><a asp-action="editPatient" asp-route-id="@paciente.Id"><img src="~/pencil.svg" alt="editar datos del paciente" /></a></td>
+                    <td id="button_trash"><a asp-action="setDeactivate" asp-route-id="@paciente.Id"><img src="~/trash.svg" alt="borrar paciente" /></a></td>
                 </tr>
         }
         </tbody>
