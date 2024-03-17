@@ -5,16 +5,32 @@
       "PackagePath": "staticwebassets\\MVC.bundle.scp.css"
     },
     {
-      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\bag-plus.svg",
-      "PackagePath": "staticwebassets\\bag-plus.svg"
-    },
-    {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\bag-plus.svg",
+      "PackagePath": "staticwebassets\\icons\\bag-plus.svg"
+    },
+    {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\calendar-plus.svg",
+      "PackagePath": "staticwebassets\\icons\\calendar-plus.svg"
+    },
+    {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\eye.svg",
+      "PackagePath": "staticwebassets\\icons\\eye.svg"
+    },
+    {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\favicon.ico",
+      "PackagePath": "staticwebassets\\icons\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\pencil.svg",
+      "PackagePath": "staticwebassets\\icons\\pencil.svg"
+    },
+    {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\trash.svg",
+      "PackagePath": "staticwebassets\\icons\\trash.svg"
     },
     {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\js\\site.js",
@@ -247,14 +263,6 @@
     {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
-    },
-    {
-      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\pencil.svg",
-      "PackagePath": "staticwebassets\\pencil.svg"
-    },
-    {
-      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\trash.svg",
-      "PackagePath": "staticwebassets\\trash.svg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MVC.Microsoft.AspNetCore.StaticWebAssets.props",

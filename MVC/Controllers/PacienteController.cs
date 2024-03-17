@@ -7,9 +7,11 @@ namespace MVC.Controllers
     public class PacienteController : Controller
     {
         private IPacienteService _pacienteService;
-        public PacienteController(IPacienteService pacienteService)
+        private IAntecedenteService _antecedenteService;
+        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService)
         {
             _pacienteService = pacienteService;
+            _antecedenteService = antecedenteService;
         }
         public ActionResult CreatePatient()
         {
@@ -63,6 +65,12 @@ namespace MVC.Controllers
 
         public ActionResult Delete(int id)
         {
+            return View();
+        }
+
+        public ActionResult viewDetails(int id)
+        {
+            ViewBag.Paciente = _pacienteService.getPatient(id);
             return View();
         }
 

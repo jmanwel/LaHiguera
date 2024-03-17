@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Data\Voluntariado\LaHiguera\MVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Data/Voluntariado/LaHiguera/MVC/Views/Antecedente/createAntecedent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW50ZWNlZGVudGVcY3JlYXRlQW50ZWNlZGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Data/Voluntariado/LaHiguera/MVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Data/Voluntariado/LaHiguera/MVC/Views/Paciente/ListPatient.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcTGlzdFBhdGllbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Data/Voluntariado/LaHiguera/MVC/Views/Paciente/ViewDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcVmlld0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Data/Voluntariado/LaHiguera/MVC/Views/Shared/Error.cshtml]

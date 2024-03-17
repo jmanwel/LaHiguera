@@ -32,9 +32,11 @@
                     <td>@paciente.Sexo</td>
                     <td>@paciente.ParajeAtencion</td>
                     <td>@paciente.FechaAlta</td>
-                    <td><a asp-action="createConsultation" asp-route-id="@paciente"><img src="~/bag-plus.svg" alt="crear una consulta" /></a></td>
-                    <td><a asp-action="editPatient" asp-route-id="@paciente.Id"><img src="~/pencil.svg" alt="editar datos del paciente" /></a></td>
-                    <td id="button_trash"><a asp-action="setDeactivate" asp-route-id="@paciente.Id"><img src="~/trash.svg" alt="borrar paciente" /></a></td>
+                    <td><a asp-action="viewDetails" asp-route-id="@paciente.Id"><img src="~/icons/eye.svg" alt="ver detalles" /></a></td>
+                    <td><a asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@paciente.Id"><img src="~/icons/calendar-plus.svg" alt="crear antecedente" /></a></td>
+                    <td><a asp-action="createConsultation" asp-route-id="@paciente.Id"><img src="~/icons/bag-plus.svg" alt="crear una consulta" /></a></td>
+                    <td><a asp-action="editPatient" asp-route-id="@paciente.Id"><img src="~/icons/pencil.svg" alt="editar datos del paciente" /></a></td>
+                    <td id="button_trash"><a asp-action="setDeactivate" asp-route-id="@paciente.Id"><img src="~/icons/trash.svg" alt="borrar paciente" /></a></td>
                 </tr>
         }
         </tbody>
