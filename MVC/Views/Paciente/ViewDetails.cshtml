@@ -1,7 +1,40 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
 }
 
-<h1>Ver detalles de pacientes (filiatorios, consultas, antecedentes)</h1>
+@{
+    int edad = @DateTime.Today.Year - @ViewBag.Paciente.FechaNac.Year;
+}
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
+    @if (@ViewBag.Paciente.Dni != null)
+        {
+            <h6 class="card-subtitle mb-2 text-muted">DNI: @ViewBag.Paciente.Dni</h6>
+        }
+    <p class="card-text">Fecha de nacimiento: @ViewBag.Paciente.FechaNac</p>
+    <p class="card-text">@edad años | Sexo: @ViewBag.Paciente.Sexo</p>
+    <div class="tip">
+        <div class="hover-box">Crear una CONSULTA</div>
+        <a class="mx-4" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
+    </div>
+    <div class="tip">
+        <div class="hover-box">Crear un ANTECEDENTE</div>
+        <a class="mx-4" asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
+    </div>
+    <div class="tip">
+        <div class="hover-box">Modificar datos</div>
+        <a class="mx-4" asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
+    </div>
+    <div class="tip">
+        <div class="hover-box">Dar de baja</div>
+        <a class="mx-1" id="button_trash" asp-action="setDeactivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>
+    </div>
+  </div>
+</div>
+
+@foreach (Entidades.Models.Antecedente antecedente in ViewBag.Antecedente)
+{
+    <p>@antecedente.Notas</p>
+}

@@ -71,6 +71,7 @@ namespace MVC.Controllers
         public ActionResult viewDetails(int id)
         {
             ViewBag.Paciente = _pacienteService.getPatient(id);
+            ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
             return View();
         }
 

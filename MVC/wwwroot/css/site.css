@@ -24,3 +24,35 @@ body {
 #button_trash:hover {
     background-color: red;
 }
+
+.tip {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+
+
+.tip:hover .hover-box {
+    display: block;
+}
+
+
+.hover-box {
+    display: none;
+    position: absolute;
+    padding: .5em 5px;
+    left: -5px;
+    min-width: 150px;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    white-space: nowrap;
+    top: -60px;
+    background: rgba(0,0,0,.8);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: .86em;
+    z-index: 900;
+}
