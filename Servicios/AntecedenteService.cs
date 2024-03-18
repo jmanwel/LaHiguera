@@ -12,7 +12,7 @@ namespace Servicios
 
         public List<Antecedente> getAllAntecedentForAPatient(int id_patient) {
             // This Method returns all antecedent for a patient
-            return _ctxt.Antecedentes.Where(o => o.PacienteId == id_patient).ToList();
+            return _ctxt.Antecedentes.Where(o => o.PacienteId == id_patient).OrderBy(o =>o.FechaCreacion).ToList();
         }
 
         public void create(Antecedente antecedente)

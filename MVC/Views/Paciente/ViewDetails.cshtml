@@ -6,35 +6,69 @@
     int edad = @DateTime.Today.Year - @ViewBag.Paciente.FechaNac.Year;
 }
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
-    @if (@ViewBag.Paciente.Dni != null)
-        {
-            <h6 class="card-subtitle mb-2 text-muted">DNI: @ViewBag.Paciente.Dni</h6>
-        }
-    <p class="card-text">Fecha de nacimiento: @ViewBag.Paciente.FechaNac</p>
-    <p class="card-text">@edad años | Sexo: @ViewBag.Paciente.Sexo</p>
-    <div class="tip">
-        <div class="hover-box">Crear una CONSULTA</div>
-        <a class="mx-4" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
+@{
+    string str(int edad) => edad > 1 ? "años" : "año";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
+                    @if (@ViewBag.Paciente.Dni != null)
+                    {
+                        <h6 class="card-subtitle mb-2 text-muted">DNI: @ViewBag.Paciente.Dni</h6>
+                    }
+                    <p class="card-text">Fecha de nacimiento: @ViewBag.Paciente.FechaNac</p>
+                    <p class="card-text">@edad @str(@edad) | Sexo: @ViewBag.Paciente.Sexo</p>
+                    <div class="tip">
+                        <div class="hover-box">Crear una CONSULTA</div>
+                        <a class="mx-4" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
+                    </div>
+                    <div class="tip">
+                        <div class="hover-box">Crear un ANTECEDENTE</div>
+                        <a class="mx-4" asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
+                    </div>
+                    <div class="tip">
+                        <div class="hover-box">Modificar datos</div>
+                        <a class="mx-4" asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
+                    </div>
+                    <div class="tip">
+                        <div class="hover-box">Dar de baja</div>
+                        <a class="mx-1" id="button_trash" asp-action="setDeactivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            @if (Enumerable.Count(ViewBag.Antecedente) > 0)
+            {
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Histórico Antecedentes
+                </div>
+                <ul class="list-group list-group-flush">
+                    
+                    @foreach (Entidades.Models.Antecedente antecedente in ViewBag.Antecedente)
+                    {
+                        <li class="list-group-item"><a class="mx-1" asp-route-id="@antecedente.Id">@antecedente.FechaCreacion.Split(" ")[0]</a></li>
+                    }
+                </ul>
+            </div>
+            }
+            else
+            {
+                <h5>No se registran antecedentes para este paciente</h5>
+            }
+        </div>
+
+        <div class="col">
+            Histórico Consultas
+        </div>
     </div>
-    <div class="tip">
-        <div class="hover-box">Crear un ANTECEDENTE</div>
-        <a class="mx-4" asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
-    </div>
-    <div class="tip">
-        <div class="hover-box">Modificar datos</div>
-        <a class="mx-4" asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
-    </div>
-    <div class="tip">
-        <div class="hover-box">Dar de baja</div>
-        <a class="mx-1" id="button_trash" asp-action="setDeactivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>
-    </div>
-  </div>
 </div>
 
-@foreach (Entidades.Models.Antecedente antecedente in ViewBag.Antecedente)
-{
-    <p>@antecedente.Notas</p>
-}
+
+
+
