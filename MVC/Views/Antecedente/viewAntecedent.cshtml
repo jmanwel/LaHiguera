@@ -1,0 +1,365 @@
+﻿@model Entidades.Models.Antecedente;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Antecedente creado el día: @ViewBag.Antecedente.FechaCreacion</h1>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Sedentarismo</h5>
+                @if (@ViewBag.Antecedente.Sedentarismo == "1"){
+                    <p class="card-text">SI</p>
+                }
+                else{ 
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Alcohol</h5>
+                @if (@ViewBag.Antecedente.Alcohol == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Drogas</h5>
+                @if (@ViewBag.Antecedente.Drogas == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tabaco</h5>
+                @if (@ViewBag.Antecedente.Tabaco == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Alergias</h5>
+                @if (@ViewBag.Antecedente.Alergias == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Dbt</h5>
+                @if (@ViewBag.Antecedente.Dbt == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Hta</h5>
+                @if (@ViewBag.Antecedente.Hta == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Displemia</h5>
+                @if (@ViewBag.Antecedente.Displemia == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Obesidad</h5>
+                @if (@ViewBag.Antecedente.Obesidad == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Chagas</h5>
+                @if (@ViewBag.Antecedente.Chagas == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Hidatidosis</h5>
+                @if (@ViewBag.Antecedente.Hidatidosis == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tbc</h5>
+                @if (@ViewBag.Antecedente.Tbc == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Cancer</h5>
+                @if (@ViewBag.Antecedente.Cancer == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Quirurgicos</h5>
+                @if (@ViewBag.Antecedente.Quirurgicos == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Hospitalizaciones</h5>
+                @if (@ViewBag.Antecedente.Hospitalizaciones == 1)
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">RiesgoNut</h5>
+                @if (@ViewBag.Antecedente.RiesgoNut == 1)
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">RiesgoSoc</h5>
+                @if (@ViewBag.Antecedente.RiesgoSoc == "1")
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Personales</h5>
+                @if (@ViewBag.Antecedente.Personales == 1)
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Familiares</h5>
+                @if (@ViewBag.Antecedente.Familiares == 1)
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">AntPerinatales</h5>
+                @if (@ViewBag.Antecedente.AntPerinatales == 1)
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Vacunacion</h5>
+                @if (@ViewBag.Antecedente.Vacunacion == 1)
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Medicacion</h5>
+                @if (@ViewBag.Antecedente.Medicacion == 1)
+                {
+                    <p class="card-text">SI</p>
+                }
+                else
+                {
+                    <p class="card-text">NO</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Notas</h5>
+                <p class="card-text">@ViewBag.Antecedente.Notas</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -52,7 +52,7 @@
                     
                     @foreach (Entidades.Models.Antecedente antecedente in ViewBag.Antecedente)
                     {
-                        <li class="list-group-item"><a class="mx-1" asp-route-id="@antecedente.Id">@antecedente.FechaCreacion.Split(" ")[0]</a></li>
+                            <li class="list-group-item"><a asp-controller="Antecedente" asp-action="viewAntecedent" asp-route-id="@antecedente.Id">@antecedente.FechaCreacion.Split(" ")[0]</a></li>
                     }
                 </ul>
             </div>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col">
-            Histórico Consultas
+            <h5>No se registran consultas para este paciente</h5>
         </div>
     </div>
 </div>
