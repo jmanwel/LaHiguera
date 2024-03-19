@@ -60,7 +60,8 @@ namespace MVC.Controllers
         public ActionResult editPatient(Paciente paciente)
         {
             _pacienteService.editPatient(paciente);
-            return Redirect("/Paciente/ListPatient");
+            string redirect = "/Paciente/viewDetails/" + paciente.Id;
+            return Redirect(redirect);
         }
 
         public ActionResult Delete(int id)

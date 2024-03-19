@@ -8,5 +8,7 @@ namespace Servicios
         List<Antecedente> getAllAntecedentForAPatient(int id_patient);
         void create(Antecedente antecedente);
         public Antecedente getAntecedent(int id_antecedent);
+
+        void editAntecedent(Antecedente antecedente);
     }
 }

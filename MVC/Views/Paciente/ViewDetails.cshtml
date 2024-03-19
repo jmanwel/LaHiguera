@@ -52,7 +52,17 @@
                     
                     @foreach (Entidades.Models.Antecedente antecedente in ViewBag.Antecedente)
                     {
-                            <li class="list-group-item"><a asp-controller="Antecedente" asp-action="viewAntecedent" asp-route-id="@antecedente.Id">@antecedente.FechaCreacion.Split(" ")[0]</a></li>
+                        <li class="list-group-item">
+                            <a asp-controller="Antecedente" asp-action="viewAntecedent" asp-route-id="@antecedente.Id">@antecedente.FechaCreacion.Split(" ")[0]</a>
+                            <div class="tip">
+                                <div class="hover-box">Modificar datos</div>
+                                <a class="mx-4" asp-controller="Antecedente" asp-action="editAntecedent" asp-route-id="@antecedente.Id"><img src="~/icons/pencil.svg" /></a>
+                            </div>
+                            <div class="tip">
+                                <div class="hover-box">Dar de baja</div>
+                                <a class="mx-1" id="button_trash" asp-controller="Antecedente" asp-action="deleteAntecedent" asp-route-id="@antecedente.Id"><img src="~/icons/trash.svg" /></a>
+                            </div>
+                        </li>                        
                     }
                 </ul>
             </div>

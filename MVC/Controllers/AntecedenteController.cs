@@ -44,6 +44,34 @@ namespace MVC.Controllers
             return View();
         }
 
+        public ActionResult editAntecedent(int id)
+        {
+            ViewBag.Paciente = _pacienteService.getPatient((int)_antecedenteService.getAntecedent(id).PacienteId);
+            ViewBag.Antecedente = _antecedenteService.getAntecedent(id);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult editAntecedent(Antecedente antecedente)
+        {
+            try
+            {
+                _antecedenteService.editAntecedent(antecedente);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            string redirect = "/Paciente/viewDetails/" + antecedente.PacienteId;
+            return Redirect(redirect);
+        }
+
+        public ActionResult deleteAntecedent(int id)
+        {
+            ViewBag.Antecedente = _antecedenteService.getAntecedent(id);
+            return View();
+        }
+
 
     }
 }

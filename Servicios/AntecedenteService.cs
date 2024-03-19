@@ -34,17 +34,38 @@ namespace Servicios
             return antecedent;
         }
 
-        //public void editAntecedent(Antecedente antecedente)
-        //{
-        //    //This method updates Antecedente objects in DDBB
-        //    var updated_antecedent = _ctxt.Antecedente.Find(antecedente.Id);
-        //    if (updated_patient is null) { Console.WriteLine("Antecedente no encontrado"); }
-        //    else
-        //    {
-        //        _ctxt.SaveChanges();
-        //    }
-        //    _ctxt.SaveChanges();
-        //}
+        public void editAntecedent(Antecedente antecedente)
+        {
+            //This method updates Antecedente objects in DDBB
+            var updated_antecedent = _ctxt.Antecedentes.Find(antecedente.Id);
+            if (updated_antecedent is null) { Console.WriteLine("Antecedente no encontrado"); }
+            else
+            {
+                updated_antecedent.Sedentarismo = antecedente.Sedentarismo;
+                updated_antecedent.Notas = antecedente.Notas;
+                updated_antecedent.Alcohol = antecedente.Alcohol;
+                updated_antecedent.Alergias = antecedente.Alergias;
+                updated_antecedent.AntPerinatales = antecedente.AntPerinatales;
+                updated_antecedent.Cancer = antecedente.Cancer;
+                updated_antecedent.Chagas = antecedente.Chagas;
+                updated_antecedent.Dbt = antecedente.Dbt;
+                updated_antecedent.Displemia = antecedente.Displemia;
+                updated_antecedent.Drogas = antecedente.Drogas;
+                updated_antecedent.Tbc = antecedente.Tbc;
+                updated_antecedent.Tabaco = antecedente.Tabaco;
+                updated_antecedent.Vacunacion = antecedente.Vacunacion;
+                updated_antecedent.Medicacion = antecedente.Medicacion;
+                updated_antecedent.Hidatidosis = antecedente.Hidatidosis;
+                updated_antecedent.Hospitalizaciones = antecedente.Hospitalizaciones;
+                updated_antecedent.Hta = antecedente.Hta;
+                updated_antecedent.RiesgoNut = antecedente.RiesgoNut;
+                updated_antecedent.RiesgoSoc = antecedente.RiesgoSoc;
+                updated_antecedent.Familiares = antecedente.Familiares;
+                updated_antecedent.Quirurgicos = antecedente.Quirurgicos;
+                updated_antecedent.Obesidad = antecedente.Obesidad;
+                _ctxt.SaveChanges();
+            }
+        }
 
     }
 }
