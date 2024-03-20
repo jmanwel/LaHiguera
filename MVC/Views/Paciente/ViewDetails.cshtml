@@ -40,6 +40,28 @@
                     </div>
                 </div>
             </div>
+            <br />
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Datos complementarios</h5>                    
+                    <div class="tip">
+                        <div class="hover-box">Agregar datos complementarios</div>
+                        <a class="mx-4" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
+                    </div>
+                    <div class="tip">
+                        <div class="hover-box">Agregar datos complementarios</div>
+                        <a class="mx-4" asp-controller="Complementarios" asp-action="createSupplementaryData" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
+                    </div>
+                    <div class="tip">
+                        <div class="hover-box">Modificar datos complementarios</div>
+                        <a class="mx-4" asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
+                    </div>
+                    <div class="tip">
+                        <div class="hover-box">Ver datos complementarios</div>
+                        <a class="mx-1" id="button_trash" asp-action="setDeactivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col">
             @if (Enumerable.Count(ViewBag.Antecedente) > 0)

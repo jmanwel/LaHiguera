@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\arrow-left-circle-fill.svg",
+      "PackagePath": "staticwebassets\\icons\\arrow-left-circle-fill.svg"
+    },
+    {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\bag-plus.svg",
       "PackagePath": "staticwebassets\\icons\\bag-plus.svg"
     },

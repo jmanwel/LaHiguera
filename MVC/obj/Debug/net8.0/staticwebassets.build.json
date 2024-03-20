@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "etmNX24MiRi7cskOGlCq1hHXuXDKsOnuaUI8tY/Q3bk=",
+  "Hash": "208E5pu4JqHYVsFHbnvNpMpjzWa6KZNRhD7slsWJHCU=",
   "Source": "MVC",
   "BasePath": "_content/MVC",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\arrow-left-circle-fill.svg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "icons/arrow-left-circle-fill.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\arrow-left-circle-fill.svg"
     },
     {
       "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\bag-plus.svg",
