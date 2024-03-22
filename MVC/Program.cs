@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<LahigueraContext>();
 builder.Services.AddTransient<IPacienteService, PacienteService>();
 builder.Services.AddTransient<IAntecedenteService, AntecedenteService>();
+builder.Services.AddTransient<IComplementarioService, ComplementarioService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

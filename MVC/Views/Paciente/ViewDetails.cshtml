@@ -44,22 +44,41 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Datos complementarios</h5>                    
-                    <div class="tip">
-                        <div class="hover-box">Agregar datos complementarios</div>
-                        <a class="mx-4" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
-                    </div>
-                    <div class="tip">
-                        <div class="hover-box">Agregar datos complementarios</div>
-                        <a class="mx-4" asp-controller="Complementarios" asp-action="createSupplementaryData" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
-                    </div>
-                    <div class="tip">
-                        <div class="hover-box">Modificar datos complementarios</div>
-                        <a class="mx-4" asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
-                    </div>
-                    <div class="tip">
-                        <div class="hover-box">Ver datos complementarios</div>
-                        <a class="mx-1" id="button_trash" asp-action="setDeactivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>
-                    </div>
+                    @if (@ViewBag.Complementario)
+                    {
+                        <p class="card-text">Lugar de nacimiento: @ViewBag.ComplementarioData.LugarNac</p>
+                        <p class="card-text">Paraje de Residencia: @ViewBag.ComplementarioData.ParajeResidencia</p>
+                        <p class="card-text">Etnia: @ViewBag.ComplementarioData.Etnia</p>
+                        <p class="card-text">Estado Civil: @ViewBag.ComplementarioData.EstadoCivil</p>
+                        @if (@ViewBag.ComplementarioData.SabeLeer == 1)
+                        {
+                            <p class="card-text">Sabe leer?: Si</p>
+                        }else
+                        {
+                            <p class="card-text">Sabe leer?: No</p>
+                        }
+                        <p class="card-text">Escolaridad: @ViewBag.ComplementarioData.Escolaridad</p>
+                        <p class="card-text">Ocupacion: @ViewBag.ComplementarioData.Ocupacion</p>
+                        <p class="card-text">Año Ingreso: @ViewBag.ComplementarioData.AnoIngreso</p>
+                        <h5 class="card-title">Notas</h5>
+                        <p class="card-text">@ViewBag.ComplementarioData.Notas</p>
+                        <br />
+                        <div class="tip">
+                            <div class="hover-box">Modificar datos complementarios</div>
+                            <a class="mx-4" asp-controller="Complementario" asp-action="editComplementary" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
+                        </div>
+                        <div class="tip">
+                            <div class="hover-box">Borrar datos complementarios</div>
+                            <a class="mx-1" id="button_trash" asp-controller="Complementario" asp-action="deactivateComplementary" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>                        
+                        </div>
+                    }
+                    else {
+                        
+                        <div class="tip">
+                            <div class="hover-box">Agregar datos complementarios</div>
+                            <a class="mx-4" asp-controller="Complementario" asp-action="create" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-plus.svg" /></a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

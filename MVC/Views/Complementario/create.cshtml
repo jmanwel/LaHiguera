@@ -1,0 +1,64 @@
+﻿@model Entidades.Models.Complementario;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container text-center">
+    <h1 class="display-4">Alta de datos complementarios</h1>
+    <br />
+    <form action="/Complementario/create" method="POST">
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="LugarNac">Lugar de nacimiento: </label>
+                <input class="form-control" type="text" name="LugarNac" value="" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="ParajeResidencia">Paraje de Residencia: </label>
+                <input class="form-control" type="text" name="ParajeResidencia" value="" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Etnia">Etnia: </label>
+                <input class="form-control" type="text" name="Etnia" value="" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="EstadoCivil">Estado Civil: </label>
+                <input class="form-control" type="text" name="EstadoCivil" value="" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="SabeLeer">Sabe Leer? </label>
+                <select class="form-control" name="SabeLeer">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Escolaridad">Escolaridad: </label>
+                <input class="form-control" type="text" name="Escolaridad" value="" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Ocupacion">Ocupacion: </label>
+                <input class="form-control" type="text" name="Ocupacion" value="" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
+                <input class="form-control" type="number" name="AnoIngreso" value="" />
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="Notas">Notas: </label>
+                <textarea name="Notas" class="form-control" cols="120" rows="8"></textarea>
+            </div>
+        </div>
+        <br />
+        <input type="number" name="PacienteId" value=@ViewBag.PacienteID hidden />
+        <input class="btn btn-lg btn-warning" type="submit" name="agregar" value="Agregar Datos complementarios" />
+    </form>
+</div>

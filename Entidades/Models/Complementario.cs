@@ -17,7 +17,7 @@ public partial class Complementario
 
     public string? EstadoCivil { get; set; }
 
-    public string? SabeLeer { get; set; }
+    public int? SabeLeer { get; set; }
 
     public string? Escolaridad { get; set; }
 
@@ -27,5 +27,5 @@ public partial class Complementario
 
     public string? Notas { get; set; }
 
-    public DateTime? FechaCreacion { get; set; }
+    public string? FechaCreacion { get; set; }
 }

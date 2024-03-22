@@ -8,10 +8,12 @@ namespace MVC.Controllers
     {
         private IPacienteService _pacienteService;
         private IAntecedenteService _antecedenteService;
-        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService)
+        private IComplementarioService _complementarioService;
+        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService, IComplementarioService complementarioService)
         {
             _pacienteService = pacienteService;
             _antecedenteService = antecedenteService;
+            _complementarioService = complementarioService;
         }
         public ActionResult CreatePatient()
         {
@@ -73,21 +75,10 @@ namespace MVC.Controllers
         {
             ViewBag.Paciente = _pacienteService.getPatient(id);
             ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
+            ViewBag.Complementario = _complementarioService.hasComplementary(id);
+            ViewBag.ComplementarioData = _complementarioService.getComplementaryData(id);
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
     }
 }
