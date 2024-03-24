@@ -75,8 +75,7 @@ namespace MVC.Controllers
         {
             ViewBag.Paciente = _pacienteService.getPatient(id);
             ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
-            ViewBag.Complementario = _complementarioService.hasComplementary(id);
-            ViewBag.ComplementarioData = _complementarioService.getComplementaryData(id);
+            ViewBag.Complementario = _complementarioService.getComplementaryData(id);
             return View();
         }
 

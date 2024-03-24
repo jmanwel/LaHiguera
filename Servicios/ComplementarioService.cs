@@ -19,16 +19,16 @@ namespace Servicios
 
         public bool hasComplementary(int id_patient)
         {
-            if(_ctxt.Complementarios.Find(id_patient) != null)
+            if (_ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList().Count > 0)
             {
                 return true;
             }
             return false;
         }
 
-        public Complementario getComplementaryData(int id_patient)
+        public List<Complementario> getComplementaryData(int id_patient)
         {
-            return _ctxt.Complementarios.Find(id_patient);
+            return _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList();
         }
 
         public void editComplementary(Complementario complementario)
