@@ -22,7 +22,8 @@ namespace MVC.Controllers
         {
             try
             {
-                if (!_complementarioService.hasComplementary(Convert.ToInt32(complementario.PacienteId)))
+                //if (!_complementarioService.hasComplementary(Convert.ToInt32(complementario.PacienteId)))
+                if (_complementarioService.getComplementaryData(Convert.ToInt32(complementario.PacienteId)).Count() == 0)
                 {
                     _complementarioService.create(complementario);
                     Console.WriteLine("Registro creado OK!");

@@ -5,7 +5,7 @@ namespace Servicios
 {
     public interface IComplementarioService
     {
-        bool hasComplementary(int id_patient);
+        //bool hasComplementary(int id_patient);
 
         void create(Complementario complementario);
 

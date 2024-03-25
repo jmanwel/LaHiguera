@@ -17,17 +17,19 @@ namespace Servicios
             _ctxt.SaveChanges();
         }
 
-        public bool hasComplementary(int id_patient)
-        {
-            if (_ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList().Count > 0)
-            {
-                return true;
-            }
-            return false;
-        }
+        //public bool hasComplementary(int id_patient)
+        //{
+        //    if (_ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList().Count > 0)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         public List<Complementario> getComplementaryData(int id_patient)
         {
+            //var id = _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList()[0].Id;
+            //return _ctxt.Complementarios.Find(id);
             return _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList();
         }
 
