@@ -17,6 +17,28 @@ namespace MVC.Controllers
             return View();
         }
 
+        public ActionResult editComplementary(int id)
+        {
+            ViewBag.Complementario = _complementarioService.getComplementaryData(id);
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult editComplementary(Complementario complementario)
+        {
+            try
+            {
+                _complementarioService.editComplementary(complementario);
+                Console.WriteLine("Registro modificado OK!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error " + e);
+            }
+            string redirect = "/Paciente/viewDetails/" + complementario.PacienteId;
+            return Redirect(redirect);
+        }
+
         [HttpPost]
         public ActionResult create(Complementario complementario)
         {

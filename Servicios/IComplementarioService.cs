@@ -12,5 +12,6 @@ namespace Servicios
         List<Complementario> getComplementaryData(int id_patient);
 
         void editComplementary(Complementario complementario);
+
     }
 }

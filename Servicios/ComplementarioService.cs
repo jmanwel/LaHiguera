@@ -17,6 +17,7 @@ namespace Servicios
             _ctxt.SaveChanges();
         }
 
+
         //public bool hasComplementary(int id_patient)
         //{
         //    if (_ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList().Count > 0)
@@ -35,7 +36,7 @@ namespace Servicios
 
         public void editComplementary(Complementario complementario)
         {
-            //This method updates Antecedente objects in DDBB
+            //This method updates Complementario objects in DDBB
             var updated_complementary = _ctxt.Complementarios.Find(complementario.Id);
             if (updated_complementary is null) { Console.WriteLine("Datos no encontrados"); }
             else
