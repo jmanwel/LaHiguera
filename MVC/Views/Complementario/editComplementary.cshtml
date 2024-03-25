@@ -15,15 +15,15 @@
             </div>
             <div class="col">
                 <label class="form-label" for="ParajeResidencia">Paraje de Residencia: </label>
-                <input class="form-control" type="text" name="ParajeResidencia" value=@ViewBag.Complementario.ParajeResidencia />
+                <input class="form-control" type="text" name="ParajeResidencia" value=@ViewBag.Complementario[0].ParajeResidencia />
             </div>
             <div class="col">
                 <label class="form-label" for="Etnia">Etnia: </label>
-                <input class="form-control" type="text" name="Etnia" value=@ViewBag.Complementario.Etnia />
+                <input class="form-control" type="text" name="Etnia" value=@ViewBag.Complementario[0].Etnia />
             </div>
             <div class="col">
                 <label class="form-label" for="EstadoCivil">Estado Civil: </label>
-                <input class="form-control" type="text" name="EstadoCivil" value=@ViewBag.Complementario.EstadoCivil />
+                <input class="form-control" type="text" name="EstadoCivil" value=@ViewBag.Complementario[0].EstadoCivil />
             </div>
         </div>
         <br />
@@ -31,22 +31,30 @@
             <div class="col">
                 <label class="form-label" for="SabeLeer">Sabe Leer? </label>
                 <select class="form-control" name="SabeLeer">
-                    <option value=0>Elija una opción</option>
-                    <option value=1>Si</option>
-                    <option value=0>No</option>
+                    @if (@ViewBag.Complementario[0].SabeLeer == 1)
+                    {
+                        <option selected value=1>Si</option>
+                        <option value=0>No</option>
+                    }
+                    else
+                    {
+                        <option value=1>Si</option>
+                        <option selected value=0>No</option>
+                    }
+                    
                 </select>
             </div>
             <div class="col">
                 <label class="form-label" for="Escolaridad">Escolaridad: </label>
-                <input class="form-control" type="text" name="Escolaridad" value=@ViewBag.Complementario.Escolaridad />
+                <input class="form-control" type="text" name="Escolaridad" value=@ViewBag.Complementario[0].Escolaridad />
             </div>
             <div class="col">
                 <label class="form-label" for="Ocupacion">Ocupacion: </label>
-                <input class="form-control" type="text" name="Ocupacion" value=@ViewBag.Complementario.Ocupacion />
+                <input class="form-control" type="text" name="Ocupacion" value=@ViewBag.Complementario[0].Ocupacion />
             </div>
             <div class="col">
                 <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
-                <input class="form-control" type="number" name="AnoIngreso" value=@ViewBag.Complementario.AnoIngreso />
+                <input class="form-control" type="number" name="AnoIngreso" value=@ViewBag.Complementario[0].AnoIngreso />
             </div>
         </div>
         <br />
@@ -54,11 +62,11 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Notas">Notas: </label>
-                <textarea name="Notas" class="form-control" cols="120" rows="8">@ViewBag.Complementario.Notas</textarea>
+                <textarea name="Notas" class="form-control" cols="120" rows="8">@ViewBag.Complementario[0].Notas</textarea>
             </div>
         </div>
         <br />
-        <input type="number" name="PacienteId" value=@ViewBag.Complementario.PacienteID hidden />
+        <input type="number" name="PacienteId" value=@ViewBag.Complementario[0].PacienteID hidden />
         <input class="btn btn-lg btn-secondary" type="submit" name="agregar" value="Modificar Datos complementarios" />
     </form>
 </div>
