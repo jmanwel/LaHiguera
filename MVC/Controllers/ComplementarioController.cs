@@ -26,7 +26,6 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult editComplementary(Complementario complementario)
         {
-            Console.WriteLine(complementario.ToString());
             try
             {
                 _complementarioService.editComplementary(complementario);
