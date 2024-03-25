@@ -66,20 +66,16 @@
                             <h5 class="card-title">Notas</h5>
                             <p class="card-text">@complementario.Notas</p>
                             <br />
-                            <div class="tip">
+                            <div class="tip text-center">
                                 <div class="hover-box">Modificar datos complementarios</div>
                                 <a class="mx-4" asp-controller="Complementario" asp-action="editComplementary" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
-                            </div>
-                            <div class="tip">
-                                <div class="hover-box">Borrar datos complementarios</div>
-                                <a class="mx-1" id="button_trash" asp-controller="Complementario" asp-action="deactivateComplementary" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>
                             </div>
                         }
                         
                     }
                     else {
                         
-                        <div class="tip">
+                        <div class="tip text-center">
                             <div class="hover-box">Agregar datos complementarios</div>
                             <a class="mx-4" asp-controller="Complementario" asp-action="create" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-plus.svg" /></a>
                         </div>
