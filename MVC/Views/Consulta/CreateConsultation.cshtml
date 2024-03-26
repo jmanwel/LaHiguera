@@ -1,0 +1,75 @@
+﻿@model Entidades.Models.Consulta;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@{
+    int edad = @DateTime.Today.Year - @ViewBag.Paciente.FechaNac.Year;
+}
+
+<div class="container text-center">
+    <h1 class="display-4">Alta de Consulta para @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <br />
+    <form action="/Consulta/CreateConsultation" method="post">
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="FechaAtencion">Fecha de atención: </label>
+                <input class="form-control" type="date" name="FechaAtencion" value="" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="MotivoConsulta">Motivo Consulta: </label>
+                <input class="form-control" type="text" name="MotivoConsulta" value="" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="DiagnosticoConsulta">Diagnostico Consulta: </label>
+                <input class="form-control" type="text" name="DiagnosticoConsulta" value="" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Observacion">Observación: </label>
+                <input class="form-control" type="text" name="Observacion" value="" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="EvalNutric">Evaluación Nutricional: </label>
+                <input class="form-control" type="text" name="EvalNutric" value="" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="EvalSoc">Evaluación Social: </label>
+                <select class="form-control" name="EvalSoc">
+                    <option value="Bajo">Bajo</option>
+                    <option value="Medio">Medio</option>
+                    <option value="Alto">Alto</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        @if (@ViewBag.Paciente.Sexo == "Femenino")
+        {
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="Fum">Fum:</label>
+                    <input class="form-control" type="date" name="Fum" value="" />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="MacActual">Mac Actual: </label>
+                    <input class="form-control" type="text" name="MacActual" value="" />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="FechaMac">Fecha Mac: </label>
+                    <input class="form-control" type="date" name="FechaMac" value="" />
+                </div>
+            </div>
+        }
+        <br />
+        <br />
+        <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden />
+        <input type="number" name="EdadConsulta" value=@edad hidden />
+        <input class="btn btn-lg btn-dark" type="submit" name="agregar" value="Crear Consulta" />
+    </form>
+</div>

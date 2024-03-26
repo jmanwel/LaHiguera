@@ -8,6 +8,7 @@ builder.Services.AddTransient<LahigueraContext>();
 builder.Services.AddTransient<IPacienteService, PacienteService>();
 builder.Services.AddTransient<IAntecedenteService, AntecedenteService>();
 builder.Services.AddTransient<IComplementarioService, ComplementarioService>();
+builder.Services.AddTransient<IConsultaService, ConsultaService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

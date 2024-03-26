@@ -9,11 +9,13 @@ namespace MVC.Controllers
         private IPacienteService _pacienteService;
         private IAntecedenteService _antecedenteService;
         private IComplementarioService _complementarioService;
-        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService, IComplementarioService complementarioService)
+        private IConsultaService _consultaService;
+        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService, IComplementarioService complementarioService, IConsultaService consultaService)
         {
             _pacienteService = pacienteService;
             _antecedenteService = antecedenteService;
             _complementarioService = complementarioService;
+            _consultaService = consultaService;
         }
         public ActionResult CreatePatient()
         {
@@ -76,6 +78,7 @@ namespace MVC.Controllers
             ViewBag.Paciente = _pacienteService.getPatient(id);
             ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
+            ViewBag.Consulta = _consultaService.getAllConsultationFromIdPatient(id);
             return View();
         }
 

@@ -24,7 +24,7 @@
                     <p class="card-text">@edad @str(@edad) | Sexo: @ViewBag.Paciente.Sexo</p>
                     <div class="tip">
                         <div class="hover-box">Crear una CONSULTA</div>
-                        <a class="mx-4" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
+                        <a class="mx-4" asp-controller="Consulta" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
                     </div>
                     <div class="tip">
                         <div class="hover-box">Crear un ANTECEDENTE</div>
@@ -95,7 +95,7 @@
                     @foreach (Entidades.Models.Antecedente antecedente in ViewBag.Antecedente)
                     {
                         <li class="list-group-item">
-                            <a asp-controller="Antecedente" asp-action="viewAntecedent" asp-route-id="@antecedente.Id">@antecedente.FechaCreacion.Split(" ")[0]</a>
+                            <a asp-controller="Antecedente" asp-action="viewAntecedent" asp-route-id="@antecedente.Id">@antecedente.FechaCreacion</a>
                             <div class="tip">
                                 <div class="hover-box">Modificar datos</div>
                                 <a class="mx-4" asp-controller="Antecedente" asp-action="editAntecedent" asp-route-id="@antecedente.Id"><img src="~/icons/pencil.svg" /></a>
@@ -116,7 +116,34 @@
         </div>
 
         <div class="col">
-            <h5>No se registran consultas para este paciente</h5>
+             @if (Enumerable.Count(ViewBag.Antecedente) > 0)
+            {
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Histórico Consultas
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    @foreach (Entidades.Models.Consulta consulta in ViewBag.Consulta)
+                    {
+                        <li class="list-group-item">
+                                <a asp-controller="Antecedente" asp-action="viewAntecedent" asp-route-id="@consulta.Id">@consulta.FechaAtencion.Split(" ")</a>
+                            <div class="tip">
+                                <div class="hover-box">Modificar datos</div>
+                                <a class="mx-4" asp-controller="Consulta" asp-action="#" asp-route-id="@consulta.Id"><img src="~/icons/pencil.svg" /></a>
+                            </div>
+                            <div class="tip">
+                                <div class="hover-box">Dar de baja</div>
+                                <a class="mx-1" id="button_trash" asp-controller="Consulta" asp-action="#" asp-route-id="@consulta.Id"><img src="~/icons/trash.svg" /></a>
+                            </div>
+                        </li>
+                    }
+                    </ul>
+                </div>
+            }
+            else
+            {                
+                <h5>No se registran consultas para este paciente</h5>
+            }
         </div>
     </div>
 </div>

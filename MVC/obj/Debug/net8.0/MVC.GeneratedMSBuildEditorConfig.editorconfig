@@ -38,16 +38,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGxlbWVudGFyaW9cZWRpdENvbXBsZW1lbnRhcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Data/Voluntariado/LaHiguera/MVC/Views/Consulta/CreateConsultation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcQ3JlYXRlQ29uc3VsdGF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Data/Voluntariado/LaHiguera/MVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Data/Voluntariado/LaHiguera/MVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Data/Voluntariado/LaHiguera/MVC/Views/Paciente/createConsultation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcY3JlYXRlQ29uc3VsdGF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Data/Voluntariado/LaHiguera/MVC/Views/Paciente/CreatePatient.cshtml]

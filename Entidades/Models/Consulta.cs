@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace Entidades.Models;
 
-public partial class Consultum
+public partial class Consulta
 {
     public int Id { get; set; }
 
     public int? PacienteId { get; set; }
 
-    public string? FechaAtencion { get; set; }
+    public DateTime? FechaAtencion { get; set; }
 
     public string? MotivoConsulta { get; set; }
 

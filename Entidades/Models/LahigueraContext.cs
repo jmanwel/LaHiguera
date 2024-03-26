@@ -21,7 +21,7 @@ public partial class LahigueraContext : DbContext
 
     public virtual DbSet<Complementario> Complementarios { get; set; }
 
-    public virtual DbSet<Consultum> Consulta { get; set; }
+    public virtual DbSet<Consulta> Consulta { get; set; }
 
     public virtual DbSet<Ginecologium> Ginecologia { get; set; }
 
@@ -133,7 +133,7 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("sabe_leer");
         });
 
-        modelBuilder.Entity<Consultum>(entity =>
+        modelBuilder.Entity<Consulta>(entity =>
         {
             entity.ToTable("consulta");
 
