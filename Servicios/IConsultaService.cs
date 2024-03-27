@@ -8,5 +8,7 @@ namespace Servicios
         List<Consulta> getAllConsultationFromIdPatient(int id_patient);
         void create(Consulta consulta);
 
+        public Consulta getConsultation(int id_consultation);
+
     }
 }

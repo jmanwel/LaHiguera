@@ -116,7 +116,7 @@
         </div>
 
         <div class="col">
-             @if (Enumerable.Count(ViewBag.Antecedente) > 0)
+             @if (Enumerable.Count(ViewBag.Consulta) > 0)
             {
                 <div class="card" style="width: 18rem;">
                     <div class="card-header">
@@ -126,15 +126,11 @@
                     @foreach (Entidades.Models.Consulta consulta in ViewBag.Consulta)
                     {
                         <li class="list-group-item">
-                                <a asp-controller="Antecedente" asp-action="viewAntecedent" asp-route-id="@consulta.Id">@consulta.FechaAtencion</a>
-                            <div class="tip">
+                                <a asp-controller="Consulta" asp-action="viewConsultation" asp-route-id="@consulta.Id">@consulta.FechaAtencion</a>
+                                <div class="tip">
                                 <div class="hover-box">Modificar datos</div>
-                                <a class="mx-4" asp-controller="Consulta" asp-action="#" asp-route-id="@consulta.Id"><img src="~/icons/pencil.svg" /></a>
-                            </div>
-                            <div class="tip">
-                                <div class="hover-box">Dar de baja</div>
-                                <a class="mx-1" id="button_trash" asp-controller="Consulta" asp-action="#" asp-route-id="@consulta.Id"><img src="~/icons/trash.svg" /></a>
-                            </div>
+                                    <a class="mx-4" asp-controller="Consulta" asp-action="editConsultation" asp-route-id="@consulta.Id"><img src="~/icons/pencil.svg" /></a>
+                            </div>                            
                         </li>
                     }
                     </ul>

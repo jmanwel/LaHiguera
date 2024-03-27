@@ -27,7 +27,12 @@ namespace Servicios
             catch (Exception e) { 
                 Console.WriteLine(e.ToString());
             }
+        }
 
+        public Consulta getConsultation(int id_consultation)
+        {
+            // This Method returns a consultation object
+            return _ctxt.Consulta.Find(id_consultation);
         }
     }
 }

@@ -28,5 +28,19 @@ namespace MVC.Controllers
             string redirect = "/Paciente/viewDetails/" + consulta.PacienteId;
             return Redirect(redirect);
         }
+
+        public ActionResult viewConsultation(int id)
+        {
+            ViewBag.Consulta = _consultaService.getConsultation(id);
+            ViewBag.Paciente = _pacienteService.getPatient((int)_consultaService.getConsultation(id).PacienteId);
+            return View();
+        }
+
+        public ActionResult editConsultation(int id)
+        {
+            ViewBag.Consulta = _consultaService.getConsultation(id);
+            ViewBag.Paciente = _pacienteService.getPatient((int)_consultaService.getConsultation(id).PacienteId);
+            return View();
+        }
     }
 }
