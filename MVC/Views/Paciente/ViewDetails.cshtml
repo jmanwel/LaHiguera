@@ -126,7 +126,7 @@
                     @foreach (Entidades.Models.Consulta consulta in ViewBag.Consulta)
                     {
                         <li class="list-group-item">
-                                <a asp-controller="Antecedente" asp-action="viewAntecedent" asp-route-id="@consulta.Id">@consulta.FechaAtencion.Split(" ")</a>
+                                <a asp-controller="Antecedente" asp-action="viewAntecedent" asp-route-id="@consulta.Id">@consulta.FechaAtencion</a>
                             <div class="tip">
                                 <div class="hover-box">Modificar datos</div>
                                 <a class="mx-4" asp-controller="Consulta" asp-action="#" asp-route-id="@consulta.Id"><img src="~/icons/pencil.svg" /></a>
