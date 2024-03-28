@@ -42,5 +42,13 @@ namespace MVC.Controllers
             ViewBag.Paciente = _pacienteService.getPatient((int)_consultaService.getConsultation(id).PacienteId);
             return View();
         }
+
+        [HttpPost]
+        public ActionResult editConsultation(Consulta consulta)
+        {
+            _consultaService.edit(consulta);
+            string redirect = "/Paciente/viewDetails/" + consulta.PacienteId;
+            return Redirect(redirect);
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Entidades.Models;
 
-public partial class Ginecologium
+public partial class Ginecologia
 {
     public int Id { get; set; }
 

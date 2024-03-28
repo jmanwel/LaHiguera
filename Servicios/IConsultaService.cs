@@ -10,5 +10,7 @@ namespace Servicios
 
         public Consulta getConsultation(int id_consultation);
 
+        public void edit(Consulta consulta);
+
     }
 }

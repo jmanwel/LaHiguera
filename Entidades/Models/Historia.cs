@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Entidades.Models;
 
-public partial class Historium
+public partial class Historia
 {
     public int Id { get; set; }
 

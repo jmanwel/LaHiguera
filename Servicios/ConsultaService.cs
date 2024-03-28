@@ -34,5 +34,31 @@ namespace Servicios
             // This Method returns a consultation object
             return _ctxt.Consulta.Find(id_consultation);
         }
+
+        public void edit(Consulta consulta)
+        {
+            //This method update Consulta objects in DDBB
+            try
+            {
+                var edited_consultation = _ctxt.Consulta.Find(consulta.Id);
+                edited_consultation.EvalSoc = consulta.EvalSoc;
+                edited_consultation.FechaMac = consulta.FechaMac;
+                edited_consultation.EdadConsulta = consulta.EdadConsulta;
+                edited_consultation.Observacion = consulta.Observacion;
+                edited_consultation.DiagnosticoConsulta = consulta.DiagnosticoConsulta;
+                edited_consultation.MotivoConsulta = consulta.MotivoConsulta;
+                edited_consultation.EvalNutric = consulta.EvalNutric;
+                edited_consultation.FechaAtencion = consulta.FechaAtencion;
+                edited_consultation.Fum = consulta.Fum;
+                edited_consultation.MacActual = consulta.MacActual;
+                edited_consultation.PacienteId = consulta.PacienteId;
+                _ctxt.SaveChanges();
+                Console.WriteLine("Consulta modificada OK!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
     }
 }

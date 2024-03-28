@@ -23,13 +23,13 @@ public partial class LahigueraContext : DbContext
 
     public virtual DbSet<Consulta> Consulta { get; set; }
 
-    public virtual DbSet<Ginecologium> Ginecologia { get; set; }
+    public virtual DbSet<Ginecologia> Ginecologia { get; set; }
 
-    public virtual DbSet<Historium> Historia { get; set; }
+    public virtual DbSet<Historia> Historia { get; set; }
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
 
-    public virtual DbSet<Pediatrium> Pediatria { get; set; }
+    public virtual DbSet<Pediatria> Pediatria { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -160,7 +160,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.PacienteId).HasColumnName("paciente_id");
         });
 
-        modelBuilder.Entity<Ginecologium>(entity =>
+        modelBuilder.Entity<Ginecologia>(entity =>
         {
             entity.ToTable("ginecologia");
 
@@ -183,7 +183,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.TomaPap).HasColumnName("toma_pap");
         });
 
-        modelBuilder.Entity<Historium>(entity =>
+        modelBuilder.Entity<Historia>(entity =>
         {
             entity.ToTable("historia");
 
@@ -240,7 +240,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Sexo).HasColumnName("sexo");
         });
 
-        modelBuilder.Entity<Pediatrium>(entity =>
+        modelBuilder.Entity<Pediatria>(entity =>
         {
             entity.ToTable("pediatria");
 
