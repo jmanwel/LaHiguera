@@ -11,7 +11,7 @@
 <div class="container text-center">
     <h1 class="display-4">Alta de Consulta para @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
     <br />
-    <form action="/Consulta/CreateConsultation" method="post">
+    <form action="/Consulta/CreateConsultation" method="POST">
         <div class="row">
             <div class="col">
                 <label class="form-label" for="FechaAtencion">Fecha de atención: </label>
@@ -70,6 +70,6 @@
         <br />
         <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden />
         <input type="number" name="EdadConsulta" value=@edad hidden />
-        <input class="btn btn-lg btn-dark" type="submit" name="agregar" value="Crear Consulta" />
+        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Crear Consulta" />
     </form>
 </div>

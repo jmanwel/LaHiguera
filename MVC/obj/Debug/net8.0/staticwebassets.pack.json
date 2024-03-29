@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\icons\\bag-plus.svg"
     },
     {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\balloon-heart.svg",
+      "PackagePath": "staticwebassets\\icons\\balloon-heart.svg"
+    },
+    {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\calendar-plus.svg",
       "PackagePath": "staticwebassets\\icons\\calendar-plus.svg"
     },
@@ -35,6 +39,14 @@
     {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\favicon.ico",
       "PackagePath": "staticwebassets\\icons\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\gender-female.svg",
+      "PackagePath": "staticwebassets\\icons\\gender-female.svg"
+    },
+    {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\house-up.svg",
+      "PackagePath": "staticwebassets\\icons\\house-up.svg"
     },
     {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\pencil.svg",

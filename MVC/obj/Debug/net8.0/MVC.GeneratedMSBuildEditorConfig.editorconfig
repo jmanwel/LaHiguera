@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcdmlld0NvbnN1bHRhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Data/Voluntariado/LaHiguera/MVC/Views/Ginecologia/CreateGinecology.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2luZWNvbG9naWFcQ3JlYXRlR2luZWNvbG9neS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Data/Voluntariado/LaHiguera/MVC/Views/Historia/CreateHistory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yaWFcQ3JlYXRlSGlzdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Data/Voluntariado/LaHiguera/MVC/Views/Paciente/ViewDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcVmlld0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Data/Voluntariado/LaHiguera/MVC/Views/Pediatria/CreatePediatry.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWF0cmlhXENyZWF0ZVBlZGlhdHJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Data/Voluntariado/LaHiguera/MVC/Views/Shared/Error.cshtml]

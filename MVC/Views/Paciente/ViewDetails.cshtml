@@ -13,10 +13,9 @@
 @{
     string justSayYesOrNo(int value) => value == 1 ? "SI" : "NO";
 }
-
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-ligth">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-ligth mt-2">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item mb-3">
@@ -68,19 +67,33 @@
                             <p class="card-text"><strong>@edad @str(@edad)</strong> | Sexo: <strong>@ViewBag.Paciente.Sexo</strong></p>
                             <div class="tip">
                                 <div class="hover-box">Crear una CONSULTA</div>
-                                <a class="mx-4" asp-controller="Consulta" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
+                                <a asp-controller="Consulta" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
                             </div>
                             <div class="tip">
                                 <div class="hover-box">Crear un ANTECEDENTE</div>
-                                <a class="mx-4" asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
+                                <a asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
                             </div>
                             <div class="tip">
                                 <div class="hover-box">Crear una HISTORIA</div>
-                                <a class="mx-4" asp-controller="Historia" asp-action="createHistory" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-heart.svg" /></a>
+                                <a asp-controller="Historia" asp-action="createHistory" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-heart.svg" /></a>
                             </div>
+                            @if(edad <= 15)
+                            {
+                                <div class="tip">
+                                    <div class="hover-box">Crear consulta PEDIATRICA</div>
+                                    <a asp-controller="Pediatria" asp-action="createPediatry" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/balloon-heart.svg" /></a>
+                                </div>
+                            }
+                            @if (@ViewBag.Paciente.Sexo == "Femenino")
+                            {
+                                <div class="tip">
+                                    <div class="hover-box">Crear consulta GINECOLÓGICA</div>
+                                    <a asp-controller="Ginecologia" asp-action="createGynecology" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/gender-female.svg" /></a>
+                                </div>
+                            }                        
                             <div class="tip">
                                 <div class="hover-box">Modificar datos</div>
-                                <a class="mx-4" asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
+                                <a asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
                             </div>
                             <div class="tip">
                                 <div class="hover-box">Dar de baja</div>
@@ -134,7 +147,7 @@
 
 <!--MODAL-->
 <div class="modal" id="modal_consulta" tabindex="-1">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Histórico Consultas del paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
@@ -146,7 +159,7 @@
                     <table class="table table-hover text-center">
                         <thead>
                             <tr>
-                                <th scope="col">Fecha de atención</th>
+                                <th scope="col">Fecha</th>
                                 <th scope="col">Edad</th>
                                 <th scope="col">Motivo de la Consulta</th>
                                 <th scope="col">Diagnostico de laConsulta</th>
@@ -199,7 +212,7 @@
 
 <!--MODAL-->
 <div class="modal" id="modal_antecedente" tabindex="-1">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Histórico Antecedentes del paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
@@ -211,7 +224,7 @@
                     <table class="table table-hover text-center">
                         <thead>
                             <tr>
-                                <th scope="col">Fecha de creación</th>
+                                <th scope="col">Fecha</th>
                                 <th scope="col">Alcohol</th>
                                 <th scope="col">Alergias</th>                                
                                 <th scope="col">AntPerinatales</th>
@@ -286,7 +299,7 @@
 
 <!--MODAL-->
 <div class="modal" id="modal_historico" tabindex="-1">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Histórial del paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
@@ -298,7 +311,7 @@
                     <table class="table table-hover text-center">
                         <thead>
                             <tr>
-                                <th scope="col">Fecha de creación</th>
+                                <th scope="col">Fecha</th>
                                 <th scope="col">Exámen Físico</th>
                                 <th scope="col">Ta</th>                                
                                 <th scope="col">Peso</th>
@@ -369,7 +382,7 @@
                 }
                 else
                 {
-                    <h5>No se registran antecedentes para este paciente</h5>
+                    <h5>No se registran historias para este paciente</h5>
                 }
             </div>
             <div class="modal-footer">
