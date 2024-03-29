@@ -21,5 +21,34 @@ namespace MVC.Controllers
             ViewBag.Paciente = _pacienteService.getPatient(id);
             return View();
         }
+
+        [HttpPost]
+        public ActionResult CreateHistory(Historia history)
+        {
+            try
+            {
+                _historiaService.create(history);
+            }
+            catch (Exception e) {
+                Console.WriteLine(e.ToString());
+            }
+            string redirect = "/Paciente/viewDetails/" + history.PacienteId;
+            return Redirect(redirect);
+        }
+
+        public ActionResult editHistory(int id)
+        {
+            ViewBag.Paciente = _pacienteService.getPatient((int)_historiaService.getHistory(id).PacienteId);
+            ViewBag.Historia = _historiaService.getHistory(id);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult editHistory(Historia history)
+        {
+            _historiaService.edit(history);
+            string redirect = "/Paciente/viewDetails/" + history.PacienteId;
+            return Redirect(redirect);
+        }
     }
 }

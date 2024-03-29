@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "p9DRw2HdHJahWM/cl5ObpaXtx+INA+9Aj3a1TWIXskI=",
+  "Hash": "tflmCNfoN4zroNXkELpuxNFBxId/snGXwkIVBDnG4yE=",
   "Source": "MVC",
   "BasePath": "_content/MVC",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icons\\calendar-plus.svg"
+    },
+    {
+      "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\clipboard-heart.svg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "icons/clipboard-heart.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\clipboard-heart.svg"
     },
     {
       "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\clipboard-plus.svg",

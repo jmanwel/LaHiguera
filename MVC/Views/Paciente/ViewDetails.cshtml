@@ -31,7 +31,7 @@
                     </li>
                     <li class="nav-item mb-3">
                         <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_historico">
-                            Histórico
+                            Historia
                         </button>
                     </li>
                     @if (@ViewBag.Paciente.Sexo =="Femenino")
@@ -64,8 +64,8 @@
                             {
                                 <h6 class="card-subtitle mb-2 text-muted">DNI: @ViewBag.Paciente.Dni</h6>
                             }
-                            <p class="card-text">Fecha de nacimiento: @ViewBag.Paciente.FechaNac</p>
-                            <p class="card-text">@edad @str(@edad) | Sexo: @ViewBag.Paciente.Sexo</p>
+                            <p class="card-text">Fecha de nacimiento: <strong>@ViewBag.Paciente.FechaNac</strong></p>
+                            <p class="card-text"><strong>@edad @str(@edad)</strong> | Sexo: <strong>@ViewBag.Paciente.Sexo</strong></p>
                             <div class="tip">
                                 <div class="hover-box">Crear una CONSULTA</div>
                                 <a class="mx-4" asp-controller="Consulta" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="tip">
                                 <div class="hover-box">Crear una HISTORIA</div>
-                                <a class="mx-4" asp-controller="Historia" asp-action="createHistory" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
+                                <a class="mx-4" asp-controller="Historia" asp-action="createHistory" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-heart.svg" /></a>
                             </div>
                             <div class="tip">
                                 <div class="hover-box">Modificar datos</div>
@@ -95,18 +95,18 @@
                             {
                                 @foreach (Entidades.Models.Complementario complementario in ViewBag.Complementario)
                                 {
-                                <p class="card-text">Lugar de nacimiento: @complementario.LugarNac | Paraje de Residencia: @complementario.ParajeResidencia</p>
-                                    <p class="card-text">Etnia: @complementario.Etnia | Estado Civil: @complementario.EstadoCivil</p>
+                                    <p class="card-text">Lugar de nacimiento: <strong>@complementario.LugarNac</strong> | Paraje de Residencia: <strong>@complementario.ParajeResidencia</strong></p>
+                                    <p class="card-text">Etnia: <strong>@complementario.Etnia</strong> | Estado Civil: <strong>@complementario.EstadoCivil</strong></p>
                                     @if (@complementario.SabeLeer == 1)
                                     {
-                                        <p class="card-text">Sabe leer?: Si</p>
+                                        <p class="card-text">Sabe leer?: <strong>Si</strong></p>
                                     }
                                     else
                                     {
-                                        <p class="card-text">Sabe leer?: No</p>
+                                        <p class="card-text">Sabe leer?: <strong>No</strong></p>
                                     }
-                                    <p class="card-text">Escolaridad: @complementario.Escolaridad</p>
-                                <p class="card-text">Ocupacion: @complementario.Ocupacion | Año Ingreso: @complementario.AnoIngreso</p>
+                                    <p class="card-text">Escolaridad: <strong>@complementario.Escolaridad</strong></p>
+                                    <p class="card-text">Ocupacion: <strong>@complementario.Ocupacion</strong> | Año Ingreso: <strong>@complementario.AnoIngreso</strong></p>
                                     <h5 class="card-title">Notas</h5>
                                     <p class="card-text">@complementario.Notas</p>
                                     <br />
@@ -115,11 +115,9 @@
                                         <a class="mx-4" asp-controller="Complementario" asp-action="editComplementary" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
                                     </div>
                                 }
-
                             }
                             else
                             {
-
                                 <div class="tip text-center">
                                     <div class="hover-box">Agregar datos complementarios</div>
                                     <a class="mx-4" asp-controller="Complementario" asp-action="create" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-plus.svg" /></a>
@@ -180,6 +178,7 @@
                                         <td>@consulta.MacActual</td>
                                         <td>@consulta.FechaMac</td>
                                     }
+                                    <td><a asp-controller="Consulta" asp-action="editConsultation" asp-route-id="@consulta.Id"><img src="~/icons/pencil.svg" /></a></td>
                                 </tr>
                             }
                         </tbody>
@@ -191,7 +190,7 @@
                 }
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -266,6 +265,7 @@
                                     <td>@justSayYesOrNo((int)@antecedente.Tbc)</td>
                                     <td>@justSayYesOrNo((int)@antecedente.Vacunacion)</td>
                                     <td>@antecedente.Notas</td>
+                                    <td><a asp-controller="Antecedente" asp-action="editAntecedent" asp-route-id="@antecedente.Id"><img src="~/icons/pencil.svg" /></a></td>
                                 </tr>
                             }
                         </tbody>
@@ -277,7 +277,7 @@
                 }
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -293,10 +293,87 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body overflow-scroll">
-                
+                @if (Enumerable.Count(ViewBag.Historia) > 0)
+                {
+                    <table class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">Fecha de creación</th>
+                                <th scope="col">Exámen Físico</th>
+                                <th scope="col">Ta</th>                                
+                                <th scope="col">Peso</th>
+                                <th scope="col">Talla</th>
+                                <th scope="col">Imc</th>
+                                <th scope="col">Circ Cintura</th>
+                                <th scope="col">Circ Cadera</th>
+                                <th scope="col">Icc</th>
+                                <th scope="col">Saturacion</th>
+                                <th scope="col">Temperatura</th>
+                                <th scope="col">Glicemia</th>
+                                <th scope="col">Agudeza Visual ojo der</th>
+                                <th scope="col">Agudeza Visual ojo izq</th>
+                                <th scope="col">Ecografía</th>
+                                <th scope="col">Observación Eco</th>
+                                <th scope="col">Ecg</th>
+                                <th scope="col">Observación Ecg</th>
+                                <th scope="col">Radiografía</th>
+                                <th scope="col">Obs Radiografia</th>
+                                <th scope="col">Lab</th>
+                                <th scope="col">Observación Lab</th>
+                                <th scope="col">Estudios Comp</th>
+                                <th scope="col">Diagnóstico</th>
+                                <th scope="col">Tratamiento</th>
+                                <th scope="col">Derivación Aguda</th>
+                                <th scope="col">Derivación Prog</th>
+                                <th scope="col">Observación Derivación</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Entidades.Models.Historia historia in ViewBag.Historia)
+                            {
+                                <tr>
+                                    <td>@historia.FechaCreacion</td>
+                                    <td>@historia.ExamenFisico</td>
+                                    <td>@historia.Ta</td>
+                                    <td>@historia.Peso</td>
+                                    <td>@historia.Talla</td>
+                                    <td>@historia.Imc</td>
+                                    <td>@historia.CircCintura</td>
+                                    <td>@historia.CircCadera</td>
+                                    <td>@historia.Icc</td>
+                                    <td>@historia.Saturacion</td>
+                                    <td>@historia.Temperatura</td>
+                                    <td>@historia.Glicemia</td>
+                                    <td>@historia.AgudezaDer</td>
+                                    <td>@historia.AgudezaIzq</td>
+                                    <td>@justSayYesOrNo((int)@historia.Ecografia)</td>
+                                    <td>@historia.ObservacionEco</td>
+                                    <td>@justSayYesOrNo((int)@historia.Ecg)</td>
+                                    <td>@historia.ObservacionEcg</td>
+                                    <td>@justSayYesOrNo((int)@historia.Radiografia)</td>
+                                    <td>@historia.ObservacionRadiografia</td>
+                                    <td>@justSayYesOrNo((int)@historia.Laboratorio)</td>
+                                    <td>@historia.ObservacionLab</td>
+                                    <td>@historia.EstudiosComp</td>
+                                    <td>@historia.Diagnostico</td>
+                                    <td>@historia.Tratamiento</td>
+                                    <td>@justSayYesOrNo((int)@historia.DerivacionAguda)</td>
+                                    <td>@historia.DerivacionProg</td>
+                                    <td>@historia.ObservacionDeriv</td>
+                                    <td><a asp-controller="Historia" asp-action="editHistory" asp-route-id="@historia.Id"><img src="~/icons/pencil.svg" /></a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <h5>No se registran antecedentes para este paciente</h5>
+                }
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
