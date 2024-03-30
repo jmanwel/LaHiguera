@@ -17,10 +17,12 @@ namespace MVC.Controllers
 
         }
 
-        public ActionResult CreateGinecology()
+        public ActionResult CreateGinecology(int id)
         {
+            ViewBag.Paciente = _pacienteService.getPatient(id);
             return View();
         }
+
 
 
     }

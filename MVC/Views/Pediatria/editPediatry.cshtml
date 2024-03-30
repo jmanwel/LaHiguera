@@ -5,81 +5,82 @@
 }
 
 <div class="container text-center">
-    <h1 class="display-4">Alta de consulta pediatrica para el paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h1 class="display-4">Editar consulta pediatrica del paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
     <br />
-    <form action="/Pediatria/CreatePediatry" method="POST">
+    <form action="/Pediatria/editPediatry" method="POST">
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Peso">Peso: </label>
-                <input class="form-control" type="number" name="Peso" value="" step="0.1" />
+                <input class="form-control" type="number" name="Peso" value=@ViewBag.Pediatria.Peso step="0.1" />
             </div>
             <div class="col">
                 <label class="form-label" for="PercentilPeso">Percentil Peso: </label>
-                <input class="form-control" type="number" name="PercentilPeso" value="" step="0.1" />
+                <input class="form-control" type="number" name="PercentilPeso" value=@ViewBag.Pediatria.PercentilPeso step="0.1" />
             </div>
             <div class="col">
                 <label class="form-label" for="PzPeso">PzPeso: </label>
-                <input class="form-control" type="number" name="PzPeso" value="" step="0.1" />
+                <input class="form-control" type="number" name="PzPeso" value=@ViewBag.Pediatria.PzPeso step="0.1" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Talla">Talla: </label>
-                <input class="form-control" type="number" name="Talla" value="" step="0.1" />
+                <input class="form-control" type="number" name="Talla" value=@ViewBag.Pediatria.Talla step="0.1" />
             </div>
             <div class="col">
                 <label class="form-label" for="PercentilTalla">Percentil Talla: </label>
-                <input class="form-control" type="number" name="PercentilTalla" value="" step="0.1" />
+                <input class="form-control" type="number" name="PercentilTalla" value=@ViewBag.Pediatria.PercentilTalla step="0.1" />
             </div>
             <div class="col">
                 <label class="form-label" for="PzTalla">PzTalla: </label>
-                <input class="form-control" type="number" name="PzTalla" value="" step="0.1" />
+                <input class="form-control" type="number" name="PzTalla" value=@ViewBag.Pediatria.PzTalla step="0.1" />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Imc">Imc: </label>
-                <input class="form-control" type="number" name="Imc" value="" step="0.1" />
+                <input class="form-control" type="number" name="Imc" value=@ViewBag.Pediatria.Imc step="0.1" />
             </div>
             <div class="col">
                 <label class="form-label" for="PercentilImc">Percentil Imc: </label>
-                <input class="form-control" type="number" name="PercentilImc" value="" step="0.1" />
+                <input class="form-control" type="number" name="PercentilImc" value=@ViewBag.Pediatria.PercentilImc step="0.1" />
             </div>
             <div class="col">
                 <label class="form-label" for="PzImc">PzImc: </label>
-                <input class="form-control" type="number" name="PzImc" value="" step="0.1" />
-            </div>            
+                <input class="form-control" type="number" name="PzImc" value=@ViewBag.Pediatria.PzImc step="0.1" />
+            </div>
         </div>
         <br />
-        <div class="row">            
+        <div class="row">
             <div class="col">
                 <label class="form-label" for="Pc">Pc: </label>
-                <input class="form-control" type="number" name="Pc" value="" step="0.1" />
+                <input class="form-control" type="number" name="Pc" value=@ViewBag.Pediatria.Pc step="0.1" />
             </div>
             <div class="col">
                 <label class="form-label" for="PercentilPc">Percentil Pc: </label>
-                <input class="form-control" type="number" name="PercentilPc" value="" step="0.1" />
+                <input class="form-control" type="number" name="PercentilPc" value=@ViewBag.Pediatria.PercentilPc step="0.1" />
             </div>
             <div class="col">
                 <label class="form-label" for="PzPc">PzPc: </label>
-                <input class="form-control" type="number" name="PzPc" value="" step="0.1" />
+                <input class="form-control" type="number" name="PzPc" value=@ViewBag.Pediatria.PzPc step="0.1" />
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label class="form-label" for="AgudezaDer">Agudeza Visual ojo der: </label>
-                <input class="form-control" type="text" name="AgudezaDer" value="" />
+                <input class="form-control" type="text" name="AgudezaDer" value=@ViewBag.Pediatria.AgudezaDer />
             </div>
             <div class="col">
                 <label class="form-label" for="AgudezaIzq">Agudeza Visual ojo izq: </label>
-                <input class="form-control" type="text" name="AgudezaIzq" value="" />
-            </div>            
+                <input class="form-control" type="text" name="AgudezaIzq" value=@ViewBag.Pediatria.AgudezaIzq />
+            </div>
         </div>
         <br />
         <br />
         <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden />
-        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Agregar Consulta pediátrica" />
+        <input type="number" name="Id" value=@ViewBag.Pediatria.Id hidden />
+        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Editar Consulta pediátrica" />
     </form>
 </div>

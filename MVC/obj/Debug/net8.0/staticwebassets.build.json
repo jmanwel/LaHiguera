@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ivfwakRWcD8LUDT9COLDDJmy0UTmLxTvpLbmSnJfoh4=",
+  "Hash": "ZT3IEwayMiOlXpaVledM6fnxTzD44nx9i/forU+P/po=",
   "Source": "MVC",
   "BasePath": "_content/MVC",
   "Mode": "Default",
@@ -186,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icons\\clipboard-plus.svg"
+    },
+    {
+      "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\envelope-arrow-up.svg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "icons/envelope-arrow-up.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\envelope-arrow-up.svg"
     },
     {
       "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\eye.svg",

@@ -392,3 +392,72 @@
     </div>
 </div>
 <!---->
+
+<!--MODAL-->
+<div class="modal" id="modal_pediatria" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Historial pediátrico del paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body overflow-scroll">
+                @if (Enumerable.Count(ViewBag.Pediatria) > 0)
+                {
+                    <table class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Peso</th>
+                                <th scope="col">Percentil Peso</th>
+                                <th scope="col">PzPeso</th>
+                                <th scope="col">Talla</th>
+                                <th scope="col">PercentilTalla</th>
+                                <th scope="col">PzTalla</th>
+                                <th scope="col">Imc</th>
+                                <th scope="col">PercentilImc</th>
+                                <th scope="col">PzImc</th>
+                                <th scope="col">Pc</th>
+                                <th scope="col">Percentil Pc</th>
+                                <th scope="col">PzPc</th>
+                                <th scope="col">Agudeza Visual ojo der</th>
+                                <th scope="col">Agudeza Visual ojo izq</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Entidades.Models.Pediatria pediatria in ViewBag.Pediatria)
+                            {
+                                <tr>
+                                    <td>@pediatria.FechaCreacion</td>
+                                    <td>@pediatria.Peso</td>
+                                    <td>@pediatria.PercentilPeso</td>
+                                    <td>@pediatria.PzPeso</td>
+                                    <td>@pediatria.Talla</td>
+                                    <td>@pediatria.PercentilTalla</td>
+                                    <td>@pediatria.PzTalla</td>                                      
+                                    <td>@pediatria.Imc</td>
+                                    <td>@pediatria.PercentilImc</td>
+                                    <td>@pediatria.PzImc</td>
+                                    <td>@pediatria.Pc</td>
+                                    <td>@pediatria.PercentilPc</td>
+                                    <td>@pediatria.PzPc</td>
+                                    <td>@pediatria.AgudezaDer</td>
+                                    <td>@pediatria.AgudezaIzq</td>
+                                    <td><a asp-controller="Pediatria" asp-action="editPediatry" asp-route-id="@pediatria.Id"><img src="~/icons/pencil.svg" /></a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <h5>No se registran historias para este paciente</h5>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!---->
