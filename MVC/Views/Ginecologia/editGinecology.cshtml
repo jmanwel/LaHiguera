@@ -1,0 +1,84 @@
+﻿@model Entidades.Models.Ginecologia;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container text-center">
+    <h1 class="display-4">Editar consulta ginecólogica para el paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <br />
+    <form action="/Ginecologia/editGinecology" method="POST">
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="Gestas">Gestas: </label>
+                <input class="form-control" type="number" name="Gestas" value=@ViewBag.Ginecologia.Gestas />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Para">Para: </label>
+                <input class="form-control" type="number" name="Para" value=@ViewBag.Ginecologia.Para />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Cesareas">Cesareas: </label>
+                <input class="form-control" type="number" name="Cesareas" value=@ViewBag.Ginecologia.Cesareas />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Abortos">Abortos: </label>
+                <input class="form-control" type="number" name="Abortos" value=@ViewBag.Ginecologia.Abortos />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="Irs">Irs: </label>
+                <input class="form-control" type="number" name="Irs" value=@ViewBag.Ginecologia.Irs />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Menarca">Menarca: </label>
+                <input class="form-control" type="number" name="Menarca" value=@ViewBag.Ginecologia.Menarca />
+            </div>
+            <div class="col">
+                <label class="form-label" for="RitmoMenst">RitmoMenst: </label>
+                <select class="form-control" name="RitmoMenst">
+                    if(@ViewBag.Ginecologia.RitmoMenst == "Regular")
+                    {
+                        <option seleceted value="Regular">Regular</option>
+                        <option value="Irregular">Irregular</option>
+                    }
+                    else 
+                    {
+                        <option value="Regular">Regular</option>
+                        <option seleceted value="Irregular">Irregular</option>
+                    }                    
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label" for="Menopausia">Menopausia: </label>
+                <input class="form-control" type="number" name="Menopausia" value=@ViewBag.Ginecologia.Menopausia />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="TomaPap">TomaPap: </label>
+                <input class="form-control" type="number" name="TomaPap" value=@ViewBag.Ginecologia.TomaPap />
+            </div>
+            <div class="col">
+                <label class="form-label" for="ResultadoPap">Resultado Pap: </label>
+                <input class="form-control" type="text" name="ResultadoPap" value=@ViewBag.Ginecologia.ResultadoPap />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Colposcopia">Colposcopia: </label>
+                <input class="form-control" type="number" name="Colposcopia" value=@ViewBag.Ginecologia.Colposcopia />
+            </div>
+            <div class="col">
+                <label class="form-label" for="EstudiosComp">Estudios Complementarios: </label>
+                <input class="form-control" type="text" name="EstudiosComp" value=@ViewBag.Ginecologia.EstudiosComp />
+            </div>
+        </div>
+        <br />
+        <br />
+        <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden/>
+        <input type="number" name="Id" value=@ViewBag.Ginecologia.Id  hidden/>
+        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Editar Consulta Ginecólogica" />
+    </form>
+</div>

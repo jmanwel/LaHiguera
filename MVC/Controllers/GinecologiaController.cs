@@ -23,6 +23,42 @@ namespace MVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult CreateGinecology(Ginecologia ginecologia)
+        {
+            try
+            {
+                _ginecologiaService.create(ginecologia);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            string redirect = "/Paciente/viewDetails/" + ginecologia.PacienteId;
+            return Redirect(redirect);
+        }
+
+        public ActionResult editGinecology(int id)
+        {
+            ViewBag.Ginecologia = _ginecologiaService.getGinecology(id);
+            ViewBag.Paciente = _pacienteService.getPatient((int)_ginecologiaService.getGinecology(id).PacienteId);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult editGinecology(Ginecologia ginecologia)
+        {
+            try
+            {
+                _ginecologiaService.edit(ginecologia);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            string redirect = "/Paciente/viewDetails/" + ginecologia.PacienteId;
+            return Redirect(redirect);
+        }
 
 
     }

@@ -88,7 +88,7 @@
                             {
                                 <div class="tip">
                                     <div class="hover-box">Crear consulta GINECOLÓGICA</div>
-                                    <a asp-controller="Ginecologia" asp-action="createGynecology" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/gender-female.svg" /></a>
+                                    <a asp-controller="Ginecologia" asp-action="CreateGinecology" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/gender-female.svg" /></a>
                                 </div>
                             }                        
                             <div class="tip">
@@ -452,6 +452,72 @@
                 else
                 {
                     <h5>No se registran historias para este paciente</h5>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!---->
+
+
+<!--MODAL-->
+<div class="modal" id="modal_ginecologia" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Historial ginecólogico del paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body overflow-scroll">
+                @if (Enumerable.Count(ViewBag.Ginecologia) > 0)
+                {
+                    <table class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Gestas</th>
+                                <th scope="col">Para</th>
+                                <th scope="col">Cesareas</th>
+                                <th scope="col">Abortos</th>
+                                <th scope="col">Irs</th>
+                                <th scope="col">Menarca</th>
+                                <th scope="col">RitmoMenst</th>
+                                <th scope="col">Menopausia</th>
+                                <th scope="col">TomaPap</th>
+                                <th scope="col">ResultadoPap</th>
+                                <th scope="col">Colposcopia</th>
+                                <th scope="col">Estudios Comp</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Entidades.Models.Ginecologia ginecologia in ViewBag.Ginecologia)
+                            {
+                                <tr>
+                                    <td>@ginecologia.FechaCreacion</td>
+                                    <td>@ginecologia.Gestas</td>
+                                    <td>@ginecologia.Para</td>
+                                    <td>@ginecologia.Cesareas</td>
+                                    <td>@ginecologia.Abortos</td>
+                                    <td>@ginecologia.Irs</td>
+                                    <td>@ginecologia.Menarca</td>
+                                    <td>@ginecologia.RitmoMenst</td>
+                                    <td>@ginecologia.Menopausia</td>
+                                    <td>@ginecologia.TomaPap</td>
+                                    <td>@ginecologia.ResultadoPap</td>
+                                    <td>@ginecologia.Colposcopia</td>
+                                    <td>@ginecologia.EstudiosComp</td>
+                                    <td><a asp-controller="Ginecologia" asp-action="editGinecology" asp-route-id="@ginecologia.Id"><img src="~/icons/pencil.svg" /></a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <h5>No se registran consultas ginecólogicas para este paciente</h5>
                 }
             </div>
             <div class="modal-footer">
