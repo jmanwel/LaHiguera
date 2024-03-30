@@ -178,7 +178,7 @@
                             @foreach (Entidades.Models.Consulta consulta in ViewBag.Consulta)
                             {
                                 <tr>
-                                    <td>@consulta.FechaCreacion</td>
+                                    <td>@consulta.FechaCreacion.ToString().Split(" ")[0]</td>
                                     <td>@consulta.EdadConsulta</td>
                                     <td>@consulta.MotivoConsulta</td>
                                     <td>@consulta.DiagnosticoConsulta</td>
@@ -254,7 +254,7 @@
                             @foreach (Entidades.Models.Antecedente antecedente in ViewBag.Antecedente)
                             {
                                 <tr>
-                                    <td>@antecedente.FechaCreacion</td>
+                                    <td>@antecedente.FechaCreacion.ToString().Split(" ")[0]</td>
                                     <td>@justSayYesOrNo((int)@antecedente.Alcohol)</td>
                                     <td>@justSayYesOrNo((int)@antecedente.Alergias)</td>
                                     <td>@justSayYesOrNo((int)@antecedente.AntPerinatales)</td>
@@ -346,7 +346,7 @@
                             @foreach (Entidades.Models.Historia historia in ViewBag.Historia)
                             {
                                 <tr>
-                                    <td>@historia.FechaCreacion</td>
+                                    <td>@historia.FechaCreacion.ToString().Split(" ")[0]</td>
                                     <td>@historia.ExamenFisico</td>
                                     <td>@historia.Ta</td>
                                     <td>@historia.Peso</td>
@@ -428,7 +428,7 @@
                             @foreach (Entidades.Models.Pediatria pediatria in ViewBag.Pediatria)
                             {
                                 <tr>
-                                    <td>@pediatria.FechaCreacion</td>
+                                    <td>@pediatria.FechaCreacion.ToString().Split(" ")[0]</td>
                                     <td>@pediatria.Peso</td>
                                     <td>@pediatria.PercentilPeso</td>
                                     <td>@pediatria.PzPeso</td>
@@ -496,7 +496,7 @@
                             @foreach (Entidades.Models.Ginecologia ginecologia in ViewBag.Ginecologia)
                             {
                                 <tr>
-                                    <td>@ginecologia.FechaCreacion</td>
+                                    <td>@ginecologia.FechaCreacion.ToString().Split(" ")[0]</td>
                                     <td>@ginecologia.Gestas</td>
                                     <td>@ginecologia.Para</td>
                                     <td>@ginecologia.Cesareas</td>
