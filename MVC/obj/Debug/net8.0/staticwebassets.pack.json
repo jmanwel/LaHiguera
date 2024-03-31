@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\icons\\pencil.svg"
     },
     {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\search.svg",
+      "PackagePath": "staticwebassets\\icons\\search.svg"
+    },
+    {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\trash.svg",
       "PackagePath": "staticwebassets\\icons\\trash.svg"
     },

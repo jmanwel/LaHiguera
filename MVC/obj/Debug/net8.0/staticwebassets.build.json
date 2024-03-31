@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZT3IEwayMiOlXpaVledM6fnxTzD44nx9i/forU+P/po=",
+  "Hash": "/qmHxtBEPMU5yw6VeYFAo3PI68wcZUmpUryLO8Qc7Qk=",
   "Source": "MVC",
   "BasePath": "_content/MVC",
   "Mode": "Default",
@@ -300,6 +300,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icons\\pencil.svg"
+    },
+    {
+      "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\search.svg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "icons/search.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\search.svg"
     },
     {
       "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\icons\\trash.svg",
