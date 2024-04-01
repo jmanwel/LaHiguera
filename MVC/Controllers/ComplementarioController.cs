@@ -30,13 +30,15 @@ namespace MVC.Controllers
             {
                 _complementarioService.editComplementary(complementario);
                 Console.WriteLine("Registro modificado OK!");
+                string redirect = "/Paciente/viewDetails/" + complementario.PacienteId;
+                return Redirect(redirect);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error " + e);
+                Console.WriteLine("Error " + e.ToString());
+                return Redirect("/Home/Error");
             }
-            string redirect = "/Paciente/viewDetails/" + complementario.PacienteId;
-            return Redirect(redirect);
+
         }
 
         [HttpPost]
@@ -44,7 +46,6 @@ namespace MVC.Controllers
         {
             try
             {
-                //if (!_complementarioService.hasComplementary(Convert.ToInt32(complementario.PacienteId)))
                 if (_complementarioService.getComplementaryData(Convert.ToInt32(complementario.PacienteId)).Count() == 0)
                 {
                     _complementarioService.create(complementario);
@@ -54,13 +55,16 @@ namespace MVC.Controllers
                 {
                     Console.WriteLine("Paciente ya posee datos complementarios");
                 }
+                string redirect = "/Paciente/viewDetails/" + complementario.PacienteId;
+                return Redirect(redirect);
             }
             catch (Exception e)
             {
-                    Console.WriteLine("Error " + e);
+                    Console.WriteLine("Error " + e.ToString());
+                    return Redirect("/Home/Error");
+
             }
-            string redirect = "/Paciente/viewDetails/" + complementario.PacienteId;
-            return Redirect(redirect);
+
         }
     }
 }

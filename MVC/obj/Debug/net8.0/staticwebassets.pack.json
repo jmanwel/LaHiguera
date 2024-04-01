@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\icons\\trash.svg"
     },
     {
+      "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\img\\error2.jpg",
+      "PackagePath": "staticwebassets\\img\\error2.jpg"
+    },
+    {
       "Id": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/qmHxtBEPMU5yw6VeYFAo3PI68wcZUmpUryLO8Qc7Qk=",
+  "Hash": "zBI6C3e5aQaxNNZcLX0Nn3zmBioa/Q1wapXGsHBkY5c=",
   "Source": "MVC",
   "BasePath": "_content/MVC",
   "Mode": "Default",
@@ -338,6 +338,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icons\\trash.svg"
+    },
+    {
+      "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\img\\error2.jpg",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "img/error2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\error2.jpg"
     },
     {
       "Identity": "C:\\Data\\Voluntariado\\LaHiguera\\MVC\\wwwroot\\js\\site.js",

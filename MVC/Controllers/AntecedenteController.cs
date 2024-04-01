@@ -29,13 +29,15 @@ namespace MVC.Controllers
             try
             {
                 _antecedenteService.create(antecedente);
+                string redirect = "/Paciente/viewDetails/" + antecedente.PacienteId;
+                return Redirect(redirect);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return Redirect("/Home/Error");
             }
-            string redirect = "/Paciente/viewDetails/" + antecedente.PacienteId;
-            return Redirect(redirect);
+
         }
 
         public ActionResult viewAntecedent(int id)
@@ -46,9 +48,17 @@ namespace MVC.Controllers
 
         public ActionResult editAntecedent(int id)
         {
-            ViewBag.Paciente = _pacienteService.getPatient((int)_antecedenteService.getAntecedent(id).PacienteId);
-            ViewBag.Antecedente = _antecedenteService.getAntecedent(id);
-            return View();
+            try
+            {
+                ViewBag.Paciente = _pacienteService.getPatient((int)_antecedenteService.getAntecedent(id).PacienteId);
+                ViewBag.Antecedente = _antecedenteService.getAntecedent(id);
+                return View();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return Redirect("/Home/Error");
+            }
         }
 
         [HttpPost]
@@ -57,13 +67,15 @@ namespace MVC.Controllers
             try
             {
                 _antecedenteService.editAntecedent(antecedente);
+                string redirect = "/Paciente/viewDetails/" + antecedente.PacienteId;
+                return Redirect(redirect);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return Redirect("/Home/Error");
             }
-            string redirect = "/Paciente/viewDetails/" + antecedente.PacienteId;
-            return Redirect(redirect);
+
         }
 
         public ActionResult deleteAntecedent(int id)
@@ -71,7 +83,6 @@ namespace MVC.Controllers
             ViewBag.Antecedente = _antecedenteService.getAntecedent(id);
             return View();
         }
-
 
     }
 }
