@@ -35,13 +35,14 @@ namespace MVC.Controllers
             try
             {
                 _pacienteService.create(paciente);
+                return Redirect("/Paciente/ListPatient");
+
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return Redirect("/Home/Error");
             }
-            return Redirect("/Paciente/ListPatient");
-
         }
 
         public ActionResult ListPatient()

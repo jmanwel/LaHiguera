@@ -29,13 +29,14 @@ namespace MVC.Controllers
             try
             {
                 _pediatriaService.create(pediatria);
+                string redirect = "/Paciente/viewDetails/" + pediatria.PacienteId;
+                return Redirect(redirect);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return Redirect("/Home/Error");
             }
-            string redirect = "/Paciente/viewDetails/" + pediatria.PacienteId;
-            return Redirect(redirect);
         }
 
         public ActionResult editPediatry(int id)
@@ -51,13 +52,15 @@ namespace MVC.Controllers
             try
             {
                 _pediatriaService.edit(pediatria);
+                string redirect = "/Paciente/viewDetails/" + pediatria.PacienteId;
+                return Redirect(redirect);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return Redirect("/Home/Error");
             }
-            string redirect = "/Paciente/viewDetails/" + pediatria.PacienteId;
-            return Redirect(redirect);
+
         }
 
 

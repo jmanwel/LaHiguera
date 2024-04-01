@@ -29,13 +29,15 @@ namespace MVC.Controllers
             try
             {
                 _ginecologiaService.create(ginecologia);
+                string redirect = "/Paciente/viewDetails/" + ginecologia.PacienteId;
+                return Redirect(redirect);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return Redirect("/Home/Error");
             }
-            string redirect = "/Paciente/viewDetails/" + ginecologia.PacienteId;
-            return Redirect(redirect);
+
         }
 
         public ActionResult editGinecology(int id)
@@ -51,13 +53,14 @@ namespace MVC.Controllers
             try
             {
                 _ginecologiaService.edit(ginecologia);
+                string redirect = "/Paciente/viewDetails/" + ginecologia.PacienteId;
+                return Redirect(redirect);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-            }
-            string redirect = "/Paciente/viewDetails/" + ginecologia.PacienteId;
-            return Redirect(redirect);
+                return Redirect("/Home/Error");
+            }            
         }
 
 

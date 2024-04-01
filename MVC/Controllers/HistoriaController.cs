@@ -28,12 +28,14 @@ namespace MVC.Controllers
             try
             {
                 _historiaService.create(history);
+                string redirect = "/Paciente/viewDetails/" + history.PacienteId;
+                return Redirect(redirect);
             }
             catch (Exception e) {
                 Console.WriteLine(e.ToString());
+                return Redirect("/Home/Error");
             }
-            string redirect = "/Paciente/viewDetails/" + history.PacienteId;
-            return Redirect(redirect);
+
         }
 
         public ActionResult editHistory(int id)
