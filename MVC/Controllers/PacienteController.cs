@@ -36,7 +36,6 @@ namespace MVC.Controllers
             {
                 _pacienteService.create(paciente);
                 return Redirect("/Paciente/ListPatient");
-
             }
             catch (Exception e)
             {
