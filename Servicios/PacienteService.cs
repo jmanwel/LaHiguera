@@ -20,7 +20,7 @@ namespace Servicios
             //This method persists Patients objects in DDBB            
             if (_ctxt.Pacientes.Where(o => o.Dni == paciente.Dni) == null || paciente.Dni == null)
             {
-                paciente.FlgActivo = 1;
+                paciente.ParajeAtencion = paciente.ParajeAtencion.ToUpper().Trim();
                 _ctxt.Pacientes.Add(paciente);
                 _ctxt.SaveChanges();
             }
