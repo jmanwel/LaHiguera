@@ -44,7 +44,7 @@ body {
     left: -5px;
     min-width: 150px;
     text-align: center;
-    width: 100%;
+    overflow: auto;
     height: 50px;
     white-space: nowrap;
     top: -60px;
