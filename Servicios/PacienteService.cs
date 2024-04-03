@@ -18,8 +18,13 @@ namespace Servicios
         public void create(Paciente paciente)
         {
             //This method persists Patients objects in DDBB
-            _ctxt.Pacientes.Add(paciente);
-            _ctxt.SaveChanges();
+            if (_ctxt.Pacientes.Where(o => o.Dni == paciente.Dni) == null) {
+                _ctxt.Pacientes.Add(paciente);
+                _ctxt.SaveChanges();
+            }else
+            {
+                Console.WriteLine("Paciente ya existe");
+            }
         }
 
         public void setDeactivate(int id_patient)
