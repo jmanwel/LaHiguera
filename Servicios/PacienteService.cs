@@ -44,6 +44,7 @@ namespace Servicios
         }
         public Paciente getPatient(int id_patient)
         {
+            //This method returns a object patient (by the id field)
             return _ctxt.Pacientes.Find(id_patient);
         }
         public void editPatient(Paciente paciente)

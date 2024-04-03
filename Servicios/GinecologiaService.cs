@@ -32,7 +32,7 @@ namespace Servicios
 
         public void edit(Ginecologia ginecologia)
         {
-            //This method updates Pediatry objects in DDBB
+            //This method updates ginecology objects in DDBB
             var ginecologia_updated = _ctxt.Ginecologia.Find(ginecologia.Id);
             if (ginecologia_updated == null)
             {

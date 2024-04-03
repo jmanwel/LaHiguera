@@ -12,6 +12,7 @@ namespace Servicios
 
         public void create(Complementario complementario)
         {
+            //This method persist Complementario objects in DDBB
             complementario.FechaCreacion = DateTime.Today.ToString("d").ToString();
             _ctxt.Complementarios.Add(complementario);
             _ctxt.SaveChanges();
@@ -29,6 +30,7 @@ namespace Servicios
 
         public List<Complementario> getComplementaryData(int id_patient)
         {
+            //This method returns Complementario objects for a patient
             //var id = _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList()[0].Id;
             //return _ctxt.Complementarios.Find(id);
             return _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList();

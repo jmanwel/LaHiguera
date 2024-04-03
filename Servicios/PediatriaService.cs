@@ -20,13 +20,13 @@ namespace Servicios
 
         public List<Pediatria> getAllPediatryForAPatient(int id_patient)
         {
-            // This Method returns all antecedent for a patient
+            // This Method returns all pediatry for a patient
             return _ctxt.Pediatria.Where(o => o.PacienteId == id_patient).OrderByDescending(o => o.FechaCreacion).ToList();
         }
 
         public Pediatria getPediatryForAPatient(int id)
         {
-            // This Method returns all antecedent for a patient
+            // This Method returns a pediatry object for a patient
             return _ctxt.Pediatria.Find(id);
         }
 
