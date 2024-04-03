@@ -17,14 +17,17 @@ namespace Servicios
 
         public void create(Paciente paciente)
         {
-            //This method persists Patients objects in DDBB
-            if (_ctxt.Pacientes.Where(o => o.Dni == paciente.Dni) == null) {
+            //This method persists Patients objects in DDBB            
+            if (_ctxt.Pacientes.Where(o => o.Dni == paciente.Dni) == null || paciente.Dni == null)
+            {
+                paciente.ParajeAtencion = paciente.ParajeAtencion.ToUpper().Trim();
                 _ctxt.Pacientes.Add(paciente);
                 _ctxt.SaveChanges();
-            }else
+            }
+            else
             {
                 Console.WriteLine("Paciente ya existe");
-            }
+            }          
         }
 
         public void setDeactivate(int id_patient)
