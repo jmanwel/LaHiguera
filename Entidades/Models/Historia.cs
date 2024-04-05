@@ -13,9 +13,9 @@ public partial class Historia
 
     public string? Ta { get; set; }
 
-    public int? Peso { get; set; }
+    public double? Peso { get; set; }
 
-    public int? Talla { get; set; }
+    public double? Talla { get; set; }
 
     public int? Imc { get; set; }
 
@@ -27,7 +27,7 @@ public partial class Historia
 
     public int? Saturacion { get; set; }
 
-    public int? Temperatura { get; set; }
+    public double? Temperatura { get; set; }
 
     public int? Glicemia { get; set; }
 
