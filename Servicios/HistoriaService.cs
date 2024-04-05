@@ -25,6 +25,9 @@ namespace Servicios
             {
                 history.Icc = 0;
             }
+            history.Talla = (double?)Convert.ToDecimal(history.Talla);
+            history.Temperatura = (double?)Convert.ToDecimal(history.Temperatura);
+            history.Peso = (double?)Convert.ToDecimal(history.Peso);
             history.FechaCreacion = DateTime.Today;
             _ctxt.Historia.Add(history);
             _ctxt.SaveChanges();
@@ -59,6 +62,7 @@ namespace Servicios
                 {
                     history_updated.Icc = 0;
                 }
+                history_updated.Temperatura = (double?)Convert.ToDecimal(history.Temperatura);
                 history_updated.CircCintura = history.CircCintura;
                 history_updated.CircCadera = history.CircCadera;
                 history_updated.Ecg = history.Ecg;
@@ -79,9 +83,9 @@ namespace Servicios
                 history_updated.ObservacionLab = history.ObservacionLab;
                 history_updated.Radiografia = history.Radiografia;
                 history_updated.ObservacionRadiografia = history.ObservacionRadiografia;
-                history_updated.Peso = history.Peso;
+                history_updated.Peso = (double?)Convert.ToDecimal(history.Peso);
                 history_updated.Ta = history.Ta;
-                history_updated.Talla = history.Talla;
+                history_updated.Talla = (double?)Convert.ToDecimal(history.Talla);
                 history_updated.Saturacion = history.Saturacion;
                 history_updated.Tratamiento = history.Tratamiento;
                 _ctxt.SaveChanges();
