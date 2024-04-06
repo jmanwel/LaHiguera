@@ -20,7 +20,10 @@ namespace Servicios
             //This method persists Patients objects in DDBB            
             if (_ctxt.Pacientes.Where(o => o.Dni == paciente.Dni) == null || paciente.Dni == null)
             {
-                paciente.ParajeAtencion = paciente.ParajeAtencion.ToUpper().Replace(" ", "");
+                if (paciente.ParajeAtencion != null)
+                {
+                    paciente.ParajeAtencion = paciente.ParajeAtencion.ToUpper().Replace(" ", "");
+                }
                 _ctxt.Pacientes.Add(paciente);
                 _ctxt.SaveChanges();
             }
@@ -63,7 +66,10 @@ namespace Servicios
                 updated_patient.FlgActivo = paciente.FlgActivo;
                 updated_patient.FechaNac = paciente.FechaNac;
                 updated_patient.FechaAlta = paciente.FechaAlta;
-                updated_patient.ParajeAtencion = paciente.ParajeAtencion.ToUpper().Replace(" ", "");
+                if (paciente.ParajeAtencion != null)
+                {
+                    updated_patient.ParajeAtencion = paciente.ParajeAtencion.ToUpper().Replace(" ", "");
+                }
                 updated_patient.Dni = paciente.Dni;
                 _ctxt.SaveChanges();
             }
