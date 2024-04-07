@@ -139,6 +139,40 @@
                         </div>
                     </div>                    
                 </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-12 card">
+                        <div class="card-body">
+                            <h5>Últimas consultas</h5>
+                            @if (Enumerable.Count(ViewBag.Consulta) > 0)
+                            {
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha Atención</th>
+                                            <th>Motivo</th>
+                                            <th>Diagnóstico</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Entidades.Models.Consulta consulta in ViewBag.Consulta)
+                                        {
+                                            <tr>
+                                                <td>@consulta.FechaAtencion.ToString().Split(" ")[0]</td>
+                                                <td>@consulta.MotivoConsulta</td>
+                                                <td>@consulta.DiagnosticoConsulta</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                            }else{
+                                <h5>No se registran consultas para este paciente</h5>
+                            }
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
