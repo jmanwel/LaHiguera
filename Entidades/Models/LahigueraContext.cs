@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DotNetEnv;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,8 +33,17 @@ public partial class LahigueraContext : DbContext
     public virtual DbSet<Pediatria> Pediatria { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlite("DataSource=C:\\Data\\Voluntariado\\LaHiguera\\Entidades\\lahiguera.db;");
+    {
+        Env.Load();
+        string connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+        if(connectionString == null){
+            throw new InvalidOperationException("Connection string not found");
+        }else{
+            if(!optionsBuilder.IsConfigured){
+                optionsBuilder.UseSqlite(connectionString);
+            }
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
