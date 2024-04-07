@@ -40,13 +40,62 @@
                     {
                         <option value=1>Si</option>
                         <option selected value=0>No</option>
-                    }
-                    
+                    }         
                 </select>
             </div>
             <div class="col">
                 <label class="form-label" for="Escolaridad">Escolaridad: </label>
                 <input class="form-control" type="text" name="Escolaridad" value="@ViewBag.Complementario[0].Escolaridad" />
+                <select class="form-control" name="Escolaridad">
+                    if (@ViewBag.Complementario[0].Escolaridad == "Ninguna"){
+                        <option selected value="Ninguna">Ninguna</option>
+                        <option value="Jardín infantes">Jardín infantes</option>
+                        <option value="Primaria">Primaria</option>
+                        <option value="Secundaria">Secundaria</option>
+                        <option value="Terciaria">Terciaria</option>
+                        <option value="Universitaria">Universitaria</option>
+                    }
+                    if (@ViewBag.Complementario[0].Escolaridad == "Jardín infantes"){
+                    <option value="Ninguna">Ninguna</option>
+                    <option selected value="Jardín infantes">Jardín infantes</option>
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Terciaria">Terciaria</option>
+                    <option value="Universitaria">Universitaria</option>
+                    }
+                    if (@ViewBag.Complementario[0].Escolaridad == "Primaria"){
+                    <option value="Ninguna">Ninguna</option>
+                    <option value="Jardín infantes">Jardín infantes</option>
+                    <option selected value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Terciaria">Terciaria</option>
+                    <option value="Universitaria">Universitaria</option>
+                    }
+                    if (@ViewBag.Complementario[0].Escolaridad == "Secundaria"){
+                    <option value="Ninguna">Ninguna</option>
+                    <option value="Jardín infantes">Jardín infantes</option>
+                    <option value="Primaria">Primaria</option>
+                    <option selected value="Secundaria">Secundaria</option>
+                    <option value="Terciaria">Terciaria</option>
+                    <option value="Universitaria">Universitaria</option>
+                    }
+                    if (@ViewBag.Complementario[0].Escolaridad == "Terciaria"){
+                    <option value="Ninguna">Ninguna</option>
+                    <option value="Jardín infantes">Jardín infantes</option>
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option selected value="Terciaria">Terciaria</option>
+                    <option value="Universitaria">Universitaria</option>
+                    }
+                    if (@ViewBag.Complementario[0].Escolaridad == "Universitaria"){
+                    <option value="Ninguna">Ninguna</option>
+                    <option value="Jardín infantes">Jardín infantes</option>
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Terciaria">Terciaria</option>
+                    <option selected value="Universitaria">Universitaria</option>
+                    }
+                </select>
             </div>
             <div class="col">
                 <label class="form-label" for="Ocupacion">Ocupacion: </label>
