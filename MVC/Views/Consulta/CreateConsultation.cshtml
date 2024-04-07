@@ -71,5 +71,6 @@
         <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden />
         <input type="number" name="EdadConsulta" value=@edad hidden />
         <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Crear Consulta" />
+        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Paciente.Id">Cancelar</a>
     </form>
 </div>
