@@ -19,24 +19,24 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item mb-3">
-                        <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_consulta">
+                        <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_consulta" @ViewBag.Disable >
                             Consultas
-                        </button>                        
+                        </button>
                     </li>
                     <li class="nav-item mb-3">
-                        <button type="button"  style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_antecedente">
+                        <button type="button"  style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_antecedente" @ViewBag.Disable>
                             Antecedentes
                         </button>
                     </li>
                     <li class="nav-item mb-3">
-                        <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_historico">
+                        <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_historico" @ViewBag.Disable>
                             Historia
                         </button>
                     </li>
                     @if (@ViewBag.Paciente.Sexo =="Femenino")
                     {
                         <li class="nav-item mb-3">
-                            <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_ginecologia">
+                            <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_ginecologia" @ViewBag.Disable>
                                 Ginecología
                             </button>                            
                         </li>
@@ -44,7 +44,7 @@
                     @if (@edad <= 15)
                     {
                         <li class="nav-item mb-3">
-                            <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_pediatria">
+                            <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_pediatria" @ViewBag.Disable>
                                 Pediatría
                             </button>                            
                         </li>
@@ -65,40 +65,47 @@
                             }
                             <p class="card-text">Fecha de nacimiento: <strong>@ViewBag.Paciente.FechaNac</strong></p>
                             <p class="card-text"><strong>@edad @str(@edad)</strong> | Sexo: <strong>@ViewBag.Paciente.Sexo</strong></p>
-                            <div class="tip">
-                                <div class="hover-box">Crear una CONSULTA</div>
-                                <a asp-controller="Consulta" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
-                            </div>
-                            <div class="tip">
-                                <div class="hover-box">Crear un ANTECEDENTE</div>
-                                <a asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
-                            </div>
-                            <div class="tip">
-                                <div class="hover-box">Crear una HISTORIA</div>
-                                <a asp-controller="Historia" asp-action="createHistory" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-heart.svg" /></a>
-                            </div>
-                            @if(edad <= 15)
-                            {
+                            @if(ViewBag.Paciente.FlgActivo == 1){
                                 <div class="tip">
-                                    <div class="hover-box">Crear consulta PEDIATRICA</div>
-                                    <a asp-controller="Pediatria" asp-action="createPediatry" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/balloon-heart.svg" /></a>
+                                    <div class="hover-box">Crear una CONSULTA</div>
+                                    <a asp-controller="Consulta" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
+                                </div>
+                                <div class="tip">
+                                    <div class="hover-box">Crear un ANTECEDENTE</div>
+                                    <a asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
+                                </div>
+                                <div class="tip">
+                                    <div class="hover-box">Crear una HISTORIA</div>
+                                    <a asp-controller="Historia" asp-action="createHistory" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-heart.svg" /></a>
+                                </div>
+                                @if(edad <= 15)
+                                {
+                                    <div class="tip">
+                                        <div class="hover-box">Crear consulta PEDIATRICA</div>
+                                        <a asp-controller="Pediatria" asp-action="createPediatry" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/balloon-heart.svg" /></a>
+                                    </div>
+                                }
+                                @if (@ViewBag.Paciente.Sexo == "Femenino")
+                                {
+                                    <div class="tip">
+                                        <div class="hover-box">Crear consulta GINECOLÓGICA</div>
+                                        <a asp-controller="Ginecologia" asp-action="CreateGinecology" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/gender-female.svg" /></a>
+                                    </div>
+                                }                        
+                                <div class="tip">
+                                    <div class="hover-box">Modificar datos</div>
+                                    <a asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
+                                </div>
+                                <div class="tip">
+                                    <div class="hover-box">Dar de baja</div>
+                                    <a class="mx-1" id="button_trash" asp-action="setDeactivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>
+                                </div>
+                            }else{
+                                <div class="tip">
+                                    <div class="hover-box">Re Activar</div>
+                                    <a class="mx-1" id="button_trash" asp-action="setActivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bootstrap-reboot.svg" /></a>
                                 </div>
                             }
-                            @if (@ViewBag.Paciente.Sexo == "Femenino")
-                            {
-                                <div class="tip">
-                                    <div class="hover-box">Crear consulta GINECOLÓGICA</div>
-                                    <a asp-controller="Ginecologia" asp-action="CreateGinecology" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/gender-female.svg" /></a>
-                                </div>
-                            }                        
-                            <div class="tip">
-                                <div class="hover-box">Modificar datos</div>
-                                <a asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
-                            </div>
-                            <div class="tip">
-                                <div class="hover-box">Dar de baja</div>
-                                <a class="mx-1" id="button_trash" asp-action="setDeactivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>
-                            </div>
                         </div>
                     </div>
                     <div class="card" style="width: 36rem; margin-left: 5px;">
@@ -123,18 +130,22 @@
                                     <h5 class="card-title">Notas</h5>
                                     <p class="card-text">@complementario.Notas</p>
                                     <br />
-                                    <div class="tip text-center">
-                                        <div class="hover-box">Modificar datos complementarios</div>
-                                        <a class="mx-4" asp-controller="Complementario" asp-action="editComplementary" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
-                                    </div>
+                                    @if(ViewBag.Paciente.FlgActivo == 1){
+                                        <div class="tip text-center">
+                                            <div class="hover-box">Modificar datos complementarios</div>
+                                            <a class="mx-4" asp-controller="Complementario" asp-action="editComplementary" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
+                                        </div>
+                                    }
                                 }
                             }
                             else
                             {
-                                <div class="tip text-center">
-                                    <div class="hover-box">Agregar datos complementarios</div>
-                                    <a class="mx-4" asp-controller="Complementario" asp-action="create" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-plus.svg" /></a>
-                                </div>
+                                @if(ViewBag.Paciente.FlgActivo == 1){
+                                    <div class="tip text-center">
+                                        <div class="hover-box">Agregar datos complementarios</div>
+                                        <a class="mx-4" asp-controller="Complementario" asp-action="create" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-plus.svg" /></a>
+                                    </div>
+                                }
                             }
                         </div>
                     </div>                    
