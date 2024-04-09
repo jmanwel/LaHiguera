@@ -15,6 +15,11 @@ namespace Servicios
             return _ctxt.Pacientes.Where(o => o.FlgActivo == 1).ToList();
         }
 
+        public List<Paciente> getAllInactivePatients() { 
+            // This Method returns all patients active
+            return _ctxt.Pacientes.Where(o => o.FlgActivo == 0).ToList();
+        }
+
         public void create(Paciente paciente)
         {
             //This method persists Patients objects in DDBB            
@@ -31,6 +36,22 @@ namespace Servicios
             {
                 Console.WriteLine("Paciente ya existe");
             }          
+        }
+
+        public void setActivate(int id_patient)
+        {
+            //This method set the field FlgActivo to 1
+            var activate_patient = _ctxt.Pacientes.Find(id_patient);
+            if (activate_patient is null)
+            {
+                Console.WriteLine("Patient not found");
+            }
+            else
+            {
+                activate_patient.FlgActivo = 1;
+                _ctxt.SaveChanges();
+            }
+            
         }
 
         public void setDeactivate(int id_patient)

@@ -50,6 +50,18 @@ namespace MVC.Controllers
             return View();
         }
 
+        public ActionResult ListInactivePatient()
+        {
+            ViewBag.Pacientes = _pacienteService.getAllInactivePatients();
+            return View();
+        }
+
+        public ActionResult setActivate(int id)
+        {
+            _pacienteService.setActivate(id);
+            return Redirect("/Paciente/ListPatient");
+        }
+
         public ActionResult setDeactivate(int id)
         {
             _pacienteService.setDeactivate(id);
@@ -74,6 +86,10 @@ namespace MVC.Controllers
         public ActionResult viewDetails(int id)
         {
             ViewBag.Paciente = _pacienteService.getPatient(id);
+            ViewBag.Disable = "";
+            if(ViewBag.Paciente.FlgActivo == 0){
+                ViewBag.Disable = "disabled";
+            }
             ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
             ViewBag.Consulta = _consultaService.getAllConsultationFromIdPatient(id);

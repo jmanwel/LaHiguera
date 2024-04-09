@@ -1,0 +1,51 @@
+﻿@model Entidades.Models.Paciente;
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container text-center">
+    @if (Enumerable.Count(ViewBag.Pacientes) > 0)
+    {
+    <h1>Lista de Pacientes inactivos</h1>
+    <br/>
+    <div class="input-group mb-3">
+        <input id="input_data" onkeyup="filter_patientes()" type="text" class="form-control" placeholder="Filtro de pacientes. Puede filtrar por cualquier campo de la tabla">
+        <span class="input-group-text"><img src="~/icons/search.svg" /></span>
+    </div>    
+    <br />
+    <table class="table table-hover" id="active_patients">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Fecha de Nacimiento</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Paraje de atención</th>
+                <th scope="col">Fecha de alta</th>
+                <th scope="col">Ver</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (Entidades.Models.Paciente paciente in ViewBag.Pacientes)
+        {
+                    <tr>
+                    <td>@paciente.Nombre</td>
+                    <td>@paciente.Apellido</td>
+                    <td>@paciente.Dni</td>
+                    <td>@paciente.FechaNac</td>
+                    <td>@paciente.Sexo</td>
+                    <td>@paciente.ParajeAtencion</td>
+                    <td>@paciente.FechaAlta.ToString().Split(" ")[0]</td>
+                    <td><a asp-action="viewDetails" asp-route-id="@paciente.Id"><img src="~/icons/eye.svg" /></a></td>
+                    <td></td>
+                </tr>
+        }
+        </tbody>
+    </table>
+    } else
+    {
+        <h4>No se registran pacientes inactivos en la base de datos</h4>
+    }
+</div>
