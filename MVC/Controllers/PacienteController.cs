@@ -1,6 +1,8 @@
 ﻿using Entidades.Models;
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
 using Servicios;
+using System.ComponentModel;
 
 namespace MVC.Controllers
 {
@@ -99,5 +101,26 @@ namespace MVC.Controllers
             return View();
         }
 
+
+        [Route("/Paciente/Exportar")]
+        public ActionResult Export()
+        {
+            var collection = _pacienteService.getAllPatients();
+
+            var stream = new MemoryStream();
+
+            using (var package = new ExcelPackage(stream))
+            {
+                var workSheet = package.Workbook.Worksheets.Add("Pacientes");
+                workSheet.Cells.LoadFromCollection(collection, true);
+                package.Save();
+            }
+
+            stream.Position = 0;
+            string excelName = $"pacientes-{DateTime.Now.ToString("yyyyMMddHHmm")}.xlsx";
+
+            //return File(stream, "application/octet-stream", excelName);  
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+        }
     }
 }

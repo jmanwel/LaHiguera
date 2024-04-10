@@ -12,8 +12,10 @@
     <div class="input-group mb-3">
         <input id="input_data" onkeyup="filter_patientes()" type="text" class="form-control" placeholder="Filtro de pacientes. Puede filtrar por cualquier campo de la tabla">
         <span class="input-group-text"><img src="~/icons/search.svg" /></span>
-    </div>    
-    <br />
+    </div>
+    <div class="input-group mb-3">
+        <a href="@Url.Action("Exportar","Paciente")" class="btn btn-secondary">Exportar</a>
+    </div>
     <table class="table table-hover" id="active_patients">
         <thead>
             <tr>
