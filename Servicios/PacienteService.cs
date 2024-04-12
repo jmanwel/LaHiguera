@@ -12,7 +12,8 @@ namespace Servicios
 
         public List<Paciente> getAllPatients() { 
             // This Method returns all patients active
-            return _ctxt.Pacientes.Where(o => o.FlgActivo == 1).ToList();
+            // return _ctxt.Pacientes.Where(o => o.FlgActivo == 1).ToList();
+            return _ctxt.Pacientes.ToList();
         }
 
         public List<Paciente> getAllInactivePatients() { 
