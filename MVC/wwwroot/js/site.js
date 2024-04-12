@@ -39,6 +39,11 @@ $(document).ready( function () {
                 _: 'pacientes',
                 1: 'paciente'
             }
+        },
+        layout: {
+            topStart: {
+                buttons:['excel']
+            }
         }
     });    
 } );
