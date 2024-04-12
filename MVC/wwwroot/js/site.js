@@ -3,26 +3,44 @@
 
 // Write your JavaScript code.
 
-function filter_patientes() {
-    var input, filter, table, tr, td, i, j, visible;
-    input = document.querySelector("#input_data");
-    filter = input.value.toUpperCase();
-    table = document.querySelector("#active_patients");
-    tr = table.querySelectorAll("tr");
-    for (i = 1; i < tr.length; i++) {
-        visible = false;
-        td = tr[i].querySelectorAll("td");
-        for (j = 0; j < td.length; j++) {
-            if (td[j] && td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                visible = true;
+$(document).ready( function () {
+    $('#patients_list').DataTable({
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    let column = this;
+                    let title = column.footer().textContent;
+     
+                    // Create input element
+                    let input = document.createElement('input');
+                    input.placeholder = title;
+                    input.setAttribute('id', 'txtSearch' + column.index());
+                    if(column.index() == 7){
+                        input.value = "SI";
+                    }
+                    column.footer().replaceChildren(input);
+     
+                    // Event listener for user input
+                    input.addEventListener('keyup', () => {
+                        if (column.search() !== this.value) {
+                            column.search(input.value).draw();
+                        }
+                    });
+                });
+            this.api().column(7).search("SI").draw();
+        },
+        autoWidth: false,
+        language: {
+            search: 'Busqueda:',
+            info: 'Mostrando _START_ a _END_ de _TOTAL_ entradas',
+            lengthMenu: 'Mostrar _MENU_ entradas',
+            entries: {
+                _: 'pacientes',
+                1: 'paciente'
             }
         }
-        if (visible === true) {
-            tr[i].style.display = "";
-        } else {
-            tr[i].style.display = "none";
-        }
-    }
-}
+    });    
+} );
 
 

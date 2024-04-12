@@ -56,3 +56,7 @@ body {
     font-size: .86em;
     z-index: 900;
 }
+
+#patients_list tfoot tr th input {
+    width: 100%;
+}
