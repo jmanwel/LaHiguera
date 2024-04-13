@@ -23,8 +23,27 @@ namespace Servicios
 
         public void create(Paciente paciente)
         {
-            //This method persists Patients objects in DDBB            
-            if (_ctxt.Pacientes.Where(o => o.Dni == paciente.Dni) == null || paciente.Dni == null)
+            //Creo una variable para saber si debo guardar o no un paciente, por defecto en false
+            bool guardaPaciente = false;
+
+            //Chequeo si el dni es null
+            if(paciente.Dni != null) 
+            {
+                //No es núlo ovacio así que chequeo que el dni no este duplicado
+                bool existePaciente = _ctxt.Pacientes.Any(o => o.Dni == paciente.Dni);
+
+                if (!existePaciente)
+                {
+                    // No hay dni duplicado, guardo el paciente
+                    guardaPaciente = true;
+                }
+
+            }else{
+                //Si el dni es nulo, guardo el paciente
+                guardaPaciente = true;
+            }
+
+            if (guardaPaciente)
             {
                 if (paciente.ParajeAtencion != null)
                 {
@@ -36,6 +55,7 @@ namespace Servicios
             else
             {
                 Console.WriteLine("Paciente ya existe");
+                throw new Exception("Paciente ya existe");
             }          
         }
 
