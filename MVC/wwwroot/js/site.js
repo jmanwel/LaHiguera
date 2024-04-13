@@ -41,7 +41,7 @@ $(document).ready( function () {
             }
         },
         layout: {
-            topStart: {
+            top2Start: {
                 buttons:['excel']
             }
         }
