@@ -10,11 +10,11 @@
     <form action="/Paciente/CreatePatient" method="POST">
         <div class="row">
             <div class="col">
-                <label class="form-label" for="nombre">Nombre: </label>
+                <label class="form-label" for="nombre">Nombre: *</label>
                 <input class="form-control" type="text" name="nombre" value="" required/>
             </div>
             <div class="col">
-                <label class="form-label" for="apellido">Apellido: </label>
+                <label class="form-label" for="apellido">Apellido: *</label>
                 <input class="form-control" type="text" name="apellido" value="" required />
             </div>
         </div>
@@ -25,14 +25,14 @@
                 <input class="form-control" type="number" name="Dni" value="" />
             </div>
             <div class="col">
-                <label class="form-label" for="FechaNac">Fecha de Nacimiento: </label>
+                <label class="form-label" for="FechaNac">Fecha de Nacimiento: *</label>
                 <input class="form-control" type="date" name="FechaNac" value="" required />
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Sexo">Sexo: </label>
+                <label class="form-label" for="Sexo">Sexo: *</label>
                 <select class="form-control" name="Sexo" required>
                     <option value="">Elija una opción</option>
                     <option value="femenino">Femenino</option>
@@ -40,7 +40,7 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="ParajeAtencion">Paraje de atención: </label>
+                <label class="form-label" for="ParajeAtencion">Paraje de atención: *</label>
                 <input class="form-control" type="text" name="ParajeAtencion" value="" required />
             </div>
         </div>

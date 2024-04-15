@@ -5,7 +5,8 @@
 }
 
 <div class="container text-center">
-    <h1 class="display-4">Modificar Consulta para @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h4>Consulta(editar)</h4>
     <br />
     <form action="/Consulta/editConsultation" method="POST">
         <div class="row">
@@ -68,11 +69,11 @@
         {
             <div class="row">
                 <div class="col">
-                    <label class="form-label" for="Fum">Fum:</label>
+                    <label class="form-label" for="Fum">Fecha última menstruación (Fum):</label>
                     <input class="form-control" type="date" name="Fum" value="@ViewBag.Consulta.Fum.ToString("yyyy-MM-dd")" />
                 </div>
                 <div class="col">
-                    <label class="form-label" for="MacActual">Mac Actual: </label>
+                    <label class="form-label" for="MacActual">Método anticonceptivo (Mac) Actual: </label>
                     <input class="form-control" type="text" name="MacActual" value="@ViewBag.Consulta.MacActual" />
                 </div>
                 <div class="col">

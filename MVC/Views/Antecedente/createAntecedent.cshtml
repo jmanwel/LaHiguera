@@ -5,7 +5,8 @@
 }
 
 <div class="container text-center">
-    <h1 class="display-4">Alta de Antecedente para @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h4>Antecedente (crear)</h4>
     <br />
     <form action="/Antecedente/CreateAntecedent" method="POST">
         <div class="row">
@@ -26,7 +27,7 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Drogas">Drogas: </label>
+                <label class="form-label" for="Drogas">Consumo Drogas: </label>
                 <select class="form-control" name="Drogas">
                     <option value=0>Elija una opción</option>
                     <option value=1>Si</option>
@@ -146,7 +147,7 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="RiesgoNut">RiesgoNut: </label>
+                <label class="form-label" for="RiesgoNut">Riesgo Nutricional: </label>
                 <select class="form-control" name="RiesgoNut">
                     <option value=0>Elija una opción</option>
                     <option value=1>Si</option>
@@ -154,7 +155,7 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="RiesgoSoc">RiesgoSoc: </label>
+                <label class="form-label" for="RiesgoSoc">Riesgo Social: </label>
                 <select class="form-control" name="RiesgoSoc">
                     <option value=0>Elija una opción</option>
                     <option value=1>Si</option>
@@ -182,7 +183,7 @@
         <br />        
         <div class="row">
             <div class="col">
-                <label class="form-label" for="AntPerinatales">AntPerinatales: </label>
+                <label class="form-label" for="AntPerinatales">Antecedentes Perinatales: </label>
                 <select class="form-control" name="AntPerinatales">
                     <option value=0>Elija una opción</option>
                     <option value=1>Si</option>
@@ -190,7 +191,7 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Vacunacion">Vacunacion: </label>
+                <label class="form-label" for="Vacunacion">Vacunación: </label>
                 <select class="form-control" name="Vacunacion">
                     <option value=0>Elija una opción</option>
                     <option value=1>Si</option>
@@ -198,7 +199,7 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Medicacion">Medicacion: </label>
+                <label class="form-label" for="Medicacion">Medicación: </label>
                 <select class="form-control" name="Medicacion">
                     <option value=0>Elija una opción</option>
                     <option value=1>Si</option>

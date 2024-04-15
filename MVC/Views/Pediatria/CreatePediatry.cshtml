@@ -5,7 +5,8 @@
 }
 
 <div class="container text-center">
-    <h1 class="display-4">Alta de consulta pediatrica para el paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h4>Pediatría (crear)</h4>
     <br />
     <form action="/Pediatria/CreatePediatry" method="POST">
         <div class="row">

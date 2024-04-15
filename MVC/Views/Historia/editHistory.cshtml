@@ -5,7 +5,8 @@
 }
 
 <div class="container text-center">
-    <h1 class="display-4">Editar de Historia para el paciente @ViewBag.Nombre @ViewBag.Apellido</h1>
+    <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h4>Historia (editar)</h4>
     <br />
     <form action="/Historia/editHistory" method="POST">
         <div class="row">
@@ -14,7 +15,7 @@
                 <input class="form-control" type="text" name="ExamenFisico" value="@ViewBag.Historia.ExamenFisico" />
             </div>
             <div class="col">
-                <label class="form-label" for="Ta">TA: </label>
+                <label class="form-label" for="Ta">Tensión arterial (TA): </label>
                 <input class="form-control" type="text" name="Ta" value="@ViewBag.Historia.Ta" />
             </div>
         </div>

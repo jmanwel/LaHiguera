@@ -5,7 +5,8 @@
 }
 
 <div class="container text-center">
-    <h1 class="display-4">Alta de consulta ginecólogica para el paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
+    <h4>Ginecólogía (crear)</h4>
     <br />
     <form action="/Ginecologia/CreateGinecology" method="POST">
         <div class="row">
@@ -18,7 +19,7 @@
                 <input class="form-control" type="number" name="Para" value="" />
             </div>
             <div class="col">
-                <label class="form-label" for="Cesareas">Cesareas: </label>
+                <label class="form-label" for="Cesareas">Cesáreas: </label>
                 <input class="form-control" type="number" name="Cesareas" value="" />
             </div>
             <div class="col">
@@ -29,7 +30,7 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Irs">Irs: </label>
+                <label class="form-label" for="Irs">Inicio relaciones sexuales (Irs): </label>
                 <input class="form-control" type="number" name="Irs" value="" />
             </div>
             <div class="col">
