@@ -54,7 +54,7 @@
             </div>
         </div>
         <br />
-        @if (@ViewBag.Paciente.Sexo == "Femenino")
+        @if (@ViewBag.Paciente.Sexo.ToUpper() == "FEMENINO")
         {
             <div class="row">
                 <div class="col">
