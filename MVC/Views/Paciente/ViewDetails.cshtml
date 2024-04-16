@@ -34,7 +34,7 @@
                             Antecedentes
                         </button>
                     </li>
-                    @if (@ViewBag.Paciente.Sexo =="Femenino")
+                    @if (@ViewBag.Paciente.Sexo.ToUpper() == "FEMENINO")
                     {
                         <li class="nav-item mb-3">
                             <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_ginecologia" @ViewBag.Disable>
@@ -108,7 +108,7 @@
                                         </div>
                                     </div>
                                 }
-                                @if (@ViewBag.Paciente.Sexo == "Femenino")
+                                @if (@ViewBag.Paciente.Sexo.ToUpper() == "FEMENINO")
                                 {
                                     <div class="row">
                                         <div class="tip">
