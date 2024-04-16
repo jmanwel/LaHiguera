@@ -4,6 +4,10 @@
     Layout = "../Shared/_Layout.cshtml";
 }
 
+@{
+    string today = @DateTime.Today.ToString("yyyy-MM-dd");
+}
+
 <div class="container text-center">
     <h1 class="display-4">Alta de Paciente</h1>
     <br />
@@ -26,7 +30,7 @@
             </div>
             <div class="col">
                 <label class="form-label" for="FechaNac">Fecha de Nacimiento: *</label>
-                <input class="form-control" type="date" name="FechaNac" value="" required />
+                <input class="form-control" type="date" name="FechaNac" value="" required max="@today" />
             </div>
         </div>
         <br />
@@ -55,7 +59,7 @@
             </div>
             <div class="col">
                 <label class="form-label" for="FechaAlta">Fecha de alta: </label>
-                <input class="form-control" type="date" name="FechaAlta" value="" />
+                <input class="form-control" type="date" name="FechaAlta" value="" max="@today" />
             </div>
         </div>
         <br />

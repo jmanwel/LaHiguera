@@ -66,37 +66,37 @@
                             <p class="card-text">Fecha de nacimiento: <strong>@ViewBag.Paciente.FechaNac</strong></p>
                             <p class="card-text"><strong>@edad @str(@edad)</strong> | Sexo: <strong>@ViewBag.Paciente.Sexo</strong></p>
                             @if(ViewBag.Paciente.FlgActivo == 1){
-                                <div class="tip">
+                                <div class="tip mx-2">
                                     <div class="hover-box">Crear una CONSULTA</div>
                                     <a asp-controller="Consulta" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" /></a>
                                 </div>
-                                <div class="tip">
+                                <div class="tip mx-2">
                                     <div class="hover-box">Crear una HISTORIA</div>
                                     <a asp-controller="Historia" asp-action="createHistory" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-heart.svg" /></a>
                                 </div>
-                                <div class="tip">
+                                <div class="tip mx-2">
                                     <div class="hover-box">Crear un ANTECEDENTE</div>
                                     <a asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" /></a>
                                 </div>
                                 @if(edad <= 15)
                                 {
-                                    <div class="tip">
-                                        <div class="hover-box">Crear consulta PEDIATRICA</div>
+                                    <div class="tip mx-2">
+                                        <div class="hover-box">Crear consulta PEDIÁTRICA</div>
                                         <a asp-controller="Pediatria" asp-action="createPediatry" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/balloon-heart.svg" /></a>
                                     </div>
                                 }
                                 @if (@ViewBag.Paciente.Sexo == "Femenino")
                                 {
-                                    <div class="tip">
-                                        <div class="hover-box">Crear consulta GINECOLÓGICA</div>
+                                    <div class="tip mx-2">
+                                        <div class="hover-box">Crear consulta GINECOLOGÍCA</div>
                                         <a asp-controller="Ginecologia" asp-action="CreateGinecology" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/gender-female.svg" /></a>
                                     </div>
-                                }                        
-                                <div class="tip">
+                                }
+                                <div class="tip mx-2">
                                     <div class="hover-box">Modificar datos</div>
                                     <a asp-action="editPatient" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
                                 </div>
-                                <div class="tip">
+                                <div class="tip mx-2">
                                     <div class="hover-box">Dar de baja</div>
                                     <a class="mx-1" id="button_trash" asp-action="setDeactivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/trash.svg" /></a>
                                 </div>
@@ -110,9 +110,22 @@
                     </div>
                     <div class="card" style="width: 36rem; margin-left: 5px;">
                         <div class="card-body">
-                            <h5 class="card-title">Datos complementarios</h5>
                             @if (Enumerable.Count(ViewBag.Complementario) > 0)
                             {
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">Datos complementarios</h5>
+                                    </div>
+                                    <div class="col">                                    
+                                        @if (ViewBag.Paciente.FlgActivo == 1)
+                                        {
+                                            <div class="tip mx-8">
+                                                <div class="hover-box">Modificar datos complementarios</div>
+                                                <a class="mx-4" asp-controller="Complementario" asp-action="editComplementary" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
                                 @foreach (Entidades.Models.Complementario complementario in ViewBag.Complementario)
                                 {
                                     <p class="card-text">Lugar de nacimiento: <strong>@complementario.LugarNac</strong> | Paraje de Residencia: <strong>@complementario.ParajeResidencia</strong></p>
@@ -129,13 +142,7 @@
                                     <p class="card-text">Ocupacion: <strong>@complementario.Ocupacion</strong> | Año Ingreso: <strong>@complementario.AnoIngreso</strong></p>
                                     <h5 class="card-title">Notas</h5>
                                     <p class="card-text">@complementario.Notas</p>
-                                    <br />
-                                    @if(ViewBag.Paciente.FlgActivo == 1){
-                                        <div class="tip text-center">
-                                            <div class="hover-box">Modificar datos complementarios</div>
-                                            <a class="mx-4" asp-controller="Complementario" asp-action="editComplementary" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/pencil.svg" /></a>
-                                        </div>
-                                    }
+                                    <br />         
                                 }
                             }
                             else

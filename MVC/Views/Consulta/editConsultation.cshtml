@@ -4,6 +4,10 @@
     Layout = "../Shared/_Layout.cshtml";
 }
 
+@{
+    string today = @DateTime.Today.ToString("yyyy-MM-dd");
+}
+
 <div class="container text-center">
     <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
     <h4>Consulta(editar)</h4>
@@ -12,7 +16,7 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="FechaAtencion">Fecha de atención: </label>
-                <input class="form-control" type="date" name="FechaAtencion" value="@ViewBag.Consulta.FechaAtencion.ToString("yyyy-MM-dd")" />
+                <input class="form-control" type="date" name="FechaAtencion" value="@ViewBag.Consulta.FechaAtencion.ToString("yyyy-MM-dd")" max="@today" />
             </div>
             <div class="col">
                 <label class="form-label" for="MotivoConsulta">Motivo Consulta: </label>
@@ -70,7 +74,7 @@
             <div class="row">
                 <div class="col">
                     <label class="form-label" for="Fum">Fecha última menstruación (Fum):</label>
-                    <input class="form-control" type="date" name="Fum" value="@ViewBag.Consulta.Fum.ToString("yyyy-MM-dd")" />
+                    <input class="form-control" type="date" name="Fum" value="@ViewBag.Consulta.Fum.ToString("yyyy-MM-dd")" max="@today" />
                 </div>
                 <div class="col">
                     <label class="form-label" for="MacActual">Método anticonceptivo (Mac) Actual: </label>
@@ -78,7 +82,7 @@
                 </div>
                 <div class="col">
                     <label class="form-label" for="FechaMac">Fecha Mac: </label>
-                    <input class="form-control" type="date" name="FechaMac" value="@ViewBag.Consulta.FechaMac.ToString("yyyy-MM-dd")"  />
+                    <input class="form-control" type="date" name="FechaMac" value="@ViewBag.Consulta.FechaMac.ToString("yyyy-MM-dd")" max="@today" />
                 </div>
             </div>
         }

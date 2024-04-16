@@ -4,6 +4,10 @@
     Layout = "../Shared/_Layout.cshtml";
 }
 
+@{
+    string today = @DateTime.Today.ToString("yyyy-MM-dd");
+}
+
 <div class="container text-center">
     <h1 class="display-4">Editar datos filiatorios del Paciente</h1>
     <br />
@@ -26,7 +30,7 @@
             </div>
             <div class="col">
                 <label class="form-label" for="FechaNac">Fecha de Nacimiento: </label>
-                <input class="form-control" type="date" name="FechaNac" value="@ViewBag.Paciente.FechaNac.ToString("yyyy-MM-dd")" />
+                <input class="form-control" type="date" name="FechaNac" value="@ViewBag.Paciente.FechaNac.ToString("yyyy-MM-dd")" max="@today" />
             </div>
         </div>
         <br />
@@ -60,7 +64,7 @@
             </div>
             <div class="col">
                 <label class="form-label" for="FechaAlta">Fecha Alta: </label>
-                <input class="form-control" type="date" name="FechaAlta" value="@ViewBag.Paciente.FechaAlta.ToString("yyyy-MM-dd")" />
+                <input class="form-control" type="date" name="FechaAlta" value="@ViewBag.Paciente.FechaAlta.ToString("yyyy-MM-dd")" max="@today" />
             </div>
             <input type="number" name="Id" value=@ViewBag.Paciente.Id hidden/>
         </div>
