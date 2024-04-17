@@ -7,9 +7,11 @@ namespace MVC.Controllers
     public class ComplementarioController : Controller
     {
         private IComplementarioService _complementarioService;
-        public ComplementarioController(IComplementarioService complementarioService)
+        private IPacienteService _pacienteService;
+        public ComplementarioController(IComplementarioService complementarioService, IPacienteService pacienteService)
         {
             _complementarioService = complementarioService;
+            _pacienteService = pacienteService;
         }
         public ActionResult create(int id)
         {
@@ -20,6 +22,7 @@ namespace MVC.Controllers
         public ActionResult editComplementary(int id)
         {
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
+            ViewBag.Paciente = _pacienteService.getPatient(id);
             return View();
         }
         
