@@ -4,6 +4,15 @@
     Layout = "../Shared/_Layout.cshtml";
 }
 
+@{
+    List<System.String> educacion = new List<System.String> { "Ninguna", "Jardín infantes", "Primaria", "Secundaria", "Terciaria", "Universitaria" };
+}
+
+@{
+    var filtered_list = @educacion.Where(x => x != @ViewBag.Complementario[0].Escolaridad);
+}
+
+
 <div class="container text-center">
     <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
     <h4>Datos complementarios (editar)</h4>
@@ -45,58 +54,16 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Escolaridad">Escolaridad: </label>
-                <input class="form-control" type="text" name="Escolaridad" value="@ViewBag.Complementario[0].Escolaridad" />
+                <label class="form-label" for="Escolaridad">Escolaridad: </label>                
                 <select class="form-control" name="Escolaridad">
-                    if (@ViewBag.Complementario[0].Escolaridad == "Ninguna"){
-                        <option selected value="Ninguna">Ninguna</option>
-                        <option value="Jardín infantes">Jardín infantes</option>
-                        <option value="Primaria">Primaria</option>
-                        <option value="Secundaria">Secundaria</option>
-                        <option value="Terciaria">Terciaria</option>
-                        <option value="Universitaria">Universitaria</option>
-                    }
-                    if (@ViewBag.Complementario[0].Escolaridad == "Jardín infantes"){
-                    <option value="Ninguna">Ninguna</option>
-                    <option selected value="Jardín infantes">Jardín infantes</option>
-                    <option value="Primaria">Primaria</option>
-                    <option value="Secundaria">Secundaria</option>
-                    <option value="Terciaria">Terciaria</option>
-                    <option value="Universitaria">Universitaria</option>
-                    }
-                    if (@ViewBag.Complementario[0].Escolaridad == "Primaria"){
-                    <option value="Ninguna">Ninguna</option>
-                    <option value="Jardín infantes">Jardín infantes</option>
-                    <option selected value="Primaria">Primaria</option>
-                    <option value="Secundaria">Secundaria</option>
-                    <option value="Terciaria">Terciaria</option>
-                    <option value="Universitaria">Universitaria</option>
-                    }
-                    if (@ViewBag.Complementario[0].Escolaridad == "Secundaria"){
-                    <option value="Ninguna">Ninguna</option>
-                    <option value="Jardín infantes">Jardín infantes</option>
-                    <option value="Primaria">Primaria</option>
-                    <option selected value="Secundaria">Secundaria</option>
-                    <option value="Terciaria">Terciaria</option>
-                    <option value="Universitaria">Universitaria</option>
-                    }
-                    if (@ViewBag.Complementario[0].Escolaridad == "Terciaria"){
-                    <option value="Ninguna">Ninguna</option>
-                    <option value="Jardín infantes">Jardín infantes</option>
-                    <option value="Primaria">Primaria</option>
-                    <option value="Secundaria">Secundaria</option>
-                    <option selected value="Terciaria">Terciaria</option>
-                    <option value="Universitaria">Universitaria</option>
-                    }
-                    if (@ViewBag.Complementario[0].Escolaridad == "Universitaria"){
-                    <option value="Ninguna">Ninguna</option>
-                    <option value="Jardín infantes">Jardín infantes</option>
-                    <option value="Primaria">Primaria</option>
-                    <option value="Secundaria">Secundaria</option>
-                    <option value="Terciaria">Terciaria</option>
-                    <option selected value="Universitaria">Universitaria</option>
+                    <option selected value="@ViewBag.Complementario[0].Escolaridad">@ViewBag.Complementario[0].Escolaridad</option>
+                    @foreach (string item in filtered_list)
+                    {
+                        <option value="@item">@item</option>                        
                     }
                 </select>
+                
+
             </div>
             <div class="col">
                 <label class="form-label" for="Ocupacion">Ocupacion: </label>
