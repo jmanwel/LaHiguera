@@ -49,3 +49,21 @@ $(document).ready( function () {
 } );
 
 
+function calcula_imc_pediatria() {
+    let talla = document.querySelector("#pediatria_talla").value;
+    let peso = document.querySelector("#pediatria_peso").value;
+    if (talla == "" || peso == "") {
+        alert("Por favor, complete los campos talla/peso");
+        document.querySelector("#pediatria_peso").focus();
+    } else {
+        let imc = document.querySelector("#pediatria_imc");
+        talla = parseFloat(document.querySelector("#pediatria_talla").value);
+        peso = parseFloat(document.querySelector("#pediatria_peso").value);
+        if (talla == 0) {
+            alert("Talla debe ser mayor a 0");
+            document.querySelector("#pediatria_talla").focus();
+        } else {
+            imc.value = peso / Math.pow((talla / 100), 2)
+        }
+    }
+}
