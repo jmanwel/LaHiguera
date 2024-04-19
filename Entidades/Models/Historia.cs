@@ -17,7 +17,7 @@ public partial class Historia
 
     public double? Talla { get; set; }
 
-    public int? Imc { get; set; }
+    public double? Imc { get; set; }
 
     public int? CircCintura { get; set; }
 
