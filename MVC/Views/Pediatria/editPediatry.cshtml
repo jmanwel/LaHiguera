@@ -7,6 +7,7 @@
 <div class="container text-center">
     <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
     <h4>Pediatría (editar)</h4>
+    <h5>Para ingresar valores decimales por favor utilizar: , (coma)</h5>
     <br />
     <form action="/Pediatria/editPediatry" method="POST">
         <div class="row">
@@ -42,7 +43,7 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Imc">Imc: </label>
-                <input class="form-control" type="text" name="Imc" value="@ViewBag.Pediatria.Imc" />
+                <input class="form-control" type="text" id="pediatria_imc" name="Imc" value="@ViewBag.Pediatria.Imc" />
             </div>
             <div class="col">
                 <label class="form-label" for="PercentilImc">Percentil Imc: </label>
