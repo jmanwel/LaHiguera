@@ -68,3 +68,23 @@ function calcula_imc_pediatria() {
         }
     }
 }
+
+function calcula_imc_historia() {
+    let talla = document.querySelector("#historia_talla").value;
+    let peso = document.querySelector("#historia_peso").value;
+    if (talla == "" || peso == "") {
+        alert("Por favor, complete los campos talla/peso");
+        document.querySelector("#historia_peso").focus();
+    } else {
+        let imc = document.querySelector("#historia_imc");
+        talla = parseFloat(document.querySelector("#historia_talla").value);
+        peso = parseFloat(document.querySelector("#historia_peso").value);
+        if (talla == 0) {
+            alert("Talla debe ser mayor a 0");
+            document.querySelector("#historia_talla").focus();
+        } else {
+            let imc_parsed = (peso / Math.pow((talla / 100), 2).toFixed(2)).toString().replace(".", ",");
+            imc.value = imc_parsed;
+        }
+    }
+}
