@@ -63,7 +63,8 @@ function calcula_imc_pediatria() {
             alert("Talla debe ser mayor a 0");
             document.querySelector("#pediatria_talla").focus();
         } else {
-            imc.value = peso / Math.pow((talla / 100), 2)
+            let imc_parsed = (peso / Math.pow((talla / 100), 2).toFixed(2)).toString().replace(".", ",");
+            imc.value = imc_parsed;
         }
     }
 }
