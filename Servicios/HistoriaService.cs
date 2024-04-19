@@ -28,6 +28,7 @@ namespace Servicios
             history.Talla = (double?)Convert.ToDecimal(history.Talla);
             history.Temperatura = (double?)Convert.ToDecimal(history.Temperatura);
             history.Peso = (double?)Convert.ToDecimal(history.Peso);
+            history.Imc = (double?)Convert.ToDecimal(history.Imc);
             history.FechaCreacion = DateTime.Today;
             _ctxt.Historia.Add(history);
             _ctxt.SaveChanges();
@@ -78,7 +79,7 @@ namespace Servicios
                 history_updated.Diagnostico = history.Diagnostico;
                 history_updated.ExamenFisico = history.ExamenFisico;
                 history_updated.Glicemia = history.Glicemia;
-                history_updated.Imc = history.Imc;
+                history_updated.Imc = (double?)Convert.ToDecimal(history.Imc);
                 history_updated.Laboratorio = history.Laboratorio;
                 history_updated.ObservacionLab = history.ObservacionLab;
                 history_updated.Radiografia = history.Radiografia;
