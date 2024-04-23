@@ -1,6 +1,7 @@
 ﻿using Entidades.Models;
 using Microsoft.AspNetCore.Mvc;
 using Servicios;
+using System.Dynamic;
 
 namespace MVC.Controllers
 {
@@ -99,5 +100,34 @@ namespace MVC.Controllers
             return View();
         }
 
+        public ActionResult ExportDataToPdf(int id)
+        {
+
+            dynamic patient = this.getPatientInformation(id);
+
+            var response = PacientePdfService.GeneratePdfHistory(patient);
+
+            string fileName = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "-historia-clinica-paciente-" + patient.information.Apellido + "-" + patient.information.Nombre + ".pdf";
+            
+            return File(response, "application/pdf", fileName);
+        }
+
+        private dynamic getPatientInformation(int patientId)
+        {
+            dynamic patient = new ExpandoObject();
+
+            var complementary = _complementarioService.getComplementaryData(patientId);
+
+            patient.information = _pacienteService.getPatient(patientId);
+            patient.complementary = complementary.Count > 0 ? complementary.Last(): null;
+            patient.consultations = _consultaService.getAllConsultationFromIdPatient(patientId);
+            patient.history = _historiaService.getAllHistoryForAPatient(patientId);
+            patient.background = _antecedenteService.getAllAntecedentForAPatient(patientId);
+            patient.ginecology = _ginecologiaService.getAllGinecologyForAPatient(patientId);
+            patient.pediatry = _pediatriaService.getAllPediatryForAPatient(patientId);
+
+            return patient;
+
+        }
     }
 }
