@@ -4,6 +4,7 @@ using PdfSharp.Drawing;
 using PdfSharp.Fonts;
 using PdfSharp.Pdf;
 using PdfSharp.Snippets.Font;
+using Sprache;
 using System.Reflection;
 
 namespace Servicios
@@ -25,27 +26,29 @@ namespace Servicios
 
             if (patient.background.Count > 0)
             {
-                DrawBackgroundPage(document, patient);
+                DrawDynamicPage(document, patient, PageType.Background, 2);
+
             }
 
             if (patient.history.Count > 0)
             {
-                DrawHistoryPage(document, patient);
+                DrawDynamicPage(document, patient, PageType.History, 2);
             }
 
             if (patient.consultations.Count > 0)
             {
-                DrawConsultationPage(document, patient);
+                DrawDynamicPage(document, patient, PageType.Consultations, 6);
+
             }
 
             if (patient.pediatry.Count > 0)
             {
-                DrawPediatryPage(document, patient);
+                DrawDynamicPage(document, patient, PageType.Pediatry, 3);
             }
 
             if (patient.ginecology.Count > 0)
             {
-                DrawGinecologyPage(document, patient);
+                DrawDynamicPage(document, patient, PageType.Ginecology, 3);
             }
 
             byte[]? response = null;
@@ -60,11 +63,33 @@ namespace Servicios
 
 
         // Drawing Pages
-        private static void DrawGinecologyPage(PdfDocument document, dynamic patient)
+
+        private static void DrawDynamicPage(PdfDocument document, dynamic patient, PageType type, int sectionsOnPage=2)
         {
-            int maximumSectionsOnPage = 3;
-            int pageCount = patient.ginecology.Count % maximumSectionsOnPage == 0 ? patient.ginecology.Count / maximumSectionsOnPage : patient.ginecology.Count / maximumSectionsOnPage + 1;
+            int maximumSectionsOnPage = sectionsOnPage;
+            dynamic patientCollection = null;
             int index = 0;
+
+            switch (type)
+            {
+                case PageType.Consultations:
+                    patientCollection = patient.consultations;
+                    break;
+                case PageType.History:
+                    patientCollection = patient.history;
+                    break;
+                case PageType.Background:
+                    patientCollection = patient.background;
+                    break;
+                case PageType.Ginecology:
+                    patientCollection = patient.ginecology;
+                    break;
+                case PageType.Pediatry:
+                    patientCollection = patient.pediatry;
+                    break;
+            }
+
+            int pageCount = patientCollection.Count % maximumSectionsOnPage == 0 ? patientCollection.Count / maximumSectionsOnPage : patientCollection.Count / maximumSectionsOnPage + 1;
 
             for (int i = 0; i < pageCount; i++)
             {
@@ -79,122 +104,30 @@ namespace Servicios
 
                 for (int j = 0; j < maximumSectionsOnPage; j++)
                 {
-                    if (patient.ginecology.Count > index)
+                    if (patientCollection.Count > index)
                     {
-                        DrawGinecologyInformation(gfx, patient.ginecology[index], index, j);
+                        switch (type)
+                        {
+                            case PageType.Consultations:
+                                DrawConsultationInformation(gfx, patientCollection[index], index, j);
+                                break;
+                            case PageType.History:
+                                DrawHistoryInformation(gfx, patientCollection[index], index, j);
+                                break;
+                            case PageType.Background:
+                                DrawBackgroundInformation(gfx, patientCollection[index], index, j);
+                                break;
+                            case PageType.Ginecology:
+                                DrawGinecologyInformation(gfx, patientCollection[index], index, j);
+                                break;
+                            case PageType.Pediatry:
+                                DrawPediatryInformation(gfx, patientCollection[index], index, j);
+                                break;
+                        }
                     }
                     index++;
                 }
-            }
-
-        }
-        private static void DrawPediatryPage(PdfDocument document, dynamic patient)
-        {
-            int maximumSectionsOnPage = 3;
-            int pageCount = patient.pediatry.Count % maximumSectionsOnPage == 0 ? patient.pediatry.Count / maximumSectionsOnPage : patient.pediatry.Count / maximumSectionsOnPage + 1;
-            int index = 0;
-
-            for (int i = 0; i < pageCount; i++)
-            {
-
-                PdfPage page = document.AddPage();
-                page.Size = PdfSharp.PageSize.A4;
-
-                XGraphics gfx = XGraphics.FromPdfPage(page);
-
-                // Draw sections
-                drawHeader(gfx, patient);
-
-                for (int j = 0; j < maximumSectionsOnPage; j++)
-                {
-                    if (patient.pediatry.Count > index)
-                    {
-                        DrawPediatryInformation(gfx, patient.pediatry[index], index, j);
-                    }
-                    index++;
-                }
-            }
-
-        }
-        private static void DrawConsultationPage(PdfDocument document, dynamic patient)
-        {
-            int maximumSectionsOnPage = 6;
-            int pageCount = patient.consultations.Count % maximumSectionsOnPage == 0 ? patient.consultations.Count / maximumSectionsOnPage : patient.consultations.Count / maximumSectionsOnPage + 1;
-            int index = 0;
-
-            for (int i = 0; i < pageCount; i++)
-            {
-
-                PdfPage page = document.AddPage();
-                page.Size = PdfSharp.PageSize.A4;
-
-                XGraphics gfx = XGraphics.FromPdfPage(page);
-
-                // Draw sections
-                drawHeader(gfx, patient);
-
-                for (int j = 0; j < maximumSectionsOnPage; j++)
-                {
-                    if (patient.consultations.Count > index)
-                    {
-                        DrawConsultationInformation(gfx, patient.consultations[index], index, j);
-                    }
-                    index++;
-                }
-            }
-
-        }
-
-        private static void DrawHistoryPage(PdfDocument document, dynamic patient)
-        {
-            int maximumSectionsOnPage = 2;
-            int pageCount = patient.history.Count % maximumSectionsOnPage == 0 ? patient.history.Count / maximumSectionsOnPage : patient.history.Count / maximumSectionsOnPage + 1;
-            int index = 0;
-
-            for (int i = 0; i < pageCount; i++)
-            {
-
-                PdfPage page = document.AddPage();
-                page.Size = PdfSharp.PageSize.A4;
-
-                XGraphics gfx = XGraphics.FromPdfPage(page);
-
-                // Draw sections
-                drawHeader(gfx, patient);
-
-                for (int j = 0; j < maximumSectionsOnPage; j++)
-                {
-                    if (patient.history.Count > index)
-                    {
-                        DrawHistoryInformation(gfx, patient.history[index], index, j);
-                    }
-                    index++;
-                }
-            }
-
-        }
-        private static void DrawBackgroundPage(PdfDocument document, dynamic patient)
-        {
-            int maximumSectionsOnPage = 2;
-            int pageCount = patient.background.Count % maximumSectionsOnPage == 0 ? patient.background.Count / maximumSectionsOnPage : patient.background.Count / maximumSectionsOnPage + 1;
-            int index = 0;
-
-            for (int i = 0; i < pageCount; i++) {
-
-                PdfPage page = document.AddPage();
-                page.Size = PdfSharp.PageSize.A4;
-
-                XGraphics gfx = XGraphics.FromPdfPage(page);
-
-                // Draw sections
-                drawHeader(gfx, patient);
-
-                for (int j = 0; j < maximumSectionsOnPage; j++) {
-                    if (patient.background.Count > index) { 
-                        DrawBackgroundInformation(gfx, patient.background[index], index, j);
-                    }
-                    index++;
-                }
+                drawFooter(gfx, document.PageCount, page.Width, page.Height);
             }
 
         }
@@ -214,6 +147,8 @@ namespace Servicios
             {
                 DrawComplementaryInformation(gfx, patient);
             }
+
+            drawFooter(gfx, document.PageCount, page.Width, page.Height);
         }
 
         // Drawing Generals
@@ -232,11 +167,20 @@ namespace Servicios
             XImage image = XImage.FromFile(Directory.GetCurrentDirectory() + "/wwwroot/img/LaHiguera_logo.png");
             gfx.DrawImage(image, 10, 0, 100, 100);
         }
+
         private static void drawHeader(XGraphics gfx, dynamic patient)
         {
-            DrawTitle(gfx,"Historia Clínica Paciente",105, 25);
+            DrawTitle(gfx, "Historia Clínica Paciente", 105, 25);
             DrawTitle(gfx, patient.information.Nombre + " " + patient.information.Apellido, 105, 50);
             DrawImageScaled(gfx);
+        }
+
+        private static void drawFooter(XGraphics gfx, int pageNumber, double pageWidth, double pageHeight)
+        {
+            XFont font = new XFont("Arial", 12);
+            XRect box = new XRect(0,-10, pageWidth, pageHeight);
+
+            gfx.DrawString(String.Format("-{0}-", pageNumber), font, XBrushes.Black, box, XStringFormats.BottomCenter);
         }
 
 
@@ -260,7 +204,7 @@ namespace Servicios
             gfx.DrawString("Apellido: " + patient.information.Apellido, font, XBrushes.Black, new XRect(275, rectStartingX, 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Fecha Nacimiento: " + patient.information.FechaNac.ToString(), font, XBrushes.Black, new XRect(275, rectStartingX + (1 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Paraje Atención: " + patient.information.ParajeAtencion, font, XBrushes.Black, new XRect(275, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Fecha Alta: " + patient.information.FechaAlta.ToString(), font, XBrushes.Black, new XRect(275, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Fecha Alta: " + patient.information.FechaAlta.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XRect(275, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
         }
 
         private static void DrawComplementaryInformation(XGraphics gfx, dynamic patient)
@@ -376,7 +320,7 @@ namespace Servicios
 
 
             // creation date
-            gfx.DrawString("Fecha Creación: " + history.FechaCreacion.ToString(), font, XBrushes.Black, new XRect(20, rectStartingX + (14 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Fecha Creación: " + history.FechaCreacion.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XRect(20, rectStartingX + (14 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
         }
 
         private static void DrawConsultationInformation(XGraphics gfx, dynamic consultation, int backgroundCount, int backgroundPosition)
@@ -390,7 +334,7 @@ namespace Servicios
             XFont font = new XFont("Arial", 12, XFontStyleEx.Regular);
 
             // first column
-            gfx.DrawString("Fecha de Creación: " + consultation.FechaAtencion.ToString(), font, XBrushes.Black, new XRect(20, rectStartingX, 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Fecha de Creación: " + consultation.FechaAtencion.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XRect(20, rectStartingX, 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Diagnóstico Consulta: " + consultation.DiagnosticoConsulta, font, XBrushes.Black, new XRect(20, rectStartingX + (1 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Evaluación Nutricional: " + consultation.EvalNutric, font, XBrushes.Black, new XRect(20, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
@@ -429,7 +373,7 @@ namespace Servicios
             gfx.DrawString("Agudeza Visual Ojo Izq: " + pediatry.AgudezaIzq, font, XBrushes.Black, new XRect(275, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
             // creation date
-            gfx.DrawString("Fecha Creación: " + pediatry.FechaCreacion.ToString(), font, XBrushes.Black, new XRect(20, rectStartingX + (7 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Fecha Creación: " + pediatry.FechaCreacion.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XRect(20, rectStartingX + (7 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
         }
 
         private static void DrawGinecologyInformation(XGraphics gfx, dynamic ginecology, int backgroundCount, int backgroundPosition)
@@ -459,7 +403,18 @@ namespace Servicios
             gfx.DrawString("Estudios Complementarios: " + ginecology.EstudiosComp, font, XBrushes.Black, new XRect(275, rectStartingX + (5 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
             // creation date
-            gfx.DrawString("Fecha Creación: " + ginecology.FechaCreacion.ToString(), font, XBrushes.Black, new XRect(20, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Fecha Creación: " + ginecology.FechaCreacion.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XRect(20, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
         }
+    }
+
+    enum PageType
+    {
+        Information,
+        Background,
+        Pediatry,
+        History,
+        Complementary,
+        Ginecology,
+        Consultations
     }
 }
