@@ -41,7 +41,7 @@
                         }else{
                             <td class="bg-secondary">NO</td>
                         }
-                        <td class="text-center"><a asp-action="viewDetails" asp-route-id="@paciente.Id"><img src="~/icons/eye.svg" /></a></td>
+                            <td class="text-center"><a asp-action="viewDetails" asp-route-id="@paciente.Id"><img src="~/icons/eye.svg" /></a> <a data-bs-toggle="tooltip" data-bs-title="Exportar Historia Clínica" asp-action="ExportDataToPdf" asp-route-id="@paciente.Id"><img src="~/icons/pdf.svg" /></a></td>
                     </tr>
             }
             <tfoot>
