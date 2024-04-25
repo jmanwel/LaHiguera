@@ -22,12 +22,12 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Peso">Peso (Kg): </label>
-                <input class="form-control" type="text" name="Peso" value="@ViewBag.Historia.Peso" />
+                <label class="form-label" for="Peso">Peso (Kg): *</label>
+                <input class="form-control" type="text" name="Peso" value="@ViewBag.Historia.Peso" required />
             </div>
             <div class="col">
-                <label class="form-label" for="Talla">Talla (cm): </label>
-                <input class="form-control" type="text" name="Talla" value="@ViewBag.Historia.Talla" />
+                <label class="form-label" for="Talla">Talla (cm): *</label>
+                <input class="form-control" type="text" name="Talla" value="@ViewBag.Historia.Talla" required />
             </div>
             <div class="col">
                 <label class="form-label" for="Imc">Imc (Kg/M²): </label>
@@ -146,7 +146,7 @@
                 <input class="form-control" type="text" name="EstudiosComp" value="@ViewBag.Historia.EstudiosComp" />
             </div>
             <div class="col">
-                <label class="form-label" for="Diagnostico">Diagnóstico: </label>
+                <label class="form-label" for="Diagnostico">Diagnóstico: *</label>
                 <input class="form-control" type="text" name="Diagnostico" value="@ViewBag.Historia.Diagnostico" required />
             </div>
         </div>
