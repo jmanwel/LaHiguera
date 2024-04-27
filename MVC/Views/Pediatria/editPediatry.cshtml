@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Peso">Peso (Kg): *</label>
-                <input class="form-control" type="text" name="Peso" value="@ViewBag.Pediatria.Peso" required />
+                <input class="form-control" id="pediatria_peso" type="text" name="Peso" value="@ViewBag.Pediatria.Peso" required />
             </div>
             <div class="col">
                 <label class="form-label" for="PercentilPeso">Percentil Peso: </label>
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Talla">Talla (cm): *</label>
-                <input class="form-control" type="text" name="Talla" value="@ViewBag.Pediatria.Talla" required />
+                <input class="form-control" id="pediatria_talla" type="text" name="Talla" value="@ViewBag.Pediatria.Talla" required />
             </div>
             <div class="col">
                 <label class="form-label" for="PercentilTalla">Percentil Talla: </label>
@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Imc">Imc (Kg/M²): </label>
-                <input class="form-control" type="text" id="pediatria_imc" name="Imc" value="@ViewBag.Pediatria.Imc" />
+                <input class="form-control" type="text" id="pediatria_imc" name="Imc" value="@ViewBag.Pediatria.Imc" onfocus="calcula_imc_pediatria()" />
             </div>
             <div class="col">
                 <label class="form-label" for="PercentilImc">Percentil Imc: </label>

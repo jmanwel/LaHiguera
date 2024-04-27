@@ -23,15 +23,15 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Peso">Peso (Kg): *</label>
-                <input class="form-control" type="text" name="Peso" value="@ViewBag.Historia.Peso" required />
+                <input class="form-control" id="historia_peso" type="text" name="Peso" value="@ViewBag.Historia.Peso" required />
             </div>
             <div class="col">
                 <label class="form-label" for="Talla">Talla (cm): *</label>
-                <input class="form-control" type="text" name="Talla" value="@ViewBag.Historia.Talla" required />
+                <input class="form-control" id="historia_talla" type="text" name="Talla" value="@ViewBag.Historia.Talla" required />
             </div>
             <div class="col">
                 <label class="form-label" for="Imc">Imc (Kg/M²): </label>
-                <input class="form-control" type="text" name="Imc" value=@ViewBag.Historia.Imc />
+                <input class="form-control" id="historia_imc" type="text" name="Imc" value=@ViewBag.Historia.Imc onfocus="calcula_imc_historia()" />
             </div>
             <div class="col">
                 <label class="form-label" for="Glicemia">Glicemia (mg/dl): </label>
