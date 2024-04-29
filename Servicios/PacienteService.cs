@@ -47,8 +47,12 @@ namespace Servicios
             {
                 if (paciente.ParajeAtencion != null)
                 {
-                    paciente.ParajeAtencion = paciente.ParajeAtencion.ToUpper().Replace(" ", "");
+                    paciente.ParajeAtencion = paciente.ParajeAtencion.ToUpper();
                 }
+                //Paso a uppercase los campos de texto antes de guardarlo
+                paciente.Nombre = paciente.Nombre.ToUpper();
+                paciente.Apellido = paciente.Apellido.ToUpper();
+                paciente.Sexo = paciente.Sexo.ToUpper();
                 _ctxt.Pacientes.Add(paciente);
                 _ctxt.SaveChanges();
             }
@@ -102,15 +106,15 @@ namespace Servicios
             if (updated_patient is null) { Console.WriteLine("Paciente no encontrado"); }
             else
             {
-                updated_patient.Nombre = paciente.Nombre;
-                updated_patient.Apellido = paciente.Apellido;
-                updated_patient.Sexo = paciente.Sexo;
+                updated_patient.Nombre = paciente.Nombre.ToUpper();
+                updated_patient.Apellido = paciente.Apellido.ToUpper();
+                updated_patient.Sexo = paciente.Sexo.ToUpper();
                 updated_patient.FlgActivo = paciente.FlgActivo;
                 updated_patient.FechaNac = paciente.FechaNac;
                 updated_patient.FechaAlta = paciente.FechaAlta;
                 if (paciente.ParajeAtencion != null)
                 {
-                    updated_patient.ParajeAtencion = paciente.ParajeAtencion.ToUpper().Replace(" ", "");
+                    updated_patient.ParajeAtencion = paciente.ParajeAtencion.ToUpper();
                 }
                 updated_patient.Dni = paciente.Dni;
                 _ctxt.SaveChanges();

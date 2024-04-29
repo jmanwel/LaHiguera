@@ -20,6 +20,13 @@ namespace Servicios
             //This method persists Consulta objects in DDBB
             try {
                 consulta.FechaCreacion = @DateTime.Today;
+                //Paso a uppercase los campos de texto antes de guardarlo
+                consulta.MotivoConsulta = consulta.MotivoConsulta.ToUpper();
+                consulta.DiagnosticoConsulta = consulta.DiagnosticoConsulta?.ToUpper() ?? "";
+                consulta.Observacion = consulta.Observacion?.ToUpper() ?? "";
+                consulta.EvalNutric = consulta.EvalNutric?.ToUpper() ?? "";
+                consulta.EvalSoc = consulta.EvalSoc.ToUpper();
+                consulta.MacActual = consulta.MacActual?.ToUpper() ?? "";
                 _ctxt.Consulta.Add(consulta);
                 _ctxt.SaveChanges();
                 Console.WriteLine("Consulta creada OK!");
@@ -41,16 +48,16 @@ namespace Servicios
             try
             {
                 var edited_consultation = _ctxt.Consulta.Find(consulta.Id);
-                edited_consultation.EvalSoc = consulta.EvalSoc;
+                edited_consultation.EvalSoc = consulta.EvalSoc.ToUpper();
                 edited_consultation.FechaMac = consulta.FechaMac;
                 edited_consultation.EdadConsulta = consulta.EdadConsulta;
-                edited_consultation.Observacion = consulta.Observacion;
-                edited_consultation.DiagnosticoConsulta = consulta.DiagnosticoConsulta;
-                edited_consultation.MotivoConsulta = consulta.MotivoConsulta;
-                edited_consultation.EvalNutric = consulta.EvalNutric;
+                edited_consultation.Observacion = consulta.Observacion?.ToUpper() ?? "";
+                edited_consultation.DiagnosticoConsulta = consulta.DiagnosticoConsulta?.ToUpper() ?? "";
+                edited_consultation.MotivoConsulta = consulta.MotivoConsulta.ToUpper();
+                edited_consultation.EvalNutric = consulta.EvalNutric?.ToUpper() ?? "";
                 edited_consultation.FechaAtencion = consulta.FechaAtencion;
                 edited_consultation.Fum = consulta.Fum;
-                edited_consultation.MacActual = consulta.MacActual;
+                edited_consultation.MacActual = consulta.MacActual?.ToUpper() ?? "";
                 edited_consultation.PacienteId = consulta.PacienteId;
                 _ctxt.SaveChanges();
                 Console.WriteLine("Consulta modificada OK!");

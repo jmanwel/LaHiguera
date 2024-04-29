@@ -14,6 +14,9 @@ namespace Servicios
         {
             //This method persists Ginecology objects in DDBB
             ginecologia.FechaCreacion = DateTime.Today;
+            ginecologia.RitmoMenst = ginecologia.RitmoMenst?.ToUpper() ?? "";
+            ginecologia.ResultadoPap = ginecologia.ResultadoPap?.ToUpper() ?? "";
+            ginecologia.EstudiosComp = ginecologia.EstudiosComp?.ToUpper() ?? "";
             _ctxt.Ginecologia.Add(ginecologia);
             _ctxt.SaveChanges();
         }
@@ -47,12 +50,12 @@ namespace Servicios
                 ginecologia_updated.Abortos = ginecologia.Abortos;
                 ginecologia_updated.Irs = ginecologia.Irs;
                 ginecologia_updated.Menarca = ginecologia.Menarca;
-                ginecologia_updated.RitmoMenst = ginecologia.RitmoMenst;
+                ginecologia_updated.RitmoMenst = ginecologia.RitmoMenst?.ToUpper() ?? "";
                 ginecologia_updated.Menopausia = ginecologia.Menopausia;
                 ginecologia_updated.TomaPap = ginecologia.TomaPap;
-                ginecologia_updated.ResultadoPap = ginecologia.ResultadoPap;
+                ginecologia_updated.ResultadoPap = ginecologia.ResultadoPap?.ToUpper() ?? "";
                 ginecologia_updated.Colposcopia = ginecologia.Colposcopia;
-                ginecologia_updated.EstudiosComp = ginecologia.EstudiosComp;
+                ginecologia_updated.EstudiosComp = ginecologia.EstudiosComp?.ToUpper() ?? "";
                 _ctxt.SaveChanges();
             }
         }
