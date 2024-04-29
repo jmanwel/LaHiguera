@@ -19,6 +19,7 @@ namespace Servicios
         {
             //This method persists Antecedent objects in DDBB
             antecedente.FechaCreacion = DateTime.Today.ToString("d");
+            antecedente.Notas = antecedente.Notas?.ToUpper() ?? "";
             _ctxt.Antecedentes.Add(antecedente);
             _ctxt.SaveChanges();
         }
@@ -42,7 +43,7 @@ namespace Servicios
             else
             {
                 updated_antecedent.Sedentarismo = antecedente.Sedentarismo;
-                updated_antecedent.Notas = antecedente.Notas;
+                updated_antecedent.Notas = antecedente.Notas?.ToUpper() ?? "";
                 updated_antecedent.Alcohol = antecedente.Alcohol;
                 updated_antecedent.Alergias = antecedente.Alergias;
                 updated_antecedent.AntPerinatales = antecedente.AntPerinatales;
