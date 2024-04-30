@@ -14,6 +14,13 @@ namespace Servicios
         {
             //This method persist Complementario objects in DDBB
             complementario.FechaCreacion = DateTime.Today.ToString("d").ToString();
+            complementario.LugarNac = complementario.LugarNac?.ToUpper() ?? "";
+            complementario.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";
+            complementario.Etnia = complementario.Etnia?.ToUpper() ?? "";
+            complementario.EstadoCivil = complementario.EstadoCivil?.ToUpper() ?? "";
+            complementario.Escolaridad = complementario.Escolaridad?.ToUpper() ?? "";
+            complementario.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
+            complementario.Notas = complementario.Notas?.ToUpper() ?? "";
             _ctxt.Complementarios.Add(complementario);
             _ctxt.SaveChanges();
         }
@@ -41,15 +48,15 @@ namespace Servicios
             if (updated_complementary is null) { Console.WriteLine("Datos no encontrados"); }
             else
             {
-                updated_complementary.LugarNac = complementario.LugarNac;
-                updated_complementary.ParajeResidencia = complementario.ParajeResidencia;
-                updated_complementary.Etnia = complementario.Etnia;
-                updated_complementary.EstadoCivil = complementario.EstadoCivil;
+                updated_complementary.LugarNac = complementario.LugarNac?.ToUpper() ?? "";
+                updated_complementary.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";
+                updated_complementary.Etnia = complementario.Etnia?.ToUpper() ?? "";
+                updated_complementary.EstadoCivil = complementario.EstadoCivil?.ToUpper() ?? "";
                 updated_complementary.SabeLeer = complementario.SabeLeer;
-                updated_complementary.Escolaridad = complementario.Escolaridad;
-                updated_complementary.Ocupacion = complementario.Ocupacion;
+                updated_complementary.Escolaridad = complementario.Escolaridad?.ToUpper() ?? "";
+                updated_complementary.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
                 updated_complementary.AnoIngreso = complementario.AnoIngreso;
-                updated_complementary.Notas = complementario.Notas;
+                updated_complementary.Notas = complementario.Notas?.ToUpper() ?? "";
                 _ctxt.SaveChanges();
             }
         }

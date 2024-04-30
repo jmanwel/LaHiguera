@@ -40,15 +40,13 @@
             <div class="col">
                 <label class="form-label" for="RitmoMenst">RitmoMenst: </label>
                 <select class="form-control" name="RitmoMenst">
-                    if(@ViewBag.Ginecologia.RitmoMenst == "Regular")
+                    @if(@ViewBag.Ginecologia.RitmoMenst == "REGULAR")
                     {
-                        <option seleceted value="Regular">Regular</option>
-                        <option value="Irregular">Irregular</option>
-                    }
-                    else 
-                    {
-                        <option value="Regular">Regular</option>
-                        <option seleceted value="Irregular">Irregular</option>
+                        <option selected value="REGULAR">REGULAR</option>
+                        <option value="IRREGULAR">IRREGULAR</option>
+                    }else{
+                        <option value="REGULAR">REGULAR</option>
+                        <option selected value="IRREGULAR">IRREGULAR</option>
                     }                    
                 </select>
             </div>

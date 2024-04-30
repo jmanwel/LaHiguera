@@ -25,6 +25,19 @@ namespace Servicios
             {
                 history.Icc = 0;
             }
+            history.ExamenFisico = history.ExamenFisico?.ToUpper() ?? "";
+            history.Ta = history.Ta?.ToUpper() ?? "";
+            history.AgudezaDer = history.AgudezaDer?.ToUpper() ?? "";
+            history.AgudezaIzq = history.AgudezaIzq?.ToUpper() ?? "";
+            history.ObservacionEco = history.ObservacionEco?.ToUpper() ?? "";
+            history.ObservacionEcg = history.ObservacionEcg?.ToUpper() ?? "";
+            history.ObservacionRadiografia = history.ObservacionRadiografia?.ToUpper() ?? "";
+            history.ObservacionLab = history.ObservacionLab?.ToUpper() ?? "";
+            history.EstudiosComp = history.EstudiosComp?.ToUpper() ?? "";
+            history.Diagnostico = history.Diagnostico.ToUpper();
+            history.Tratamiento = history.Tratamiento?.ToUpper() ?? "";
+            history.ObservacionDeriv = history.ObservacionDeriv?.ToUpper() ?? "";
+
             history.Talla = (double?)Convert.ToDecimal(history.Talla);
             history.Temperatura = (double?)Convert.ToDecimal(history.Temperatura);
             history.Peso = (double?)Convert.ToDecimal(history.Peso);
@@ -67,28 +80,28 @@ namespace Servicios
                 history_updated.CircCintura = history.CircCintura;
                 history_updated.CircCadera = history.CircCadera;
                 history_updated.Ecg = history.Ecg;
-                history_updated.ObservacionEcg = history.ObservacionEcg;
+                history_updated.ObservacionEcg = history.ObservacionEcg?.ToUpper() ?? "";
                 history_updated.Ecografia = history.Ecografia;
-                history_updated.ObservacionEco = history.ObservacionEco;
-                history_updated.AgudezaDer = history.AgudezaDer;
-                history_updated.AgudezaIzq = history.AgudezaIzq;
+                history_updated.ObservacionEco = history.ObservacionEco?.ToUpper() ?? "";
+                history_updated.AgudezaDer = history.AgudezaDer?.ToUpper() ?? "";
+                history_updated.AgudezaIzq = history.AgudezaIzq?.ToUpper() ?? "";
                 history_updated.DerivacionAguda = history.DerivacionAguda;
                 history_updated.DerivacionProg = history.DerivacionProg;
-                history_updated.ObservacionDeriv = history.ObservacionDeriv;
-                history_updated.EstudiosComp = history.EstudiosComp;
-                history_updated.Diagnostico = history.Diagnostico;
-                history_updated.ExamenFisico = history.ExamenFisico;
+                history_updated.ObservacionDeriv = history.ObservacionDeriv?.ToUpper() ?? "";
+                history_updated.EstudiosComp = history.EstudiosComp?.ToUpper() ?? "";
+                history_updated.Diagnostico = history.Diagnostico.ToUpper();
+                history_updated.ExamenFisico = history.ExamenFisico?.ToUpper() ?? "";
                 history_updated.Glicemia = history.Glicemia;
                 history_updated.Imc = (double?)Convert.ToDecimal(history.Imc);
                 history_updated.Laboratorio = history.Laboratorio;
-                history_updated.ObservacionLab = history.ObservacionLab;
+                history_updated.ObservacionLab = history.ObservacionLab?.ToUpper() ?? "";
                 history_updated.Radiografia = history.Radiografia;
-                history_updated.ObservacionRadiografia = history.ObservacionRadiografia;
+                history_updated.ObservacionRadiografia = history.ObservacionRadiografia?.ToUpper() ?? "";
                 history_updated.Peso = (double?)Convert.ToDecimal(history.Peso);
-                history_updated.Ta = history.Ta;
+                history_updated.Ta = history.Ta?.ToUpper() ?? "";
                 history_updated.Talla = (double?)Convert.ToDecimal(history.Talla);
                 history_updated.Saturacion = history.Saturacion;
-                history_updated.Tratamiento = history.Tratamiento;
+                history_updated.Tratamiento = history.Tratamiento?.ToUpper() ?? "";
                 _ctxt.SaveChanges();
             }
         }
