@@ -20,6 +20,7 @@ namespace Servicios
             //This method persists Antecedent objects in DDBB
             antecedente.FechaCreacion = DateTime.Today.ToString("d");
             antecedente.Notas = antecedente.Notas?.ToUpper() ?? "";
+            antecedente.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             _ctxt.Antecedentes.Add(antecedente);
             _ctxt.SaveChanges();
         }

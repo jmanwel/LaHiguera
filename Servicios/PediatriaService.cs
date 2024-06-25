@@ -28,6 +28,7 @@ namespace Servicios
             pediatria.FechaCreacion = DateTime.Today;
             pediatria.AgudezaDer = pediatria.AgudezaDer?.ToUpper() ?? "";
             pediatria.AgudezaIzq = pediatria.AgudezaIzq?.ToUpper() ?? "";
+            pediatria.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             _ctxt.Pediatria.Add(pediatria);
             _ctxt.SaveChanges();
         }

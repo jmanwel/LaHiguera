@@ -43,6 +43,7 @@ namespace Servicios
             history.Peso = (double?)Convert.ToDecimal(history.Peso);
             history.Imc = (double?)Convert.ToDecimal(history.Imc);
             history.FechaCreacion = DateTime.Today;
+            history.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             _ctxt.Historia.Add(history);
             _ctxt.SaveChanges();
         }

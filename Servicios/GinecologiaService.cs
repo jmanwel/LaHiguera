@@ -17,6 +17,7 @@ namespace Servicios
             ginecologia.RitmoMenst = ginecologia.RitmoMenst?.ToUpper() ?? "";
             ginecologia.ResultadoPap = ginecologia.ResultadoPap?.ToUpper() ?? "";
             ginecologia.EstudiosComp = ginecologia.EstudiosComp?.ToUpper() ?? "";
+            ginecologia.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             _ctxt.Ginecologia.Add(ginecologia);
             _ctxt.SaveChanges();
         }
