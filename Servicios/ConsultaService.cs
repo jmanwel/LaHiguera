@@ -60,6 +60,7 @@ namespace Servicios
                 edited_consultation.Fum = consulta.Fum;
                 edited_consultation.MacActual = consulta.MacActual?.ToUpper() ?? "";
                 edited_consultation.PacienteId = consulta.PacienteId;
+                edited_consultation.LastUpdated= DateTime.Today;
                 _ctxt.SaveChanges();
                 Console.WriteLine("Consulta modificada OK!");
             }

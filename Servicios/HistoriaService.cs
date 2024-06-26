@@ -103,6 +103,7 @@ namespace Servicios
                 history_updated.Talla = (double?)Convert.ToDecimal(history.Talla);
                 history_updated.Saturacion = history.Saturacion;
                 history_updated.Tratamiento = history.Tratamiento?.ToUpper() ?? "";
+                history_updated.LastUpdated = DateTime.Today;
                 _ctxt.SaveChanges();
             }
         }

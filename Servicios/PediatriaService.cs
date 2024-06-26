@@ -70,6 +70,7 @@ namespace Servicios
                 pediatria_updated.PzPc = (double?)Convert.ToDecimal(pediatria.PzPc);
                 pediatria_updated.AgudezaDer = pediatria.AgudezaDer?.ToUpper() ?? "";
                 pediatria_updated.AgudezaIzq = pediatria.AgudezaIzq?.ToUpper() ?? "";
+                pediatria_updated.LastUpdated = DateTime.Today;
                 _ctxt.SaveChanges();
             }
         }

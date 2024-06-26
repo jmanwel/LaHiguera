@@ -57,6 +57,7 @@ namespace Servicios
                 ginecologia_updated.ResultadoPap = ginecologia.ResultadoPap?.ToUpper() ?? "";
                 ginecologia_updated.Colposcopia = ginecologia.Colposcopia;
                 ginecologia_updated.EstudiosComp = ginecologia.EstudiosComp?.ToUpper() ?? "";
+                ginecologia_updated.LastUpdated = DateTime.Today;
                 _ctxt.SaveChanges();
             }
         }

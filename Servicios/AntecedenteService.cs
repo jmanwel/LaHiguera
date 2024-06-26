@@ -65,6 +65,7 @@ namespace Servicios
                 updated_antecedent.Familiares = antecedente.Familiares;
                 updated_antecedent.Quirurgicos = antecedente.Quirurgicos;
                 updated_antecedent.Obesidad = antecedente.Obesidad;
+                updated_antecedent.LastUpdated = DateTime.Today;
                 _ctxt.SaveChanges();
             }
         }

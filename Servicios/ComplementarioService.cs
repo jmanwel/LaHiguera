@@ -58,6 +58,7 @@ namespace Servicios
                 updated_complementary.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
                 updated_complementary.AnoIngreso = complementario.AnoIngreso;
                 updated_complementary.Notas = complementario.Notas?.ToUpper() ?? "";
+                updated_complementary.LastUpdated = DateTime.Today;
                 _ctxt.SaveChanges();
             }
         }
