@@ -78,6 +78,9 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("DATETIME")
                 .HasColumnName("fecha_creacion");
+            entity.Property(e => e.LastUpdated)
+                .HasColumnType("DATETIME")
+                .HasColumnName("last_update");
             entity.Property(e => e.Hidatidosis)
                 .HasColumnType("INTEGER")
                 .HasColumnName("hidatidosis");
@@ -133,6 +136,9 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("DATETIME")
                 .HasColumnName("fecha_creacion");
+            entity.Property(e => e.LastUpdated)
+                .HasColumnType("DATETIME")
+                .HasColumnName("last_update");
             entity.Property(e => e.LugarNac).HasColumnName("lugar_nac");
             entity.Property(e => e.Notas).HasColumnName("notas");
             entity.Property(e => e.Ocupacion).HasColumnName("ocupacion");
@@ -160,6 +166,9 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("DATETIME")
                 .HasColumnName("fecha_creacion");
+            entity.Property(e => e.LastUpdated)
+                .HasColumnType("DATETIME")
+                .HasColumnName("last_update");
             entity.Property(e => e.FechaMac).HasColumnName("fecha_mac");
             entity.Property(e => e.Fum)
                 .HasColumnType("DATE")
@@ -182,6 +191,9 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("DATETIME")
                 .HasColumnName("fecha_creacion");
+            entity.Property(e => e.LastUpdated)
+                .HasColumnType("DATETIME")
+                .HasColumnName("last_update");
             entity.Property(e => e.Gestas).HasColumnName("gestas");
             entity.Property(e => e.Irs).HasColumnName("irs");
             entity.Property(e => e.Menarca).HasColumnName("menarca");
@@ -212,6 +224,9 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("datetime")
                 .HasColumnName("fecha_creacion");
+            entity.Property(e => e.LastUpdated)
+                .HasColumnType("DATETIME")
+                .HasColumnName("last_update");
             entity.Property(e => e.Glicemia).HasColumnName("glicemia");
             entity.Property(e => e.Icc).HasColumnName("icc");
             entity.Property(e => e.Imc).HasColumnName("imc");
@@ -260,6 +275,9 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("DATETIME")
                 .HasColumnName("fecha_creacion");
+            entity.Property(e => e.LastUpdated)
+                .HasColumnType("DATETIME")
+                .HasColumnName("last_update");
             entity.Property(e => e.Imc).HasColumnName("imc");
             entity.Property(e => e.PacienteId).HasColumnName("paciente_id");
             entity.Property(e => e.Pc).HasColumnName("pc");
