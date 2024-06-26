@@ -28,4 +28,6 @@ public partial class Complementario
     public string? Notas { get; set; }
 
     public string? FechaCreacion { get; set; }
+
+    public string? LastUpdated { get; set; }
 }
