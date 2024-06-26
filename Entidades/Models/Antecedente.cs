@@ -56,4 +56,6 @@ public partial class Antecedente
     public string? Notas { get; set; }
 
     public string? FechaCreacion { get; set; }
+
+    public string? LastUpdated { get; set; }
 }
