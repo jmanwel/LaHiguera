@@ -251,7 +251,7 @@ namespace Servicios
             gfx.DrawString("Alergias: " + (background.Alergias == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Dbt: " + (background.Dbt == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (5 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Hta: " + (background.Dbt == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Displemia: " + (background.Dbt == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (7 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Dislipemia: " + (background.Dbt == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (7 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Obesidad: " + (background.Obesidad == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (8 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Chagas: " + (background.Chagas == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (9 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Hidatidosis: " + (background.Hidatidosis == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (10 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
