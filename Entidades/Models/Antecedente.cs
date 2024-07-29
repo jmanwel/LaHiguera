@@ -23,7 +23,7 @@ public partial class Antecedente
 
     public int? Hta { get; set; }
 
-    public int? Displemia { get; set; }
+    public int? Dislipemia { get; set; }
 
     public int? Obesidad { get; set; }
 
