@@ -68,9 +68,9 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Dbt)
                 .HasColumnType("INTEGER")
                 .HasColumnName("dbt");
-            entity.Property(e => e.Displemia)
+            entity.Property(e => e.Dislipemia)
                 .HasColumnType("INTEGER")
-                .HasColumnName("displemia");
+                .HasColumnName("dislipemia");
             entity.Property(e => e.Drogas)
                 .HasColumnType("INTEGER")
                 .HasColumnName("drogas");

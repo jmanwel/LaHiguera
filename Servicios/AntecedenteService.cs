@@ -51,7 +51,7 @@ namespace Servicios
                 updated_antecedent.Cancer = antecedente.Cancer;
                 updated_antecedent.Chagas = antecedente.Chagas;
                 updated_antecedent.Dbt = antecedente.Dbt;
-                updated_antecedent.Displemia = antecedente.Displemia;
+                updated_antecedent.Dislipemia = antecedente.Dislipemia;
                 updated_antecedent.Drogas = antecedente.Drogas;
                 updated_antecedent.Tbc = antecedente.Tbc;
                 updated_antecedent.Tabaco = antecedente.Tabaco;
