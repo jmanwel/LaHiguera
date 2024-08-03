@@ -29,5 +29,5 @@ public partial class Complementario
 
     public string? FechaCreacion { get; set; }
 
-    public string? LastUpdated { get; set; }
+    public DateTime? LastUpdated { get; set; }
 }
