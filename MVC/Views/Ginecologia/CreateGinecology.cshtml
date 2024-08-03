@@ -6,7 +6,7 @@
 
 <div class="container text-center">
     <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
-    <h4>Ginecólogía (crear)</h4>
+    <h4>Ginecología (crear)</h4>
     <br />
     <form action="/Ginecologia/CreateGinecology" method="POST">
         <div class="row">
@@ -71,7 +71,7 @@
         <br />        
         <br />
         <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden />
-        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Agregar Consulta Ginecólogica" />
+        <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Agregar Consulta Ginecológica" />
         <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Paciente.Id">Cancelar</a>
     </form>
 </div>

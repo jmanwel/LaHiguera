@@ -1,4 +1,7 @@
 ﻿using Entidades.Models;
+using System;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Servicios
 {
@@ -53,6 +56,18 @@ namespace Servicios
                 paciente.Nombre = paciente.Nombre.ToUpper();
                 paciente.Apellido = paciente.Apellido.ToUpper();
                 paciente.Sexo = paciente.Sexo.ToUpper();
+                
+                //Create an uniq Id based on: nombre, apellido, DNI y fecha de nacimiento
+                string string_to_hash = paciente.Nombre + paciente.Apellido + paciente.FechaNac + paciente.Dni;
+                SHA512 sha512 = SHA512.Create();
+                byte[] bytes = Encoding.UTF8.GetBytes(string_to_hash);
+                byte[] hash = sha512.ComputeHash(bytes);
+                int hashed_id = BitConverter.ToInt32(hash, 0);
+                if (hashed_id < 0)
+                {
+                    hashed_id = hashed_id * -1;
+                }
+                paciente.Id = hashed_id;
                 _ctxt.Pacientes.Add(paciente);
                 _ctxt.SaveChanges();
             }
