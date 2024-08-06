@@ -30,4 +30,6 @@ public partial class Consulta
     public string? FechaMac { get; set; }
 
     public DateTime? FechaCreacion { get; set; }
+
+    public DateTime? LastUpdated { get; set; }
 }

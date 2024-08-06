@@ -27,6 +27,7 @@ namespace Servicios
                 consulta.EvalNutric = consulta.EvalNutric?.ToUpper() ?? "";
                 consulta.EvalSoc = consulta.EvalSoc.ToUpper();
                 consulta.MacActual = consulta.MacActual?.ToUpper() ?? "";
+                consulta.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
                 _ctxt.Consulta.Add(consulta);
                 _ctxt.SaveChanges();
                 Console.WriteLine("Consulta creada OK!");
@@ -59,6 +60,7 @@ namespace Servicios
                 edited_consultation.Fum = consulta.Fum;
                 edited_consultation.MacActual = consulta.MacActual?.ToUpper() ?? "";
                 edited_consultation.PacienteId = consulta.PacienteId;
+                edited_consultation.LastUpdated= DateTime.Today;
                 _ctxt.SaveChanges();
                 Console.WriteLine("Consulta modificada OK!");
             }

@@ -21,6 +21,7 @@ namespace Servicios
             complementario.Escolaridad = complementario.Escolaridad?.ToUpper() ?? "";
             complementario.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
             complementario.Notas = complementario.Notas?.ToUpper() ?? "";
+            complementario.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             _ctxt.Complementarios.Add(complementario);
             _ctxt.SaveChanges();
         }
@@ -57,6 +58,7 @@ namespace Servicios
                 updated_complementary.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
                 updated_complementary.AnoIngreso = complementario.AnoIngreso;
                 updated_complementary.Notas = complementario.Notas?.ToUpper() ?? "";
+                updated_complementary.LastUpdated = DateTime.Today;
                 _ctxt.SaveChanges();
             }
         }
