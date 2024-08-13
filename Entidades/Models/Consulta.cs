@@ -9,7 +9,7 @@ public partial class Consulta
 
     public int? PacienteId { get; set; }
 
-    public DateTime? FechaAtencion { get; set; }
+    public DateOnly? FechaAtencion { get; set; }
 
     public string? MotivoConsulta { get; set; }
 
@@ -29,7 +29,7 @@ public partial class Consulta
 
     public string? FechaMac { get; set; }
 
-    public DateTime? FechaCreacion { get; set; }
+    public DateOnly? FechaCreacion { get; set; }
 
-    public DateTime? LastUpdated { get; set; }
+    public DateOnly? LastUpdated { get; set; }
 }
