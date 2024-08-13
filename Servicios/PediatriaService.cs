@@ -25,7 +25,7 @@ namespace Servicios
             pediatria.Pc = (double?)Convert.ToDecimal(pediatria.Pc);
             pediatria.PercentilPc = (double?)Convert.ToDecimal(pediatria.PercentilPc);
             pediatria.PzPc = (double?)Convert.ToDecimal(pediatria.PzPc);
-            pediatria.FechaCreacion = DateTime.Today;
+            pediatria.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
             pediatria.AgudezaDer = pediatria.AgudezaDer?.ToUpper() ?? "";
             pediatria.AgudezaIzq = pediatria.AgudezaIzq?.ToUpper() ?? "";
             pediatria.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
@@ -70,7 +70,7 @@ namespace Servicios
                 pediatria_updated.PzPc = (double?)Convert.ToDecimal(pediatria.PzPc);
                 pediatria_updated.AgudezaDer = pediatria.AgudezaDer?.ToUpper() ?? "";
                 pediatria_updated.AgudezaIzq = pediatria.AgudezaIzq?.ToUpper() ?? "";
-                pediatria_updated.LastUpdated = DateTime.Today;
+                pediatria_updated.LastUpdated = DateOnly.FromDateTime(DateTime.Now);
                 _ctxt.SaveChanges();
             }
         }
