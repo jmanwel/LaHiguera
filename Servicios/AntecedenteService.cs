@@ -18,7 +18,7 @@ namespace Servicios
         public void create(Antecedente antecedente)
         {
             //This method persists Antecedent objects in DDBB
-            antecedente.FechaCreacion = DateTime.Today.ToString("d");
+            antecedente.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
             antecedente.Notas = antecedente.Notas?.ToUpper() ?? "";
             antecedente.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             _ctxt.Antecedentes.Add(antecedente);
@@ -65,7 +65,7 @@ namespace Servicios
                 updated_antecedent.Familiares = antecedente.Familiares;
                 updated_antecedent.Quirurgicos = antecedente.Quirurgicos;
                 updated_antecedent.Obesidad = antecedente.Obesidad;
-                updated_antecedent.LastUpdated = DateTime.Today;
+                updated_antecedent.LastUpdated = DateOnly.FromDateTime(DateTime.Now);
                 _ctxt.SaveChanges();
             }
         }
