@@ -21,5 +21,5 @@ public partial class Paciente
 
     public int? FlgActivo { get; set; }
 
-    public DateTime? FechaAlta { get; set; }
+    public DateOnly? FechaAlta { get; set; }
 }
