@@ -140,8 +140,8 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.VacunacionId)
                 .HasColumnName("vacunacion_id");
             entity.HasMany(e => e.EnfermedadesFamiliares)
-                  .WithMany(e => e.Antecedentes)
-                  .UsingEntity<AntecedenteEnfermedadFamiliar>();
+                .WithMany(e => e.Antecedentes)
+                .UsingEntity<AntecedenteEnfermedadFamiliar>();
         });
 
         modelBuilder.Entity<AntecedenteEnfermedadFamiliar>(entity =>
@@ -195,8 +195,8 @@ public partial class LahigueraContext : DbContext
                 .HasColumnType("INTEGER")
                 .HasColumnName("sabe_leer");
             entity.Property(e => e.EscolaridadCompleta)
-              .HasColumnType("INTEGER")
-              .HasColumnName("escolaridad_completa");
+                .HasColumnType("INTEGER")
+                .HasColumnName("escolaridad_completa");
         });
 
         modelBuilder.Entity<Consulta>(entity =>
@@ -370,7 +370,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Id)
                 .HasColumnName("ID");
             entity.Property(e => e.Enfermedad)
-              .HasColumnName("enfermedad_familiar");
+                .HasColumnName("enfermedad_familiar");
         });
 
         modelBuilder.Entity<Escolaridad>(entity =>
@@ -380,7 +380,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Id)
                 .HasColumnName("ID");
             entity.Property(e => e.Descripcion)
-              .HasColumnName("escolaridad");
+                .HasColumnName("escolaridad");
         });
 
         modelBuilder.Entity<EstadoCivil>(entity =>
@@ -390,7 +390,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Id)
                 .HasColumnName("ID");
             entity.Property(e => e.Descripcion)
-              .HasColumnName("estado_civil");
+                .HasColumnName("estado_civil");
         });
 
         modelBuilder.Entity<Etnia>(entity =>
@@ -400,7 +400,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Id)
                 .HasColumnName("ID");
             entity.Property(e => e.Nombre)
-              .HasColumnName("etnia");
+                .HasColumnName("etnia");
         });
 
         modelBuilder.Entity<Ginecologia>(entity =>
