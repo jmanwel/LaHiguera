@@ -13,12 +13,8 @@ namespace Servicios
         public void create(Complementario complementario)
         {
             //This method persist Complementario objects in DDBB
-<<<<<<< HEAD
-            complementario.FechaCreacion = DateTime.Today;
-=======
+
             complementario.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
-            complementario.LugarNac = complementario.LugarNac?.ToUpper() ?? "";
->>>>>>> feature/merge_pediatria_ginecologia_historia_in_consulta
             complementario.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";
             complementario.EstadoCivilId = complementario.EstadoCivilId;
             complementario.EscolaridadId = complementario.EscolaridadId;
