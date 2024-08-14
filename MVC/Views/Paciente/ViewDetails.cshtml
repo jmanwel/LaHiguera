@@ -23,33 +23,12 @@
                         <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_consulta" @ViewBag.Disable >
                             Consultas
                         </button>
-                    </li>
-                    <li class="nav-item mb-3">
-                        <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_historico" @ViewBag.Disable>
-                            Historia
-                        </button>
-                    </li>
+                    </li>                    
                     <li class="nav-item mb-3">
                         <button type="button"  style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_antecedente" @ViewBag.Disable>
                             Antecedentes
                         </button>
                     </li>
-                    @if (@ViewBag.Paciente.Sexo.ToUpper() == "FEMENINO")
-                    {
-                        <li class="nav-item mb-3">
-                            <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_ginecologia" @ViewBag.Disable>
-                                Ginecología
-                            </button>                            
-                        </li>
-                    }
-                    @if (@edad <= 15)
-                    {
-                        <li class="nav-item mb-3">
-                            <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_pediatria" @ViewBag.Disable>
-                                Pediatría
-                            </button>                            
-                        </li>
-                    }
                 </ul>
                 <hr>
             </div>
@@ -86,37 +65,13 @@
                                         <div class="hover-box">Crear una CONSULTA</div>
                                         <a asp-controller="Consulta" asp-action="createConsultation" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bag-plus.svg" />+ Consulta</a>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="tip">
-                                        <div class="hover-box">Crear una HISTORIA</div>
-                                        <a asp-controller="Historia" asp-action="createHistory" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/clipboard-heart.svg" />+ Historia</a>
-                                    </div>
-                                </div>
+                                </div>                                
                                 <div class="row mb-2">
                                     <div class="tip">
                                         <div class="hover-box">Crear un ANTECEDENTE</div>
                                         <a asp-controller="Antecedente" asp-action="createAntecedent" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/calendar-plus.svg" />+ Antecedente</a>
                                     </div>
-                                </div>
-                                @if(edad <= 15)
-                                {
-                                    <div class="row">
-                                        <div class="tip">
-                                            <div class="hover-box">Crear consulta PEDIÁTRICA</div>
-                                            <a asp-controller="Pediatria" asp-action="createPediatry" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/balloon-heart.svg" />+ Pediatría</a>
-                                        </div>
-                                    </div>
-                                }
-                                @if (@ViewBag.Paciente.Sexo.ToUpper() == "FEMENINO")
-                                {
-                                    <div class="row">
-                                        <div class="tip">
-                                            <div class="hover-box">Crear consulta GINECOLOGÍCA</div>
-                                            <a asp-controller="Ginecologia" asp-action="CreateGinecology" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/gender-female.svg" />+ Ginecología</a>
-                                        </div>
-                                    </div>
-                                }                                
+                                </div>                                                                
                             }else{
                                 <h5 class="card-title">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
                                 @if (@ViewBag.Paciente.Dni != null)

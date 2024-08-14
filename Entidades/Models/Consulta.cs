@@ -8,7 +8,7 @@ public class Consulta
 
     public Paciente? Paciente { get; set; }
 
-    public DateTime? FechaAtencion { get; set; }
+    public DateOnly? FechaAtencion { get; set; }
 
     public string? MotivoConsulta { get; set; }
 
@@ -122,8 +122,8 @@ public class Consulta
 
     public int Colposcopia { get; set; } = 0;
 
-    public DateTime? FechaCreacion { get; set; }
+    public DateOnly? FechaCreacion { get; set; }
 
-    public DateTime? LastUpdated { get; set; }
+    public DateOnly? LastUpdated { get; set; }
 
 }

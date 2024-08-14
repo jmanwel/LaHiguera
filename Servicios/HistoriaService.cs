@@ -42,7 +42,7 @@ namespace Servicios
             history.Temperatura = (double?)Convert.ToDecimal(history.Temperatura);
             history.Peso = (double?)Convert.ToDecimal(history.Peso);
             history.Imc = (double?)Convert.ToDecimal(history.Imc);
-            history.FechaCreacion = DateTime.Today;
+            history.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
             history.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             _ctxt.Historia.Add(history);
             _ctxt.SaveChanges();
@@ -103,7 +103,7 @@ namespace Servicios
                 history_updated.Talla = (double?)Convert.ToDecimal(history.Talla);
                 history_updated.Saturacion = history.Saturacion;
                 history_updated.Tratamiento = history.Tratamiento?.ToUpper() ?? "";
-                history_updated.LastUpdated = DateTime.Today;
+                history_updated.LastUpdated = DateOnly.FromDateTime(DateTime.Now);
                 _ctxt.SaveChanges();
             }
         }

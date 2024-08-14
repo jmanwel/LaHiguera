@@ -13,7 +13,7 @@ namespace Servicios
         public void create(Ginecologia ginecologia)
         {
             //This method persists Ginecology objects in DDBB
-            ginecologia.FechaCreacion = DateTime.Today;
+            ginecologia.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
             ginecologia.RitmoMenst = ginecologia.RitmoMenst?.ToUpper() ?? "";
             ginecologia.ResultadoPap = ginecologia.ResultadoPap?.ToUpper() ?? "";
             ginecologia.EstudiosComp = ginecologia.EstudiosComp?.ToUpper() ?? "";
@@ -57,7 +57,7 @@ namespace Servicios
                 ginecologia_updated.ResultadoPap = ginecologia.ResultadoPap?.ToUpper() ?? "";
                 ginecologia_updated.Colposcopia = ginecologia.Colposcopia;
                 ginecologia_updated.EstudiosComp = ginecologia.EstudiosComp?.ToUpper() ?? "";
-                ginecologia_updated.LastUpdated = DateTime.Today;
+                ginecologia_updated.LastUpdated = DateOnly.FromDateTime(DateTime.Now);
                 _ctxt.SaveChanges();
             }
         }

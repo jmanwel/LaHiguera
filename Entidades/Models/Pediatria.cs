@@ -36,8 +36,8 @@ public class Pediatria
 
     public string? AgudezaIzq { get; set; }
 
-    public DateTime? FechaCreacion { get; set; }
+    public DateOnly? FechaCreacion { get; set; }
 
-    public DateTime? LastUpdated { get; set; }
+    public DateOnly? LastUpdated { get; set; }
 
 }

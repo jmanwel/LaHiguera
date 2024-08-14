@@ -32,5 +32,6 @@ public class Paciente
 
     public DateTime AnoIngreso { get; set; }
 
-    public DateTime FechaAlta { get; set; }
+    public DateOnly? FechaAlta { get; set; }
+
 }
