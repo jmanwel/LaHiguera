@@ -24,11 +24,11 @@ public class Paciente
 
     public Etnia? Etnia { get; set; }
 
-    public virtual ICollection<Antecedente>? Antecedentes { get; set; }
+    public List<Antecedente> Antecedentes { get; } = [];
 
-    public virtual ICollection<Complementario>? Complementarios { get; set; }
+    public List<Complementario> Complementarios { get; } = [];
 
-    public virtual ICollection<Consulta>? Consultas { get; set; }
+    public List<Consulta> Consultas { get; } = [];
 
     public DateTime AnoIngreso { get; set; }
 

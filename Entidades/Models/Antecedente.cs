@@ -52,7 +52,7 @@ public class Antecedente
 
     public Vacunacion? Vacunacion { get; set; }
 
-    public virtual ICollection<EnfermedadFamiliar> EnfermedadesFamiliares { get; } = [];
+    public List<EnfermedadFamiliar> EnfermedadesFamiliares { get; } = [];
 
     public int? Medicacion { get; set; }
 

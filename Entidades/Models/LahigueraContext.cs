@@ -139,6 +139,9 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("tbc");
             entity.Property(e => e.VacunacionId)
                 .HasColumnName("vacunacion_id");
+            entity.HasMany(e => e.EnfermedadesFamiliares)
+                  .WithMany(e => e.Antecedentes)
+                  .UsingEntity<AntecedenteEnfermedadFamiliar>();
         });
 
         modelBuilder.Entity<AntecedenteEnfermedadFamiliar>(entity =>
