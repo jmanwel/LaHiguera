@@ -24,6 +24,8 @@ public partial class LahigueraContext : DbContext
 
     public virtual DbSet<Consulta> Consulta { get; set; }
 
+    public virtual DbSet<EnfermedadFamiliar> EnfermedadesFamiliares { get; set; }
+
     public virtual DbSet<Etnia> Etnias { get; set; }
 
     public virtual DbSet<EstadoCivil> EstadosCiviles { get; set; }
@@ -137,6 +139,19 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("tbc");
             entity.Property(e => e.VacunacionId)
                 .HasColumnName("vacunacion_id");
+        });
+
+        modelBuilder.Entity<AntecedenteEnfermedadFamiliar>(entity =>
+        {
+            entity.ToTable("antecedentes_enfermedades_familiares");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.AntecedenteId)
+                .HasColumnType("INTEGER")
+                .HasColumnName("antecedente_id");
+            entity.Property(e => e.EnfermedadFamiliarId)
+                .HasColumnType("INTEGER")
+                .HasColumnName("enfermedad_familiar_id");
         });
 
         modelBuilder.Entity<AppLog>(entity =>
@@ -343,6 +358,16 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Colposcopia)
                 .HasColumnType("INTEGER")
                 .HasColumnName("colposcopia");
+        });
+
+        modelBuilder.Entity<EnfermedadFamiliar>(entity =>
+        {
+            entity.ToTable("enfermedades_familiares");
+
+            entity.Property(e => e.Id)
+                .HasColumnName("ID");
+            entity.Property(e => e.Enfermedad)
+              .HasColumnName("enfermedad_familiar");
         });
 
         modelBuilder.Entity<Escolaridad>(entity =>
