@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Entidades.Models;
 
-namespace Entidades.Models;
-
-public partial class Antecedente
+public class Antecedente
 {
     public int Id { get; set; }
 
     public int? PacienteId { get; set; }
+
+    public Paciente? Paciente { get; set; }
 
     public int? Sedentarismo { get; set; }
 
@@ -49,13 +48,16 @@ public partial class Antecedente
 
     public int? AntPerinatales { get; set; }
 
-    public int? Vacunacion { get; set; }
+    public int? VacunacionId { get; set; }
+
+    public Vacunacion? Vacunacion { get; set; }
 
     public int? Medicacion { get; set; }
 
     public string? Notas { get; set; }
 
-    public string? FechaCreacion { get; set; }
+    public DateTime? FechaCreacion { get; set; }
 
     public DateTime? LastUpdated { get; set; }
+
 }

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Entidades.Models;
 
-namespace Entidades.Models;
-
-public partial class Ginecologia
+public class Ginecologia
 {
     public int Id { get; set; }
 
     public int? PacienteId { get; set; }
+
+    public Paciente? Paciente { get; set; }
 
     public int? Gestas { get; set; }
 
@@ -36,4 +35,5 @@ public partial class Ginecologia
     public DateTime? FechaCreacion { get; set; }
 
     public DateTime? LastUpdated { get; set; }
+
 }

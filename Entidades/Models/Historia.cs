@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Entidades.Models;
 
-namespace Entidades.Models;
-
-public partial class Historia
+public class Historia
 {
     public int Id { get; set; }
 
     public int? PacienteId { get; set; }
+
+    public Paciente? Paciente { get; set; }
 
     public string? ExamenFisico { get; set; }
 
