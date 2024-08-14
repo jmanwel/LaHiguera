@@ -48,7 +48,7 @@ public class Consulta
 
     public decimal? Temperatura { get; set; }
 
-    public int? Glucemia { get; set; }
+    public int? Glicemia { get; set; }
 
     public string? AgudezaDer {get; set; }
 

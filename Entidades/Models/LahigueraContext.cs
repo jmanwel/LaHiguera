@@ -265,7 +265,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Temperatura)
                 .HasColumnType("DECIMAL")
                 .HasColumnName("temperatura");
-            entity.Property(e => e.Glucemia)
+            entity.Property(e => e.Glicemia)
                 .HasColumnType("INTEGER")
                 .HasColumnName("glucemia");
             entity.Property(e => e.AgudezaDer)
