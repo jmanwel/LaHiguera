@@ -257,7 +257,7 @@ public partial class LahigueraContext : DbContext
                 .HasColumnType("DATETIME")
                 .HasColumnName("fecha_alta");
             entity.Property(e => e.FechaNac)
-                .HasColumnType("DATE")
+                .HasColumnType("DATETIME")
                 .HasColumnName("fecha_nac");
             entity.Property(e => e.FlgActivo).HasColumnName("flg_activo");
             entity.Property(e => e.Nombre).HasColumnName("nombre");
