@@ -1,35 +1,129 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Entidades.Models;
 
-namespace Entidades.Models;
-
-public partial class Consulta
+public class Consulta
 {
     public int Id { get; set; }
 
     public int? PacienteId { get; set; }
 
+    public Paciente? Paciente { get; set; }
+
     public DateTime? FechaAtencion { get; set; }
 
     public string? MotivoConsulta { get; set; }
 
-    public string? EdadConsulta { get; set; }
+    public int? EdadConsulta { get; set; }
 
     public string? DiagnosticoConsulta { get; set; }
 
     public string? Observacion { get; set; }
 
     public string? EvalNutric { get; set; }
-
+    
     public string? EvalSoc { get; set; }
 
-    public string? Fum { get; set; }
+    public DateOnly? Fum { get; set; }
 
     public string? MacActual { get; set; }
 
-    public string? FechaMac { get; set; }
+    public DateOnly? FechaMac { get; set; }
+
+    public string? ExamenFisico { get; set; }
+
+    public string? Ta { get; set; }
+
+    public decimal? Peso { get; set; }
+
+    public decimal? Talla { get; set; }
+
+    public decimal? Imc { get; set; }
+
+    public int? CircCintura { get; set; }
+
+    public int? CircCadera { get; set; }
+
+    public int? Icc { get; set; }
+
+    public int? Saturacion { get; set; }
+
+    public decimal? Temperatura { get; set; }
+
+    public int? Glucemia { get; set; }
+
+    public string? AgudezaDer {get; set; }
+
+    public string? AgudezaIzq { get; set; }
+
+    public int Ecografia { get; set; } = 0;
+
+    public string? ObservacionEco { get; set; }
+
+    public int? Ecg { get; set; }
+
+    public string? ObservacionEcg { get; set; }
+
+    public int Radiografia { get; set; } = 0;
+
+    public string? ObservacionRadiografia { get; set; }
+
+    public int Laboratorio { get; set; } = 0;
+
+    public string? ObservacionLab {  get; set; }
+
+    public string? EstudiosComp { get; set; }
+
+    public string? Diagnostico { get; set; }
+
+    public string? Tratamiento { get; set; }
+
+    public int? DerivacionAguda { get; set; } = 0;
+
+    public int? DerivacionProg { get; set; } = 0;
+
+    public string? ObservacionDeriv { get; set; }
+
+    public decimal? PercentilPeso { get; set; }
+
+    public decimal? PzPeso { get; set; }
+
+    public decimal? PercentilTalla {  get; set; }
+
+    public decimal? PzTalla { get; set; }
+
+    public decimal? PercentilImc { get; set; }
+
+    public decimal? PzImc { get; set; }
+
+    public decimal? Pc { get; set; }
+
+    public decimal? PercentilPc { get; set; }
+
+    public decimal? PzPc { get; set; }
+
+    public int Gestas { get; set; } = 0;
+
+    public int Para { get; set; } = 0;
+
+    public int Cesareas { get; set; } = 0;
+
+    public int Abortos { get; set; } = 0;
+
+    public int Irs { get; set; }
+
+    public int Menarca { get; set; }
+
+    public string? RitmoMenst { get; set; }
+
+    public int Menopausia { get; set; } = 0;
+
+    public int TomaPap { get; set; } = 0;
+
+    public string? ResultadoPap { get; set; }
+
+    public int Colposcopia { get; set; } = 0;
 
     public DateTime? FechaCreacion { get; set; }
 
     public DateTime? LastUpdated { get; set; }
+
 }

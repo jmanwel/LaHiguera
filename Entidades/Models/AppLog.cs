@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Entidades.Models;
 
-namespace Entidades.Models;
-
-public partial class AppLog
+public class AppLog
 {
     public int Id { get; set; }
 

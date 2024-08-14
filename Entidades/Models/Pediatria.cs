@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Entidades.Models;
 
-namespace Entidades.Models;
-
-public partial class Pediatria
+public class Pediatria
 {
     public int Id { get; set; }
 
     public int? PacienteId { get; set; }
+
+    public Paciente? Paciente { get; set; }
 
     public double? Peso { get; set; }
 
@@ -40,4 +39,5 @@ public partial class Pediatria
     public DateTime? FechaCreacion { get; set; }
 
     public DateTime? LastUpdated { get; set; }
+
 }

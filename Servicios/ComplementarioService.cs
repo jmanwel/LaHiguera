@@ -13,12 +13,10 @@ namespace Servicios
         public void create(Complementario complementario)
         {
             //This method persist Complementario objects in DDBB
-            complementario.FechaCreacion = DateTime.Today.ToString("d").ToString();
-            complementario.LugarNac = complementario.LugarNac?.ToUpper() ?? "";
+            complementario.FechaCreacion = DateTime.Today;
             complementario.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";
-            complementario.Etnia = complementario.Etnia?.ToUpper() ?? "";
-            complementario.EstadoCivil = complementario.EstadoCivil?.ToUpper() ?? "";
-            complementario.Escolaridad = complementario.Escolaridad?.ToUpper() ?? "";
+            complementario.EstadoCivilId = complementario.EstadoCivilId;
+            complementario.EscolaridadId = complementario.EscolaridadId;
             complementario.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
             complementario.Notas = complementario.Notas?.ToUpper() ?? "";
             complementario.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
@@ -49,14 +47,11 @@ namespace Servicios
             if (updated_complementary is null) { Console.WriteLine("Datos no encontrados"); }
             else
             {
-                updated_complementary.LugarNac = complementario.LugarNac?.ToUpper() ?? "";
                 updated_complementary.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";
-                updated_complementary.Etnia = complementario.Etnia?.ToUpper() ?? "";
-                updated_complementary.EstadoCivil = complementario.EstadoCivil?.ToUpper() ?? "";
+                updated_complementary.EstadoCivilId = complementario.EstadoCivilId;
                 updated_complementary.SabeLeer = complementario.SabeLeer;
-                updated_complementary.Escolaridad = complementario.Escolaridad?.ToUpper() ?? "";
+                updated_complementary.EscolaridadId = complementario.EscolaridadId;
                 updated_complementary.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
-                updated_complementary.AnoIngreso = complementario.AnoIngreso;
                 updated_complementary.Notas = complementario.Notas?.ToUpper() ?? "";
                 updated_complementary.LastUpdated = DateTime.Today;
                 _ctxt.SaveChanges();
