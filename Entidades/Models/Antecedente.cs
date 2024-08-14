@@ -62,4 +62,6 @@ public class Antecedente
 
     public DateOnly? LastUpdated { get; set; }
 
+    public ICollection<AntecedenteEnfermedadFamiliar> AntecedenteEnfermedadFamiliares { get; set; }
+
 }

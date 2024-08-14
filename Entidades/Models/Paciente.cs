@@ -30,7 +30,7 @@ public class Paciente
 
     public List<Consulta> Consultas { get; } = [];
 
-    public DateTime AnoIngreso { get; set; }
+    public int? AnoIngreso { get; set; }
 
     public DateOnly? FechaAlta { get; set; }
 

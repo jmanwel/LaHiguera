@@ -9,6 +9,7 @@ namespace Servicios
         
             _ctxt = ctx;
         }
+        
 
         public List<Antecedente> getAllAntecedentForAPatient(int id_patient) {
             // This Method returns all antecedent for a patient
