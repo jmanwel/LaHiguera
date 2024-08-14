@@ -290,8 +290,6 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Laboratorio)
                 .HasColumnType("INTEGER")
                 .HasColumnName("laboratorio");
-            entity.Property(e => e.Radiografia)
-                .HasColumnName("observacion_lab");
             entity.Property(e => e.EstudiosComp)
                 .HasColumnName("estudios_comp");
             entity.Property(e => e.Diagnostico)
@@ -361,6 +359,8 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Colposcopia)
                 .HasColumnType("INTEGER")
                 .HasColumnName("colposcopia");
+            entity.Property(e => e.ObservacionLab).HasColumnName("observacion_lab");
+            entity.Property(e => e.PercentilPc).HasColumnName("percentil_pc");
         });
 
         modelBuilder.Entity<EnfermedadFamiliar>(entity =>

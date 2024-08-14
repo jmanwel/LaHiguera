@@ -11,7 +11,7 @@ namespace Servicios
         }
 
         public List<Consulta> getAllConsultationFromIdPatient(int id_patient) { 
-            // This Method returns all consultation availables for a patient
+            // This Method returns all consultation availables for a patient      
             return _ctxt.Consulta.Where(o => o.PacienteId == id_patient).OrderByDescending(o => o.FechaAtencion).ToList();
         }
 
