@@ -18,11 +18,7 @@ namespace Servicios
         public void create(Antecedente antecedente)
         {
             //This method persists Antecedent objects in DDBB
-<<<<<<< HEAD
-            antecedente.FechaCreacion = DateTime.Today;
-=======
             antecedente.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
->>>>>>> feature/merge_pediatria_ginecologia_historia_in_consulta
             antecedente.Notas = antecedente.Notas?.ToUpper() ?? "";
             antecedente.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             _ctxt.Antecedentes.Add(antecedente);
@@ -59,7 +55,7 @@ namespace Servicios
                 updated_antecedent.Drogas = antecedente.Drogas;
                 updated_antecedent.Tbc = antecedente.Tbc;
                 updated_antecedent.Tabaco = antecedente.Tabaco;
-                updated_antecedent.Vacunacion = antecedente.Vacunacion;
+                updated_antecedent.VacunacionId = antecedente.VacunacionId;
                 updated_antecedent.Medicacion = antecedente.Medicacion;
                 updated_antecedent.Hidatidosis = antecedente.Hidatidosis;
                 updated_antecedent.Hospitalizaciones = antecedente.Hospitalizaciones;
