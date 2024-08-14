@@ -152,8 +152,8 @@
                                 </div>
                                 @foreach (Entidades.Models.Complementario complementario in ViewBag.Complementario)
                                 {
-                                    <p class="card-text">Lugar de nacimiento: <strong>@complementario.LugarNac</strong> | Paraje de Residencia: <strong>@complementario.ParajeResidencia</strong></p>
-                                    <p class="card-text">Etnia: <strong>@complementario.Etnia</strong> | Estado Civil: <strong>@complementario.EstadoCivil</strong></p>
+                                    <p class="card-text">Lugar de nacimiento: <strong>@complementario.Paciente.LugarNac</strong> | Paraje de Residencia: <strong>@complementario.ParajeResidencia</strong></p>
+                                    <p class="card-text">Etnia: <strong>@complementario.Paciente.Etnia.Nombre</strong> | Estado Civil: <strong>@complementario.EstadoCivil</strong></p>
                                     @if (@complementario.SabeLeer == 1)
                                     {
                                         <p class="card-text">Sabe leer?: <strong>Si</strong></p>
@@ -163,7 +163,7 @@
                                         <p class="card-text">Sabe leer?: <strong>No</strong></p>
                                     }
                                     <p class="card-text">Escolaridad: <strong>@complementario.Escolaridad</strong></p>
-                                    <p class="card-text">Ocupacion: <strong>@complementario.Ocupacion</strong> | Año Ingreso: <strong>@complementario.AnoIngreso</strong></p>
+                                    <p class="card-text">Ocupacion: <strong>@complementario.Ocupacion</strong> | Año Ingreso: <strong>@complementario.Paciente.AnoIngreso</strong></p>
                                     <h5 class="card-title">Notas</h5>
                                     <p class="card-text">@complementario.Notas</p>
                                     <br />         
@@ -354,7 +354,7 @@
                                     <td>@justSayYesOrNo((int)@antecedente.Sedentarismo)</td>
                                     <td>@justSayYesOrNo((int)@antecedente.Tabaco)</td>
                                     <td>@justSayYesOrNo((int)@antecedente.Tbc)</td>
-                                    <td>@justSayYesOrNo((int)@antecedente.Vacunacion)</td>
+                                    <td>@antecedente.Vacunacion.Descripcion</td>
                                     <td>@antecedente.Notas</td>
                                     <td><a asp-controller="Antecedente" asp-action="editAntecedent" asp-route-id="@antecedente.Id"><img src="~/icons/pencil.svg" /></a></td>
                                 </tr>
