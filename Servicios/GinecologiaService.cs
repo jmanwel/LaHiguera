@@ -25,7 +25,8 @@ namespace Servicios
         public List<Ginecologia> getAllGinecologyForAPatient(int id_patient)
         {
             // This Method returns all ginecology for a patient
-            return _ctxt.Ginecologia.Where(o => o.PacienteId == id_patient).OrderByDescending(o => o.FechaCreacion).ToList();
+            return [];
+            //return _ctxt.Ginecologia.Where(o => o.PacienteId == id_patient).OrderByDescending(o => o.FechaCreacion).ToList();
         }
 
         public Ginecologia getGinecology(int id)

@@ -12,7 +12,8 @@ namespace Servicios
 
         public List<Historia> getAllHistoryForAPatient(int id_patient) {
             // This Method returns all history for a patient
-            return _ctxt.Historia.Where(o => o.PacienteId == id_patient).OrderByDescending(o =>o.FechaCreacion).ToList();
+            return [];
+            //return _ctxt.Historia.Where(o => o.PacienteId == id_patient).OrderByDescending(o =>o.FechaCreacion).ToList();
         }
 
         public void create(Historia history)
