@@ -4,9 +4,7 @@ public class Consulta
 {
     public int Id { get; set; }
 
-    public int? PacienteId { get; set; }
-
-    public Paciente? Paciente { get; set; }
+    public int PacienteId { get; set; }
 
     public DateOnly? FechaAtencion { get; set; }
 
@@ -54,7 +52,7 @@ public class Consulta
 
     public string? AgudezaIzq { get; set; }
 
-    public int Ecografia { get; set; } = 0;
+    public int? Ecografia { get; set; }
 
     public string? ObservacionEco { get; set; }
 
@@ -62,11 +60,11 @@ public class Consulta
 
     public string? ObservacionEcg { get; set; }
 
-    public int Radiografia { get; set; } = 0;
+    public int? Radiografia { get; set; }
 
     public string? ObservacionRadiografia { get; set; }
 
-    public int Laboratorio { get; set; } = 0;
+    public int? Laboratorio { get; set; }
 
     public string? ObservacionLab {  get; set; }
 
@@ -76,9 +74,9 @@ public class Consulta
 
     public string? Tratamiento { get; set; }
 
-    public int? DerivacionAguda { get; set; } = 0;
+    public int? DerivacionAguda { get; set; }
 
-    public int? DerivacionProg { get; set; } = 0;
+    public int? DerivacionProg { get; set; }
 
     public string? ObservacionDeriv { get; set; }
 
@@ -100,27 +98,27 @@ public class Consulta
 
     public decimal? PzPc { get; set; }
 
-    public int Gestas { get; set; } = 0;
+    public int? Gestas { get; set; }
 
-    public int Para { get; set; } = 0;
+    public int? Para { get; set; }
 
-    public int Cesareas { get; set; } = 0;
+    public int? Cesareas { get; set; }
 
-    public int Abortos { get; set; } = 0;
+    public int? Abortos { get; set; }
 
-    public int Irs { get; set; }
+    public int? Irs { get; set; }
 
-    public int Menarca { get; set; }
+    public int? Menarca { get; set; }
 
     public string? RitmoMenst { get; set; }
 
-    public int Menopausia { get; set; } = 0;
+    public int? Menopausia { get; set; }
 
-    public int TomaPap { get; set; } = 0;
+    public int? TomaPap { get; set; }
 
     public string? ResultadoPap { get; set; }
 
-    public int Colposcopia { get; set; } = 0;
+    public int? Colposcopia { get; set; }
 
     public DateOnly? FechaCreacion { get; set; }
 

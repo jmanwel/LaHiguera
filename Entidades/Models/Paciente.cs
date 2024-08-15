@@ -22,13 +22,13 @@ public class Paciente
 
     public int? EtniaId { get; set; }
 
-    public Etnia? Etnia { get; set; }
+    public virtual Etnia? Etnia { get; set; }
 
-    public List<Antecedente> Antecedentes { get; } = [];
+    public virtual ICollection<Antecedente> Antecedentes { get; } = new List<Antecedente>();
 
-    public List<Complementario> Complementarios { get; } = [];
+    public virtual ICollection<Complementario> Complementarios { get; } = new List<Complementario>();
 
-    public List<Consulta> Consultas { get; } = [];
+    public virtual ICollection<Consulta> Consultas { get; } = new List<Consulta>();
 
     public int? AnoIngreso { get; set; }
 

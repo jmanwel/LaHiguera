@@ -1,7 +1,6 @@
 ﻿using DotNetEnv;
-using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace Entidades.Models;
 
@@ -51,8 +50,8 @@ public partial class LahigueraContext : DbContext
             throw new InvalidOperationException("Connection string not found");
         }else{
             if(!optionsBuilder.IsConfigured){
-                optionsBuilder.UseSqlite(connectionString);
-            }
+                optionsBuilder.UseLazyLoadingProxies().UseSqlite(connectionString);
+             }
         }
     }
 
@@ -215,7 +214,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.EvalSoc)
                 .HasColumnName("eval_soc");
             entity.Property(e => e.FechaAtencion)
-                .HasColumnType("DATETIME")
+                .HasColumnType("DATE")
                 .HasColumnName("fecha_atencion");
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("DATETIME")
@@ -236,6 +235,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Observacion)
                 .HasColumnName("observacion");
             entity.Property(e => e.PacienteId)
+                .HasColumnType("INTEGER")
                 .HasColumnName("paciente_id");
             entity.Property(e => e.ExamenFisico)
                 .HasColumnName("examen_fisico");

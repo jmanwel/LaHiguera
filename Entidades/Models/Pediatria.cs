@@ -6,7 +6,7 @@ public class Pediatria
 
     public int? PacienteId { get; set; }
 
-    public Paciente? Paciente { get; set; }
+    public virtual Paciente? Paciente { get; set; }
 
     public double? Peso { get; set; }
 

@@ -6,7 +6,7 @@ public class Historia
 
     public int? PacienteId { get; set; }
 
-    public Paciente? Paciente { get; set; }
+    public virtual Paciente? Paciente { get; set; }
 
     public string? ExamenFisico { get; set; }
 
