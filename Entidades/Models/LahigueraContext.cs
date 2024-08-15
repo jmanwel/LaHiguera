@@ -359,8 +359,11 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Colposcopia)
                 .HasColumnType("INTEGER")
                 .HasColumnName("colposcopia");
-            entity.Property(e => e.ObservacionLab).HasColumnName("observacion_lab");
-            entity.Property(e => e.PercentilPc).HasColumnName("percentil_pc");
+            entity.Property(e => e.ObservacionLab)
+                .HasColumnName("observacion_lab");
+            entity.Property(e => e.PercentilPc)
+                .HasColumnType("DECIMAL")
+                .HasColumnName("percentil_pc");
         });
 
         modelBuilder.Entity<EnfermedadFamiliar>(entity =>
