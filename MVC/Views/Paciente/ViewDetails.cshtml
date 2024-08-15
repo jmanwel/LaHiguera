@@ -148,7 +148,7 @@
                                         @foreach (Entidades.Models.Consulta consulta in ViewBag.Consulta)
                                         {
                                             <tr>
-                                                <td>@consulta.FechaAtencion.ToString().Split(" ")[0]</td>
+                                                <td>@consulta.FechaAtencion</td>
                                                 <td>@consulta.MotivoConsulta</td>
                                                 <td>@consulta.DiagnosticoConsulta</td>
                                             </tr>

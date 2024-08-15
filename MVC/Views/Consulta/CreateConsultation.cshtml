@@ -30,12 +30,15 @@
         <br />
         <div class="row">
             <div class="col">
-                <label class="form-label" for="DiagnosticoConsulta">Diagnostico Consulta: </label>
-                <input class="form-control" type="text" name="DiagnosticoConsulta" value="" />
-            </div>
-            <div class="col">
                 <label class="form-label" for="Observacion">Observación: </label>
                 <input class="form-control" type="text" name="Observacion" value="" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <label class="form-label" for="Diagnostico">Diagnóstico: *</label>
+                <input class="form-control" type="text" name="DiagnosticoConsulta" value="" required />
             </div>
         </div>
         <br />
@@ -54,14 +57,21 @@
             </div>
         </div>
         <br />
+        <div class="row">            
+            <div class="col">
+                <label class="form-label" for="Ta">Tensión arterial (TA): </label>
+                <input class="form-control" type="text" name="Ta" value="" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Saturacion">Saturación (%): </label>
+                <input class="form-control" type="number" name="Saturacion" value="" />
+            </div>
+        </div>
+        <br />
         <div class="row">
             <div class="col">
                 <label class="form-label" for="ExamenFisico">Exámen Físico: </label>
                 <input class="form-control" type="text" name="ExamenFisico" value="" />
-            </div>
-            <div class="col">
-                <label class="form-label" for="Ta">Tensión arterial (TA): </label>
-                <input class="form-control" type="text" name="Ta" value="" />
             </div>
         </div>
         <br />
@@ -92,10 +102,6 @@
             <div class="col">
                 <label class="form-label" for="CircCadera">Circunferencia de Cadera (cms): </label>
                 <input class="form-control" type="number" name="CircCadera" value="" />
-            </div>
-            <div class="col">
-                <label class="form-label" for="Saturacion">Saturación (%): </label>
-                <input class="form-control" type="number" name="Saturacion" value="" />
             </div>
             <div class="col">
                 <label class="form-label" for="Temperatura">Temperatura (º): </label>
@@ -165,10 +171,6 @@
             <div class="col">
                 <label class="form-label" for="EstudiosComp">Estudios Complementarios: </label>
                 <input class="form-control" type="text" name="EstudiosComp" value="" />
-            </div>
-            <div class="col">
-                <label class="form-label" for="Diagnostico">Diagnóstico: *</label>
-                <input class="form-control" type="text" name="Diagnostico" value="" required />
             </div>
         </div>
         <br />
