@@ -11,18 +11,13 @@ namespace MVC.Controllers
         private IAntecedenteService _antecedenteService;
         private IComplementarioService _complementarioService;
         private IConsultaService _consultaService;
-        private IHistoriaService _historiaService;
-        private IPediatriaService _pediatriaService;
-        private IGinecologiaService _ginecologiaService;
-        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService, IComplementarioService complementarioService, IConsultaService consultaService, IHistoriaService historiaService, IPediatriaService pediatriaService, IGinecologiaService ginecologiaService)
+        
+        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService, IComplementarioService complementarioService, IConsultaService consultaService )
         {
             _pacienteService = pacienteService;
             _antecedenteService = antecedenteService;
             _complementarioService = complementarioService;
-            _consultaService = consultaService;
-            _historiaService = historiaService;
-            _pediatriaService = pediatriaService;
-            _ginecologiaService = ginecologiaService;
+            _consultaService = consultaService;            
         }
         public ActionResult CreatePatient()
         {
@@ -93,10 +88,7 @@ namespace MVC.Controllers
             }
             ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
-            ViewBag.Consulta = _consultaService.getAllConsultationFromIdPatient(id);
-            //ViewBag.Historia = _historiaService.getAllHistoryForAPatient(id);
-            //ViewBag.Pediatria = _pediatriaService.getAllPediatryForAPatient(id);
-            //ViewBag.Ginecologia = _ginecologiaService.getAllGinecologyForAPatient(id);
+            ViewBag.Consulta = _consultaService.getAllConsultationFromIdPatient(id);            
             return View();
         }
 
@@ -120,11 +112,8 @@ namespace MVC.Controllers
 
             patient.information = _pacienteService.getPatient(patientId);
             patient.complementary = complementary.Count > 0 ? complementary.Last(): null;
-            patient.consultations = _consultaService.getAllConsultationFromIdPatient(patientId);
-            //patient.history = _historiaService.getAllHistoryForAPatient(patientId);
+            patient.consultations = _consultaService.getAllConsultationFromIdPatient(patientId);            
             patient.background = _antecedenteService.getAllAntecedentForAPatient(patientId);
-            //patient.ginecology = _ginecologiaService.getAllGinecologyForAPatient(patientId);
-            //patient.pediatry = _pediatriaService.getAllPediatryForAPatient(patientId);
 
             return patient;
 
