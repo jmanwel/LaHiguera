@@ -192,16 +192,63 @@
                             <tr>
                                 <th scope="col">Fecha</th>
                                 <th scope="col">Edad</th>
-                                <th scope="col">Motivo de la Consulta</th>
-                                <th scope="col">Diagnostico de laConsulta</th>
+                                <th scope="col">Motivo Consulta</th>
+                                <th scope="col">Diagnostico Consulta</th>
                                 <th scope="col">Observación</th>
                                 <th scope="col">Eval Nutricional</th>
                                 <th scope="col">Eval Social</th>
+                                <th scope="col">Exámen Físico</th>
+                                <th scope="col">Ta</th>
+                                <th scope="col">Peso</th>
+                                <th scope="col">Talla</th>
+                                <th scope="col">Imc</th>
+                                <th scope="col">Circ Cintura</th>
+                                <th scope="col">Circ Cadera</th>
+                                <th scope="col">Icc</th>
+                                <th scope="col">Saturacion</th>
+                                <th scope="col">Temperatura</th>
+                                <th scope="col">Glicemia</th>
+                                <th scope="col">Agudeza Visual ojo der</th>
+                                <th scope="col">Agudeza Visual ojo izq</th>
+                                <th scope="col">Ecografía</th>
+                                <th scope="col">Observación Eco</th>
+                                <th scope="col">Ecg</th>
+                                <th scope="col">Observación Ecg</th>
+                                <th scope="col">Radiografía</th>
+                                <th scope="col">Obs Radiografia</th>
+                                <th scope="col">Lab</th>
+                                <th scope="col">Observación Lab</th>
+                                <th scope="col">Estudios Comp</th>
+                                <th scope="col">Diagnóstico</th>
+                                <th scope="col">Tratamiento</th>
+                                <th scope="col">Derivación Aguda</th>
+                                <th scope="col">Derivación Prog</th>
+                                <th scope="col">Observación Derivación</th>
+                                <th scope="col">Percentil Peso</th>
+                                <th scope="col">PzPeso</th>                                
+                                <th scope="col">PercentilTalla</th>
+                                <th scope="col">PzTalla</th>
+                                <th scope="col">PercentilImc</th>
+                                <th scope="col">PzImc</th>
+                                <th scope="col">Pc</th>
+                                <th scope="col">Percentil Pc</th>
+                                <th scope="col">PzPc</th>
                                 @if (@ViewBag.Paciente.Sexo == "Femenino")
                                 {
                                     <th scope="col">Fum</th>
                                     <th scope="col">MacActual</th>
                                     <th scope="col">FechaMac</th>
+                                    <th scope="col">Gestas</th>
+                                    <th scope="col">Para</th>
+                                    <th scope="col">Cesareas</th>
+                                    <th scope="col">Abortos</th>
+                                    <th scope="col">Irs</th>
+                                    <th scope="col">Menarca</th>
+                                    <th scope="col">RitmoMenst</th>
+                                    <th scope="col">Menopausia</th>
+                                    <th scope="col">TomaPap</th>
+                                    <th scope="col">ResultadoPap</th>
+                                    <th scope="col">Colposcopia</th>                                    
                                 }
                                 <th scope="col">Editar</th>
                             </tr>
@@ -210,18 +257,65 @@
                             @foreach (Entidades.Models.Consulta consulta in ViewBag.Consulta)
                             {
                                 <tr>
-                                    <td>@consulta.FechaAtencion.ToString().Split(" ")[0]</td>
+                                    <td>@consulta.FechaAtencion</td>
                                     <td>@consulta.EdadConsulta</td>
                                     <td>@consulta.MotivoConsulta</td>
                                     <td>@consulta.DiagnosticoConsulta</td>
                                     <td>@consulta.Observacion</td>
                                     <td>@consulta.EvalNutric</td>
                                     <td>@consulta.EvalSoc</td>
+                                    <td>@consulta.ExamenFisico</td>
+                                    <td>@consulta.Ta</td>
+                                    <td>@consulta.Peso</td>
+                                    <td>@consulta.Talla</td>
+                                    <td>@consulta.Imc</td>
+                                    <td>@consulta.CircCintura</td>
+                                    <td>@consulta.CircCadera</td>
+                                    <td>@consulta.Icc</td>
+                                    <td>@consulta.Saturacion</td>
+                                    <td>@consulta.Temperatura</td>
+                                    <td>@consulta.Glicemia</td>
+                                    <td>@consulta.AgudezaDer</td>
+                                    <td>@consulta.AgudezaIzq</td>
+                                    <td>@justSayYesOrNo((int)@consulta.Ecografia)</td>
+                                    <td>@consulta.ObservacionEco</td>
+                                    <td>@justSayYesOrNo((int)@consulta.Ecg)</td>
+                                    <td>@consulta.ObservacionEcg</td>
+                                    <td>@justSayYesOrNo((int)@consulta.Radiografia)</td>
+                                    <td>@consulta.ObservacionRadiografia</td>
+                                    <td>@justSayYesOrNo((int)@consulta.Laboratorio)</td>
+                                    <td>@consulta.ObservacionLab</td>
+                                    <td>@consulta.EstudiosComp</td>
+                                    <td>@consulta.Diagnostico</td>
+                                    <td>@consulta.Tratamiento</td>
+                                    <td>@justSayYesOrNo((int)@consulta.DerivacionAguda)</td>
+                                    <td>@consulta.DerivacionProg</td>
+                                    <td>@consulta.ObservacionDeriv</td>
+                                    <td>@consulta.PercentilPeso</td>
+                                    <td>@consulta.PzPeso</td>
+                                    <td>@consulta.PercentilTalla</td>
+                                    <td>@consulta.PzTalla</td>
+                                    <td>@consulta.PercentilImc</td>
+                                    <td>@consulta.PzImc</td>
+                                    <td>@consulta.Pc</td>
+                                    <td>@consulta.PercentilPc</td>
+                                    <td>@consulta.PzPc</td>
                                     @if (@ViewBag.Paciente.Sexo == "Femenino")
                                     {
                                         <td>@consulta.Fum</td>
                                         <td>@consulta.MacActual</td>
                                         <td>@consulta.FechaMac</td>
+                                        <td>@consulta.Gestas</td>
+                                        <td>@consulta.Para</td>
+                                        <td>@consulta.Cesareas</td>
+                                        <td>@consulta.Abortos</td>
+                                        <td>@consulta.Irs</td>
+                                        <td>@consulta.Menarca</td>
+                                        <td>@consulta.RitmoMenst</td>
+                                        <td>@consulta.Menopausia</td>
+                                        <td>@consulta.TomaPap</td>
+                                        <td>@consulta.ResultadoPap</td>
+                                        <td>@consulta.Colposcopia</td>
                                     }
                                     <td><a asp-controller="Consulta" asp-action="editConsultation" asp-route-id="@consulta.Id"><img src="~/icons/pencil.svg" /></a></td>
                                 </tr>
@@ -309,7 +403,7 @@
                                     <td>@justSayYesOrNo((int)@antecedente.Sedentarismo)</td>
                                     <td>@justSayYesOrNo((int)@antecedente.Tabaco)</td>
                                     <td>@justSayYesOrNo((int)@antecedente.Tbc)</td>
-                                    <td>@antecedente.Vacunacion.Descripcion</td>
+                                    <td>@antecedente.VacunacionId</td>
                                     <td>@antecedente.Notas</td>
                                     <td><a asp-controller="Antecedente" asp-action="editAntecedent" asp-route-id="@antecedente.Id"><img src="~/icons/pencil.svg" /></a></td>
                                 </tr>
@@ -320,239 +414,6 @@
                 else
                 {
                     <h5>No se registran antecedentes para este paciente</h5>
-                }
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!---->
-
-<!--MODAL-->
-<div class="modal" id="modal_historico" tabindex="-1">
-    <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Histórial del paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body overflow-scroll">
-                @if (Enumerable.Count(ViewBag.Historia) > 0)
-                {
-                    <table class="table table-hover text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Exámen Físico</th>
-                                <th scope="col">Ta</th>                                
-                                <th scope="col">Peso</th>
-                                <th scope="col">Talla</th>
-                                <th scope="col">Imc</th>
-                                <th scope="col">Circ Cintura</th>
-                                <th scope="col">Circ Cadera</th>
-                                <th scope="col">Icc</th>
-                                <th scope="col">Saturacion</th>
-                                <th scope="col">Temperatura</th>
-                                <th scope="col">Glicemia</th>
-                                <th scope="col">Agudeza Visual ojo der</th>
-                                <th scope="col">Agudeza Visual ojo izq</th>
-                                <th scope="col">Ecografía</th>
-                                <th scope="col">Observación Eco</th>
-                                <th scope="col">Ecg</th>
-                                <th scope="col">Observación Ecg</th>
-                                <th scope="col">Radiografía</th>
-                                <th scope="col">Obs Radiografia</th>
-                                <th scope="col">Lab</th>
-                                <th scope="col">Observación Lab</th>
-                                <th scope="col">Estudios Comp</th>
-                                <th scope="col">Diagnóstico</th>
-                                <th scope="col">Tratamiento</th>
-                                <th scope="col">Derivación Aguda</th>
-                                <th scope="col">Derivación Prog</th>
-                                <th scope="col">Observación Derivación</th>
-                                <th scope="col">Editar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (Entidades.Models.Historia historia in ViewBag.Historia)
-                            {
-                                <tr>
-                                    <td>@historia.FechaCreacion.ToString().Split(" ")[0]</td>
-                                    <td>@historia.ExamenFisico</td>
-                                    <td>@historia.Ta</td>
-                                    <td>@historia.Peso</td>
-                                    <td>@historia.Talla</td>
-                                    <td>@historia.Imc</td>
-                                    <td>@historia.CircCintura</td>
-                                    <td>@historia.CircCadera</td>
-                                    <td>@historia.Icc</td>
-                                    <td>@historia.Saturacion</td>
-                                    <td>@historia.Temperatura</td>
-                                    <td>@historia.Glicemia</td>
-                                    <td>@historia.AgudezaDer</td>
-                                    <td>@historia.AgudezaIzq</td>
-                                    <td>@justSayYesOrNo((int)@historia.Ecografia)</td>
-                                    <td>@historia.ObservacionEco</td>
-                                    <td>@justSayYesOrNo((int)@historia.Ecg)</td>
-                                    <td>@historia.ObservacionEcg</td>
-                                    <td>@justSayYesOrNo((int)@historia.Radiografia)</td>
-                                    <td>@historia.ObservacionRadiografia</td>
-                                    <td>@justSayYesOrNo((int)@historia.Laboratorio)</td>
-                                    <td>@historia.ObservacionLab</td>
-                                    <td>@historia.EstudiosComp</td>
-                                    <td>@historia.Diagnostico</td>
-                                    <td>@historia.Tratamiento</td>
-                                    <td>@justSayYesOrNo((int)@historia.DerivacionAguda)</td>
-                                    <td>@historia.DerivacionProg</td>
-                                    <td>@historia.ObservacionDeriv</td>
-                                    <td><a asp-controller="Historia" asp-action="editHistory" asp-route-id="@historia.Id"><img src="~/icons/pencil.svg" /></a></td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                }
-                else
-                {
-                    <h5>No se registran historias para este paciente</h5>
-                }
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!---->
-
-<!--MODAL-->
-<div class="modal" id="modal_pediatria" tabindex="-1">
-    <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Historial pediátrico del paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body overflow-scroll">
-                @if (Enumerable.Count(ViewBag.Pediatria) > 0)
-                {
-                    <table class="table table-hover text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Peso</th>
-                                <th scope="col">Percentil Peso</th>
-                                <th scope="col">PzPeso</th>
-                                <th scope="col">Talla</th>
-                                <th scope="col">PercentilTalla</th>
-                                <th scope="col">PzTalla</th>
-                                <th scope="col">Imc</th>
-                                <th scope="col">PercentilImc</th>
-                                <th scope="col">PzImc</th>
-                                <th scope="col">Pc</th>
-                                <th scope="col">Percentil Pc</th>
-                                <th scope="col">PzPc</th>
-                                <th scope="col">Agudeza Visual ojo der</th>
-                                <th scope="col">Agudeza Visual ojo izq</th>
-                                <th scope="col">Editar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (Entidades.Models.Pediatria pediatria in ViewBag.Pediatria)
-                            {
-                                <tr>
-                                    <td>@pediatria.FechaCreacion.ToString().Split(" ")[0]</td>
-                                    <td>@pediatria.Peso</td>
-                                    <td>@pediatria.PercentilPeso</td>
-                                    <td>@pediatria.PzPeso</td>
-                                    <td>@pediatria.Talla</td>
-                                    <td>@pediatria.PercentilTalla</td>
-                                    <td>@pediatria.PzTalla</td>                                      
-                                    <td>@pediatria.Imc</td>
-                                    <td>@pediatria.PercentilImc</td>
-                                    <td>@pediatria.PzImc</td>
-                                    <td>@pediatria.Pc</td>
-                                    <td>@pediatria.PercentilPc</td>
-                                    <td>@pediatria.PzPc</td>
-                                    <td>@pediatria.AgudezaDer</td>
-                                    <td>@pediatria.AgudezaIzq</td>
-                                    <td><a asp-controller="Pediatria" asp-action="editPediatry" asp-route-id="@pediatria.Id"><img src="~/icons/pencil.svg" /></a></td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                }
-                else
-                {
-                    <h5>No se registran historias para este paciente</h5>
-                }
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!---->
-
-
-<!--MODAL-->
-<div class="modal" id="modal_ginecologia" tabindex="-1">
-    <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Historial ginecólogico del paciente @ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body overflow-scroll">
-                @if (Enumerable.Count(ViewBag.Ginecologia) > 0)
-                {
-                    <table class="table table-hover text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Gestas</th>
-                                <th scope="col">Para</th>
-                                <th scope="col">Cesareas</th>
-                                <th scope="col">Abortos</th>
-                                <th scope="col">Irs</th>
-                                <th scope="col">Menarca</th>
-                                <th scope="col">RitmoMenst</th>
-                                <th scope="col">Menopausia</th>
-                                <th scope="col">TomaPap</th>
-                                <th scope="col">ResultadoPap</th>
-                                <th scope="col">Colposcopia</th>
-                                <th scope="col">Estudios Comp</th>
-                                <th scope="col">Editar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (Entidades.Models.Ginecologia ginecologia in ViewBag.Ginecologia)
-                            {
-                                <tr>
-                                    <td>@ginecologia.FechaCreacion.ToString().Split(" ")[0]</td>
-                                    <td>@ginecologia.Gestas</td>
-                                    <td>@ginecologia.Para</td>
-                                    <td>@ginecologia.Cesareas</td>
-                                    <td>@ginecologia.Abortos</td>
-                                    <td>@ginecologia.Irs</td>
-                                    <td>@ginecologia.Menarca</td>
-                                    <td>@ginecologia.RitmoMenst</td>
-                                    <td>@ginecologia.Menopausia</td>
-                                    <td>@ginecologia.TomaPap</td>
-                                    <td>@ginecologia.ResultadoPap</td>
-                                    <td>@ginecologia.Colposcopia</td>
-                                    <td>@ginecologia.EstudiosComp</td>
-                                    <td><a asp-controller="Ginecologia" asp-action="editGinecology" asp-route-id="@ginecologia.Id"><img src="~/icons/pencil.svg" /></a></td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                }
-                else
-                {
-                    <h5>No se registran consultas ginecólogicas para este paciente</h5>
                 }
             </div>
             <div class="modal-footer">

@@ -6,7 +6,7 @@ public class Consulta
 
     public int? PacienteId { get; set; }
 
-    public Paciente? Paciente { get; set; }
+    //public Paciente? Paciente { get; set; }
 
     public DateOnly? FechaAtencion { get; set; }
 
