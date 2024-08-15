@@ -3,4 +3,11 @@
 .DS_Store
 **/bin
 **/obj
-*.db
+**/*.db
+**/*.sql
+**/*.user
+.github/
+**/.config/
+**/*.sqlite
+**/*.db-shm
+**/*.db-wal

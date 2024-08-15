@@ -1,17 +1,10 @@
 ﻿@{
+
     Layout = "../Shared/_Layout.cshtml";
-}
-
-@{
     int edad = @DateTime.Today.Year - @ViewBag.Paciente.FechaNac.Year;
-}
-
-@{
     string str(int edad) => edad > 1 ? "años" : "año";
-}
-
-@{
     string justSayYesOrNo(int value) => value == 1 ? "SI" : "NO";
+
 }
 
 <div class="container-fluid">

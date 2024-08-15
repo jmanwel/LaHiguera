@@ -6,7 +6,7 @@ public class Ginecologia
 
     public int? PacienteId { get; set; }
 
-    public Paciente? Paciente { get; set; }
+    public virtual Paciente? Paciente { get; set; }
 
     public int? Gestas { get; set; }
 

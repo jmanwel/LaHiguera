@@ -6,7 +6,7 @@
 
         public string Enfermedad { get; set; }
 
-        public List<Antecedente> Antecedentes { get; } = [];
+        public virtual ICollection<Antecedente> Antecedentes { get; } = new List<Antecedente>();
 
     }
 }

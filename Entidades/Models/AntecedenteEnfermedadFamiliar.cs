@@ -5,9 +5,9 @@
         public int Id { get; set; }
 
         public int AntecedenteId { get; set; }
-        public Antecedente Antecedente { get; set; }
+        public virtual Antecedente Antecedente { get; set; }
 
         public int EnfermedadFamiliarId { get; set; }
-        public EnfermedadFamiliar EnfermedadFamiliar { get; set; }
+        public virtual EnfermedadFamiliar EnfermedadFamiliar { get; set; }
     }
 }
