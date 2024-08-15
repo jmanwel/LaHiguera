@@ -120,8 +120,8 @@ public class Consulta
 
     public int? Colposcopia { get; set; }
 
-    public DateOnly? FechaCreacion { get; set; }
+    public DateTime? FechaCreacion { get; set; }
 
-    public DateOnly? LastUpdated { get; set; }
+    public DateTime? LastUpdated { get; set; }
 
 }
