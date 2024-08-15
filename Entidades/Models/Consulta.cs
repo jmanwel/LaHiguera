@@ -70,8 +70,6 @@ public class Consulta
 
     public string? EstudiosComp { get; set; }
 
-    public string? Diagnostico { get; set; }
-
     public string? Tratamiento { get; set; }
 
     public int? DerivacionAguda { get; set; }

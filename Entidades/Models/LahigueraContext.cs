@@ -291,9 +291,7 @@ public partial class LahigueraContext : DbContext
                 .HasColumnType("INTEGER")
                 .HasColumnName("laboratorio");
             entity.Property(e => e.EstudiosComp)
-                .HasColumnName("estudios_comp");
-            entity.Property(e => e.Diagnostico)
-                .HasColumnName("diagnostico");
+                .HasColumnName("estudios_comp");            
             entity.Property(e => e.Tratamiento)
                 .HasColumnName("tratamiento");
             entity.Property(e => e.DerivacionAguda)
