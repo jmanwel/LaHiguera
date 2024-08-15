@@ -83,7 +83,7 @@ namespace Servicios
                 edited_consultation.ObservacionLab = consulta.ObservacionLab;
                 edited_consultation.EstudiosComp = consulta.EstudiosComp;             
                 edited_consultation.Tratamiento = consulta.Tratamiento;
-                edited_consultation.DerivacionAguda = consulta.DerivacionProg;
+                edited_consultation.DerivacionAguda = consulta.DerivacionAguda;
                 edited_consultation.DerivacionProg = consulta.DerivacionProg;
                 edited_consultation.ObservacionDeriv = consulta.ObservacionDeriv;
                 edited_consultation.PercentilPeso = consulta.PercentilPeso;
