@@ -339,17 +339,25 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Vacunacion">Vacunación: </label>
-                <select class="form-control" name="Vacunacion">
-                    @if (@ViewBag.Antecedente.Vacunacion == 1)
+                <label class="form-label" for="VacunacionId">Vacunación: </label>
+                <select class="form-control" name="VacunacionId">
+                    @if (@ViewBag.Antecedente.VacunacionId == 1)
                     {
-                        <option selected value=1>SI</option>
-                        <option value=0>NO</option>
+                        <option selected value=1>COMPLETA</option>
+                        <option value=2>INCOMPLETA</option>
+                        <option value=3>DESCONOCE</option>
                     }
-                    else
+                    @if (@ViewBag.Antecedente.VacunacionId == 2)
                     {
-                        <option selected value=0>NO</option>
-                        <option value=1>SI</option>
+                        <option value=1>COMPLETA</option>
+                        <option selected value=2>INCOMPLETA</option>
+                        <option value=3>DESCONOCE</option>
+                    }
+                    @if (@ViewBag.Antecedente.VacunacionId == 3)
+                    {
+                        <option value=1>COMPLETA</option>
+                        <option value=2>INCOMPLETA</option>
+                        <option selected value=3>DESCONOCE</option>
                     }
                 </select>
             </div>
