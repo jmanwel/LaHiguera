@@ -1,7 +1,6 @@
 ﻿using DotNetEnv;
-using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace Entidades.Models;
 
@@ -51,8 +50,8 @@ public partial class LahigueraContext : DbContext
             throw new InvalidOperationException("Connection string not found");
         }else{
             if(!optionsBuilder.IsConfigured){
-                optionsBuilder.UseSqlite(connectionString);
-            }
+                optionsBuilder.UseLazyLoadingProxies().UseSqlite(connectionString);
+             }
         }
     }
 
@@ -215,7 +214,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.EvalSoc)
                 .HasColumnName("eval_soc");
             entity.Property(e => e.FechaAtencion)
-                .HasColumnType("DATETIME")
+                .HasColumnType("DATE")
                 .HasColumnName("fecha_atencion");
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("DATETIME")
@@ -236,6 +235,7 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Observacion)
                 .HasColumnName("observacion");
             entity.Property(e => e.PacienteId)
+                .HasColumnType("INTEGER")
                 .HasColumnName("paciente_id");
             entity.Property(e => e.ExamenFisico)
                 .HasColumnName("examen_fisico");
@@ -265,9 +265,9 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Temperatura)
                 .HasColumnType("DECIMAL")
                 .HasColumnName("temperatura");
-            entity.Property(e => e.Glucemia)
+            entity.Property(e => e.Glicemia)
                 .HasColumnType("INTEGER")
-                .HasColumnName("glucemia");
+                .HasColumnName("glicemia");
             entity.Property(e => e.AgudezaDer)
                 .HasColumnName("agudeza_der");
             entity.Property(e => e.AgudezaIzq)
@@ -290,8 +290,6 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Laboratorio)
                 .HasColumnType("INTEGER")
                 .HasColumnName("laboratorio");
-            entity.Property(e => e.Radiografia)
-                .HasColumnName("observacion_lab");
             entity.Property(e => e.EstudiosComp)
                 .HasColumnName("estudios_comp");
             entity.Property(e => e.Diagnostico)
@@ -361,6 +359,11 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Colposcopia)
                 .HasColumnType("INTEGER")
                 .HasColumnName("colposcopia");
+            entity.Property(e => e.ObservacionLab)
+                .HasColumnName("observacion_lab");
+            entity.Property(e => e.PercentilPc)
+                .HasColumnType("DECIMAL")
+                .HasColumnName("percentil_pc");
         });
 
         modelBuilder.Entity<EnfermedadFamiliar>(entity =>
@@ -484,7 +487,7 @@ public partial class LahigueraContext : DbContext
                 .HasColumnType("DATETIME")
                 .HasColumnName("fecha_alta");
             entity.Property(e => e.FechaNac)
-                .HasColumnType("DATE")
+                .HasColumnType("DATETIME")
                 .HasColumnName("fecha_nac");
             entity.Property(e => e.FlgActivo)
                 .HasColumnType("INTEGER")

@@ -6,7 +6,7 @@ public class Ginecologia
 
     public int? PacienteId { get; set; }
 
-    public Paciente? Paciente { get; set; }
+    public virtual Paciente? Paciente { get; set; }
 
     public int? Gestas { get; set; }
 
@@ -32,8 +32,8 @@ public class Ginecologia
 
     public string? EstudiosComp { get; set; }
 
-    public DateTime? FechaCreacion { get; set; }
+    public DateOnly? FechaCreacion { get; set; }
 
-    public DateTime? LastUpdated { get; set; }
+    public DateOnly? LastUpdated { get; set; }
 
 }

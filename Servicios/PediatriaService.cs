@@ -25,7 +25,7 @@ namespace Servicios
             pediatria.Pc = (double?)Convert.ToDecimal(pediatria.Pc);
             pediatria.PercentilPc = (double?)Convert.ToDecimal(pediatria.PercentilPc);
             pediatria.PzPc = (double?)Convert.ToDecimal(pediatria.PzPc);
-            pediatria.FechaCreacion = DateTime.Today;
+            pediatria.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
             pediatria.AgudezaDer = pediatria.AgudezaDer?.ToUpper() ?? "";
             pediatria.AgudezaIzq = pediatria.AgudezaIzq?.ToUpper() ?? "";
             pediatria.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
@@ -36,7 +36,8 @@ namespace Servicios
         public List<Pediatria> getAllPediatryForAPatient(int id_patient)
         {
             // This Method returns all pediatry for a patient
-            return _ctxt.Pediatria.Where(o => o.PacienteId == id_patient).OrderByDescending(o => o.FechaCreacion).ToList();
+            return [];
+            //return _ctxt.Pediatria.Where(o => o.PacienteId == id_patient).OrderByDescending(o => o.FechaCreacion).ToList();
         }
 
         public Pediatria getPediatryForAPatient(int id)
@@ -70,7 +71,7 @@ namespace Servicios
                 pediatria_updated.PzPc = (double?)Convert.ToDecimal(pediatria.PzPc);
                 pediatria_updated.AgudezaDer = pediatria.AgudezaDer?.ToUpper() ?? "";
                 pediatria_updated.AgudezaIzq = pediatria.AgudezaIzq?.ToUpper() ?? "";
-                pediatria_updated.LastUpdated = DateTime.Today;
+                pediatria_updated.LastUpdated = DateOnly.FromDateTime(DateTime.Now);
                 _ctxt.SaveChanges();
             }
         }

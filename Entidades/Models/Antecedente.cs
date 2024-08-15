@@ -6,7 +6,7 @@ public class Antecedente
 
     public int? PacienteId { get; set; }
 
-    public Paciente? Paciente { get; set; }
+    public virtual Paciente? Paciente { get; set; }
 
     public int? Sedentarismo { get; set; }
 
@@ -50,16 +50,18 @@ public class Antecedente
 
     public int? VacunacionId { get; set; }
 
-    public Vacunacion? Vacunacion { get; set; }
+    public virtual Vacunacion? Vacunacion { get; set; }
 
-    public List<EnfermedadFamiliar> EnfermedadesFamiliares { get; } = [];
+    public virtual ICollection<EnfermedadFamiliar> EnfermedadesFamiliares { get; } = [];
 
     public int? Medicacion { get; set; }
 
     public string? Notas { get; set; }
 
-    public DateTime? FechaCreacion { get; set; }
+    public DateOnly? FechaCreacion { get; set; }
 
-    public DateTime? LastUpdated { get; set; }
+    public DateOnly? LastUpdated { get; set; }
+
+    public virtual ICollection<AntecedenteEnfermedadFamiliar> AntecedenteEnfermedadFamiliares { get; set; }
 
 }

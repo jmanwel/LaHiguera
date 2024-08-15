@@ -56,7 +56,7 @@ namespace Servicios
                 paciente.Nombre = paciente.Nombre.ToUpper();
                 paciente.Apellido = paciente.Apellido.ToUpper();
                 paciente.Sexo = paciente.Sexo.ToUpper();
-                
+                paciente.LugarNac = paciente.LugarNac?.ToUpper() ?? "";
                 //Create an uniq Id based on: nombre, apellido, DNI y fecha de nacimiento
                 string string_to_hash = paciente.Nombre + paciente.Apellido + paciente.FechaNac + paciente.Dni;
                 SHA512 sha512 = SHA512.Create();
@@ -127,6 +127,7 @@ namespace Servicios
                 updated_patient.FlgActivo = paciente.FlgActivo;
                 updated_patient.FechaNac = paciente.FechaNac;
                 updated_patient.FechaAlta = paciente.FechaAlta;
+                updated_patient.LugarNac = paciente.LugarNac?.ToUpper() ?? "";
                 if (paciente.ParajeAtencion != null)
                 {
                     updated_patient.ParajeAtencion = paciente.ParajeAtencion.ToUpper();

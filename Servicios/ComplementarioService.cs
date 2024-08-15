@@ -13,7 +13,8 @@ namespace Servicios
         public void create(Complementario complementario)
         {
             //This method persist Complementario objects in DDBB
-            complementario.FechaCreacion = DateTime.Today;
+
+            complementario.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
             complementario.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";
             complementario.EstadoCivilId = complementario.EstadoCivilId;
             complementario.EscolaridadId = complementario.EscolaridadId;
@@ -53,7 +54,7 @@ namespace Servicios
                 updated_complementary.EscolaridadId = complementario.EscolaridadId;
                 updated_complementary.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
                 updated_complementary.Notas = complementario.Notas?.ToUpper() ?? "";
-                updated_complementary.LastUpdated = DateTime.Today;
+                updated_complementary.LastUpdated = DateOnly.FromDateTime(DateTime.Now);
                 _ctxt.SaveChanges();
             }
         }
