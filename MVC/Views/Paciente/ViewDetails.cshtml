@@ -394,7 +394,18 @@
                                     <td>@justSayYesOrNo((int)@antecedente.Sedentarismo)</td>
                                     <td>@justSayYesOrNo((int)@antecedente.Tabaco)</td>
                                     <td>@justSayYesOrNo((int)@antecedente.Tbc)</td>
-                                    <td>@antecedente.VacunacionId</td>
+                                    @if (@antecedente.VacunacionId == 1)
+                                    {                                        
+                                        <td>Completa</td>
+                                    }
+                                    @if (@antecedente.VacunacionId == 2)
+                                    {
+                                        <td>Incompleta</td>
+                                    }
+                                    @if (@antecedente.VacunacionId == 3)
+                                    {
+                                        <td>Desconoce</td>
+                                    }
                                     <td>@antecedente.Notas</td>
                                     <td><a asp-controller="Antecedente" asp-action="editAntecedent" asp-route-id="@antecedente.Id"><img src="~/icons/pencil.svg" /></a></td>
                                 </tr>
