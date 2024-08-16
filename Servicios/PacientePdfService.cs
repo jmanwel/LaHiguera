@@ -4,51 +4,34 @@ using PdfSharp.Drawing;
 using PdfSharp.Fonts;
 using PdfSharp.Pdf;
 using PdfSharp.Snippets.Font;
-using Sprache;
-using System.Reflection;
 
 namespace Servicios
 {
     public static class PacientePdfService
     {
-        public static Array GeneratePdfHistory(dynamic patient)
+        public static byte[] GeneratePdfHistory(Paciente patient)
         {
 
-            if (PdfSharp.Fonts.GlobalFontSettings.FontResolver is null)
+            if (GlobalFontSettings.FontResolver is null)
             {
                 GlobalFontSettings.FontResolver = new NewFontResolver();
             }
 
             var document = new PdfDocument();
-            document.Info.Title = "Historia Clínica Paciente: " + patient.information.Nombre + " " + patient.information.Apellido;
+            document.Info.Title = "Historia Clínica Paciente: " + patient.Nombre + " " + patient.Apellido;
 
             DrawPatientInformationPage(document, patient);
 
-            if (patient.background.Count > 0)
+            if (patient.Antecedentes.Count > 0)
             {
                 DrawDynamicPage(document, patient, PageType.Background, 2);
 
             }
 
-            if (patient.history.Count > 0)
-            {
-                DrawDynamicPage(document, patient, PageType.History, 2);
-            }
-
-            if (patient.consultations.Count > 0)
+            if (patient.Consultas.Count > 0)
             {
                 DrawDynamicPage(document, patient, PageType.Consultations, 6);
 
-            }
-
-            if (patient.pediatry.Count > 0)
-            {
-                DrawDynamicPage(document, patient, PageType.Pediatry, 3);
-            }
-
-            if (patient.ginecology.Count > 0)
-            {
-                DrawDynamicPage(document, patient, PageType.Ginecology, 3);
             }
 
             byte[]? response = null;
@@ -64,7 +47,7 @@ namespace Servicios
 
         // Drawing Pages
 
-        private static void DrawDynamicPage(PdfDocument document, dynamic patient, PageType type, int sectionsOnPage=2)
+        private static void DrawDynamicPage(PdfDocument document, Paciente patient, PageType type, int sectionsOnPage=2)
         {
             int maximumSectionsOnPage = sectionsOnPage;
             dynamic patientCollection = null;
@@ -73,19 +56,10 @@ namespace Servicios
             switch (type)
             {
                 case PageType.Consultations:
-                    patientCollection = patient.consultations;
-                    break;
-                case PageType.History:
-                    patientCollection = patient.history;
+                    patientCollection = patient.Consultas;
                     break;
                 case PageType.Background:
-                    patientCollection = patient.background;
-                    break;
-                case PageType.Ginecology:
-                    patientCollection = patient.ginecology;
-                    break;
-                case PageType.Pediatry:
-                    patientCollection = patient.pediatry;
+                    patientCollection = patient.Antecedentes;
                     break;
             }
 
@@ -111,17 +85,8 @@ namespace Servicios
                             case PageType.Consultations:
                                 DrawConsultationInformation(gfx, patientCollection[index], index, j);
                                 break;
-                            case PageType.History:
-                                DrawHistoryInformation(gfx, patientCollection[index], index, j);
-                                break;
                             case PageType.Background:
                                 DrawBackgroundInformation(gfx, patientCollection[index], index, j);
-                                break;
-                            case PageType.Ginecology:
-                                DrawGinecologyInformation(gfx, patientCollection[index], index, j);
-                                break;
-                            case PageType.Pediatry:
-                                DrawPediatryInformation(gfx, patientCollection[index], index, j);
                                 break;
                         }
                     }
@@ -132,7 +97,7 @@ namespace Servicios
 
         }
 
-        private static void DrawPatientInformationPage(PdfDocument document, dynamic patient)
+        private static void DrawPatientInformationPage(PdfDocument document, Paciente patient)
         {
             PdfPage page = document.AddPage();
             page.Size = PdfSharp.PageSize.A4;
@@ -143,7 +108,7 @@ namespace Servicios
             drawHeader(gfx, patient);
             DrawPatientInformation(gfx, patient);
 
-            if (patient.complementary != null)
+            if (patient.Complementarios.FirstOrDefault() != null)
             {
                 DrawComplementaryInformation(gfx, patient);
             }
@@ -168,10 +133,10 @@ namespace Servicios
             gfx.DrawImage(image, 10, 0, 100, 100);
         }
 
-        private static void drawHeader(XGraphics gfx, dynamic patient)
+        private static void drawHeader(XGraphics gfx, Paciente patient)
         {
             DrawTitle(gfx, "Historia Clínica Paciente", 105, 25);
-            DrawTitle(gfx, patient.information.Nombre + " " + patient.information.Apellido, 105, 50);
+            DrawTitle(gfx, patient.Nombre + " " + patient.Apellido, 105, 50);
             DrawImageScaled(gfx);
         }
 
@@ -185,7 +150,7 @@ namespace Servicios
 
 
         // Drawing Sections
-        private static void DrawPatientInformation(XGraphics gfx, dynamic patient)
+        private static void DrawPatientInformation(XGraphics gfx, Paciente patient)
         {
             double startingY = 110;
             double rectSize = 20;
@@ -195,16 +160,16 @@ namespace Servicios
             XFont font = new XFont("Arial", 12, XFontStyleEx.Regular);
 
             // first column
-            gfx.DrawString("Nombre: " + patient.information.Nombre, font, XBrushes.Black, new XRect(20, rectStartingX, 210/2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("DNI: " + patient.information.Dni, font, XBrushes.Black, new XRect(20, rectStartingX + rectSize, 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Sexo: " + patient.information.Sexo, font, XBrushes.Black, new XRect(20, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Activo: " + (patient.information.FlgActivo == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Nombre: " + patient.Nombre, font, XBrushes.Black, new XRect(20, rectStartingX, 210/2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("DNI: " + patient.Dni, font, XBrushes.Black, new XRect(20, rectStartingX + rectSize, 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Sexo: " + patient.Sexo, font, XBrushes.Black, new XRect(20, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Activo: " + (patient.FlgActivo == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
             // second column
-            gfx.DrawString("Apellido: " + patient.information.Apellido, font, XBrushes.Black, new XRect(275, rectStartingX, 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Fecha Nacimiento: " + patient.information.FechaNac.ToString(), font, XBrushes.Black, new XRect(275, rectStartingX + (1 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Paraje Atención: " + patient.information.ParajeAtencion, font, XBrushes.Black, new XRect(275, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Fecha Alta: " + patient.information.FechaAlta.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XRect(275, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Apellido: " + patient.Apellido, font, XBrushes.Black, new XRect(275, rectStartingX, 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Fecha Nacimiento: " + patient.FechaNac.ToString(), font, XBrushes.Black, new XRect(275, rectStartingX + (1 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Paraje Atención: " + patient.ParajeAtencion, font, XBrushes.Black, new XRect(275, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Fecha Alta: " + patient.FechaAlta.ToString(), font, XBrushes.Black, new XRect(275, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
         }
 
         private static void DrawComplementaryInformation(XGraphics gfx, dynamic patient)
@@ -250,7 +215,7 @@ namespace Servicios
             gfx.DrawString("Tabaco: " + (background.Tabaco == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Alergias: " + (background.Alergias == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Dbt: " + (background.Dbt == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (5 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Hta: " + (background.Dbt == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Hta: " + (background.Hta == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Dislipemia: " + (background.Dbt == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (7 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Obesidad: " + (background.Obesidad == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (8 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Chagas: " + (background.Chagas == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (9 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
@@ -266,7 +231,7 @@ namespace Servicios
             gfx.DrawString("Familiares: " + (background.Familiares == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Hospitalizaciones: " + (background.Hospitalizaciones == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (7 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Antecedentes Perinatales: " + (background.AntPerinatales == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (8 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Vacunación: " + (background.Vacunacion == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (9 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Vacunación: " + background.Vacunacion.Descripcion, font, XBrushes.Black, new XRect(275, rectStartingX + (9 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Medicación: " + (background.Medicacion == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (10 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
             // creation date
@@ -334,7 +299,7 @@ namespace Servicios
             XFont font = new XFont("Arial", 12, XFontStyleEx.Regular);
 
             // first column
-            gfx.DrawString("Fecha de Creación: " + consultation.FechaAtencion.ToString("dd/MM/yyyy HH:mm"), font, XBrushes.Black, new XRect(20, rectStartingX, 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Fecha de Creación: " + consultation.FechaAtencion.ToString("dd/MM/yyyy"), font, XBrushes.Black, new XRect(20, rectStartingX, 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Diagnóstico Consulta: " + consultation.DiagnosticoConsulta, font, XBrushes.Black, new XRect(20, rectStartingX + (1 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Evaluación Nutricional: " + consultation.EvalNutric, font, XBrushes.Black, new XRect(20, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
