@@ -11,20 +11,23 @@
     <form action="/Complementario/create" method="POST">
         <div class="row">
             <div class="col">
-                <label class="form-label" for="LugarNac">Lugar de nacimiento: </label>
-                <input class="form-control" type="text" name="LugarNac" value="" />
-            </div>
-            <div class="col">
                 <label class="form-label" for="ParajeResidencia">Paraje de Residencia: </label>
                 <input class="form-control" type="text" name="ParajeResidencia" value="" />
             </div>
             <div class="col">
-                <label class="form-label" for="Etnia">Etnia: </label>
-                <input class="form-control" type="text" name="Etnia" value="" />
+                <label class="form-label" for="EstadoCivil">Estado Civil: </label>                
+                <select class="form-control" name="EstadoCivilId">
+                    <option selected value=1>SOLTERO</option>
+                    <option value=2>CASADO</option>
+                    <option value=3>UNIÓN ESTABLE</option>
+                    <option value=4>VIUDO</option>
+                    <option value=5>SEPARADO</option>
+                    <option value=6>OTRO</option>
+                </select>
             </div>
             <div class="col">
-                <label class="form-label" for="EstadoCivil">Estado Civil: </label>
-                <input class="form-control" type="text" name="EstadoCivil" value="" />
+                <label class="form-label" for="Ocupacion">Ocupacion: </label>
+                <input class="form-control" type="text" name="Ocupacion" value="" />
             </div>
         </div>
         <br />
@@ -39,23 +42,23 @@
             </div>
             <div class="col">
                 <label class="form-label" for="Escolaridad">Escolaridad: </label>
-                <select class="form-control" name="Escolaridad">
-                    <option selected value="NINGUNA">NINGUNA</option>
-                    <option value="JARDIN INFANTES">JARDIN INFANTES</option>
-                    <option value="PRIMARIA">PRIMARIA</option>
-                    <option value="SECUNDARIA">SECUNDARIA</option>
-                    <option value="TERCIARIA">TERCIARIA</option>
-                    <option value="UNIVERSITARIA">UNIVERSITARIA</option>
+                <select class="form-control" name="EscolaridadId">
+                    <option selected value=1>NINGUNA</option>
+                    <option value=2>JARDIN INFANTES</option>
+                    <option value=3>PRIMARIA</option>
+                    <option value=4>SECUNDARIA</option>
+                    <option value=5>TERCIARIA</option>
+                    <option value=6>UNIVERSITARIA</option>
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Ocupacion">Ocupacion: </label>
-                <input class="form-control" type="text" name="Ocupacion" value="" />
-            </div>
-            <div class="col">
-                <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
-                <input class="form-control" type="number" name="AnoIngreso" value="" />
-            </div>
+                <label class="form-label" for="EscolaridadCompleta">Escolaridad Completa? </label>
+                <select class="form-control" name="EscolaridadCompleta">
+                    <option value=0>Elija una opción</option>
+                    <option value=1>Si</option>
+                    <option value=0>No</option>
+                </select>
+            </div>                        
         </div>
         <br />
         <br />

@@ -66,6 +66,10 @@
                 <label class="form-label" for="FechaAlta">Fecha Alta: </label>
                 <input class="form-control" type="date" name="FechaAlta" value="@ViewBag.Paciente.FechaAlta.ToString("yyyy-MM-dd")" max="@today" />
             </div>
+            <div class="col">
+                <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
+                <input class="form-control" type="number" name="AnoIngreso" value="@ViewBag.Paciente.AnoIngreso" />
+            </div>
             <input type="number" name="Id" value=@ViewBag.Paciente.Id hidden/>
         </div>
         <br />

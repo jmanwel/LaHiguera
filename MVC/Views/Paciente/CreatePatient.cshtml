@@ -44,6 +44,10 @@
                 </select>
             </div>
             <div class="col">
+                <label class="form-label" for="LugarNac">Lugar de nacimiento: </label>
+                <input class="form-control" type="text" name="LugarNac" value="" />
+            </div>
+            <div class="col">
                 <label class="form-label" for="ParajeAtencion">Paraje de atención: *</label>
                 <input class="form-control" type="text" name="ParajeAtencion" value="" required />
             </div>
@@ -58,8 +62,21 @@
                 </select>
             </div>
             <div class="col">
+                <label class="form-label" for="Etnia">Etnia: </label>
+                <select class="form-control" name="EtniaId">
+                    <option selected value=1>QUOM</option>
+                    <option value=2>WICHI</option>
+                    <option value=3>CRIOLLA</option>
+                    <option value=4>OTRA</option>
+                </select>
+            </div>
+            <div class="col">
                 <label class="form-label" for="FechaAlta">Fecha de alta: </label>
                 <input class="form-control" type="date" name="FechaAlta" value="" max="@today" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
+                <input class="form-control" type="number" name="AnoIngreso" value="" />
             </div>
         </div>
         <br />

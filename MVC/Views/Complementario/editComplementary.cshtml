@@ -18,22 +18,18 @@
     <h4>Datos complementarios (editar)</h4>
     <br />
     <form action="/Complementario/editComplementary" method="POST">
-        <div class="row">
-            <div class="col">
-                <label class="form-label" for="LugarNac">Lugar de nacimiento: </label>
-                <input class="form-control" type="text" name="LugarNac" value="@ViewBag.Complementario[0].LugarNac" />
-            </div>
+        <div class="row">            
             <div class="col">
                 <label class="form-label" for="ParajeResidencia">Paraje de Residencia: </label>
                 <input class="form-control" type="text" name="ParajeResidencia" value="@ViewBag.Complementario[0].ParajeResidencia" />
-            </div>
-            <div class="col">
-                <label class="form-label" for="Etnia">Etnia: </label>
-                <input class="form-control" type="text" name="Etnia" value="@ViewBag.Complementario[0].Etnia" />
-            </div>
+            </div>            
             <div class="col">
                 <label class="form-label" for="EstadoCivil">Estado Civil: </label>
                 <input class="form-control" type="text" name="EstadoCivil" value="@ViewBag.Complementario[0].EstadoCivil" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="Ocupacion">Ocupacion: </label>
+                <input class="form-control" type="text" name="Ocupacion" value="@ViewBag.Complementario[0].Ocupacion" />
             </div>
         </div>
         <br />
@@ -54,24 +50,29 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Escolaridad">Escolaridad: </label>                
-                <select class="form-control" name="Escolaridad">
-                    <option selected value="@ViewBag.Complementario[0].Escolaridad">@ViewBag.Complementario[0].Escolaridad</option>
+                <label class="form-label" for="EscolaridadId">Escolaridad: </label>
+                <select class="form-control" name="EscolaridadId">
+                    <option selected value="@ViewBag.Complementario[0].EscolaridadId">@ViewBag.Complementario[0].EscolaridadId</option>
                     @foreach (string item in filtered_list)
                     {
                         <option value="@item">@item</option>                        
                     }
+                </select>      
+            </div>
+            <div class="col">
+                <label class="form-label" for="EscolaridadCompleta">Escolaridad Completa? </label>
+                <select class="form-control" name="EscolaridadCompleta">
+                    @if (@ViewBag.Complementario[0].EscolaridadCompleta == 1)
+                    {
+                        <option selected value=1>Si</option>
+                        <option value=0>No</option>
+                    }
+                    else
+                    {
+                        <option value=1>Si</option>
+                        <option selected value=0>No</option>
+                    }
                 </select>
-                
-
-            </div>
-            <div class="col">
-                <label class="form-label" for="Ocupacion">Ocupacion: </label>
-                <input class="form-control" type="text" name="Ocupacion" value="@ViewBag.Complementario[0].Ocupacion" />
-            </div>
-            <div class="col">
-                <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
-                <input class="form-control" type="number" name="AnoIngreso" value=@ViewBag.Complementario[0].AnoIngreso />
             </div>
         </div>
         <br />

@@ -25,8 +25,8 @@ public class Complementario
 
     public string? Notas { get; set; }
 
-    public DateOnly? FechaCreacion { get; set; }
+    public DateTime? FechaCreacion { get; set; }
 
-    public DateOnly? LastUpdated { get; set; }
+    public DateTime? LastUpdated { get; set; }
 
 }

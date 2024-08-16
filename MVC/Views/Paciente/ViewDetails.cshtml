@@ -100,8 +100,8 @@
                                 </div>
                                 @foreach (Entidades.Models.Complementario complementario in ViewBag.Complementario)
                                 {
-                                    <p class="card-text">Lugar de nacimiento: <strong>@complementario.Paciente.LugarNac</strong> | Paraje de Residencia: <strong>@complementario.ParajeResidencia</strong></p>
-                                    <p class="card-text">Etnia: <strong>@complementario.Paciente.Etnia.Nombre</strong> | Estado Civil: <strong>@complementario.EstadoCivil</strong></p>
+                                    <p class="card-text">Lugar de nacimiento: <strong>@ViewBag.Paciente.LugarNac</strong> | Paraje de Residencia: <strong>@complementario.ParajeResidencia</strong></p>
+                                    <p class="card-text">Etnia: <strong>@ViewBag.Paciente.EtniaId</strong> | Estado Civil: <strong>@complementario.EstadoCivilId</strong></p>
                                     @if (@complementario.SabeLeer == 1)
                                     {
                                         <p class="card-text">Sabe leer?: <strong>Si</strong></p>
