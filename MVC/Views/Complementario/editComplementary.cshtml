@@ -4,15 +4,6 @@
     Layout = "../Shared/_Layout.cshtml";
 }
 
-@{
-    List<System.String> educacion = new List<System.String> { "NINGUNA", "JARDIN INFANTES", "PRIMARIA", "SECUNDARIA", "TERCIARIA", "UNIVERSITARIA" };
-}
-
-@{
-    var filtered_list = @educacion.Where(x => x != @ViewBag.Complementario[0].Escolaridad);
-}
-
-
 <div class="container text-center">
     <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
     <h4>Datos complementarios (editar)</h4>
@@ -24,8 +15,14 @@
                 <input class="form-control" type="text" name="ParajeResidencia" value="@ViewBag.Complementario[0].ParajeResidencia" />
             </div>            
             <div class="col">
-                <label class="form-label" for="EstadoCivil">Estado Civil: </label>
-                <input class="form-control" type="text" name="EstadoCivil" value="@ViewBag.Complementario[0].EstadoCivil" />
+                <label class="form-label" for="EstadoCivilId">Estado Civil: </label>
+                <select class="form-control" name="EstadoCivilId">
+                    <option selected value=ViewBag.EstadoCivil.Id>@ViewBag.EstadoCivil.Descripcion</option>
+                    @foreach (Entidades.Models.EstadoCivil estadoCivil in ViewBag.EstadoCivilFiltered)
+                    {
+                        <option selected value=@estadoCivil.Id>@estadoCivil.Descripcion</option>
+                    }
+                </select>
             </div>
             <div class="col">
                 <label class="form-label" for="Ocupacion">Ocupacion: </label>
@@ -52,10 +49,10 @@
             <div class="col">
                 <label class="form-label" for="EscolaridadId">Escolaridad: </label>
                 <select class="form-control" name="EscolaridadId">
-                    <option selected value="@ViewBag.Complementario[0].EscolaridadId">@ViewBag.Complementario[0].EscolaridadId</option>
-                    @foreach (string item in filtered_list)
+                    <option selected value=ViewBag.Escolaridad.Id>@ViewBag.Escolaridad.Descripcion</option>
+                    @foreach (Entidades.Models.Escolaridad escolaridad in ViewBag.EscolaridadFiltered)
                     {
-                        <option value="@item">@item</option>                        
+                        <option selected value=@escolaridad.Id>@escolaridad.Descripcion</option>
                     }
                 </select>      
             </div>

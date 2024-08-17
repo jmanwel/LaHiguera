@@ -126,7 +126,7 @@ namespace Servicios
                 updated_patient.Sexo = paciente.Sexo.ToUpper();
                 updated_patient.FlgActivo = paciente.FlgActivo;
                 updated_patient.FechaNac = paciente.FechaNac;
-                updated_patient.FechaAlta = paciente.FechaAlta;
+                updated_patient.FechaAlta = paciente.FechaAlta;             
                 updated_patient.LugarNac = paciente.LugarNac?.ToUpper() ?? "";
                 if (paciente.ParajeAtencion != null)
                 {

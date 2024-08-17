@@ -64,10 +64,10 @@
             <div class="col">
                 <label class="form-label" for="Etnia">Etnia: </label>
                 <select class="form-control" name="EtniaId">
-                    <option selected value=1>QUOM</option>
-                    <option value=2>WICHI</option>
-                    <option value=3>CRIOLLA</option>
-                    <option value=4>OTRA</option>
+                    @foreach (Entidades.Models.Etnia etnia in ViewBag.Etnia)
+                    {
+                        <option selected value=@etnia.Id>@etnia.Nombre</option>
+                    }                    
                 </select>
             </div>
             <div class="col">

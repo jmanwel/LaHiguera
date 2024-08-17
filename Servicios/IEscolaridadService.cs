@@ -6,5 +6,9 @@ namespace Servicios
     {
         List<Escolaridad> getAll();
 
+        public Escolaridad getById(int id);
+
+        public List<Escolaridad> getAllButId(int id);
+
     }
 }

@@ -12,12 +12,9 @@ namespace Servicios
 
         public void create(Complementario complementario)
         {
-            //This method persist Complementario objects in DDBB
-
+            //This method persist Complementario objects in DDBB            
             complementario.FechaCreacion = DateTime.Now;
-            complementario.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";
-            complementario.EstadoCivilId = complementario.EstadoCivilId;
-            complementario.EscolaridadId = complementario.EscolaridadId;
+            complementario.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";            
             complementario.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
             complementario.Notas = complementario.Notas?.ToUpper() ?? "";
             complementario.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;

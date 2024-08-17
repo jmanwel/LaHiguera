@@ -11,7 +11,22 @@ namespace Servicios
         }
         public List<Escolaridad> getAll()
         {
-            return _ctxt.Escolaridades.ToList();
+            return _ctxt.Escolaridades.OrderByDescending(o => o.Id).ToList();
+        }
+
+        public Escolaridad getById(int id)
+        {
+            var escolaridad = _ctxt.Escolaridades.Find(id);
+            if (escolaridad == null)
+            {
+                Console.WriteLine("Registro no encontrado");
+            }
+            return escolaridad;
+        }
+
+        public List<Escolaridad> getAllButId(int id)
+        {
+            return _ctxt.Escolaridades.Where(o => o.Id != id).OrderByDescending(o => o.Id).ToList();
         }
     }
 }

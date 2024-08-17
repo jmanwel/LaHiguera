@@ -11,16 +11,23 @@ namespace MVC.Controllers
         private IAntecedenteService _antecedenteService;
         private IComplementarioService _complementarioService;
         private IConsultaService _consultaService;
+        private IEstadoCivilService _estadoCivilService;
+        private IEscolaridadService _escolaridadService;
+        private IEtniaService _etniaService;
         
-        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService, IComplementarioService complementarioService, IConsultaService consultaService )
+        public PacienteController(IPacienteService pacienteService, IAntecedenteService antecedenteService, IComplementarioService complementarioService, IConsultaService consultaService, IEstadoCivilService estadoCivilService, IEscolaridadService escolaridadService, IEtniaService etniaService)
         {
             _pacienteService = pacienteService;
             _antecedenteService = antecedenteService;
             _complementarioService = complementarioService;
-            _consultaService = consultaService;            
+            _consultaService = consultaService;
+            _estadoCivilService = estadoCivilService;
+            _escolaridadService = escolaridadService;
+            _etniaService = etniaService;
         }
         public ActionResult CreatePatient()
         {
+            ViewBag.Etnia = _etniaService.getAll();
             return View();
         }
 
@@ -68,6 +75,8 @@ namespace MVC.Controllers
         public ActionResult editPatient(int id)
         {
             ViewBag.Paciente = _pacienteService.getPatient(id);
+            ViewBag.Etnia = _etniaService.getById(Convert.ToInt32(_pacienteService.getPatient(id).EtniaId));
+            ViewBag.EtniaFiltered = _etniaService.getAllButId(Convert.ToInt32(_pacienteService.getPatient(id).EtniaId));
             return View();
         }
 
@@ -88,7 +97,13 @@ namespace MVC.Controllers
             }
             ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
-            ViewBag.Consulta = _consultaService.getAllConsultationFromIdPatient(id);            
+            ViewBag.Consulta = _consultaService.getAllConsultationFromIdPatient(id);
+            ViewBag.Etnia = _etniaService.getById(Convert.ToInt32(_pacienteService.getPatient(id).EtniaId));
+            if (Enumerable.Count(ViewBag.Complementario) > 0)
+            {         
+                ViewBag.EstadoCivil = _estadoCivilService.getById(ViewBag.Complementario[0].EstadoCivilId);
+                ViewBag.Escolaridad = _escolaridadService.getById(Convert.ToInt32(ViewBag.Complementario[0].EscolaridadId));
+            }
             return View();
         }
 

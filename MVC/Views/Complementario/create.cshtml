@@ -15,14 +15,13 @@
                 <input class="form-control" type="text" name="ParajeResidencia" value="" />
             </div>
             <div class="col">
-                <label class="form-label" for="EstadoCivil">Estado Civil: </label>                
+                <label class="form-label" for="EstadoCivilId">Estado Civil: </label>                
                 <select class="form-control" name="EstadoCivilId">
-                    <option selected value=1>SOLTERO</option>
-                    <option value=2>CASADO</option>
-                    <option value=3>UNIÓN ESTABLE</option>
-                    <option value=4>VIUDO</option>
-                    <option value=5>SEPARADO</option>
-                    <option value=6>OTRO</option>
+                    @foreach (Entidades.Models.EstadoCivil estadoCivil in ViewBag.EstadoCivil)
+                    {
+                        <option selected value=@estadoCivil.Id>@estadoCivil.Descripcion</option>
+
+                    }                    
                 </select>
             </div>
             <div class="col">
@@ -41,14 +40,12 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Escolaridad">Escolaridad: </label>
+                <label class="form-label" for="EscolaridadId">Escolaridad: </label>
                 <select class="form-control" name="EscolaridadId">
-                    <option selected value=1>NINGUNA</option>
-                    <option value=2>JARDIN INFANTES</option>
-                    <option value=3>PRIMARIA</option>
-                    <option value=4>SECUNDARIA</option>
-                    <option value=5>TERCIARIA</option>
-                    <option value=6>UNIVERSITARIA</option>
+                    @foreach (Entidades.Models.Escolaridad escolaridad in ViewBag.Escolaridad)
+                    {
+                        <option selected value=@escolaridad.Id>@escolaridad.Descripcion</option>
+                    }
                 </select>
             </div>
             <div class="col">

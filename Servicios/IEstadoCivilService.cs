@@ -6,5 +6,9 @@ namespace Servicios
     {
         List<EstadoCivil> getAll();
 
+        EstadoCivil getById(int id);
+
+        List<EstadoCivil> getAllButId(int id);
+
     }
 }
