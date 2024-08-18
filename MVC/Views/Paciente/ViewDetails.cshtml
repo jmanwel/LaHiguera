@@ -4,7 +4,9 @@
     int edad = @DateTime.Today.Year - @ViewBag.Paciente.FechaNac.Year;
     string str(int edad) => edad > 1 ? "años" : "año";
     string justSayYesOrNo(int value) => value == 1 ? "SI" : "NO";
-
+    var etnia = @ViewBag.Etnia != null ? @ViewBag.Etnia.Nombre : "-";
+    var estado_civil = @ViewBag.EstadoCivil != null ? @ViewBag.EstadoCivil.Descripcion : "-";
+    var escolaridad = @ViewBag.Escolaridad != null ? @ViewBag.Escolaridad.Descripcion : "-";    
 }
 
 <div class="container-fluid">
@@ -82,7 +84,7 @@
                     </div>
                     <div class="card" style="width: 36rem; margin-left: 5px;">
                         <div class="card-body">
-                            @if (Enumerable.Count(ViewBag.Complementario) > 0)
+                            @if (ViewBag.Complementario != null)
                             {
                                 <div class="row">
                                     <div class="col">
@@ -97,25 +99,15 @@
                                             </div>
                                         }
                                     </div>
-                                </div>
-                                @foreach (Entidades.Models.Complementario complementario in ViewBag.Complementario)
-                                {
-                                    <p class="card-text">Lugar de nacimiento: <strong>@ViewBag.Paciente.LugarNac</strong> | Paraje de Residencia: <strong>@complementario.ParajeResidencia</strong></p>
-                                    <p class="card-text">Etnia: <strong>@ViewBag.Etnia.Nombre</strong> | Estado Civil: <strong>@ViewBag.EstadoCivil.Descripcion</strong></p>
-                                    @if (@complementario.SabeLeer == 1)
-                                    {
-                                        <p class="card-text">Sabe leer?: <strong>Si</strong></p>
-                                    }
-                                    else
-                                    {
-                                        <p class="card-text">Sabe leer?: <strong>No</strong></p>
-                                    }
-                                    <p class="card-text">Escolaridad: <strong>@ViewBag.Escolaridad.Descripcion</strong></p>
-                                    <p class="card-text">Ocupacion: <strong>@complementario.Ocupacion</strong> | Año Ingreso: <strong>@complementario.Paciente.AnoIngreso</strong></p>
-                                    <h5 class="card-title">Notas</h5>
-                                    <p class="card-text">@complementario.Notas</p>
-                                    <br />         
-                                }
+                                </div>                                
+                                <p class="card-text">Lugar de nacimiento: <strong>@ViewBag.Paciente.LugarNac</strong> | Paraje de Residencia: <strong>@ViewBag.Complementario.ParajeResidencia</strong></p>
+                                <p class="card-text">Etnia: <strong>@etnia</strong> | Estado Civil: <strong>@estado_civil</strong></p>                                
+                                <p class="card-text">Sabe leer?: <strong>@justSayYesOrNo((int)@ViewBag.Complementario.SabeLeer)</strong></p>                                
+                                <p class="card-text">Escolaridad: <strong>@escolaridad</strong> | Completa?: <strong>@justSayYesOrNo((int)@ViewBag.Complementario.EscolaridadCompleta)</strong></p>
+                            <p class="card-text">Ocupacion: <strong>@ViewBag.Complementario.Ocupacion</strong> | Año Ingreso: <strong>@ViewBag.Complementario.Paciente.AnoIngreso</strong></p>
+                                <h5 class="card-title">Notas</h5>
+                            <p class="card-text">@ViewBag.Complementario.Notas</p>
+                                <br />                                         
                             }
                             else
                             {

@@ -12,21 +12,24 @@
         <div class="row">            
             <div class="col">
                 <label class="form-label" for="ParajeResidencia">Paraje de Residencia: </label>
-                <input class="form-control" type="text" name="ParajeResidencia" value="@ViewBag.Complementario[0].ParajeResidencia" />
+                <input class="form-control" type="text" name="ParajeResidencia" value="@ViewBag.Complementario.ParajeResidencia" />
             </div>            
             <div class="col">
                 <label class="form-label" for="EstadoCivilId">Estado Civil: </label>
                 <select class="form-control" name="EstadoCivilId">
-                    <option selected value=ViewBag.EstadoCivil.Id>@ViewBag.EstadoCivil.Descripcion</option>
                     @foreach (Entidades.Models.EstadoCivil estadoCivil in ViewBag.EstadoCivilFiltered)
                     {
-                        <option selected value=@estadoCivil.Id>@estadoCivil.Descripcion</option>
+                        <option value=@estadoCivil.Id>@estadoCivil.Descripcion</option>
+                    }
+                    @if (ViewBag.EstadoCivil != null)
+                    {                        
+                        <option selected value=ViewBag.EstadoCivil.Id>@ViewBag.EstadoCivil.Descripcion</option>
                     }
                 </select>
             </div>
             <div class="col">
                 <label class="form-label" for="Ocupacion">Ocupacion: </label>
-                <input class="form-control" type="text" name="Ocupacion" value="@ViewBag.Complementario[0].Ocupacion" />
+                <input class="form-control" type="text" name="Ocupacion" value="@ViewBag.Complementario.Ocupacion" />
             </div>
         </div>
         <br />
@@ -34,7 +37,7 @@
             <div class="col">
                 <label class="form-label" for="SabeLeer">Sabe Leer? </label>
                 <select class="form-control" name="SabeLeer">
-                    @if (@ViewBag.Complementario[0].SabeLeer == 1)
+                    @if (@ViewBag.Complementario.SabeLeer == 1)
                     {
                         <option selected value=1>Si</option>
                         <option value=0>No</option>
@@ -49,17 +52,20 @@
             <div class="col">
                 <label class="form-label" for="EscolaridadId">Escolaridad: </label>
                 <select class="form-control" name="EscolaridadId">
-                    <option selected value=ViewBag.Escolaridad.Id>@ViewBag.Escolaridad.Descripcion</option>
                     @foreach (Entidades.Models.Escolaridad escolaridad in ViewBag.EscolaridadFiltered)
                     {
-                        <option selected value=@escolaridad.Id>@escolaridad.Descripcion</option>
+                        <option value=@escolaridad.Id>@escolaridad.Descripcion</option>
+                    }
+                    @if (ViewBag.Escolaridad != null)
+                    {                        
+                        <option selected value=ViewBag.Escolaridad.Id>@ViewBag.Escolaridad.Descripcion</option>
                     }
                 </select>      
             </div>
             <div class="col">
                 <label class="form-label" for="EscolaridadCompleta">Escolaridad Completa? </label>
                 <select class="form-control" name="EscolaridadCompleta">
-                    @if (@ViewBag.Complementario[0].EscolaridadCompleta == 1)
+                    @if (@ViewBag.Complementario.EscolaridadCompleta == 1)
                     {
                         <option selected value=1>Si</option>
                         <option value=0>No</option>
@@ -77,13 +83,13 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Notas">Notas: </label>
-                <textarea name="Notas" class="form-control" cols="120" rows="8">@ViewBag.Complementario[0].Notas</textarea>
+                <textarea name="Notas" class="form-control" cols="120" rows="8">@ViewBag.Complementario.Notas</textarea>
             </div>
         </div>
         <br />
-        <input type="number" name="PacienteId" value=@ViewBag.Complementario[0].PacienteId hidden />
-        <input type="number" name="Id" value=@ViewBag.Complementario[0].Id hidden />
+        <input type="number" name="PacienteId" value=@ViewBag.Complementario.PacienteId hidden />
+        <input type="number" name="Id" value=@ViewBag.Complementario.Id hidden />
         <input class="btn btn-lg btn-success" type="submit" name="agregar" value="Modificar Datos complementarios" />
-        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Complementario[0].PacienteId">Cancelar</a>
+        <a class="btn btn-lg btn-danger" href="/Paciente/viewDetails/@ViewBag.Complementario.PacienteId">Cancelar</a>
     </form>
 </div>

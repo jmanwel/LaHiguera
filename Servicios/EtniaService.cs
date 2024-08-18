@@ -22,7 +22,7 @@ namespace Servicios
             var etnia = _ctxt.Etnias.Find(id);
             if (etnia == null)
             {
-                Console.WriteLine("Registro no encontrado");
+                Console.WriteLine("Registro ETNIA no encontrado");
             }
             return etnia;
         }

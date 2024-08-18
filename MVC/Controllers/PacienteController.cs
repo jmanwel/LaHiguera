@@ -99,11 +99,12 @@ namespace MVC.Controllers
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
             ViewBag.Consulta = _consultaService.getAllConsultationFromIdPatient(id);
             ViewBag.Etnia = _etniaService.getById(Convert.ToInt32(_pacienteService.getPatient(id).EtniaId));
-            if (Enumerable.Count(ViewBag.Complementario) > 0)
-            {         
-                ViewBag.EstadoCivil = _estadoCivilService.getById(ViewBag.Complementario[0].EstadoCivilId);
-                ViewBag.Escolaridad = _escolaridadService.getById(Convert.ToInt32(ViewBag.Complementario[0].EscolaridadId));
+            if (ViewBag.Complementario != null)
+            {                
+                ViewBag.EstadoCivil = ViewBag.Complementario.EstadoCivilId != null ? _estadoCivilService.getById(ViewBag.Complementario.EstadoCivilId) : null;
+                ViewBag.Escolaridad = ViewBag.Complementario.EscolaridadId != null ? _escolaridadService.getById(ViewBag.Complementario.EscolaridadId): null;
             }
+
             return View();
         }
 
@@ -126,7 +127,7 @@ namespace MVC.Controllers
             var complementary = _complementarioService.getComplementaryData(patientId);
 
             patient.information = _pacienteService.getPatient(patientId);
-            patient.complementary = complementary.Count > 0 ? complementary.Last(): null;
+            patient.complementary = _complementarioService.getComplementaryData(patientId);
             patient.consultations = _consultaService.getAllConsultationFromIdPatient(patientId);            
             patient.background = _antecedenteService.getAllAntecedentForAPatient(patientId);
 

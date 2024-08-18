@@ -29,14 +29,15 @@ namespace MVC.Controllers
         public ActionResult editComplementary(int id)
         {
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
-            var pid = _complementarioService.getComplementaryData(id)[0].PacienteId;
-            var ecid = _complementarioService.getComplementaryData(id)[0].EstadoCivilId;
-            var eid = _complementarioService.getComplementaryData(id)[0].EscolaridadId;
+            Console.WriteLine(ViewBag.Complementario.ToString());
+            var pid = _complementarioService.getComplementaryData(id).PacienteId;
+            var ecid = _complementarioService.getComplementaryData(id).EstadoCivilId;
+            var eid = _complementarioService.getComplementaryData(id).EscolaridadId;
             ViewBag.Paciente = _pacienteService.getPatient(Convert.ToInt32(pid));
             ViewBag.EstadoCivil = _estadoCivilService.getById(Convert.ToInt32(ecid));
             ViewBag.EstadoCivilFiltered = _estadoCivilService.getAllButId(Convert.ToInt32(ecid));
-            ViewBag.Escolaridad = _escolaridadService.getById(Convert.ToInt32(ecid));
-            ViewBag.EscolaridadFiltered = _escolaridadService.getAllButId(Convert.ToInt32(eid));
+            ViewBag.Escolaridad = _escolaridadService.getById(Convert.ToInt32(eid));
+            ViewBag.EscolaridadFiltered = _escolaridadService.getAllButId(Convert.ToInt32(eid));            
             return View();
         }
         
@@ -63,7 +64,7 @@ namespace MVC.Controllers
         {
             try
             {
-                if (_complementarioService.getComplementaryData(Convert.ToInt32(complementario.PacienteId)).Count() == 0)
+                if (_complementarioService.getComplementaryData(Convert.ToInt32(complementario.PacienteId)) == null)
                 {                    
                     _complementarioService.create(complementario);
                     Console.WriteLine("Registro creado OK!");

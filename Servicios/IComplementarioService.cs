@@ -9,7 +9,7 @@ namespace Servicios
 
         void create(Complementario complementario);
 
-        List<Complementario> getComplementaryData(int id_patient);
+        Complementario getComplementaryData(int id_patient);
 
         void editComplementary(Complementario complementario);
 

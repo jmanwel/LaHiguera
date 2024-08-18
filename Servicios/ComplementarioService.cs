@@ -22,20 +22,11 @@ namespace Servicios
             _ctxt.SaveChanges();
         }
 
-
-        //public bool hasComplementary(int id_patient)
-        //{
-        //    if (_ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList().Count > 0)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
-        public List<Complementario> getComplementaryData(int id_patient)
+        public Complementario getComplementaryData(int id_patient)
         {
             //This method returns Complementario objects for a patient            
-            return _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList();
+            var complementario = _ctxt.Etnias.Find(id_patient);
+            return _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList()[0];            
         }
 
         public void editComplementary(Complementario complementario)

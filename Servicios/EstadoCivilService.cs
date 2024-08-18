@@ -19,14 +19,14 @@ namespace Servicios
             var estado_civil = _ctxt.EstadosCiviles.Find(id);
             if (estado_civil == null)
             {
-                Console.WriteLine("Registro no encontrado");
+                Console.WriteLine("Registro ESTADO CIVIL no encontrado");
             }            
             return estado_civil;
         }
 
         public List<EstadoCivil> getAllButId(int id)
         {
-            return _ctxt.EstadosCiviles.Where(o => o.Id != id).OrderByDescending(o => o.Id).ToList();
+            return _ctxt.EstadosCiviles.Where(o => o.Id != id).ToList();
         }
 
     }
