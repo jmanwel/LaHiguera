@@ -3,7 +3,17 @@
     Layout = "../Shared/_Layout.cshtml";
     int edad = @DateTime.Today.Year - @ViewBag.Paciente.FechaNac.Year;
     string str(int edad) => edad > 1 ? "años" : "año";
-    string justSayYesOrNo(int value) => value == 1 ? "SI" : "NO";
+    string justSayYesOrNo(int? value)
+    {
+        if (value is null)
+        {
+            return "NO";
+        }
+        else
+        {
+            return value == 1 ? "SI" : "NO";
+        }
+    }
     var etnia = @ViewBag.Etnia != null ? @ViewBag.Etnia.Nombre : "-";
     var estado_civil = @ViewBag.EstadoCivil != null ? @ViewBag.EstadoCivil.Descripcion : "-";
     var escolaridad = @ViewBag.Escolaridad != null ? @ViewBag.Escolaridad.Descripcion : "-";    
@@ -261,17 +271,17 @@
                                     <td>@consulta.Glicemia</td>
                                     <td>@consulta.AgudezaDer</td>
                                     <td>@consulta.AgudezaIzq</td>
-                                    <td>@justSayYesOrNo((int)@consulta.Ecografia)</td>
+                                    <td>@justSayYesOrNo(@consulta.Ecografia)</td>
                                     <td>@consulta.ObservacionEco</td>
-                                    <td>@justSayYesOrNo((int)@consulta.Ecg)</td>
+                                    <td>@justSayYesOrNo(@consulta.Ecg)</td>
                                     <td>@consulta.ObservacionEcg</td>
-                                    <td>@justSayYesOrNo((int)@consulta.Radiografia)</td>
+                                    <td>@justSayYesOrNo(@consulta.Radiografia)</td>
                                     <td>@consulta.ObservacionRadiografia</td>
-                                    <td>@justSayYesOrNo((int)@consulta.Laboratorio)</td>
+                                    <td>@justSayYesOrNo(@consulta.Laboratorio)</td>
                                     <td>@consulta.ObservacionLab</td>
                                     <td>@consulta.EstudiosComp</td>
                                     <td>@consulta.Tratamiento</td>
-                                    <td>@justSayYesOrNo((int)@consulta.DerivacionAguda)</td>
+                                    <td>@justSayYesOrNo(@consulta.DerivacionAguda)</td>
                                     <td>@consulta.DerivacionProg</td>
                                     <td>@consulta.ObservacionDeriv</td>
                                     <td>@consulta.PercentilPeso</td>
