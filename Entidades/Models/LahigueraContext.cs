@@ -173,8 +173,10 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Id)
                 .HasColumnName("ID");
             entity.Property(e => e.EscolaridadId)
+                .HasColumnType("INTEGER")
                 .HasColumnName("escolaridad_id");
             entity.Property(e => e.EstadoCivilId)
+                .HasColumnType("INTEGER")
                 .HasColumnName("estado_civil_id");
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("DATETIME")

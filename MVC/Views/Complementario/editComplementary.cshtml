@@ -16,14 +16,14 @@
             </div>            
             <div class="col">
                 <label class="form-label" for="EstadoCivilId">Estado Civil: </label>
-                <select class="form-control" name="EstadoCivilId">
+                <select class="form-control" name="EstadoCivilId" id="e_civil">
+                    @if (ViewBag.EstadoCivil != null)
+                    {
+                        <option selected value=@ViewBag.EstadoCivil.Id>@ViewBag.EstadoCivil.Descripcion</option>
+                    }
                     @foreach (Entidades.Models.EstadoCivil estadoCivil in ViewBag.EstadoCivilFiltered)
                     {
                         <option value=@estadoCivil.Id>@estadoCivil.Descripcion</option>
-                    }
-                    @if (ViewBag.EstadoCivil != null)
-                    {                        
-                        <option selected value=ViewBag.EstadoCivil.Id>@ViewBag.EstadoCivil.Descripcion</option>
                     }
                 </select>
             </div>
@@ -51,14 +51,14 @@
             </div>
             <div class="col">
                 <label class="form-label" for="EscolaridadId">Escolaridad: </label>
-                <select class="form-control" name="EscolaridadId">
+                <select class="form-control" name="EscolaridadId" id="escolaridad">
+                    @if (ViewBag.Escolaridad != null)
+                    {
+                        <option selected value=@ViewBag.Escolaridad.Id>@ViewBag.Escolaridad.Descripcion</option>
+                    }
                     @foreach (Entidades.Models.Escolaridad escolaridad in ViewBag.EscolaridadFiltered)
                     {
                         <option value=@escolaridad.Id>@escolaridad.Descripcion</option>
-                    }
-                    @if (ViewBag.Escolaridad != null)
-                    {                        
-                        <option selected value=ViewBag.Escolaridad.Id>@ViewBag.Escolaridad.Descripcion</option>
                     }
                 </select>      
             </div>

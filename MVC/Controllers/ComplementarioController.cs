@@ -29,7 +29,6 @@ namespace MVC.Controllers
         public ActionResult editComplementary(int id)
         {
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
-            Console.WriteLine(ViewBag.Complementario.ToString());
             var pid = _complementarioService.getComplementaryData(id).PacienteId;
             var ecid = _complementarioService.getComplementaryData(id).EstadoCivilId;
             var eid = _complementarioService.getComplementaryData(id).EscolaridadId;
@@ -45,7 +44,7 @@ namespace MVC.Controllers
         public ActionResult editComplementary(Complementario complementario)
         {
             try
-            {                
+            {
                 _complementarioService.editComplementary(complementario);
                 Console.WriteLine("Registro modificado OK!");
                 string redirect = "/Paciente/viewDetails/" + complementario.PacienteId;
