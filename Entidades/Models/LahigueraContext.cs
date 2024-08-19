@@ -17,8 +17,6 @@ public partial class LahigueraContext : DbContext
 
     public virtual DbSet<Antecedente> Antecedentes { get; set; }
 
-    public virtual DbSet<AppLog> AppLogs { get; set; }
-
     public virtual DbSet<Complementario> Complementarios { get; set; }
 
     public virtual DbSet<Consulta> Consulta { get; set; }
@@ -152,16 +150,6 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.EnfermedadFamiliarId)
                 .HasColumnType("INTEGER")
                 .HasColumnName("enfermedad_familiar_id");
-        });
-
-        modelBuilder.Entity<AppLog>(entity =>
-        {
-            entity.ToTable("app_log");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Timestamp)
-                .HasColumnType("DATETIME")
-                .HasColumnName("timestamp");
         });
 
         modelBuilder.Entity<Complementario>(entity =>
