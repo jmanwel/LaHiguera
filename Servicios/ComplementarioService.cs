@@ -25,8 +25,12 @@ namespace Servicios
         public Complementario getComplementaryData(int id_patient)
         {
             //This method returns Complementario objects for a patient            
-            var complementario = _ctxt.Etnias.Find(id_patient);
-            return _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList()[0];            
+            var complementario = _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList();
+            if (complementario.Count() > 0)
+            {
+                return complementario[0];            
+            }
+            return null;
         }
 
         public void editComplementary(Complementario complementario)
