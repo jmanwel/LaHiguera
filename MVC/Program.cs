@@ -9,7 +9,6 @@ builder.Services.AddTransient<IPacienteService, PacienteService>();
 builder.Services.AddTransient<IAntecedenteService, AntecedenteService>();
 builder.Services.AddTransient<IComplementarioService, ComplementarioService>();
 builder.Services.AddTransient<IConsultaService, ConsultaService>();
-builder.Services.AddTransient<IPediatriaService, PediatriaService>();
 builder.Services.AddTransient<IEstadoCivilService, EstadoCivilService>();
 builder.Services.AddTransient<IEscolaridadService, EscolaridadService>();
 builder.Services.AddTransient<IEtniaService, EtniaService>();
