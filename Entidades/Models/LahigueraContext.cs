@@ -31,8 +31,6 @@ public partial class LahigueraContext : DbContext
 
     public virtual DbSet<Escolaridad> Escolaridades { get; set; }
 
-    public virtual DbSet<Ginecologia> Ginecologia { get; set; }
-
     public virtual DbSet<Historia> Historia { get; set; }
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
@@ -404,32 +402,6 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("ID");
             entity.Property(e => e.Nombre)
                 .HasColumnName("etnia");
-        });
-
-        modelBuilder.Entity<Ginecologia>(entity =>
-        {
-            entity.ToTable("ginecologia");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Abortos).HasColumnName("abortos");
-            entity.Property(e => e.Cesareas).HasColumnName("cesareas");
-            entity.Property(e => e.Colposcopia).HasColumnName("colposcopia");
-            entity.Property(e => e.EstudiosComp).HasColumnName("estudios_comp");
-            entity.Property(e => e.FechaCreacion)
-                .HasColumnType("DATETIME")
-                .HasColumnName("fecha_creacion");
-            entity.Property(e => e.LastUpdated)
-                .HasColumnType("DATETIME")
-                .HasColumnName("last_update");
-            entity.Property(e => e.Gestas).HasColumnName("gestas");
-            entity.Property(e => e.Irs).HasColumnName("irs");
-            entity.Property(e => e.Menarca).HasColumnName("menarca");
-            entity.Property(e => e.Menopausia).HasColumnName("menopausia");
-            entity.Property(e => e.PacienteId).HasColumnName("paciente_id");
-            entity.Property(e => e.Para).HasColumnName("para");
-            entity.Property(e => e.ResultadoPap).HasColumnName("resultado_pap");
-            entity.Property(e => e.RitmoMenst).HasColumnName("ritmo_menst");
-            entity.Property(e => e.TomaPap).HasColumnName("toma_pap");
         });
 
         modelBuilder.Entity<Historia>(entity =>
