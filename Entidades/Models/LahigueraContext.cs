@@ -31,8 +31,6 @@ public partial class LahigueraContext : DbContext
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
 
-    public virtual DbSet<Pediatria> Pediatria { get; set; }
-
     public virtual DbSet<Vacunacion> Vacunaciones { get; set; }
 
 
@@ -422,34 +420,6 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("etnia_id");
             entity.Property(e => e.LugarNac)
                 .HasColumnName("lugar_nac");
-        });
-
-        modelBuilder.Entity<Pediatria>(entity =>
-        {
-            entity.ToTable("pediatria");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.AgudezaDer).HasColumnName("agudeza_der");
-            entity.Property(e => e.AgudezaIzq).HasColumnName("agudeza_izq");
-            entity.Property(e => e.FechaCreacion)
-                .HasColumnType("DATETIME")
-                .HasColumnName("fecha_creacion");
-            entity.Property(e => e.LastUpdated)
-                .HasColumnType("DATETIME")
-                .HasColumnName("last_update");
-            entity.Property(e => e.Imc).HasColumnName("imc");
-            entity.Property(e => e.PacienteId).HasColumnName("paciente_id");
-            entity.Property(e => e.Pc).HasColumnName("pc");
-            entity.Property(e => e.PercentilImc).HasColumnName("percentil_imc");
-            entity.Property(e => e.PercentilPc).HasColumnName("percentil_pc");
-            entity.Property(e => e.PercentilPeso).HasColumnName("percentil_peso");
-            entity.Property(e => e.PercentilTalla).HasColumnName("percentil_talla");
-            entity.Property(e => e.Peso).HasColumnName("peso");
-            entity.Property(e => e.PzImc).HasColumnName("pz_imc");
-            entity.Property(e => e.PzPc).HasColumnName("pz_pc");
-            entity.Property(e => e.PzPeso).HasColumnName("pz_peso");
-            entity.Property(e => e.PzTalla).HasColumnName("pz_talla");
-            entity.Property(e => e.Talla).HasColumnName("talla");
         });
 
         modelBuilder.Entity<Vacunacion>(entity =>
