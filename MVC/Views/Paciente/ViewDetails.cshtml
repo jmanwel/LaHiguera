@@ -85,6 +85,7 @@
                                 }
                                 <p class="card-text">Fecha de nacimiento: <strong>@ViewBag.Paciente.FechaNac</strong></p>
                                 <p class="card-text"><strong>@edad @str(@edad)</strong> | Sexo: <strong>@ViewBag.Paciente.Sexo</strong></p>
+                                <p class="card-text">Etnia: <strong>@etnia</strong></p>
                                 <div class="tip">
                                     <div class="hover-box">Re Activar</div>
                                     <a class="mx-1" id="button_trash" asp-action="setActivate" asp-route-id="@ViewBag.Paciente.Id"><img src="~/icons/bootstrap-reboot.svg" /></a>
@@ -111,7 +112,7 @@
                                     </div>
                                 </div>                                
                                 <p class="card-text">Lugar de nacimiento: <strong>@ViewBag.Paciente.LugarNac</strong> | Paraje de Residencia: <strong>@ViewBag.Complementario.ParajeResidencia</strong></p>
-                                <p class="card-text">Etnia: <strong>@etnia</strong> | Estado Civil: <strong>@estado_civil</strong></p>                                
+                                <p class="card-text">Estado Civil: <strong>@estado_civil</strong></p>                                
                                 <p class="card-text">Sabe leer?: <strong>@justSayYesOrNo((int)@ViewBag.Complementario.SabeLeer)</strong></p>                                
                                 <p class="card-text">Escolaridad: <strong>@escolaridad</strong> | Completa?: <strong>@justSayYesOrNo((int)@ViewBag.Complementario.EscolaridadCompleta)</strong></p>
                             <p class="card-text">Ocupacion: <strong>@ViewBag.Complementario.Ocupacion</strong> | Año Ingreso: <strong>@ViewBag.Complementario.Paciente.AnoIngreso</strong></p>
