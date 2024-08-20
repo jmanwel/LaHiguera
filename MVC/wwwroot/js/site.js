@@ -88,3 +88,15 @@ function calcula_imc_historia() {
         }
     }
 }
+
+function check_escolaridad_value() {
+    let escolaridad = document.querySelector("#EscolaridadId").value;
+    let escolaridad_completa = document.querySelector("#EscolaridadCompleta");
+    if (escolaridad == 1) {
+        escolaridad_completa.disabled = true;
+        escolaridad_completa.value = 0;
+    }
+    else {
+        escolaridad_completa.disabled = false;
+    }
+}

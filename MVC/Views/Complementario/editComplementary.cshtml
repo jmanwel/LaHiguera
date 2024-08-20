@@ -51,7 +51,7 @@
             </div>
             <div class="col">
                 <label class="form-label" for="EscolaridadId">Escolaridad: </label>
-                <select class="form-control" name="EscolaridadId" id="escolaridad">
+                <select class="form-control" name="EscolaridadId" id="EscolaridadId" onChange="check_escolaridad_value()">
                     @if (ViewBag.Escolaridad != null)
                     {
                         <option selected value=@ViewBag.Escolaridad.Id>@ViewBag.Escolaridad.Descripcion</option>
@@ -64,7 +64,7 @@
             </div>
             <div class="col">
                 <label class="form-label" for="EscolaridadCompleta">Escolaridad Completa? </label>
-                <select class="form-control" name="EscolaridadCompleta">
+                <select class="form-control" name="EscolaridadCompleta" id="EscolaridadCompleta">
                     @if (@ViewBag.Complementario.EscolaridadCompleta == 1)
                     {
                         <option selected value=1>Si</option>

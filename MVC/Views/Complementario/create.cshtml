@@ -41,7 +41,7 @@
             </div>
             <div class="col">
                 <label class="form-label" for="EscolaridadId">Escolaridad: </label>
-                <select class="form-control" name="EscolaridadId">
+                <select class="form-control" name="EscolaridadId" id="EscolaridadId" onChange="check_escolaridad_value()">
                     @foreach (Entidades.Models.Escolaridad escolaridad in ViewBag.Escolaridad)
                     {
                         <option selected value=@escolaridad.Id>@escolaridad.Descripcion</option>
@@ -50,7 +50,7 @@
             </div>
             <div class="col">
                 <label class="form-label" for="EscolaridadCompleta">Escolaridad Completa? </label>
-                <select class="form-control" name="EscolaridadCompleta">
+                <select class="form-control" name="EscolaridadCompleta" id="EscolaridadCompleta" disabled>
                     <option value=0>Elija una opción</option>
                     <option value=1>Si</option>
                     <option value=0>No</option>
