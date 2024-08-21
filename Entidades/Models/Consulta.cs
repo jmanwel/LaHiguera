@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace Entidades.Models;
+﻿namespace Entidades.Models;
 
 public class Consulta
 {
@@ -10,6 +8,7 @@ public class Consulta
 
     public virtual Paciente Paciente { get; set; }
 
+    public DateOnly? FechaAtencion { get; set; }
 
     public string? MotivoConsulta { get; set; }
 
