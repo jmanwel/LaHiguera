@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Dni">Dni: </label>
-                <input class="form-control" type="number" name="Dni" value="" />
+                <input class="form-control" type="text" name="Dni" value="" />
             </div>
             <div class="col">
                 <label class="form-label" for="FechaNac">Fecha de Nacimiento: *</label>
@@ -44,6 +44,10 @@
                 </select>
             </div>
             <div class="col">
+                <label class="form-label" for="LugarNac">Lugar de nacimiento: </label>
+                <input class="form-control" type="text" name="LugarNac" value="" />
+            </div>
+            <div class="col">
                 <label class="form-label" for="ParajeAtencion">Paraje de atención: *</label>
                 <input class="form-control" type="text" name="ParajeAtencion" value="" required />
             </div>
@@ -58,8 +62,21 @@
                 </select>
             </div>
             <div class="col">
+                <label class="form-label" for="Etnia">Etnia: </label>
+                <select class="form-control" name="EtniaId">
+                    @foreach (Entidades.Models.Etnia etnia in ViewBag.Etnia)
+                    {
+                        <option selected value=@etnia.Id>@etnia.Nombre</option>
+                    }                    
+                </select>
+            </div>
+            <div class="col">
                 <label class="form-label" for="FechaAlta">Fecha de alta: </label>
                 <input class="form-control" type="date" name="FechaAlta" value="" max="@today" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
+                <input class="form-control" type="number" name="AnoIngreso" value="" />
             </div>
         </div>
         <br />

@@ -32,7 +32,7 @@ namespace Servicios
             var antecedent = _ctxt.Antecedentes.Find(id_antecedent);
             if (antecedent == null)
             {
-                Console.WriteLine("Registro no encontrado");
+                Console.WriteLine("Registro ANTECEDENTE no encontrado");
             }
             return antecedent;
         }

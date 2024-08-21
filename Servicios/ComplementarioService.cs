@@ -12,12 +12,9 @@ namespace Servicios
 
         public void create(Complementario complementario)
         {
-            //This method persist Complementario objects in DDBB
-
-            complementario.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
-            complementario.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";
-            complementario.EstadoCivilId = complementario.EstadoCivilId;
-            complementario.EscolaridadId = complementario.EscolaridadId;
+            //This method persist Complementario objects in DDBB            
+            complementario.FechaCreacion = DateTime.Now;
+            complementario.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";            
             complementario.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
             complementario.Notas = complementario.Notas?.ToUpper() ?? "";
             complementario.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
@@ -25,20 +22,15 @@ namespace Servicios
             _ctxt.SaveChanges();
         }
 
-
-        //public bool hasComplementary(int id_patient)
-        //{
-        //    if (_ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList().Count > 0)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
-        public List<Complementario> getComplementaryData(int id_patient)
+        public Complementario getComplementaryData(int id_patient)
         {
             //This method returns Complementario objects for a patient            
-            return _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList();
+            var complementario = _ctxt.Complementarios.Where(o => o.PacienteId == id_patient).ToList();
+            if (complementario.Count() > 0)
+            {
+                return complementario[0];            
+            }
+            return null;
         }
 
         public void editComplementary(Complementario complementario)
@@ -52,9 +44,10 @@ namespace Servicios
                 updated_complementary.EstadoCivilId = complementario.EstadoCivilId;
                 updated_complementary.SabeLeer = complementario.SabeLeer;
                 updated_complementary.EscolaridadId = complementario.EscolaridadId;
+                updated_complementary.EscolaridadCompleta = complementario.EscolaridadCompleta;
                 updated_complementary.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
                 updated_complementary.Notas = complementario.Notas?.ToUpper() ?? "";
-                updated_complementary.LastUpdated = DateOnly.FromDateTime(DateTime.Now);
+                updated_complementary.LastUpdated = DateTime.Now;
                 _ctxt.SaveChanges();
             }
         }

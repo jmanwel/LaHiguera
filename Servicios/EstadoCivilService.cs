@@ -11,7 +11,23 @@ namespace Servicios
         }
         public List<EstadoCivil> getAll()
         {
-            return _ctxt.EstadosCiviles.ToList();
+            return _ctxt.EstadosCiviles.OrderByDescending(o => o.Id).ToList();
         }
+
+        public EstadoCivil getById(int id)
+        {
+            var estado_civil = _ctxt.EstadosCiviles.Find(id);
+            if (estado_civil == null)
+            {
+                Console.WriteLine("Registro ESTADO CIVIL no encontrado");
+            }            
+            return estado_civil;
+        }
+
+        public List<EstadoCivil> getAllButId(int id)
+        {
+            return _ctxt.EstadosCiviles.Where(o => o.Id != id).ToList();
+        }
+
     }
 }

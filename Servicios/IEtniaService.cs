@@ -6,5 +6,9 @@ namespace Servicios
     {
         List<Etnia> getAll();
 
+        public Etnia getById(int id);
+
+        public List<Etnia> getAllButId(int id);
+
     }
 }

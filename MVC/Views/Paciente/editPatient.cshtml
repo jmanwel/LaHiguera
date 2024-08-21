@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="Dni">Dni: </label>
-                <input class="form-control" type="number" name="Dni" value=@ViewBag.Paciente.Dni />
+                <input class="form-control" type="text" name="Dni" value=@ViewBag.Paciente.Dni />
             </div>
             <div class="col">
                 <label class="form-label" for="FechaNac">Fecha de Nacimiento: </label>
@@ -63,8 +63,22 @@
                 </select>
             </div>
             <div class="col">
+                <label class="form-label" for="Etnia">Etnia: </label>
+                <select class="form-control" name="EtniaId">
+                    <option selected value=@ViewBag.Etnia.Id>@ViewBag.etnia.Nombre</option>
+                    @foreach (Entidades.Models.Etnia etnia in ViewBag.EtniaFiltered)
+                    {
+                        <option selected value=@etnia.Id>@etnia.Nombre</option>
+                    }
+                </select>
+            </div>
+            <div class="col">
                 <label class="form-label" for="FechaAlta">Fecha Alta: </label>
-                <input class="form-control" type="date" name="FechaAlta" value="@ViewBag.Paciente.FechaAlta.ToString("yyyy-MM-dd")" max="@today" />
+                <input class="form-control" type="date" name="FechaAlta" value="@ViewBag.Paciente.FechaAlta" max="@today" />
+            </div>
+            <div class="col">
+                <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
+                <input class="form-control" type="number" name="AnoIngreso" value="@ViewBag.Paciente.AnoIngreso" />
             </div>
             <input type="number" name="Id" value=@ViewBag.Paciente.Id hidden/>
         </div>

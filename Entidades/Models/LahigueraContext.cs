@@ -17,8 +17,6 @@ public partial class LahigueraContext : DbContext
 
     public virtual DbSet<Antecedente> Antecedentes { get; set; }
 
-    public virtual DbSet<AppLog> AppLogs { get; set; }
-
     public virtual DbSet<Complementario> Complementarios { get; set; }
 
     public virtual DbSet<Consulta> Consulta { get; set; }
@@ -31,13 +29,7 @@ public partial class LahigueraContext : DbContext
 
     public virtual DbSet<Escolaridad> Escolaridades { get; set; }
 
-    public virtual DbSet<Ginecologia> Ginecologia { get; set; }
-
-    public virtual DbSet<Historia> Historia { get; set; }
-
     public virtual DbSet<Paciente> Pacientes { get; set; }
-
-    public virtual DbSet<Pediatria> Pediatria { get; set; }
 
     public virtual DbSet<Vacunacion> Vacunaciones { get; set; }
 
@@ -156,16 +148,6 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("enfermedad_familiar_id");
         });
 
-        modelBuilder.Entity<AppLog>(entity =>
-        {
-            entity.ToTable("app_log");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Timestamp)
-                .HasColumnType("DATETIME")
-                .HasColumnName("timestamp");
-        });
-
         modelBuilder.Entity<Complementario>(entity =>
         {
             entity.ToTable("complementarios");
@@ -173,8 +155,10 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.Id)
                 .HasColumnName("ID");
             entity.Property(e => e.EscolaridadId)
+                .HasColumnType("INTEGER")
                 .HasColumnName("escolaridad_id");
             entity.Property(e => e.EstadoCivilId)
+                .HasColumnType("INTEGER")
                 .HasColumnName("estado_civil_id");
             entity.Property(e => e.FechaCreacion)
                 .HasColumnType("DATETIME")
@@ -404,73 +388,6 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("etnia");
         });
 
-        modelBuilder.Entity<Ginecologia>(entity =>
-        {
-            entity.ToTable("ginecologia");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Abortos).HasColumnName("abortos");
-            entity.Property(e => e.Cesareas).HasColumnName("cesareas");
-            entity.Property(e => e.Colposcopia).HasColumnName("colposcopia");
-            entity.Property(e => e.EstudiosComp).HasColumnName("estudios_comp");
-            entity.Property(e => e.FechaCreacion)
-                .HasColumnType("DATETIME")
-                .HasColumnName("fecha_creacion");
-            entity.Property(e => e.LastUpdated)
-                .HasColumnType("DATETIME")
-                .HasColumnName("last_update");
-            entity.Property(e => e.Gestas).HasColumnName("gestas");
-            entity.Property(e => e.Irs).HasColumnName("irs");
-            entity.Property(e => e.Menarca).HasColumnName("menarca");
-            entity.Property(e => e.Menopausia).HasColumnName("menopausia");
-            entity.Property(e => e.PacienteId).HasColumnName("paciente_id");
-            entity.Property(e => e.Para).HasColumnName("para");
-            entity.Property(e => e.ResultadoPap).HasColumnName("resultado_pap");
-            entity.Property(e => e.RitmoMenst).HasColumnName("ritmo_menst");
-            entity.Property(e => e.TomaPap).HasColumnName("toma_pap");
-        });
-
-        modelBuilder.Entity<Historia>(entity =>
-        {
-            entity.ToTable("historia");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.AgudezaDer).HasColumnName("agudeza_der");
-            entity.Property(e => e.AgudezaIzq).HasColumnName("agudeza_izq");
-            entity.Property(e => e.CircCadera).HasColumnName("circ_cadera");
-            entity.Property(e => e.CircCintura).HasColumnName("circ_cintura");
-            entity.Property(e => e.DerivacionAguda).HasColumnName("derivacion_aguda");
-            entity.Property(e => e.DerivacionProg).HasColumnName("derivacion_prog");
-            entity.Property(e => e.Diagnostico).HasColumnName("diagnostico");
-            entity.Property(e => e.Ecg).HasColumnName("ecg");
-            entity.Property(e => e.Ecografia).HasColumnName("ecografia");
-            entity.Property(e => e.EstudiosComp).HasColumnName("estudios_comp");
-            entity.Property(e => e.ExamenFisico).HasColumnName("examen_fisico");
-            entity.Property(e => e.FechaCreacion)
-                .HasColumnType("datetime")
-                .HasColumnName("fecha_creacion");
-            entity.Property(e => e.LastUpdated)
-                .HasColumnType("DATETIME")
-                .HasColumnName("last_update");
-            entity.Property(e => e.Glicemia).HasColumnName("glicemia");
-            entity.Property(e => e.Icc).HasColumnName("icc");
-            entity.Property(e => e.Imc).HasColumnName("imc");
-            entity.Property(e => e.Laboratorio).HasColumnName("laboratorio");
-            entity.Property(e => e.ObservacionDeriv).HasColumnName("observacion_deriv");
-            entity.Property(e => e.ObservacionEcg).HasColumnName("observacion_ecg");
-            entity.Property(e => e.ObservacionEco).HasColumnName("observacion_eco");
-            entity.Property(e => e.ObservacionLab).HasColumnName("observacion_lab");
-            entity.Property(e => e.ObservacionRadiografia).HasColumnName("observacion_radiografia");
-            entity.Property(e => e.PacienteId).HasColumnName("paciente_id");
-            entity.Property(e => e.Peso).HasColumnName("peso");
-            entity.Property(e => e.Radiografia).HasColumnName("radiografia");
-            entity.Property(e => e.Saturacion).HasColumnName("saturacion");
-            entity.Property(e => e.Ta).HasColumnName("ta");
-            entity.Property(e => e.Talla).HasColumnName("talla");
-            entity.Property(e => e.Temperatura).HasColumnName("temperatura");
-            entity.Property(e => e.Tratamiento).HasColumnName("tratamiento");
-        });
-
         modelBuilder.Entity<Paciente>(entity =>
         {
             entity.ToTable("paciente");
@@ -503,34 +420,6 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("etnia_id");
             entity.Property(e => e.LugarNac)
                 .HasColumnName("lugar_nac");
-        });
-
-        modelBuilder.Entity<Pediatria>(entity =>
-        {
-            entity.ToTable("pediatria");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.AgudezaDer).HasColumnName("agudeza_der");
-            entity.Property(e => e.AgudezaIzq).HasColumnName("agudeza_izq");
-            entity.Property(e => e.FechaCreacion)
-                .HasColumnType("DATETIME")
-                .HasColumnName("fecha_creacion");
-            entity.Property(e => e.LastUpdated)
-                .HasColumnType("DATETIME")
-                .HasColumnName("last_update");
-            entity.Property(e => e.Imc).HasColumnName("imc");
-            entity.Property(e => e.PacienteId).HasColumnName("paciente_id");
-            entity.Property(e => e.Pc).HasColumnName("pc");
-            entity.Property(e => e.PercentilImc).HasColumnName("percentil_imc");
-            entity.Property(e => e.PercentilPc).HasColumnName("percentil_pc");
-            entity.Property(e => e.PercentilPeso).HasColumnName("percentil_peso");
-            entity.Property(e => e.PercentilTalla).HasColumnName("percentil_talla");
-            entity.Property(e => e.Peso).HasColumnName("peso");
-            entity.Property(e => e.PzImc).HasColumnName("pz_imc");
-            entity.Property(e => e.PzPc).HasColumnName("pz_pc");
-            entity.Property(e => e.PzPeso).HasColumnName("pz_peso");
-            entity.Property(e => e.PzTalla).HasColumnName("pz_talla");
-            entity.Property(e => e.Talla).HasColumnName("talla");
         });
 
         modelBuilder.Entity<Vacunacion>(entity =>
