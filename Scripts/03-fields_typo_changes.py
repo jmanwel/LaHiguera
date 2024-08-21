@@ -44,6 +44,41 @@ try:
 except:
     print("Task 4: Failed")
 
+print('Task 5: Changing dates formats in tables...')
+
+try:
+    print("Updating antecedentes.fecha_creacion...")
+    queryantecedentesfcreacion = "UPDATE antecedentes "
+    queryantecedentesfcreacion += "SET fecha_creacion = "
+    queryantecedentesfcreacion += "    substr(substr(fecha_creacion,instr(fecha_creacion,'/')+1), instr(substr(fecha_creacion,instr(fecha_creacion,'/')+1),'/')+1) || '-' ||  "
+    queryantecedentesfcreacion += "    SUBSTR('00' || TRIM(SUBSTR(fecha_creacion, INSTR(fecha_creacion, '/') + 1, INSTR(SUBSTR(fecha_creacion, INSTR(fecha_creacion, '/') + 1), '/') - 1)), -2) || '-' ||  "
+    queryantecedentesfcreacion += "    SUBSTR('00' || TRIM(SUBSTR(fecha_creacion, 1, INSTR(fecha_creacion, '/') - 1)), -2) || ' 00:00:00.000000' "
+    queryantecedentesfcreacion += "WHERE fecha_creacion LIKE '%/%/%';"
+
+    cursor.execute(queryantecedentesfcreacion)
+
+    print("Updating antecedentes.last_update...")
+    queryantecedenteslupdate = "UPDATE antecedentes "
+    queryantecedenteslupdate += "SET last_update = "
+    queryantecedenteslupdate += "    substr(substr(last_update,instr(last_update,'/')+1), instr(substr(last_update,instr(last_update,'/')+1),'/')+1) || '-' ||  "
+    queryantecedenteslupdate += "    SUBSTR('00' || TRIM(SUBSTR(last_update, INSTR(last_update, '/') + 1, INSTR(SUBSTR(last_update, INSTR(last_update, '/') + 1), '/') - 1)), -2) || '-' ||  "
+    queryantecedenteslupdate += "    SUBSTR('00' || TRIM(SUBSTR(last_update, 1, INSTR(last_update, '/') - 1)), -2) || ' 00:00:00.000000' "
+    queryantecedenteslupdate += "WHERE last_update LIKE '%/%/%';"
+
+    cursor.execute(queryantecedenteslupdate)
+
+    print("Updating consulta.fecha_atencion...")
+    queryconsultafatencion = "UPDATE consulta "
+    queryconsultafatencion += "SET fecha_atencion = substr(fecha_atencion,1,instr(fecha_atencion,' ')-1) "
+    queryconsultafatencion += "WHERE length(fecha_atencion)>10;"
+
+    cursor.execute(queryconsultafatencion)
+
+    connection.commit()
+    print("Task 5: Successful")
+except:
+    print("Task 5: Failed")
+
 
 connection.close()
 
