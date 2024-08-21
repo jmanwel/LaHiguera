@@ -1,4 +1,6 @@
-﻿namespace Entidades.Models;
+﻿using System.Security.Cryptography;
+
+namespace Entidades.Models;
 
 public class Consulta
 {
@@ -6,7 +8,8 @@ public class Consulta
 
     public int PacienteId { get; set; }
 
-    public DateOnly? FechaAtencion { get; set; }
+    public virtual Paciente Paciente { get; set; }
+
 
     public string? MotivoConsulta { get; set; }
 
@@ -121,5 +124,4 @@ public class Consulta
     public DateTime? FechaCreacion { get; set; }
 
     public DateTime? LastUpdated { get; set; }
-
 }

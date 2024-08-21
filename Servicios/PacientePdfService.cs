@@ -247,21 +247,21 @@ namespace Servicios
             XFont font = new XFont("Arial", 12, XFontStyleEx.Regular);
 
             // first column
-            gfx.DrawString("Fecha de Creación: " + consultation.FechaAtencion.ToString(), font, XBrushes.Black, new XRect(20, rectStartingX + (0 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Diagnóstico Consulta: " + consultation.DiagnosticoConsulta, font, XBrushes.Black, new XRect(20, rectStartingX + (1 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Evaluación Nutricional: " + consultation.EvalNutric, font, XBrushes.Black, new XRect(20, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Exámen Físico: " + consultation.ExamenFisico, font, XBrushes.Black, new XRect(20, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Tensión Arterial: " + consultation.Ta, font, XBrushes.Black, new XRect(20, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Peso (Kg): " + consultation.Peso, font, XBrushes.Black, new XRect(20, rectStartingX + (5 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Talla (Mt): " + consultation.Talla, font, XBrushes.Black, new XRect(20, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Imc (Kg/M²): " + consultation.Imc, font, XBrushes.Black, new XRect(20, rectStartingX + (7 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Circ Cintura: " + consultation.CircCintura, font, XBrushes.Black, new XRect(20, rectStartingX + (8 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Circ Cadera: " + consultation.CircCadera, font, XBrushes.Black, new XRect(20, rectStartingX + (9 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Saturación (%): " + consultation.Saturacion, font, XBrushes.Black, new XRect(20, rectStartingX + (10 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Temperatura (ºC): " + consultation.Temperatura, font, XBrushes.Black, new XRect(20, rectStartingX + (11 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Glicemia (mg/dl): " + consultation.Glicemia, font, XBrushes.Black, new XRect(20, rectStartingX + (12 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Agudeza Visual Ojo Der: " + consultation.AgudezaDer, font, XBrushes.Black, new XRect(20, rectStartingX + (13 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Agudeza Visual Ojo Izq: " + consultation.AgudezaIzq, font, XBrushes.Black, new XRect(20, rectStartingX + (14 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Fecha Atención: " + consultation.FechaAtencion.ToString(), font, XBrushes.Black, new XRect(20, rectStartingX + (0 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Edad Consulta: " + consultation.EdadConsulta, font, XBrushes.Black, new XRect(20, rectStartingX + (1 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Diagnóstico Consulta: " + consultation.DiagnosticoConsulta, font, XBrushes.Black, new XRect(20, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Evaluación Nutricional: " + consultation.EvalNutric, font, XBrushes.Black, new XRect(20, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Exámen Físico: " + consultation.ExamenFisico, font, XBrushes.Black, new XRect(20, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Tensión Arterial: " + consultation.Ta, font, XBrushes.Black, new XRect(20, rectStartingX + (5 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Peso (Kg): " + consultation.Peso, font, XBrushes.Black, new XRect(20, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Talla (Mt): " + consultation.Talla, font, XBrushes.Black, new XRect(20, rectStartingX + (7 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Imc (Kg/M²): " + consultation.Imc, font, XBrushes.Black, new XRect(20, rectStartingX + (8 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Circ. Cintura: " + consultation.CircCintura, font, XBrushes.Black, new XRect(20, rectStartingX + (9 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Circ. Cadera: " + consultation.CircCadera, font, XBrushes.Black, new XRect(20, rectStartingX + (10 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Saturación (%): " + consultation.Saturacion, font, XBrushes.Black, new XRect(20, rectStartingX + (11 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Temperatura (ºC): " + consultation.Temperatura, font, XBrushes.Black, new XRect(20, rectStartingX + (12 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Glicemia (mg/dl): " + consultation.Glicemia, font, XBrushes.Black, new XRect(20, rectStartingX + (13 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Agudeza Visual Ojo Der: " + consultation.AgudezaDer, font, XBrushes.Black, new XRect(20, rectStartingX + (14 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Derivación Aguda: " + (consultation.DerivacionAguda == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(20, rectStartingX + (15 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Observación Derivación: " + consultation.ObservacionDeriv, font, XBrushes.Black, new XRect(20, rectStartingX + (16 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
@@ -280,6 +280,8 @@ namespace Servicios
             gfx.DrawString("Estudios Complementarios: " + consultation.EstudiosComp, font, XBrushes.Black, new XRect(275, rectStartingX + (11 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Tratamiento: " + consultation.Tratamiento, font, XBrushes.Black, new XRect(275, rectStartingX + (12 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Derivación Programada: " + (consultation.DerivacionProg == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (13 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+            gfx.DrawString("Agudeza Visual Ojo Izq: " + consultation.AgudezaIzq, font, XBrushes.Black, new XRect(275, rectStartingX + (14 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+
 
             startingY = rectStartingX + (18 * rectSize);
             rectStartingX = rectStartingX + (19 * rectSize);
@@ -295,6 +297,8 @@ namespace Servicios
                 gfx.DrawString("Abortos: " + consultation.Abortos, font, XBrushes.Black, new XRect(20, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
                 gfx.DrawString("Inicio Rel. Sexuales (Irs): " + consultation.Irs, font, XBrushes.Black, new XRect(20, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
                 gfx.DrawString("Menarca: " + consultation.Menarca, font, XBrushes.Black, new XRect(20, rectStartingX + (5 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+                gfx.DrawString("Fecha última Menstruación: " + consultation.Fum, font, XBrushes.Black, new XRect(20, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+
 
                 // second column
                 gfx.DrawString("Ritmo Menstrual: " + consultation.RitmoMenst, font, XBrushes.Black, new XRect(275, rectStartingX + (0 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
@@ -302,9 +306,12 @@ namespace Servicios
                 gfx.DrawString("Toma Pap: " + consultation.TomaPap, font, XBrushes.Black, new XRect(275, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
                 gfx.DrawString("Resultado Pap: " + consultation.ResultadoPap, font, XBrushes.Black, new XRect(275, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
                 gfx.DrawString("Colposcopía: " + consultation.Colposcopia, font, XBrushes.Black, new XRect(275, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+                gfx.DrawString("Método Anticonceptivo (MAC): " + consultation.MacActual, font, XBrushes.Black, new XRect(275, rectStartingX + (5 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+                gfx.DrawString("Fecha MAC: " + consultation.FechaMac, font, XBrushes.Black, new XRect(275, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
-                startingY = rectStartingX + (7 * rectSize); // + 6 elements on section
-                rectStartingX = rectStartingX + (8 * rectSize); // +6 elements on section
+
+                startingY = rectStartingX + (8 * rectSize); // + 6 elements on section
+                rectStartingX = rectStartingX + (9 * rectSize); // +6 elements on section
             }
 
             if (consultation.EdadConsulta < 18)
@@ -319,7 +326,7 @@ namespace Servicios
                 gfx.DrawString("Pc: " + consultation.Pc, font, XBrushes.Black, new XRect(20, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
                 // second column
-                gfx.DrawString("PercentilImc: " + consultation.PercentilImc, font, XBrushes.Black, new XRect(275, rectStartingX + (0 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+                gfx.DrawString("Percentil Imc: " + consultation.PercentilImc, font, XBrushes.Black, new XRect(275, rectStartingX + (0 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
                 gfx.DrawString("Pz Imc: " + consultation.PzImc, font, XBrushes.Black, new XRect(275, rectStartingX + (1 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
                 gfx.DrawString("Percentil Pc: " + consultation.PercentilPc, font, XBrushes.Black, new XRect(275, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
                 gfx.DrawString("Pz Pc: " + consultation.PzPc, font, XBrushes.Black, new XRect(275, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
