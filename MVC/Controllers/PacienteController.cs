@@ -111,28 +111,14 @@ namespace MVC.Controllers
         public ActionResult ExportDataToPdf(int id)
         {
 
-            dynamic patient = this.getPatientInformation(id);
+            Paciente patient = _pacienteService.getPatient(id);
 
-            var response = PacientePdfService.GeneratePdfHistory(patient);
+            byte[] response = PacientePdfService.GeneratePdfHistory(patient);
 
-            string fileName = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "-historia-clinica-paciente-" + patient.information.Apellido + "-" + patient.information.Nombre + ".pdf";
+            string fileName = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "-historia-clinica-paciente-" + patient.Apellido + "-" + patient.Nombre + ".pdf";
             
             return File(response, "application/pdf", fileName);
         }
 
-        private dynamic getPatientInformation(int patientId)
-        {
-            dynamic patient = new ExpandoObject();
-
-            var complementary = _complementarioService.getComplementaryData(patientId);
-
-            patient.information = _pacienteService.getPatient(patientId);
-            patient.complementary = _complementarioService.getComplementaryData(patientId);
-            patient.consultations = _consultaService.getAllConsultationFromIdPatient(patientId);            
-            patient.background = _antecedenteService.getAllAntecedentForAPatient(patientId);
-
-            return patient;
-
-        }
     }
 }

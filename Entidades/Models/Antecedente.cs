@@ -52,7 +52,7 @@ public class Antecedente
 
     public virtual Vacunacion? Vacunacion { get; set; }
 
-    public virtual ICollection<EnfermedadFamiliar> EnfermedadesFamiliares { get; } = [];
+    public virtual ICollection<EnfermedadFamiliar> EnfermedadesFamiliares { get; } = new List<EnfermedadFamiliar>();
 
     public int? Medicacion { get; set; }
 
@@ -62,6 +62,6 @@ public class Antecedente
 
     public DateTime? LastUpdated { get; set; }
 
-    public virtual ICollection<AntecedenteEnfermedadFamiliar> AntecedenteEnfermedadFamiliares { get; set; }
+    public virtual ICollection<AntecedenteEnfermedadFamiliar> AntecedenteEnfermedadFamiliares { get; } = new List<AntecedenteEnfermedadFamiliar>();
 
 }
