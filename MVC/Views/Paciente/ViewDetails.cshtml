@@ -48,6 +48,10 @@
                                     <div class="col">
                                         <h5 class="card-title">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
                                     </div>
+                                    @if (@TempData["msg"] != null)
+                                    {
+                                        <h5 class="text-success">@TempData["msg"]</h5>
+                                    }
                                     <div class="col">
                                         <div class="tip">
                                             <div class="hover-box">Modificar datos</div>
@@ -80,6 +84,10 @@
                                 </div>                                                                
                             }else{
                                 <h5 class="card-title">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
+                                @if (@TempData["msg"] != null)
+                                {
+                                    <h5 class="text-success">@TempData["msg"]</h5>
+                                }
                                 @if (@ViewBag.Paciente.Dni != null)
                                 {
                                     <h6 class="card-subtitle mb-2 text-muted">DNI: @ViewBag.Paciente.Dni</h6>

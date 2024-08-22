@@ -1,7 +1,11 @@
 ﻿using Entidades.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
+using PdfSharp.Snippets;
 using Servicios;
 using System.Dynamic;
+using System.Net;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MVC.Controllers
 {
@@ -37,8 +41,19 @@ namespace MVC.Controllers
         {
             try
             {
-                _pacienteService.create(paciente);
-                return Redirect("/Paciente/ListPatient");
+                var result = _pacienteService.create(paciente);
+                if (result == 0)
+                {
+                    TempData["msg"] = "Paciente creado OK";
+                    return Redirect("/Paciente/ListPatient");
+                }
+                else
+                {
+                    ViewBag.msg = "Ya existe un paciente registrado con ese DNI";
+                    ViewBag.Etnia = _etniaService.getAll();
+                    return View();
+                }
+                //return Redirect("/Paciente/ListPatient");
             }
             catch (Exception e)
             {
@@ -83,6 +98,11 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult editPatient(Paciente paciente)
         {
+            TempData["msg"] = "Paciente editado OK";
+            if (_pacienteService.checkPatient(paciente.Dni) != false)
+            {            
+                TempData["msg"] = "Paciente editado OK, excepto el DNI -ya existe en la base de datos-";
+            }
             _pacienteService.editPatient(paciente);
             string redirect = "/Paciente/viewDetails/" + paciente.Id;
             return Redirect(redirect);

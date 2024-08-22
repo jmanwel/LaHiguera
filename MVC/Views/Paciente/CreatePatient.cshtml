@@ -11,6 +11,10 @@
 <div class="container text-center">
     <h1 class="display-4">Alta de Paciente</h1>
     <br />
+    @if (ViewBag.msg != null)
+    {
+        <h4 class="text-danger">@ViewBag.msg</h4>
+    }
     <form action="/Paciente/CreatePatient" method="POST">
         <div class="row">
             <div class="col">

@@ -9,6 +9,10 @@
     {
     <h1>Listado de Pacientes</h1>
     <br/>
+        @if (TempData["msg"] != null)
+        {
+            <h3 class="text-success">@TempData["msg"]</h3>
+        }
     <div class="table-responsive">
         <table class="table table-hover" id="patients_list">
             <thead>

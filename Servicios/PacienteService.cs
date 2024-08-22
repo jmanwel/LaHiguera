@@ -1,5 +1,6 @@
 ﻿using Entidades.Models;
 using System;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -24,7 +25,7 @@ namespace Servicios
             return _ctxt.Pacientes.Where(o => o.FlgActivo == 0).ToList();
         }
 
-        public void create(Paciente paciente)
+        public int create(Paciente paciente)
         {
             //Creo una variable para saber si debo guardar o no un paciente, por defecto en false
             bool guardaPaciente = false;
@@ -70,11 +71,12 @@ namespace Servicios
                 paciente.Id = hashed_id;
                 _ctxt.Pacientes.Add(paciente);
                 _ctxt.SaveChanges();
+                return 0;
             }
             else
             {
                 Console.WriteLine("Paciente ya existe");
-                throw new Exception("Paciente ya existe");
+                return 1;
             }          
         }
 
@@ -131,11 +133,24 @@ namespace Servicios
                 if (paciente.ParajeAtencion != null)
                 {
                     updated_patient.ParajeAtencion = paciente.ParajeAtencion.ToUpper();
+                }            
+                if (checkPatient(paciente.Dni) == false)
+                {
+                    updated_patient.Dni = paciente.Dni;
                 }
-                updated_patient.Dni = paciente.Dni;
                 _ctxt.SaveChanges();
             }
             _ctxt.SaveChanges();
+        }
+
+        public bool checkPatient(String dni)
+        {
+            if (dni != null)
+            {
+                Console.WriteLine(_ctxt.Pacientes.Any(o => o.Dni == dni));
+                return _ctxt.Pacientes.Any(o => o.Dni == dni);
+            }
+            return false;
         }
 
     }
