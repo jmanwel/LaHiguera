@@ -6,6 +6,11 @@
 
 @{
     string today = @DateTime.Today.ToString("yyyy-MM-dd");
+    string fecha_alta = null;
+    if (@ViewBag.Paciente.FechaAlta != null)
+    {
+        fecha_alta = @ViewBag.Paciente.FechaAlta.ToString("yyyy-MM-dd");
+    }
 }
 
 <div class="container text-center">
@@ -74,7 +79,7 @@
             </div>
             <div class="col">
                 <label class="form-label" for="FechaAlta">Fecha Alta: </label>
-                <input class="form-control" type="date" name="FechaAlta" value="@ViewBag.Paciente.FechaAlta" max="@today" />
+                <input class="form-control" type="date" name="FechaAlta" value="@fecha_alta" max="@today" />
             </div>
             <div class="col">
                 <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
