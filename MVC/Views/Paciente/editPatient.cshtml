@@ -65,7 +65,10 @@
             <div class="col">
                 <label class="form-label" for="Etnia">Etnia: </label>
                 <select class="form-control" name="EtniaId">
-                    <option selected value=@ViewBag.Etnia.Id>@ViewBag.etnia.Nombre</option>
+                    @if (@ViewBag.Etnia != null)
+                    {
+                        <option selected value=@ViewBag.Etnia.Id>@ViewBag.etnia.Nombre</option>
+                    }                    
                     @foreach (Entidades.Models.Etnia etnia in ViewBag.EtniaFiltered)
                     {
                         <option selected value=@etnia.Id>@etnia.Nombre</option>
