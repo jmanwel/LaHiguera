@@ -147,7 +147,6 @@ namespace Servicios
         {
             if (dni != null)
             {
-                Console.WriteLine(_ctxt.Pacientes.Any(o => o.Dni == dni));
                 return _ctxt.Pacientes.Any(o => o.Dni == dni);
             }
             return false;

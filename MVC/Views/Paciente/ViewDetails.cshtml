@@ -18,7 +18,10 @@
     var estado_civil = @ViewBag.EstadoCivil != null ? @ViewBag.EstadoCivil.Descripcion : "-";
     var escolaridad = @ViewBag.Escolaridad != null ? @ViewBag.Escolaridad.Descripcion : "-";    
 }
-
+@if (TempData["msg"] != null)
+{
+    <h3 class="text-success">@TempData["msg"]</h3>
+}
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-ligth mt-2">
@@ -47,11 +50,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h5 class="card-title">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
-                                    </div>
-                                    @if (@TempData["msg"] != null)
-                                    {
-                                        <h5 class="text-success">@TempData["msg"]</h5>
-                                    }
+                                    </div>                                    
                                     <div class="col">
                                         <div class="tip">
                                             <div class="hover-box">Modificar datos</div>
@@ -83,11 +82,7 @@
                                     </div>
                                 </div>                                                                
                             }else{
-                                <h5 class="card-title">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>
-                                @if (@TempData["msg"] != null)
-                                {
-                                    <h5 class="text-success">@TempData["msg"]</h5>
-                                }
+                                <h5 class="card-title">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h5>                                
                                 @if (@ViewBag.Paciente.Dni != null)
                                 {
                                     <h6 class="card-subtitle mb-2 text-muted">DNI: @ViewBag.Paciente.Dni</h6>
