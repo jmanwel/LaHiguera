@@ -34,4 +34,8 @@ public class Paciente
 
     public DateOnly? FechaAlta { get; set; }
 
+    public DateTime? FechaCreacion { get; set; }
+
+    public DateTime? LastUpdate { get; set; }
+
 }

@@ -70,6 +70,8 @@ namespace Servicios
                 edited_consultation.CircCadera = consulta.CircCadera;
                 edited_consultation.Icc = consulta.Icc;
                 edited_consultation.Saturacion = consulta.Saturacion;
+                edited_consultation.FrecuenciaCardiaca = consulta.FrecuenciaCardiaca;
+                edited_consultation.FrecuenciaRespiratoria = consulta.FrecuenciaRespiratoria;
                 edited_consultation.Temperatura = consulta.Temperatura;
                 edited_consultation.Glicemia = consulta.Glicemia;
                 edited_consultation.AgudezaDer = consulta.AgudezaDer;

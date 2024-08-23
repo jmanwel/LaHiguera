@@ -342,6 +342,12 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.PercentilPc)
                 .HasColumnType("DECIMAL")
                 .HasColumnName("percentil_pc");
+            entity.Property(e => e.FrecuenciaCardiaca)
+                .HasColumnType("INTEGER")
+                .HasColumnName("frecuencia_cardiaca");
+            entity.Property(e => e.FrecuenciaRespiratoria)
+                .HasColumnType("INTEGER")
+                .HasColumnName("frecuencia_respiratoria");
         });
 
         modelBuilder.Entity<EnfermedadFamiliar>(entity =>
@@ -416,6 +422,12 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("etnia_id");
             entity.Property(e => e.LugarNac)
                 .HasColumnName("lugar_nac");
+            entity.Property(e => e.FechaCreacion)
+                .HasColumnType("DATETIME")
+                .HasColumnName("fecha_creacion");
+            entity.Property(e => e.LastUpdate)
+                .HasColumnType("DATETIME")
+                .HasColumnName("last_update");
         });
 
         modelBuilder.Entity<Vacunacion>(entity =>

@@ -58,6 +58,9 @@ namespace Servicios
                 paciente.Apellido = paciente.Apellido.ToUpper();
                 paciente.Sexo = paciente.Sexo.ToUpper();
                 paciente.LugarNac = paciente.LugarNac?.ToUpper() ?? "";
+                paciente.FechaCreacion = DateTime.Now;
+                paciente.LastUpdate = DateTime.Now;
+                
                 //Create an uniq Id based on: nombre, apellido, DNI y fecha de nacimiento
                 string string_to_hash = paciente.Nombre + paciente.Apellido + paciente.FechaNac + paciente.Dni;
                 SHA512 sha512 = SHA512.Create();
@@ -91,6 +94,7 @@ namespace Servicios
             else
             {
                 activate_patient.FlgActivo = 1;
+                activate_patient.LastUpdate = DateTime.Now;
                 _ctxt.SaveChanges();
             }
             
@@ -107,6 +111,7 @@ namespace Servicios
             else
             {
                 deactivate_patient.FlgActivo = 0;
+                deactivate_patient.LastUpdate = DateTime.Now;
                 _ctxt.SaveChanges();
             }
             
@@ -128,7 +133,8 @@ namespace Servicios
                 updated_patient.Sexo = paciente.Sexo.ToUpper();
                 updated_patient.FlgActivo = paciente.FlgActivo;
                 updated_patient.FechaNac = paciente.FechaNac;
-                updated_patient.FechaAlta = paciente.FechaAlta;             
+                updated_patient.FechaAlta = paciente.FechaAlta;
+                updated_patient.LastUpdate = DateTime.Now;           
                 updated_patient.LugarNac = paciente.LugarNac?.ToUpper() ?? "";
                 if (paciente.ParajeAtencion != null)
                 {

@@ -174,3 +174,8 @@ try:
     print("Task 4: Successful")
 except:
     print("Task 4: Failed")
+
+connection.close()
+
+print("Connection closed")
+print("ALL DONE!")
