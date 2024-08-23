@@ -120,6 +120,10 @@ public class Consulta
 
     public string? Colposcopia { get; set; }
 
+    public int? FrecuenciaCardiaca { get; set; }
+
+    public int? FrecuenciaRespiratoria { get; set; }
+
     public DateTime? FechaCreacion { get; set; }
 
     public DateTime? LastUpdated { get; set; }
