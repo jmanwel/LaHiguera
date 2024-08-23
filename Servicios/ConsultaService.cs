@@ -26,6 +26,7 @@ namespace Servicios
                 consulta.Observacion = consulta.Observacion?.ToUpper() ?? "";
                 consulta.EvalNutric = consulta.EvalNutric?.ToUpper() ?? "";
                 consulta.EvalSoc = consulta.EvalSoc.ToUpper();
+                consulta.Colposcopia = consulta.Colposcopia?.ToUpper() ?? "";
                 consulta.MacActual = consulta.MacActual?.ToUpper() ?? "";
                 consulta.Id = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
                 _ctxt.Consulta.Add(consulta);
@@ -105,7 +106,7 @@ namespace Servicios
                 edited_consultation.Menopausia = consulta.Menopausia;
                 edited_consultation.TomaPap = consulta.TomaPap;
                 edited_consultation.ResultadoPap = consulta.ResultadoPap;
-                edited_consultation.Colposcopia = consulta.Colposcopia;
+                edited_consultation.Colposcopia = consulta.Colposcopia?.ToUpper() ?? "";
 
                 _ctxt.SaveChanges();
                 Console.WriteLine("Consulta modificada OK!");

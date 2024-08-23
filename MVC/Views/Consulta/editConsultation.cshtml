@@ -71,7 +71,8 @@
         <div class="row">
             <div class="col">
                 <label class="form-label" for="ExamenFisico">Exámen Físico: </label>
-                <input class="form-control" type="text" name="ExamenFisico" value="@ViewBag.Consulta.ExamenFisico" />
+                <textarea cols="120" rows="4" class="form-control" name="ExamenFisico">@ViewBag.Consulta.ExamenFisico</textarea>
+                @* <input class="form-control" type="text" name="ExamenFisico" value="@ViewBag.Consulta.ExamenFisico" /> *@
             </div>
             <div class="col">
                 <label class="form-label" for="Ta">Tensión arterial (TA): </label>
@@ -320,7 +321,7 @@
                 </div>
                 <div class="col">
                     <label class="form-label" for="Colposcopia">Colposcopía: </label>
-                    <input class="form-control" type="number" name="Colposcopia" value=@ViewBag.Consulta.Colposcopia />
+                    <input class="form-control" type="text" name="Colposcopia" value="@ViewBag.Consulta.Colposcopia" />
                 </div>
                 <div class="col">
                     <label class="form-label" for="EstudiosComp">Estudios Complementarios: </label>
