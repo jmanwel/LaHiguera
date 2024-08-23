@@ -40,8 +40,6 @@ public class Antecedente
 
     public int? RiesgoSoc { get; set; }
 
-    public int? Personales { get; set; }
-
     public int? Familiares { get; set; }
 
     public int? Hospitalizaciones { get; set; }

@@ -107,9 +107,6 @@ public partial class LahigueraContext : DbContext
                 .HasColumnName("obesidad");
             entity.Property(e => e.PacienteId)
                 .HasColumnName("paciente_id");
-            entity.Property(e => e.Personales)
-                .HasColumnType("INTEGER")
-                .HasColumnName("personales");
             entity.Property(e => e.Quirurgicos)
                 .HasColumnType("INTEGER")
                 .HasColumnName("quirurgicos");
