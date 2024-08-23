@@ -15,4 +15,5 @@ cd Scripts
 python3 01-migration_to_new_db_structure.py
 python3 02-delete_unnecesary_tables.py
 python3 03-fields_typo_changes.py
+python3 04-fields_typo_changes_colposcopia.py
 ```
