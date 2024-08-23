@@ -336,7 +336,6 @@ public partial class LahigueraContext : DbContext
             entity.Property(e => e.ResultadoPap)
                 .HasColumnName("resultado_pap");
             entity.Property(e => e.Colposcopia)
-                .HasColumnType("INTEGER")
                 .HasColumnName("colposcopia");
             entity.Property(e => e.ObservacionLab)
                 .HasColumnName("observacion_lab");

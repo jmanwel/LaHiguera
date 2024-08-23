@@ -118,7 +118,7 @@ public class Consulta
 
     public string? ResultadoPap { get; set; }
 
-    public int? Colposcopia { get; set; }
+    public string? Colposcopia { get; set; }
 
     public DateTime? FechaCreacion { get; set; }
 
