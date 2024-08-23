@@ -221,7 +221,6 @@ namespace Servicios
             gfx.DrawString("Quirúrgicos: " + (background.Cancer == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Riesgo Nutricional: " + (background.RiesgoNut == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Riesgo Social: " + (background.RiesgoSoc == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-            gfx.DrawString("Personales: " + (background.Personales == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (5 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Familiares: " + (background.Familiares == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (6 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Hospitalizaciones: " + (background.Hospitalizaciones == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (7 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
             gfx.DrawString("Perinatales: " + (background.AntPerinatales == 1 ? "Si" : "No"), font, XBrushes.Black, new XRect(275, rectStartingX + (8 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
@@ -323,7 +322,7 @@ namespace Servicios
                 gfx.DrawString("Pz Peso: " + consultation.PzPeso, font, XBrushes.Black, new XRect(20, rectStartingX + (1 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
                 gfx.DrawString("Percentil Talla: " + consultation.PercentilTalla, font, XBrushes.Black, new XRect(20, rectStartingX + (2 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
                 gfx.DrawString("Pz Talla: " + consultation.PzTalla, font, XBrushes.Black, new XRect(20, rectStartingX + (3 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
-                gfx.DrawString("Pc: " + consultation.Pc, font, XBrushes.Black, new XRect(20, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
+                gfx.DrawString("Perímetro Cefálico: " + consultation.Pc, font, XBrushes.Black, new XRect(20, rectStartingX + (4 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);
 
                 // second column
                 gfx.DrawString("Percentil Imc: " + consultation.PercentilImc, font, XBrushes.Black, new XRect(275, rectStartingX + (0 * rectSize), 210 / 2, rectSize), XStringFormats.CenterLeft);

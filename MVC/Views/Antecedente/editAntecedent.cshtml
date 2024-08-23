@@ -290,21 +290,6 @@
                 </select>
             </div>
             <div class="col">
-                <label class="form-label" for="Personales">Personales: </label>
-                <select class="form-control" name="Personales">
-                    @if (@ViewBag.Antecedente.Personales == 1)
-                    {
-                        <option selected value=1>SI</option>
-                        <option value=0>NO</option>
-                    }
-                    else
-                    {
-                        <option selected value=0>NO</option>
-                        <option value=1>SI</option>
-                    }
-                </select>
-            </div>
-            <div class="col">
                 <label class="form-label" for="Familiares">Familiares: </label>
                 <select class="form-control" name="Familiares">
                     @if (@ViewBag.Antecedente.Familiares == 1)
