@@ -20,6 +20,7 @@ namespace Servicios
             //This method persists Consulta objects in DDBB
             try {
                 consulta.FechaCreacion = DateTime.Now;
+                consulta.LastUpdated = consulta.FechaCreacion;
                 //Paso a uppercase los campos de texto antes de guardarlo
                 consulta.MotivoConsulta = consulta.MotivoConsulta.ToUpper();
                 consulta.DiagnosticoConsulta = consulta.DiagnosticoConsulta?.ToUpper() ?? "";
