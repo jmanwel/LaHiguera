@@ -35,7 +35,7 @@ namespace MVC.Controllers
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                ViewBag.error = e.ToString();
+                TempData["error"] = e.ToString();
                 return Redirect("/Home/Error");
             }
 
