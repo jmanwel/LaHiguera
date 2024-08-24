@@ -60,7 +60,6 @@ namespace Servicios
                 paciente.LugarNac = paciente.LugarNac?.ToUpper() ?? "";
                 paciente.FechaCreacion = DateTime.Now;
                 paciente.LastUpdate = DateTime.Now;
-                
                 //Create an uniq Id based on: nombre, apellido, DNI y fecha de nacimiento
                 string string_to_hash = paciente.Nombre + paciente.Apellido + paciente.FechaNac + paciente.Dni;
                 SHA512 sha512 = SHA512.Create();
