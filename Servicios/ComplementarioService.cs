@@ -14,6 +14,7 @@ namespace Servicios
         {
             //This method persist Complementario objects in DDBB            
             complementario.FechaCreacion = DateTime.Now;
+            complementario.LastUpdated = complementario.FechaCreacion;
             complementario.ParajeResidencia = complementario.ParajeResidencia?.ToUpper() ?? "";            
             complementario.Ocupacion = complementario.Ocupacion?.ToUpper() ?? "";
             complementario.Notas = complementario.Notas?.ToUpper() ?? "";
