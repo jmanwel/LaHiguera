@@ -35,6 +35,7 @@ namespace MVC.Controllers
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                TempData["error"] = e.ToString();
                 return Redirect("/Home/Error");
             }
 
@@ -57,6 +58,7 @@ namespace MVC.Controllers
             catch(Exception e)
             {
                 Console.WriteLine(e.ToString());
+                TempData["error"] = e.ToString();
                 return Redirect("/Home/Error");
             }
         }
@@ -73,6 +75,7 @@ namespace MVC.Controllers
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                TempData["error"] = e.ToString();
                 return Redirect("/Home/Error");
             }
 
