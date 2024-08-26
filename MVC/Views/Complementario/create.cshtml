@@ -44,7 +44,7 @@
                 <select class="form-control" name="EscolaridadId" id="EscolaridadId" onChange="check_escolaridad_value()">
                     @foreach (Entidades.Models.Escolaridad escolaridad in ViewBag.Escolaridad)
                     {
-                        <option selected value=@escolaridad.Id>@escolaridad.Descripcion</option>
+                        <option selected value="@escolaridad.Id">@escolaridad.Descripcion</option>
                     }
                 </select>
             </div>

@@ -4,7 +4,7 @@ namespace Servicios
 {
     public interface IEscolaridadService
     {
-        List<Escolaridad> getAll();
+        public List<Escolaridad> getAll();
 
         public Escolaridad getById(int id);
 
