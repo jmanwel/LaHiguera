@@ -72,7 +72,7 @@
                 <select class="form-control" name="EtniaId">
                     @if (@ViewBag.Etnia != null)
                     {
-                        <option selected value=@ViewBag.Etnia.Id>@ViewBag.etnia.Nombre</option>
+                        <option selected value=@ViewBag.Etnia.Id>@ViewBag.Etnia.Nombre</option>
                     }
                     @foreach (Entidades.Models.Etnia etnia in ViewBag.EtniaFiltered)
                     {
