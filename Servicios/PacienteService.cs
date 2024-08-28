@@ -133,6 +133,8 @@ namespace Servicios
                 updated_patient.FlgActivo = paciente.FlgActivo;
                 updated_patient.FechaNac = paciente.FechaNac;
                 updated_patient.FechaAlta = paciente.FechaAlta;
+                updated_patient.EtniaId = paciente.EtniaId;
+                updated_patient.AnoIngreso = paciente.AnoIngreso;
                 updated_patient.LastUpdate = DateTime.Now;           
                 updated_patient.LugarNac = paciente.LugarNac?.ToUpper() ?? "";
                 if (paciente.ParajeAtencion != null)
