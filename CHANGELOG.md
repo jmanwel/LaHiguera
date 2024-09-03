@@ -23,7 +23,8 @@ python3 05-new_fields.py
 
 Please install these libraries:
 
-Instalar las siguientes librerias:
+'''
 cryptography
 googleapiclient
 tabulate
+'''
