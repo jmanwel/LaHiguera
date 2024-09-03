@@ -18,3 +18,12 @@ python3 03-fields_typo_changes.py
 python3 04-fields_typo_changes_colposcopia.py
 python3 05-new_fields.py
 ```
+
+### For run the file_manager.py script
+
+Please install these libraries:
+
+Instalar las siguientes librerias:
+cryptography
+googleapiclient
+tabulate

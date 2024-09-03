@@ -11,3 +11,5 @@
 **/*.sqlite
 **/*.db-shm
 **/*.db-wal
+**/**/*.key
+**/**/*.json
