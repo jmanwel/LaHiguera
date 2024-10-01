@@ -73,7 +73,7 @@ namespace Servicios
                 paciente.Id = hashed_id;
                 _ctxt.Pacientes.Add(paciente);
                 _ctxt.SaveChanges();
-                return 0;
+                return hashed_id;
             }
             else
             {
