@@ -100,3 +100,10 @@ function check_escolaridad_value() {
         escolaridad_completa.disabled = false;
     }
 }
+
+const date_input = document.querySelector("input[name='FechaAlta']");
+
+date_input.addEventListener("focusout", function() {
+    let year_entry = document.querySelector("input[name='AnoIngreso']");
+    year_entry.value = date_input.value.split("-")[0]; 
+});
