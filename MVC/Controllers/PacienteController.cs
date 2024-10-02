@@ -42,10 +42,10 @@ namespace MVC.Controllers
             try
             {
                 var result = _pacienteService.create(paciente);
-                if (result == 0)
+                if (result > 1)
                 {
                     TempData["msg"] = "Paciente creado OK";
-                    return Redirect("/Paciente/ListPatient");
+                    return Redirect("/Consulta/createConsultation/" + result.ToString());
                 }
                 else
                 {
