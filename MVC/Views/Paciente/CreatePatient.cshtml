@@ -8,6 +8,10 @@
     string today = @DateTime.Today.ToString("yyyy-MM-dd");
 }
 
+@{
+    string current_year = @DateTime.Today.ToString("yyyy-MM-dd").Split("-")[0];
+}
+
 <div class="container text-center">
     <h1 class="display-4">Alta de Paciente</h1>
     <br />
@@ -76,11 +80,11 @@
             </div>
             <div class="col">
                 <label class="form-label" for="FechaAlta">Fecha de alta: </label>
-                <input class="form-control" type="date" name="FechaAlta" value="" max="@today" />
+                <input class="form-control" type="date" name="FechaAlta" value="@today" max="@today" />
             </div>
             <div class="col">
                 <label class="form-label" for="AnoIngreso">Año de Ingreso: </label>
-                <input class="form-control" type="number" name="AnoIngreso" value="" />
+                <input class="form-control" type="number" name="AnoIngreso" value="@current_year" />
             </div>
         </div>
         <br />
