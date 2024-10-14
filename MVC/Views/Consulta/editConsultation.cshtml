@@ -8,6 +8,10 @@
     string today = @DateTime.Today.ToString("yyyy-MM-dd");
 }
 
+@{
+    int edad = @ViewBag.Consulta.EdadConsulta;
+}
+
 <div class="container text-center">
     <h1 class="display-4">@ViewBag.Paciente.Nombre @ViewBag.Paciente.Apellido</h1>
     <h4>Consulta(editar)</h4>
@@ -23,7 +27,7 @@
                 <input class="form-control" type="text" name="MotivoConsulta" value="@ViewBag.Consulta.MotivoConsulta" required />
             </div>
             <div class="col">
-                <label class="form-label" for="MotivoConsulta">Edad: </label>
+                <label class="form-label" for="EdadConsulta">Edad: </label>
                 <input class="form-control" type="text" name="EdadConsulta" value="@ViewBag.Consulta.EdadConsulta" />
             </div>
         </div>
@@ -81,14 +85,28 @@
         </div>
         <br />
         <div class="row">
-            <div class="col">
-                <label class="form-label" for="Peso">Peso (Kg): *</label>
-                <input class="form-control" id="historia_peso" type="text" name="Peso" value="@ViewBag.Consulta.Peso" required />
-            </div>
-            <div class="col">
-                <label class="form-label" for="Talla">Talla (cm): *</label>
-                <input class="form-control" id="historia_talla" type="text" name="Talla" value="@ViewBag.Consulta.Talla" required />
-            </div>
+            @if (edad < 18)
+            {
+                <div class="col">
+                    <label class="form-label" for="Peso">Peso (Kg): *</label>
+                    <input class="form-control" id="historia_peso" type="text" name="Peso" value="@ViewBag.Consulta.Peso" required />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="Talla">Talla (cm): *</label>
+                    <input class="form-control" id="historia_talla" type="text" name="Talla" value="@ViewBag.Consulta.Talla" required />
+                </div>
+            }
+            else
+            {
+                <div class="col">
+                    <label class="form-label" for="Peso">Peso (Kg):</label>
+                    <input class="form-control" id="historia_peso" type="text" name="Peso" value="@ViewBag.Consulta.Peso" />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="Talla">Talla (cm):</label>
+                    <input class="form-control" id="historia_talla" type="text" name="Talla" value="@ViewBag.Consulta.Talla" />
+                </div>
+            }
             <div class="col">
                 <label class="form-label" for="Imc">Imc (Kg/M²): </label>
                 <input class="form-control" id="historia_imc" type="text" name="Imc" value=@ViewBag.Consulta.Imc onfocus="calcula_imc_historia()" />
@@ -339,53 +357,56 @@
                 </div>
             </div>
         }
-        <div class="row">
-            <div class="col">
-                <label class="form-label" for="PercentilPeso">Percentil Peso: </label>
-                <input class="form-control" type="text" name="PercentilPeso" value="@ViewBag.Consulta.PercentilPeso" />
+        @if (edad < 18)
+        {
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="PercentilPeso">Percentil Peso: </label>
+                    <input class="form-control" type="text" name="PercentilPeso" value="@ViewBag.Consulta.PercentilPeso" />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="PzPeso">PzPeso: </label>
+                    <input class="form-control" type="text" name="PzPeso" value="@ViewBag.Consulta.PzPeso" />
+                </div>
             </div>
-            <div class="col">
-                <label class="form-label" for="PzPeso">PzPeso: </label>
-                <input class="form-control" type="text" name="PzPeso" value="@ViewBag.Consulta.PzPeso" />
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="PercentilTalla">Percentil Talla: </label>
+                    <input class="form-control" type="text" name="PercentilTalla" value="@ViewBag.Consulta.PercentilTalla" />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="PzTalla">PzTalla: </label>
+                    <input class="form-control" type="text" name="PzTalla" value="@ViewBag.Consulta.PzTalla" />
+                </div>
             </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col">
-                <label class="form-label" for="PercentilTalla">Percentil Talla: </label>
-                <input class="form-control" type="text" name="PercentilTalla" value="@ViewBag.Consulta.PercentilTalla" />
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="PercentilImc">Percentil Imc: </label>
+                    <input class="form-control" type="text" name="PercentilImc" value="@ViewBag.Consulta.PercentilImc" />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="PzImc">PzImc: </label>
+                    <input class="form-control" type="text" name="PzImc" value="@ViewBag.Consulta.PzImc" />
+                </div>
             </div>
-            <div class="col">
-                <label class="form-label" for="PzTalla">PzTalla: </label>
-                <input class="form-control" type="text" name="PzTalla" value="@ViewBag.Consulta.PzTalla" />
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="Pc">Perímetro Cefálico: </label>
+                    <input class="form-control" type="text" name="Pc" value="@ViewBag.Consulta.Pc" />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="PercentilPc">Percentil Pc: </label>
+                    <input class="form-control" type="text" name="PercentilPc" value="@ViewBag.Consulta.PercentilPc" />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="PzPc">PzPc: </label>
+                    <input class="form-control" type="text" name="PzPc" value="@ViewBag.Consulta.PzPc" />
+                </div>
             </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col">
-                <label class="form-label" for="PercentilImc">Percentil Imc: </label>
-                <input class="form-control" type="text" name="PercentilImc" value="@ViewBag.Consulta.PercentilImc" />
-            </div>
-            <div class="col">
-                <label class="form-label" for="PzImc">PzImc: </label>
-                <input class="form-control" type="text" name="PzImc" value="@ViewBag.Consulta.PzImc" />
-            </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col">
-                <label class="form-label" for="Pc">Perímetro Cefálico: </label>
-                <input class="form-control" type="text" name="Pc" value="@ViewBag.Consulta.Pc" />
-            </div>
-            <div class="col">
-                <label class="form-label" for="PercentilPc">Percentil Pc: </label>
-                <input class="form-control" type="text" name="PercentilPc" value="@ViewBag.Consulta.PercentilPc" />
-            </div>
-            <div class="col">
-                <label class="form-label" for="PzPc">PzPc: </label>
-                <input class="form-control" type="text" name="PzPc" value="@ViewBag.Consulta.PzPc" />
-            </div>
-        </div>
+        }
         <br />
         <br />
         <input type="number" name="PacienteId" value=@ViewBag.Paciente.Id hidden />

@@ -84,14 +84,28 @@
         </div>
         <br />
         <div class="row">
-            <div class="col">
-                <label class="form-label" for="Peso">Peso (Kg): *</label>
-                <input class="form-control" type="text" id="historia_peso" name="Peso" value="" required />
-            </div>
-            <div class="col">
-                <label class="form-label" for="Talla">Talla (cm): *</label>
-                <input class="form-control" type="text" id="historia_talla" name="Talla" value="" required />
-            </div>
+            @if (edad < 18) 
+            {
+                <div class="col">
+                    <label class="form-label" for="Peso">Peso (Kg): *</label>
+                    <input class="form-control" type="text" id="historia_peso" name="Peso" value="" required />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="Talla">Talla (cm): *</label>
+                    <input class="form-control" type="text" id="historia_talla" name="Talla" value="" required />
+                </div>
+            }
+            else
+            {
+                <div class="col">
+                    <label class="form-label" for="Peso">Peso (Kg):</label>
+                    <input class="form-control" type="text" id="historia_peso" name="Peso" value=""/>
+                </div>
+                <div class="col">
+                    <label class="form-label" for="Talla">Talla (cm):</label>
+                    <input class="form-control" type="text" id="historia_talla" name="Talla" value=""/>
+                </div>
+            }
             <div class="col">
                 <label class="form-label" for="Imc">Imc (Kg/M²): </label>
                 <input class="form-control" type="text" id="historia_imc" onfocus="calcula_imc_historia()" name="Imc" value="" />
