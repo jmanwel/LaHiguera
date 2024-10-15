@@ -60,3 +60,105 @@ body {
 #patients_list tfoot tr th input {
     width: 100%;
 }
+
+.badge-sedentarismo {
+  background-color: #0000FF;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-alcohol {
+  background-color: #800080;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-drogas {
+  background-color: #D63384;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-tabaco {
+  background-color: #FF0000;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-alergias {
+  background-color: #FD7E14;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-diabetes {
+  background-color: #FFFF00;
+  color: black;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-hta {
+  background-color: #008000;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-dislipemia {
+  background-color: #20C997;
+  color: black;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-obesidad {
+  background-color: #0DCAF0;
+  color: black;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-chagas {
+  background-color: #E9967A;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-hidatidosis {
+  background-color: #FFEBCD;
+  color: black;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-tbc {
+  background-color: #B8860B;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-cancer {
+  background-color: #DC3545;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-quirurgicos {
+  background-color: #2F4F4F;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-riesgo-nutricional {
+  background-color: #90EE90;
+  color: black;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-riesgo-social {
+  background-color: #808000;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-familiares {
+  background-color: #9ACD32;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-hospitalizaciones {
+  background-color: #FF6347;
+  font-size: 1.2em;
+  margin: 5px;
+}
+.badge-perinatales {
+  background-color: #FAFAD2;
+  color: black;
+  font-size: 1.2em;
+  margin: 5px;
+}

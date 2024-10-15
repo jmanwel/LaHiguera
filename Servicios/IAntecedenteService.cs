@@ -10,5 +10,8 @@ namespace Servicios
         public Antecedente getAntecedent(int id_antecedent);
 
         void editAntecedent(Antecedente antecedente);
+
+        Task<AntecedenteView?> getAntecedentLabels(int id_patient);
+
     }
 }

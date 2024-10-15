@@ -1,4 +1,6 @@
 ﻿using Entidades.Models;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Servicios
 {
@@ -71,6 +73,39 @@ namespace Servicios
                 _ctxt.SaveChanges();
             }
         }
+
+        public async Task<AntecedenteView?> getAntecedentLabels(int id_patient)
+        {
+            var resultado =  await (from a in _ctxt.Antecedentes
+                 where a.PacienteId == id_patient
+                 group a by a.PacienteId into g
+                 select new AntecedenteView
+                 {
+                    PacienteId = g.Key,
+                    Sedentarismo = g.Sum(a => a.Sedentarismo) == 0 ? "NO" : "SI",
+                    Alcohol = g.Sum(a => a.Alcohol) == 0 ? "NO" : "SI",
+                    Drogas = g.Sum(a => a.Drogas) == 0 ? "NO" : "SI",
+                    Tabaco = g.Sum(a => a.Tabaco) == 0 ? "NO" : "SI",
+                    Alergias = g.Sum(a => a.Alergias) == 0 ? "NO" : "SI",
+                    Diabetes = g.Sum(a => a.Dbt) == 0 ? "NO" : "SI",
+                    Hta = g.Sum(a => a.Hta) == 0 ? "NO" : "SI",
+                    Dislipemia = g.Sum(a => a.Dislipemia) == 0 ? "NO" : "SI",
+                    Obesidad = g.Sum(a => a.Obesidad) == 0 ? "NO" : "SI",
+                    Chagas = g.Sum(a => a.Chagas) == 0 ? "NO" : "SI",
+                    Hidatidosis = g.Sum(a => a.Hidatidosis) == 0 ? "NO" : "SI",
+                    Tbc = g.Sum(a => a.Tbc) == 0 ? "NO" : "SI",
+                    Cancer = g.Sum(a => a.Cancer) == 0 ? "NO" : "SI",
+                    Quirurgicos = g.Sum(a => a.Quirurgicos) == 0 ? "NO" : "SI",
+                    RiesgoNutricional = g.Sum(a => a.RiesgoNut) == 0 ? "NO" : "SI",
+                    RiesgoSocial = g.Sum(a => a.RiesgoSoc) == 0 ? "NO" : "SI",
+                    Familiares = g.Sum(a => a.Familiares) == 0 ? "NO" : "SI",
+                    Hospitalizaciones = g.Sum(a => a.Hospitalizaciones) == 0 ? "NO" : "SI",
+                    Perinatales = g.Sum(a => a.AntPerinatales) == 0 ? "NO" : "SI"
+                })
+                .FirstOrDefaultAsync();
+
+            return resultado;
+        }        
 
     }
 }
