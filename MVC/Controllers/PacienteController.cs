@@ -109,7 +109,7 @@ namespace MVC.Controllers
             return Redirect(redirect);
         }
 
-        public ActionResult viewDetails(int id)
+        public async Task<IActionResult> viewDetails(int id)
         {
             ViewBag.Paciente = _pacienteService.getPatient(id);
             ViewBag.Disable = "";
@@ -117,6 +117,7 @@ namespace MVC.Controllers
                 ViewBag.Disable = "disabled";
             }
             ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
+            ViewBag.AntecedentesLabel = await _antecedenteService.getAntecedentLabels(id);
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
             ViewBag.Consulta = _consultaService.getAllConsultationFromIdPatient(id);
             ViewBag.Etnia = _etniaService.getById(Convert.ToInt32(_pacienteService.getPatient(id).EtniaId));

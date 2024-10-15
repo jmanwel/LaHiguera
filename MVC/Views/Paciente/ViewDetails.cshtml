@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Text.Json
+@{
 
     Layout = "../Shared/_Layout.cshtml";
     int edad = @DateTime.Today.Year - @ViewBag.Paciente.FechaNac.Year;
@@ -135,6 +136,98 @@
                             }
                         </div>
                     </div>                    
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="card col-md-12">
+                        <div class="card-body">
+                            <h5>Antecedentes</h5>
+                            @if (@ViewBag.AntecedentesLabel != null)
+                            {
+                                @* <pre>@Html.Raw(Json.Serialize(@ViewBag.AntecedentesLabel))</pre> *@
+                                @if (@ViewBag.AntecedentesLabel.Sedentarismo == "SI")
+                                {
+                                    <span class="badge badge-sedentarismo">Sedentarismo</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Alcohol == "SI")
+                                {
+                                    <span class="badge badge-alcohol">Alcohol</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Drogas == "SI")
+                                {
+                                    <span class="badge badge-drogas">Drogas</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Tabaco == "SI")
+                                {
+                                    <span class="badge badge-tabaco">Tabaco</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Alergias == "SI")
+                                {
+                                    <span class="badge badge-alergias">Alergias</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Diabetes == "SI")
+                                {
+                                    <span class="badge badge-diabetes">Diabetes</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Hta == "SI")
+                                {
+                                    <span class="badge badge-hta">Hta</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Dislipemia == "SI")
+                                {
+                                    <span class="badge badge-dislipemia">Dislipemia</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Obesidad == "SI")
+                                {
+                                    <span class="badge badge-obesidad">Obesidad</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Chagas == "SI")
+                                {
+                                    <span class="badge badge-chagas">Chagas</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Hidatidosis == "SI")
+                                {
+                                    <span class="badge badge-hidatidosis">Hidatidosis</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Tbc == "SI")
+                                {
+                                    <span class="badge badge-tbc">Tbc</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Cancer == "SI")
+                                {
+                                    <span class="badge badge-cancer">Cancer</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Quirurgicos == "SI")
+                                {
+                                    <span class="badge badge-quirurgicos">Quirurgicos</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.RiesgoNutricional == "SI")
+                                {
+                                    <span class="badge badge-riesgo-nutricional">Riesgo Nutricional</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.RiesgoSocial == "SI")
+                                {
+                                    <span class="badge badge-riesgo-social">Riesgo Social</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Familiares == "SI")
+                                {
+                                    <span class="badge badge-familiares">Familiares</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Hospitalizaciones == "SI")
+                                {
+                                    <span class="badge badge-hospitalizaciones">Hospitalizaciones</span> 
+                                }
+                                @if (@ViewBag.AntecedentesLabel.Perinatales == "SI")
+                                {
+                                    <span class="badge badge-perinatales">Perinatales</span> 
+                                }
+                                    
+                            }else{
+                                <p>El paciente no cuenta con antecedentes para destacar.</p>
+                            }
+                        </div>
+                    </div>
+
                 </div>
                 <br/>
                 <div class="row">
