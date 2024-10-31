@@ -162,3 +162,9 @@ body {
   font-size: 1.2em;
   margin: 5px;
 }
+.badge-medicacion {
+  background-color: #b2b2b2;
+  color: black;
+  font-size: 1.2em;
+  margin: 5px;
+}
