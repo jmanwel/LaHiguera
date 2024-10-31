@@ -23,4 +23,5 @@ public class AntecedenteView
     public string? Familiares { get; set; }
     public string? Hospitalizaciones { get; set; }
     public string? Perinatales { get; set; }
+    public string? Medicacion { get; set; }
 }
