@@ -221,6 +221,10 @@
                                 {
                                     <span class="badge badge-perinatales">Perinatales</span> 
                                 }
+                                @if (@ViewBag.AntecedentesLabel.Medicacion == "SI")
+                                {
+                                    <span class="badge badge-medicacion">Medicación</span> 
+                                }
                                     
                             }else{
                                 <p>El paciente no cuenta con antecedentes para destacar.</p>

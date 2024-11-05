@@ -100,7 +100,8 @@ namespace Servicios
                     RiesgoSocial = g.Sum(a => a.RiesgoSoc) == 0 ? "NO" : "SI",
                     Familiares = g.Sum(a => a.Familiares) == 0 ? "NO" : "SI",
                     Hospitalizaciones = g.Sum(a => a.Hospitalizaciones) == 0 ? "NO" : "SI",
-                    Perinatales = g.Sum(a => a.AntPerinatales) == 0 ? "NO" : "SI"
+                    Perinatales = g.Sum(a => a.AntPerinatales) == 0 ? "NO" : "SI",
+                    Medicacion = g.Sum(a => a.Medicacion) == 0 ? "NO" : "SI"
                 })
                 .FirstOrDefaultAsync();
 
