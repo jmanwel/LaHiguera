@@ -112,10 +112,6 @@ namespace MVC.Controllers
         public async Task<IActionResult> viewDetails(int id)
         {
             ViewBag.Paciente = _pacienteService.getPatient(id);
-            // ViewBag.Disable = "";
-            // if(ViewBag.Paciente.FlgActivo == 0){
-            //     ViewBag.Disable = "disabled";
-            // }
             ViewBag.Antecedente = _antecedenteService.getAllAntecedentForAPatient(id);
             ViewBag.AntecedentesLabel = await _antecedenteService.getAntecedentLabels(id);
             ViewBag.Complementario = _complementarioService.getComplementaryData(id);
