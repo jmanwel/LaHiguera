@@ -29,12 +29,12 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item mb-3">
-                        <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_consulta" @ViewBag.Disable >
+                        <button type="button" style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_consulta" >
                             Consultas
                         </button>
                     </li>                    
                     <li class="nav-item mb-3">
-                        <button type="button"  style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_antecedente" @ViewBag.Disable>
+                        <button type="button"  style="min-width: 120px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_antecedente">
                             Antecedentes
                         </button>
                     </li>
@@ -348,7 +348,9 @@
                                     <th scope="col">ResultadoPap</th>
                                     <th scope="col">Colposcopía</th>                                    
                                 }
-                                <th scope="col">Editar</th>
+                                @if(ViewBag.Paciente.FlgActivo == 1){
+                                    <th scope="col">Editar</th>
+                                }
                             </tr>
                         </thead>
                         <tbody>
@@ -416,7 +418,9 @@
                                         <td>@consulta.ResultadoPap</td>
                                         <td>@consulta.Colposcopia</td>
                                     }
-                                    <td><a asp-controller="Consulta" asp-action="editConsultation" asp-route-id="@consulta.Id"><img src="~/icons/pencil.svg" /></a></td>
+                                    @if(ViewBag.Paciente.FlgActivo == 1){
+                                        <td><a asp-controller="Consulta" asp-action="editConsultation" asp-route-id="@consulta.Id"><img src="~/icons/pencil.svg" /></a></td>
+                                    }
                                 </tr>
                             }
                         </tbody>
@@ -472,7 +476,9 @@
                                 <th scope="col">Tbc</th>
                                 <th scope="col">Vacunación</th>
                                 <th scope="col">Notas</th>
-                                <th scope="col">Editar</th>
+                                @if(ViewBag.Paciente.FlgActivo == 1){
+                                    <th scope="col">Editar</th>
+                                }
                             </tr>
                         </thead>
                         <tbody>
@@ -513,7 +519,9 @@
                                         <td>Desconoce</td>
                                     }
                                     <td>@antecedente.Notas</td>
-                                    <td><a asp-controller="Antecedente" asp-action="editAntecedent" asp-route-id="@antecedente.Id"><img src="~/icons/pencil.svg" /></a></td>
+                                    @if(ViewBag.Paciente.FlgActivo == 1){
+                                        <td><a asp-controller="Antecedente" asp-action="editAntecedent" asp-route-id="@antecedente.Id"><img src="~/icons/pencil.svg" /></a></td>
+                                    }
                                 </tr>
                             }
                         </tbody>
